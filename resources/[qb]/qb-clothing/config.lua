@@ -506,28 +506,28 @@ Config.ManPlayerModels = {
 Config.LoadedManModels = {}
 Config.LoadedWomanModels = {}
 Config.Stores = {
-    	[1] =   {shopType = "clothing", coords = vector3(1693.32, 4823.48,41.06 )},
-	[2] =   {shopType = "clothing", coords = vector3(-712.215881, -155.352982, 37.4151268)},
-	[3] =   {shopType = "clothing", coords = vector3(-1192.94495, -772.688965, 17.3255997)},
-	[4] =   {shopType = "clothing", coords = vector3( 425.236, -806.008, 28.491)},
-	[5] =   {shopType = "clothing", coords = vector3(-162.658, -303.397, 38.733)},
-	[6] =   {shopType = "clothing", coords = vector3(75.950, -1392.891, 28.376)},
-	[7] =   {shopType = "clothing", coords = vector3(-822.194, -1074.134, 10.328)},
-	[8] =   {shopType = "clothing", coords = vector3(-1450.711, -236.83, 48.809)},
-	[9] =   {shopType = "clothing", coords = vector3(4.254, 6512.813, 30.877)},
-	[10] =  {shopType = "clothing", coords = vector3(615.180, 2762.933, 41.088)},
-	[11] =  {shopType = "clothing", coords = vector3(1196.785, 2709.558, 37.222)},
-	[12] =  {shopType = "clothing", coords = vector3(-3171.453, 1043.857, 19.863)},
-	[13] =  {shopType = "clothing", coords = vector3(-1100.959, 2710.211, 18.107)},
-	[14] =  {shopType = "clothing", coords = vector3(-1207.65, -1456.88, 4.3784737586975)},
-    	[15] =  {shopType = "clothing", coords = vector3(121.76, -224.6, 53.56)},
-	[16] =  {shopType = "barber",  coords = vector3(-814.3, -183.8, 36.6)},
-	[17] =  {shopType = "barber",  coords = vector3(136.8, -1708.4, 28.3)},
-	[18] =  {shopType = "barber",  coords = vector3(-1282.6, -1116.8, 6.0)},
-	[19] =  {shopType = "barber",  coords = vector3(1931.5, 3729.7, 31.8)},
-	[20] =  {shopType = "barber",  coords = vector3(1212.8, -472.9, 65.2)},
-	[21] =  {shopType = "barber",  coords = vector3(-32.9, -152.3, 56.1)},
-	[22] =  {shopType = "barber",  coords = vector3(-278.1, 6228.5, 30.7)}
+    [1] =   {shopType = "Tøjbutik", coords = vector3(1693.32, 4823.48,41.06 )},
+	[2] =   {shopType = "Tøjbutik", coords = vector3(-712.215881, -155.352982, 37.4151268)},
+	[3] =   {shopType = "Tøjbutik", coords = vector3(-1192.94495, -772.688965, 17.3255997)},
+	[4] =   {shopType = "Tøjbutik", coords = vector3( 425.236, -806.008, 28.491)},
+	[5] =   {shopType = "Tøjbutik", coords = vector3(-162.658, -303.397, 38.733)},
+	[6] =   {shopType = "Tøjbutik", coords = vector3(75.950, -1392.891, 28.376)},
+	[7] =   {shopType = "Tøjbutik", coords = vector3(-822.194, -1074.134, 10.328)},
+	[8] =   {shopType = "Tøjbutik", coords = vector3(-1450.711, -236.83, 48.809)},
+	[9] =   {shopType = "Tøjbutik", coords = vector3(4.254, 6512.813, 30.877)},
+	[10] =  {shopType = "Tøjbutik", coords = vector3(615.180, 2762.933, 41.088)},
+	[11] =  {shopType = "Tøjbutik", coords = vector3(1196.785, 2709.558, 37.222)},
+	[12] =  {shopType = "Tøjbutik", coords = vector3(-3171.453, 1043.857, 19.863)},
+	[13] =  {shopType = "Tøjbutik", coords = vector3(-1100.959, 2710.211, 18.107)},
+	[14] =  {shopType = "Tøjbutik", coords = vector3(-1207.65, -1456.88, 4.3784737586975)},
+    [15] =  {shopType = "Tøjbutik", coords = vector3(121.76, -224.6, 53.56)},
+	[16] =  {shopType = "Barbar",  coords = vector3(-814.3, -183.8, 36.6)},
+	[17] =  {shopType = "Barbar",  coords = vector3(136.8, -1708.4, 28.3)},
+	[18] =  {shopType = "Barbar",  coords = vector3(-1282.6, -1116.8, 6.0)},
+	[19] =  {shopType = "Barbar",  coords = vector3(1931.5, 3729.7, 31.8)},
+	[20] =  {shopType = "Barbar",  coords = vector3(1212.8, -472.9, 65.2)},
+	[21] =  {shopType = "Barbar",  coords = vector3(-32.9, -152.3, 56.1)},
+	[22] =  {shopType = "Barbar",  coords = vector3(-278.1, 6228.5, 30.7)}
 }
 
 Config.ClothingRooms = {
@@ -543,7 +543,7 @@ Config.Outfits = {
     ["police"] = {
         ["male"] = {
             [1] = {
-                outfitLabel = "short sleeve ",
+                outfitLabel = "kort ærme ",
                 outfitData = {
                     ["pants"]       = { item = 95, texture = 0},  -- PANTS
                     ["arms"]        = { item = 0, texture = 0},  -- ArmS
@@ -561,7 +561,7 @@ Config.Outfits = {
                 },
             },
             [2] = {
-                outfitLabel = "Long sleeve",
+                outfitLabel = "Langærmet",
                 outfitData = {
                     ["pants"]       = { item = 95, texture = 0},  -- Broek
                     ["arms"]        = { item = 1, texture = 0},  -- Armen
@@ -671,7 +671,7 @@ Config.Outfits = {
         },
         ["female"] = {
             [1] = {
-                outfitLabel = "Short Sleeve",
+                outfitLabel = "Kort ærme",
                 outfitData = {
                     ["pants"]       = { item = 105, texture = 0},  -- Broek
                     ["arms"]        = { item = 14, texture = 0},  -- Armen
@@ -857,7 +857,7 @@ Config.Outfits = {
         },
         ["female"] = {
             [1] = {
-                outfitLabel = "short sleeve white polo ",
+                outfitLabel = "kortærmet hvid polo ",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -875,7 +875,7 @@ Config.Outfits = {
                 },
             },
             [2] = {
-                outfitLabel = "short sleeve blue polo ",
+                outfitLabel = "kortærmet blå polo ",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -893,7 +893,7 @@ Config.Outfits = {
                 },
             },
             [3] = {
-                outfitLabel = "short sleeve white button up ",
+                outfitLabel = "hvid ærme med korte ærmer ",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -911,7 +911,7 @@ Config.Outfits = {
                 },
             },
             [4] = {
-                outfitLabel = "short sleeve blue button up ",
+                outfitLabel = "kortærmet blå knap op ",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -1043,7 +1043,7 @@ Config.Outfits = {
 		},		
         ["female"] = {
             [1] = {
-                outfitLabel = "Doctor",
+                outfitLabel = "Læge",
                 outfitData = {
                     ["pants"]       = { item = 52, texture = 2},  -- PANTS
                     ["arms"]        = { item = 101, texture = 1},  -- ArmS
@@ -1061,7 +1061,7 @@ Config.Outfits = {
 				},
             },
             [2] = {
-                outfitLabel = "short sleeve white polo",
+                outfitLabel = "kortærmet hvid polo",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -1079,7 +1079,7 @@ Config.Outfits = {
 				},
             },
             [3] = {
-                outfitLabel = "short sleeve blue polo",
+                outfitLabel = "kortærmet blå polo",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -1097,7 +1097,7 @@ Config.Outfits = {
 				},
             },
             [4] = {
-                outfitLabel = "short sleeve white button up",
+                outfitLabel = "hvid ærme med korte ærmer",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -1115,7 +1115,7 @@ Config.Outfits = {
 				},
             },
             [5] = {
-                outfitLabel = "short sleeve blue button up",
+                outfitLabel = "kortærmet blå knap op",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS

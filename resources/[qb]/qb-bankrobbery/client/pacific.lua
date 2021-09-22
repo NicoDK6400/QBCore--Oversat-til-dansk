@@ -88,7 +88,7 @@ Citizen.CreateThread(function()
                                         if CurrentCops >= Config.MinimumPacificPolice then
                                             openLocker("pacific", k)
                                         else
-                                            QBCore.Functions.Notify('Minimum Of '..Config.MinimumPacificPolice..' Police Needed', "error")
+                                            QBCore.Functions.Notify('Minimum af '..Config.MinimumPacificPolice..' politi er der brug for', "error")
                                         end
                                     end
                                 end
@@ -155,7 +155,7 @@ AddEventHandler('electronickit:UseElectronickit', function()
                             QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
                                 if result then 
                                     TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                                    QBCore.Functions.Progressbar("hack_gate", "Connecting the hacking device ..", math.random(5000, 10000), false, true, {
+                                    QBCore.Functions.Progressbar("hack_gate", "Tilslutter af hacking-enheden ..", math.random(5000, 10000), false, true, {
                                         disableMovement = true,
                                         disableCarMovement = true,
                                         disableMouse = false,
@@ -188,21 +188,21 @@ AddEventHandler('electronickit:UseElectronickit', function()
                                         end
                                     end, function() -- Cancel
                                         StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                                        QBCore.Functions.Notify("Canceled", "error")
+                                        QBCore.Functions.Notify("Afbrudt", "error")
                                     end)
                                 else
-                                    QBCore.Functions.Notify("You're missing an item ..", "error")
+                                    QBCore.Functions.Notify("Du mangler en ting...", "error")
                                 end
                             end, "trojan_usb")
                         else
-                            QBCore.Functions.Notify("Looks like the bank is already open", "error")
+                            QBCore.Functions.Notify("Ser ud til at banken allerede er åben", "error")
                         end
                     else
-                        QBCore.Functions.Notify('Minimum Of '..Config.MinimumPacificPolice..' Police Needed', "error")
+                        QBCore.Functions.Notify('Minimum af '..Config.MinimumPacificPolice..' politi er der brug for', "error")
                     end
                 end
             else
-                QBCore.Functions.Notify("The security lock is active, opening the door is currently not possible.", "error", 5500)
+                QBCore.Functions.Notify("Sikkerhedslåsen er aktiv, det er i øjeblikket ikke muligt at åbne døren.", "error", 5500)
             end
         end)
     end
@@ -222,7 +222,7 @@ AddEventHandler('qb-bankrobbery:UseBankcardB', function()
                 if CurrentCops >= Config.MinimumPacificPolice then
                     if not Config.BigBanks["pacific"]["isOpened"] then 
                         TriggerEvent('inventory:client:requiredItems', requiredItems2, false)
-                        QBCore.Functions.Progressbar("security_pass", "Please validate ..", math.random(5000, 10000), false, true, {
+                        QBCore.Functions.Progressbar("security_pass", "Valider venligst ..", math.random(5000, 10000), false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,
@@ -250,16 +250,16 @@ AddEventHandler('qb-bankrobbery:UseBankcardB', function()
                             end
                         end, function() -- Cancel
                             StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            QBCore.Functions.Notify("Canceled..", "error")
+                            QBCore.Functions.Notify("Afbrudt..", "error")
                         end)
                     else
-                        QBCore.Functions.Notify("Looks like the bank is already open ..", "error")
+                        QBCore.Functions.Notify("Ser ud til at banken allerede er åben ..", "error")
                     end
                 else
-                    QBCore.Functions.Notify('Minimum Of '..Config.MinimumPacificPolice..' Police Needed', "error")
+                    QBCore.Functions.Notify('Minimum af '..Config.MinimumPacificPolice..' Politi er der brug for', "error")
                 end
             else
-                QBCore.Functions.Notify("The security lock is active, opening the door is currently not possible.", "error", 5500)
+                QBCore.Functions.Notify("Sikkerhedslåsen er aktiv, det er i øjeblikket ikke muligt at åbne døren.", "error", 5500)
             end
         end)
     end 

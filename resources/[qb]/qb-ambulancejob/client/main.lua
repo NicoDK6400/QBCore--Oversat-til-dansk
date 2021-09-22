@@ -50,21 +50,21 @@ onDuty = false
 injured = {}
 
 BodyParts = {
-    ['HEAD'] = { label = 'head', causeLimp = false, isDamaged = false, severity = 0 },
-    ['NECK'] = { label = 'neck', causeLimp = false, isDamaged = false, severity = 0 },
-    ['SPINE'] = { label = 'spine', causeLimp = true, isDamaged = false, severity = 0 },
-    ['UPPER_BODY'] = { label = 'upper body', causeLimp = false, isDamaged = false, severity = 0 },
-    ['LOWER_BODY'] = { label = 'lower body', causeLimp = true, isDamaged = false, severity = 0 },
-    ['LARM'] = { label = 'left arm', causeLimp = false, isDamaged = false, severity = 0 },
-    ['LHAND'] = { label = 'left hand', causeLimp = false, isDamaged = false, severity = 0 },
-    ['LFINGER'] = { label = 'left fingers', causeLimp = false, isDamaged = false, severity = 0 },
-    ['LLEG'] = { label = 'left leg', causeLimp = true, isDamaged = false, severity = 0 },
-    ['LFOOT'] = { label = 'left foot', causeLimp = true, isDamaged = false, severity = 0 },
-    ['RARM'] = { label = 'right arm', causeLimp = false, isDamaged = false, severity = 0 },
-    ['RHAND'] = { label = 'right hand', causeLimp = false, isDamaged = false, severity = 0 },
-    ['RFINGER'] = { label = 'right fingers', causeLimp = false, isDamaged = false, severity = 0 },
-    ['RLEG'] = { label = 'right leg', causeLimp = true, isDamaged = false, severity = 0 },
-    ['RFOOT'] = { label = 'right foot', causeLimp = true, isDamaged = false, severity = 0 },
+    ['HEAD'] = { label = 'hoved', causeLimp = false, isDamaged = false, severity = 0 },
+    ['NECK'] = { label = 'nakke', causeLimp = false, isDamaged = false, severity = 0 },
+    ['SPINE'] = { label = 'ryg hvirvl', causeLimp = true, isDamaged = false, severity = 0 },
+    ['UPPER_BODY'] = { label = 'overkrop', causeLimp = false, isDamaged = false, severity = 0 },
+    ['LOWER_BODY'] = { label = 'underkrop', causeLimp = true, isDamaged = false, severity = 0 },
+    ['LARM'] = { label = 'venstre arm', causeLimp = false, isDamaged = false, severity = 0 },
+    ['LHAND'] = { label = 'venstre hånd', causeLimp = false, isDamaged = false, severity = 0 },
+    ['LFINGER'] = { label = 'venstre fingre', causeLimp = false, isDamaged = false, severity = 0 },
+    ['LLEG'] = { label = 'venstre ben', causeLimp = true, isDamaged = false, severity = 0 },
+    ['LFOOT'] = { label = 'venstre fod', causeLimp = true, isDamaged = false, severity = 0 },
+    ['RARM'] = { label = 'højre arm', causeLimp = false, isDamaged = false, severity = 0 },
+    ['RHAND'] = { label = 'højre hånd', causeLimp = false, isDamaged = false, severity = 0 },
+    ['RFINGER'] = { label = 'højre fingre', causeLimp = false, isDamaged = false, severity = 0 },
+    ['RLEG'] = { label = 'højre ben', causeLimp = true, isDamaged = false, severity = 0 },
+    ['RFOOT'] = { label = 'højre fod', causeLimp = true, isDamaged = false, severity = 0 },
 }
 
 Citizen.CreateThread(function()
@@ -175,16 +175,16 @@ Citizen.CreateThread(function()
             if #(pos - vector3(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z)) < 1.5 then
                 sleep = 7
                 if doctorCount >= Config.MinimalDoctors then
-                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "~g~E~w~ - Call doctor")
+                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "~g~E~w~ - Kald læge")
                 else
-                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "~g~E~w~ - Check in")
+                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "~g~E~w~ - Tjek in")
                 end
                 if IsControlJustReleased(0, 38) then
                     if doctorCount >= Config.MinimalDoctors then
                         TriggerServerEvent("hospital:server:SendDoctorAlert")
                     else
                         TriggerEvent('animations:client:EmoteCommandStart', {"notepad"})
-                        QBCore.Functions.Progressbar("hospital_checkin", "Checking in..", 2000, false, true, {
+                        QBCore.Functions.Progressbar("hospital_checkin", "Tjekker in..", 2000, false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,
@@ -195,32 +195,32 @@ Citizen.CreateThread(function()
                             if bedId ~= nil then 
                                 TriggerServerEvent("hospital:server:SendToBed", bedId, true)
                             else
-                                QBCore.Functions.Notify("Beds are occupied..", "error")
+                                QBCore.Functions.Notify("Ingen ledige senge..", "error")
                             end
                         end, function() -- Cancel
                             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-                            QBCore.Functions.Notify("Checking in failed!", "error")
+                            QBCore.Functions.Notify("Tjek in, mislykkedes!", "error")
                         end)
                     end
                 end
             elseif #(pos - vector3(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z)) < 4.5 then
                 sleep = 7
                 if doctorCount >= Config.MinimalDoctors then
-                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "Call")
+                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "Kald")
                 else
-                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "Check in")
+                    DrawText3D(Config.Locations["checking"].x, Config.Locations["checking"].y, Config.Locations["checking"].z, "Tjek ind")
                 end
             end
             
             if closestBed ~= nil and not isInHospitalBed then
                 if #(pos - vector3(Config.Locations["beds"][closestBed].coords.x, Config.Locations["beds"][closestBed].coords.y, Config.Locations["beds"][closestBed].coords.z)) < 1.5 then
                     sleep = 7
-                    DrawText3D(Config.Locations["beds"][closestBed].coords.x, Config.Locations["beds"][closestBed].coords.y, Config.Locations["beds"][closestBed].coords.z + 0.3, "~g~E~w~ - To lie in bed")
+                    DrawText3D(Config.Locations["beds"][closestBed].coords.x, Config.Locations["beds"][closestBed].coords.y, Config.Locations["beds"][closestBed].coords.z + 0.3, "~g~E~w~ - For at lægge dig")
                     if IsControlJustReleased(0, 38) then
                         if GetAvailableBed(closestBed) ~= nil then 
                             TriggerServerEvent("hospital:server:SendToBed", closestBed, false)
                         else
-                            QBCore.Functions.Notify("Beds are occupied..", "error")
+                            QBCore.Functions.Notify("Ingen senge ledige..", "error")
                         end
                     end
                 end
@@ -252,7 +252,7 @@ Citizen.CreateThread(function()
         if QBCore ~= nil then
             if isInHospitalBed and canLeaveBed then
                 local pos = GetEntityCoords(PlayerPedId())
-                DrawText3D(pos.x, pos.y, pos.z, "~g~E~w~ - To get out of bed..")
+                DrawText3D(pos.x, pos.y, pos.z, "~g~E~w~ - For at rejse dig..")
                 if IsControlJustReleased(0, 38) then
                     LeaveBed()
                 end
@@ -301,7 +301,7 @@ AddEventHandler('hospital:client:Revive', function()
     TriggerServerEvent("hospital:server:SetDeathStatus", false)
     TriggerServerEvent("hospital:server:SetLaststandStatus", false)
     
-    QBCore.Functions.Notify("You are completely healthy again!")
+    QBCore.Functions.Notify("Du er sund og rask igen!")
 end)
 
 RegisterNetEvent('hospital:client:SetPain')
@@ -346,7 +346,7 @@ AddEventHandler('hospital:client:HealInjuries', function(type)
         ResetPartial()
     end
     TriggerServerEvent("hospital:server:RestoreWeaponDamage")
-    QBCore.Functions.Notify("Your wounds have been healed!")
+    QBCore.Functions.Notify("Dine sår er helet!")
 end)
 
 RegisterNetEvent('hospital:client:SendToBed')
@@ -357,7 +357,7 @@ AddEventHandler('hospital:client:SendToBed', function(id, data, isRevive)
     Citizen.CreateThread(function ()
         Citizen.Wait(5)
         if isRevive then
-            QBCore.Functions.Notify("You are being helped..")
+            QBCore.Functions.Notify("Du får hjælp..")
             Citizen.Wait(Config.AIHealTimer * 1000)
             TriggerEvent("hospital:client:Revive")
         else
@@ -388,8 +388,8 @@ AddEventHandler('hospital:client:SendBillEmail', function(amount)
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = "Pillbox",
-            subject = "Hospital Costs",
-            message = "Dear " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Hereby you received an email with the costs of the last hospital visit.<br />The final costs have become: <strong>$"..amount.."</strong><br /><br />We wish you a quick recovery!",
+            subject = "Hospital regning",
+            message = "Dear " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har hermed tilsendt dig en regning fra dit sidste ophold på Pillbox.<br />Beløbet du skal betale er: <strong>$"..amount.."</strong><br /><br />Vi ønsker dig god bedring herfra!",
             button = {}
         })
     end)
@@ -487,13 +487,13 @@ function DoLimbAlert()
             local limbDamageMsg = ''
             if #injured <= Config.AlertShowInfo then
                 for k, v in pairs(injured) do
-                    limbDamageMsg = limbDamageMsg .. "Your " .. v.label .. " feels "..Config.WoundStates[v.severity]
+                    limbDamageMsg = limbDamageMsg .. "Din(e) " .. v.label .. " føles "..Config.WoundStates[v.severity]
                     if k < #injured then
                         limbDamageMsg = limbDamageMsg .. " | "
                     end
                 end
             else
-                limbDamageMsg = "You have pain on many places.."
+                limbDamageMsg = "Du har smerter mange steder.."
             end
             QBCore.Functions.Notify(limbDamageMsg, "primary", 5000)
         end
@@ -502,7 +502,7 @@ end
 
 function DoBleedAlert()
     if not isDead and tonumber(isBleeding) > 0 then
-        QBCore.Functions.Notify("You are "..Config.BleedingStates[tonumber(isBleeding)].label, "error", 5000)
+        QBCore.Functions.Notify("Du er "..Config.BleedingStates[tonumber(isBleeding)].label, "error", 5000)
     end
 end
 
@@ -698,11 +698,11 @@ end
 
 function OutfitsLijst()
     QBCore.Functions.TriggerCallback('apartments:GetOutfits', function(outfits)
-        MenuTitle = "My Outfits :"
+        MenuTitle = "Mine Outfits :"
         ClearMenu()
 
         if outfits == nil then
-            QBCore.Functions.Notify("You didnt save any outfits...", "error", 3500)
+            QBCore.Functions.Notify("Du har ikke gemt outfits...", "error", 3500)
             closeMenuFull()
         else
             for k, v in pairs(outfits) do
@@ -714,7 +714,7 @@ function OutfitsLijst()
 end
 
 function optionMenu(outfitData)
-    MenuTitle = "What now?"
+    MenuTitle = "Hvad nu?"
     ClearMenu()
 
     Menu.addButton("Choose Outfit", "selectOutfit", outfitData) 
@@ -724,14 +724,14 @@ end
 
 function selectOutfit(oData)
     TriggerServerEvent('clothes:selectOutfit', oData.model, oData.skin)
-    QBCore.Functions.Notify(oData.outfitname.." chosen", "success", 2500)
+    QBCore.Functions.Notify(oData.outfitname.." valgt", "success", 2500)
     closeMenuFull()
     changeOutfit()
 end
 
 function removeOutfit(oData)
     TriggerServerEvent('clothes:removeOutfit', oData.outfitname)
-    QBCore.Functions.Notify(oData.outfitname.." has been deleted", "success", 2500)
+    QBCore.Functions.Notify(oData.outfitname.." er blevet fjernet", "success", 2500)
     closeMenuFull()
 end
 

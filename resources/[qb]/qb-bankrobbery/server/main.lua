@@ -257,17 +257,17 @@ AddEventHandler('qb-bankrobbery:server:callCops', function(type, bank, streetLab
     if type == "small" then
         cameraId = Config.SmallBanks[bank]["camId"]
         bankLabel = "Fleeca"
-        msg = "The Alram has been activated at "..bankLabel.. " " ..streetLabel.." (CAMERA ID: "..cameraId..")"
+        msg = "Alarmen er blevet aktiveret ved "..bankLabel.. " " ..streetLabel.." (KAMERA ID: "..cameraId..")"
     elseif type == "paleto" then
         cameraId = Config.BigBanks["paleto"]["camId"]
         bankLabel = "Blaine County Savings"
-        msg = "The Alram has been activated at "..bankLabel.. " Paleto Bay (CAMERA ID: "..cameraId..")"
+        msg = "Alarmen er blevet aktiveret ved "..bankLabel.. " Paleto Bay (KAMERA ID: "..cameraId..")"
     elseif type == "pacific" then
         bankLabel = "Pacific Standard Bank"
-        msg = "The Alram has been activated at "..bankLabel.. " Alta St (CAMERA ID: 1/2/3)"
+        msg = "Alarmen er blevet aktiveret ved "..bankLabel.. " Alta St (KAMERA ID: 1/2/3)"
     end
     local alertData = {
-        title = "Bank robbery",
+        title = "Bank røveri",
         coords = {x = coords.x, y = coords.y, z = coords.z},
         description = msg,
     }
@@ -372,7 +372,7 @@ QBCore.Functions.CreateUseableItem("thermite", function(source, item)
 	if Player.Functions.GetItemByName('lighter') ~= nil then
         TriggerClientEvent("thermite:UseThermite", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, "You're missing ignition source ", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du mangler en tændkilde ", "error")
     end
 end)
 

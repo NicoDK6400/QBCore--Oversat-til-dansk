@@ -55,10 +55,10 @@ AddEventHandler('qb-admin:client:SaveCar', function()
         if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
             TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], `veh`, plate)
         else
-            QBCore.Functions.Notify('You cant store this vehicle in your garage..', 'error')
+            QBCore.Functions.Notify('Du kan ikke gemme dette kørertøj..', 'error')
         end
     else
-        QBCore.Functions.Notify('You are not in a vehicle..', 'error')
+        QBCore.Functions.Notify('Du er ikke i et kørertøj..', 'error')
     end
 end)
 
@@ -99,14 +99,14 @@ AddEventHandler('qb-weapons:client:SetWeaponAmmoManual', function(weapon, ammo)
     if weapon ~= "current" then
         local weapon = weapon:upper()
         SetPedAmmo(ped, GetHashKey(weapon), ammo)
-        QBCore.Functions.Notify('+'..ammo..' Ammo for the '..QBCore.Shared.Weapons[GetHashKey(weapon)]["label"], 'success')
+        QBCore.Functions.Notify('+'..ammo..' Ammo for '..QBCore.Shared.Weapons[GetHashKey(weapon)]["label"], 'success')
     else
         local weapon = GetSelectedPedWeapon(ped)
         if weapon ~= nil then
             SetPedAmmo(ped, weapon, ammo)
-            QBCore.Functions.Notify('+'..ammo..' Ammo for the '..QBCore.Shared.Weapons[weapon]["label"], 'success')
+            QBCore.Functions.Notify('+'..ammo..' Ammo for '..QBCore.Shared.Weapons[weapon]["label"], 'success')
         else
-            QBCore.Functions.Notify('You dont have a weapon in your hands..', 'error')
+            QBCore.Functions.Notify('Du har intet våben i dine hænder..', 'error')
         end
     end
 end)

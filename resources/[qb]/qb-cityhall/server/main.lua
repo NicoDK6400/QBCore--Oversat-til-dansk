@@ -48,15 +48,15 @@ AddEventHandler('qb-cityhall:server:sendDriverTest', function()
             TriggerClientEvent("qb-cityhall:client:sendDriverEmail", SchoolPlayer.PlayerData.source, Player.PlayerData.charinfo)
         else
             local mailData = {
-                sender = "Township",
-                subject = "Driving lessons request",
-                message = "Hello,<br /><br />We have just received a message that someone wants to take driving lessons.<br />If you are willing to teach, please contact us:<br />Naam: <strong>".. Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname .. "<br />Telephone number: <strong>"..Player.PlayerData.charinfo.phone.."</strong><br/><br/>Kind regards,<br />City of Los Santos",
+                sender = "DinKørerskole",
+                subject = "Anmodning om førerret",
+                message = "Goddag,<br /><br />Vi har modtaget en besked, der er en der gerne vil have førerret.<br />Hvis du er villig til at lærer, så kontakt os på:<br />Naam: <strong>".. Player.PlayerData.charinfo.firstname .. " " .. Player.PlayerData.charinfo.lastname .. "<br />Telefon number: <strong>"..Player.PlayerData.charinfo.phone.."</strong><br/><br/>Med venlig hilsen,<br />City of Los Santos",
                 button = {}
             }
             TriggerEvent("qb-phone:server:sendNewEventMail", v, mailData)
         end
     end
-    TriggerClientEvent('QBCore:Notify', src, 'An email has been sent to driving schools, and you will be contacted automatically', "success", 5000)
+    TriggerClientEvent('QBCore:Notify', src, 'En email er blevet sendt ud til kørerskolerne, og vil blive kontaktet automatisk', "success", 5000)
 end)
 
 RegisterServerEvent('qb-cityhall:server:ApplyJob')
@@ -67,7 +67,7 @@ AddEventHandler('qb-cityhall:server:ApplyJob', function(job)
 
     Player.Functions.SetJob(job, 0)
 
-    TriggerClientEvent('QBCore:Notify', src, 'Congratulations with your new job! ('..JobInfo.label..')')
+    TriggerClientEvent('QBCore:Notify', src, 'Tillykke med dit nye arbejde! ('..JobInfo.label..')')
 end)
 
 
@@ -127,7 +127,7 @@ end
 RegisterServerEvent('qb-cityhall:server:banPlayer')
 AddEventHandler('qb-cityhall:server:banPlayer', function()
     local src = source
-    TriggerClientEvent('chatMessage', -1, "QB Anti-Cheat", "error", GetPlayerName(src).." has been banned for sending POST Request's ")
+    TriggerClientEvent('chatMessage', -1, "QB Anti-Cheat", "error", GetPlayerName(src).." er blevet banned for at sende POST Request's ")
     exports.oxmysql:insert('INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)', {
         GetPlayerName(src),
         QBCore.Functions.GetIdentifier(src, 'license'),

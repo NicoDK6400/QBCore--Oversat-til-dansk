@@ -36,33 +36,33 @@ end)
 
 local menu_button = menu:AddButton({
     icon = '📋',
-    label = 'Employees',
+    label = 'Ansatte',
     value = menu3,
-    description = 'Manage Employees'
+    description = 'Administrer ansatte'
 })
 local menu_button1 = menu:AddButton({
     icon = '🤝',
-    label = 'Recruit',
+    label = 'Rekruttere',
     value = menu4,
-    description = 'Hire New Players'
+    description = 'Ansæt nye kollegaer'
 })
 local menu_button2 = menu:AddButton({
     icon = '📦',
-    label = 'Storage',
+    label = 'Opbevaring',
     value = nil,
-    description = 'Personal Storage'
+    description = 'Personlig Opbevaring'
 })
 local menu_button3 = menu:AddButton({
     icon = '👕',
     label = 'Outfits',
     value = nil,
-    description = 'View Outfits'
+    description = 'Se Outfits'
 })
 local menu_button4 = menu:AddButton({
     icon = '💰',
     label = 'Society Money',
     value = menu2,
-    description = 'View/Manage Society Money'
+    description = 'Se/Administrere Society Money'
 })
 local menu_button5 = menu2:AddButton({
     icon = '💲',
@@ -72,15 +72,15 @@ local menu_button5 = menu2:AddButton({
 })
 local menu_button6 = menu2:AddButton({
     icon = '🤑',
-    label = 'Withdraw',
+    label = 'Udbetal',
     value = menu2,
-    description = 'Withdraw Money From Society'
+    description = 'Udbetal penge fra Society money'
 })
 local menu_button7 = menu2:AddButton({
     icon = '🏦',
-    label = 'Deposit',
+    label = 'Indsæt',
     value = menu2,
-    description = 'Deposit Money Into Society'
+    description = 'Indsæt penge til Society'
 })
 
 -- Storage
@@ -130,7 +130,7 @@ menu_button:On("select", function()
             local menu_button8 = menu3:AddButton({
                 label = v.grade.name.. ' ' ..v.name,
                 value = v,
-                description = 'Employee',
+                description = 'Ansat',
                 select = function(btn)
                     local select = btn.Value
                     ManageEmployees(select)
@@ -149,7 +149,7 @@ menu_button1:On("select", function()
             local menu_button10 = menu4:AddButton({
                 label = GetPlayerName(v),
                 value = v,
-                description = 'Available Recruit',
+                description = 'Tilgængelig rekruttering',
                 select = function(btn)
                     local select = btn.Value
                     TriggerServerEvent('qb-bossmenu:server:giveJob', GetPlayerServerId(v))
@@ -169,7 +169,7 @@ CreateThread(function()
                     local pos = GetEntityCoords(PlayerPedId())
                     if #(pos - v) < 2.0 then
                         sleep = 7
-                        DrawText3D(v, "~g~E~w~ - Boss Menu")
+                        DrawText3D(v, "~g~E~w~ - Chef Menu")
                         if IsControlJustReleased(0, 38) then
                             MenuV:OpenMenu(menu)
                         end
@@ -195,15 +195,15 @@ function ManageEmployees(employee)
     buttons = {
         [1] = {
             icon = '↕️',
-            label = "Promote/Demote",
+            label = "Forfrem/Degradere",
             value = "promote",
-            description = "Promote " .. employee.name
+            description = "Forfrem " .. employee.name
         },
         [3] = {
             icon = '🔥',
-            label = "Fire",
+            label = "Brand",
             value = "Fire",
-            description = "Fire " .. employee.name
+            description = "Brand " .. employee.name
         }
     }
     for k, v in pairs(buttons) do

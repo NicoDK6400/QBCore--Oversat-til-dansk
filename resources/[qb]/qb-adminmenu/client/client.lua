@@ -2,16 +2,16 @@ local banlength = nil
 local banreason = 'Unknown'
 local kickreason = 'Unknown'
 
-local menu = MenuV:CreateMenu(false, 'Admin Menu', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test')
-local menu2 = MenuV:CreateMenu(false, 'Admin Options', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test1')
-local menu4 = MenuV:CreateMenu(false, 'Online Players', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test3')
-local menu5 = MenuV:CreateMenu(false, 'Manage Server', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test4')
-local menu6 = MenuV:CreateMenu(false, 'Available Weather Options', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test5')
-local menu7 = MenuV:CreateMenu(false, 'Dealer List', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test6')
+local menu = MenuV:CreateMenu(false, 'Admin menuen', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test')
+local menu2 = MenuV:CreateMenu(false, 'Admin menuen', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test1')
+local menu4 = MenuV:CreateMenu(false, 'Online spillere', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test3')
+local menu5 = MenuV:CreateMenu(false, 'Server funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test4')
+local menu6 = MenuV:CreateMenu(false, 'Vejr funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test5')
+local menu7 = MenuV:CreateMenu(false, 'Dealer Listen', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test6')
 local menu8 = MenuV:CreateMenu(false, 'Ban', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test7')
 local menu9 = MenuV:CreateMenu(false, 'Kick', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test8')
 local menu10 = MenuV:CreateMenu(false, 'Permissions', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test9')
-local menu11 = MenuV:CreateMenu(false, 'Developer Options', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test10')
+local menu11 = MenuV:CreateMenu(false, 'Udvikler funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test10')
 local menu12 = MenuV:CreateMenu(false, 'Vehicle Options', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test11')
 local menu13 = MenuV:CreateMenu(false, 'Vehicle Categories', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test12')
 local menu14 = MenuV:CreateMenu(false, 'Vehicle Models', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test13')
@@ -23,164 +23,164 @@ end)
 
 local menu_button = menu:AddButton({
     icon = '😃',
-    label = 'Admin Options',
+    label = 'Admin menuen',
     value = menu2,
-    description = 'Misc. Admin Options'
+    description = 'Misc. Admin menuen'
 })
 local menu_button2 = menu:AddButton({
     icon = '🙍‍♂️',
-    label = 'Player Management',
+    label = 'Spiller Funktioner',
     value = menu4,
-    description = 'View List Of Players'
+    description = 'Se oversigt over spillere'
 })
 local menu_button3 = menu:AddButton({
     icon = '🎮',
-    label = 'Server Management',
+    label = 'Server funktioner',
     value = menu5,
-    description = 'Misc. Server Options'
+    description = 'Misc. Server funktioner'
 })
 local menu_button21 = menu:AddButton({
     icon = '🚗',
-    label = 'Vehicles',
+    label = 'Kørertøjer',
     value = menu12,
-    description = 'Vehicle Options'
+    description = 'Kørertøjs funktioner'
 })
 local menu_button4 = menu:AddButton({
     icon = '💊',
-    label = 'Dealer List',
+    label = 'Dealer listen',
     value = menu7,
-    description = 'List of Existing Dealers'
+    description = 'Oversigt over dealere'
 })
 local menu_button5 = menu2:AddCheckbox({
     icon = '🎥',
     label = 'NoClip',
     value = menu2,
-    description = 'Enable/Disable NoClip'
+    description = 'Slå til/fra NoClip'
 })
 local menu_button6 = menu2:AddButton({
     icon = '🏥',
-    label = 'Revive',
+    label = 'Genoplov',
     value = 'revive',
-    description = 'Revive Yourself'
+    description = 'Genopliv dig selv'
 })
 local menu_button7 = menu2:AddCheckbox({
     icon = '👻',
-    label = 'Invisible',
+    label = 'Usynlig',
     value = menu2,
-    description = 'Enable/Disable Invisibility'
+    description = 'Slå til/fra usynlighed'
 })
 local menu_button8 = menu2:AddCheckbox({
     icon = '⚡',
     label = 'Godmode',
     value = menu2,
-    description = 'Enable/Disable God Mode'
+    description = 'Slå til/fra God Mode'
 })
 local menu_button11 = menu5:AddButton({
     icon = '🌡️',
-    label = 'Weather Options',
+    label = 'Vejr funktioner',
     value = menu6,
-    description = 'Change The Weather'
+    description = 'Ændre vejret'
 })
 local menu_button13 = menu5:AddSlider({
     icon = '⏲️',
-    label = 'Server Time',
+    label = 'Server Tid',
     value = GetClockHours(),
     values = {{
         label = '00',
         value = '00',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '01',
         value = '01',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '02',
         value = '02',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '03',
         value = '03',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '04',
         value = '04',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '05',
         value = '05',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '06',
         value = '06',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '07',
         value = '07',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '08',
         value = '08',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '09',
         value = '09',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '10',
         value = '10',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '11',
         value = '11',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '12',
         value = '12',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '13',
         value = '13',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '14',
         value = '14',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '15',
         value = '15',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '16',
         value = '16',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '17',
         value = '17',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '18',
         value = '18',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '19',
         value = '19',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '20',
         value = '20',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '21',
         value = '21',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '22',
         value = '22',
-        description = 'Time'
+        description = 'Tid'
     }, {
         label = '23',
         value = '23',
-        description = 'Time'
+        description = 'Tid'
     }}
 })
 
@@ -189,94 +189,94 @@ menu_button11:On("select",function()
     local elements = {
         [1] = {
             icon = '☀️',
-            label = 'Extra Sunny',
+            label = 'Høj sol',
             value = "EXTRASUNNY",
-            description = 'I\'m Melting!'
+            description = 'I\'m Hedebølge!'
         },
         [2] = {
             icon = '☀️',
-            label = 'Clear',
+            label = 'Skyfrit',
             value = "CLEAR",
-            description = 'The Perfect Day!'
+            description = 'En vidunderlig dag!'
         },
         [3] = {
             icon = '☀️',
-            label = 'Neutral',
+            label = 'Neutralt',
             value = "NEUTRAL",
-            description = 'Just A Regular Day!'
+            description = 'Bare en normal dag!'
         },
         [4] = {
             icon = '🌁',
-            label = 'Smog',
+            label = 'Røg',
             value = "SMOG",
-            description = 'Smoke Machine!'
+            description = 'Der er røg overalt!'
         },
         [5] = {
             icon = '🌫️',
-            label = 'Foggy',
+            label = 'Tåget',
             value = "FOGGY",
-            description = 'Smoke Machine x2!'
+            description = 'Mose konen brygger!'
         },
         [6] = {
             icon = '⛅',
-            label = 'Overcast',
+            label = 'Overskyet',
             value = "OVERCAST",
-            description = 'Not Too Sunny!'
+            description = 'Ikke meget sol at se!'
         },
         [7] = {
             icon = '☁️',
-            label = 'Clouds',
+            label = 'Overskyet',
             value = "CLOUDS",
-            description = 'Where\'s The Sun?'
+            description = 'Ingen sol bryder den sky'
         },
         [8] = {
             icon = '🌤️',
-            label = 'Clearing',
+            label = 'Opklaring',
             value = "CLEARING",
-            description = 'Clouds Start To Clear!'
+            description = 'Det ser ud til at det bliver godt vejr!'
         },
         [9] = {
             icon = '☂️',
-            label = 'Rain',
+            label = 'Regn',
             value = "RAIN",
-            description = 'Make It Rain!'
+            description = 'Lad det regne!'
         },
 
         [10] = {
             icon = '⛈️',
-            label = 'Thunder',
+            label = 'Torden',
             value = "THUNDER",
-            description = 'Run and Hide!'
+            description = 'Hvem elsker ikke et brag?!'
         },
         [11] = {
             icon = '❄️',
-            label = 'Snow',
+            label = 'Sne',
             value = "SNOW",
-            description = 'Is It Cold Out Here?'
+            description = 'På med frakken!'
         },
         [12] = {
             icon = '🌨️',
-            label = 'Blizzard',
+            label = 'Sne storm',
             value = "BLIZZARD",
-            description = 'Snow Machine?'
+            description = 'Nogen der sagde snemaskine?'
         },
         [13] = {
             icon = '❄️',
-            label = 'Light Snow',
+            label = 'Let sne',
             value = "SNOWLIGHT",
-            description = 'Starting To Feel Like Christmas!'
+            description = 'Kan i mærke julen?'
         },
         [14] = {
             icon = '🌨️',
-            label = 'Heavy Snow (XMAS)',
+            label = 'Meget sne (Jul)',
             value = "XMAS",
-            description = 'Snowball Fight!'
+            description = 'Det blev jul, og det skal fejres!'
         },
         [15] = {
             icon = '🎃',
             label = 'Halloween',
             value = "HALLOWEEN",
-            description = 'What Was That Noise?!'
+            description = 'Hvad er det for nogle lyde?!'
         }
     }
     for k,v in ipairs(elements) do
@@ -290,84 +290,84 @@ end)
 
 local menu_button69 = menu:AddButton({
     icon = '🔧',
-    label = 'Developer Options',
+    label = 'Udvikler funktioner',
     value = menu11,
-    description = 'Misc. Dev Options'
+    description = 'Misc. Dev funktioner'
 })
 local coords_button = menu11:AddButton({
     icon = '📋',
-    label = 'Copy Coords',
+    label = 'Kopier koord',
     value = 'coords',
-    description = 'Copy Coords To Clipboard'
+    description = 'Kopier koordinatet'
 })
 local togglecoords_button = menu11:AddCheckbox({
     icon = '📍',
-    label = 'Display Coords',
+    label = 'Vis koords',
     value = nil,
-    description = 'Show Coords On Screen'
+    description = 'Vis koordinater på skærmen'
 })
 
 local heading_button = menu11:AddButton({
     icon = '📋',
-    label = 'Copy Heading',
+    label = 'Kopier Heading',
     value = 'heading',
-    description = 'Copy Heading to Clipboard'
+    description = 'Kopier Heading'
 })
 
 local vehicledev_button = menu11:AddButton({
     icon = '🚘',
-    label = 'Vehicle Dev Mode',
+    label = 'Kørertøjs funktioner (Dev)',
     value = nil,
-    description = 'Display Vehicle Information'
+    description = 'Vis kørertøjs informationer'
 })
 local deletelazer_button = menu11:AddCheckbox({
     icon = '🔫',
-    label = 'Delete Laser',
+    label = 'Slet Laser',
     value = menu11,
-    description = 'Enable/Disable Laser'
+    description = 'Slå til/fra: Laser'
 })
 local noclip_button = menu11:AddCheckbox({
     icon = '🎥',
     label = 'NoClip',
     value = menu11,
-    description = 'Enable/Disable NoClip'
+    description = 'Slå til/fra: NoClip'
 })
 local names_button = menu11:AddCheckbox({               
     icon = '📋',                                        
-    label = 'Names',                                    
+    label = 'Navne',                                    
     value = menu11,                               
-    description = 'Enable/Disable Names overhead'   
+    description = 'Slå til/fra: navne overhovedet'   
 })                                               
 local blips_button = menu11:AddCheckbox({     
     icon = '📍',                             
     label = 'Blips',                                    
     value = menu11,                                     
-    description = 'Enable/Disable Blips for players'    
+    description = 'Slå til/fra: Blips på spillere'    
 }) 
 
 local menu12_button1 = menu12:AddButton({
     icon = '🚗',
-    label = 'Spawn Vehicle',
+    label = 'Spawn kørertøj',
     value = menu13,
-    description = 'Spawn a vehicle'
+    description = 'Spawn et kørertøj'
 })
 local menu12_button2 = menu12:AddButton({
     icon = '🔧',
-    label = 'Fix Vehicle',
+    label = 'Fix kørertøj',
     value = 'fix',
-    description = 'Fix the vehicle you are in'
+    description = 'Fix kørertøjet du sidder i'
 })
 local menu12_button3 = menu12:AddButton({
     icon = '💲',
-    label = 'Buy',
+    label = 'Køb',
     value = 'buy',
-    description = 'Buy the vehicle for free'
+    description = 'Køb kørertøjet kvit og frit!'
 })
 local menu12_button4 = menu12:AddButton({
     icon = '☠',
-    label = 'Remove Vehicle',
+    label = 'Fjern kørertøj',
     value = 'remove',
-    description = 'Remove closest vehicle'
+    description = 'Fjern tætteste kørertøj'
 })
 
 local deleteLazer = false
@@ -411,7 +411,7 @@ menu12_button1:On('Select', function(item)
         local menu_button10 = menu13:AddButton({
             label = k,
             value = v,
-            description = 'Category Name',
+            description = 'Kategori Navn',
             select = function(btn)
                 local select = btn.Value
                 OpenCarModelsMenu(select)
@@ -462,7 +462,7 @@ menu_button4:On('Select', function(item)
             local menu_button10 = menu7:AddButton({
                 label = v["name"], --.. ' | ' .. v[time.min] .. ' | ' .. v[time.max]
                 value = v,
-                description = 'Dealer Name',
+                description = 'Dealer Navn',
                 select = function(btn)
                     local select = btn.Value
                     OpenDealerMenu(select)
@@ -480,7 +480,7 @@ menu_button2:On('select', function(item)
             local menu_button10 = menu4:AddButton({
                 label = 'ID:' .. v["id"] .. ' | ' .. v["name"],
                 value = v,
-                description = 'Player Name',
+                description = 'Spiller navn',
                 select = function(btn)
                     local select = btn.Value -- get all the values from v!
 
@@ -504,15 +504,15 @@ function OpenDealerMenu(dealer)
     local elements = {
         [1] = {
             icon = '➡️',
-            label = "Go to " .. dealer["name"],
+            label = "Gå til " .. dealer["name"],
             value = "goto",
-            description = "Goto dealer " .. dealer["name"]
+            description = "Gå til dealer " .. dealer["name"]
         },
         [2] = {
             icon = "☠",
-            label = "Remove " .. dealer["name"],
+            label = "Fjern " .. dealer["name"],
             value = "remove",
-            description = "Remove dealer " .. dealer["name"]
+            description = "Fjern dealer " .. dealer["name"]
         }
     }
     for k, v in ipairs(elements) do
@@ -543,21 +543,21 @@ function OpenPlayerMenus(player)
     local elements = {
         [1] = {
             icon = '💀',
-            label = "Kill",
+            label = "Dræb",
             value = "kill",
-            description = "Kill " .. player.cid
+            description = "Dræb " .. player.cid
         },
         [2] = {
             icon = '🏥',
-            label = "Revive",
+            label = "Genopliv",
             value = "revive",
-            description = "Revive " .. player.cid
+            description = "Genopliv " .. player.cid
         },
         [3] = {
             icon = '🥶',
-            label = "Freeze",
+            label = "Frys",
             value = "freeze",
-            description = "Freeze " .. player.cid
+            description = "Frøs " .. player.cid
         },
         [4] = {
             icon = '👀',
@@ -567,51 +567,51 @@ function OpenPlayerMenus(player)
         },
         [5] = {
             icon = '➡️',
-            label = "Go To",
+            label = "Gå til",
             value = "goto",
-            description = "Go to " .. player.cid .. " Position"
+            description = "Gå til " .. player.cid .. " position"
         },
         [6] = {
             icon = '⬅️',
-            label = "Bring",
+            label = "TP til",
             value = "bring",
-            description = "Bring " .. player.cid .. " to your position"
+            description = "Hent " .. player.cid .. " til din position"
         },
         [7] = {
             icon = '🚗',
-            label = "Sit in vehicle",
+            label = "Sid i kørertøj",
             value = "intovehicle",
-            description = "Sit in " .. player.cid .. "'s vehicle"
+            description = "Sæt " .. player.cid .. " i kørertøjet"
         },
         [8] = {
             icon = '🎒',
-            label = "Open Inventory",
+            label = "Åben inventory",
             value = "inventory",
-            description = "Open " .. player.cid .. " inventorys"
+            description = "Åben " .. player.cid .. " inventory"
         },
         [9] = {
             icon = '👕',
-            label = "Give Clothing Menu",
+            label = "Giv tøj menu",
             value = "cloth",
-            description = "Give the Cloth menu to " .. player.cid
+            description = "Giv tøj menuen til " .. player.cid
         },
         [10] = {
             icon = '🥾',
             label = "Kick",
             value = "kick",
-            description = "Kick " .. player.cid .. " you need to give a reason"
+            description = "Kick " .. player.cid .. " du skal huske at skrive en grund!"
         },
         [11] = {
             icon = '🚫',
             label = "Ban",
             value = "ban",
-            description = "Ban " .. player.cid .. " you need to give a reason"
+            description = "Ban " .. player.cid .. " du skal huske at skrive en grund!"
         },
         [12] = {
             icon = '🎟️',
             label = "Permissions",
             value = "perms",
-            description = "Give " .. player.cid .. " Permissions"
+            description = "Giv " .. player.cid .. " Permissions"
         }
     }
     for k, v in ipairs(elements) do
@@ -641,9 +641,9 @@ function OpenBanMenu(banplayer)
     menu8:ClearItems()
     local menu_button15 = menu8:AddButton({
         icon = '',
-        label = 'Reason',
+        label = 'Grundlag',
         value = "reason",
-        description = 'Ban reason',
+        description = 'Ban grundlag',
         select = function(btn)
             banreason = LocalInput('Ban Reason', 255, 'Reason')
         end
@@ -651,52 +651,52 @@ function OpenBanMenu(banplayer)
 
     local menu_button16 = menu8:AddSlider({
         icon = '⏲️',
-        label = 'Length',
+        label = 'Tid',
         value = '3600',
         values = {{
-            label = '1 hour',
+            label = '1 time',
             value = '3600',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '6 hours',
+            label = '6 timer',
             value ='21600',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '12 hours',
+            label = '12 timer',
             value = '43200',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '1 day',
+            label = '1 dage',
             value = '86400',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '3 days',
+            label = '3 dage',
             value = '259200',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '1 week',
+            label = '1 uge',
             value = '604800',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '1 month',
+            label = '1 måned',
             value = '2678400',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '3 months',
+            label = '3 måneder',
             value = '8035200',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '6 months',
+            label = '6 måneder',
             value = '16070400',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
-            label = '1 year',
+            label = '1 år',
             value = '32140800',
-            description = 'Ban Length'
+            description = 'Ban tid'
         }, {
             label = 'Permanent',
             value = '99999999999',
-            description = 'Ban Length'
+            description = 'Perm Ban'
         }, {
             label = 'Self',
             value = "self",
@@ -713,16 +713,16 @@ function OpenBanMenu(banplayer)
 
     local menu_button17 = menu8:AddButton({
         icon = '',
-        label = 'Confirm',
+        label = 'Bekræft',
         value = "ban",
-        description = 'Confirm the ban',
+        description = 'Bekræft ban',
         select = function(btn)
             if banreason ~= 'Unknown' and banlength ~= nil then
                 TriggerServerEvent('qb-admin:server:ban', banplayer, banlength, banreason)
                 banreason = 'Unknown'
                 banlength = nil
             else
-                QBCore.Functions.Notify('You must give a Reason and set a Length for the ban!', 'error')
+                QBCore.Functions.Notify('Du skal skrive et grundlag og sæt en tid på ban!', 'error')
             end
         end
     })
@@ -733,9 +733,9 @@ function OpenKickMenu(kickplayer)
     menu9:ClearItems()
     local menu_button19 = menu9:AddButton({
         icon = '',
-        label = 'Reason',
+        label = 'Grundlag',
         value = "reason",
-        description = 'Kick reason',
+        description = 'Grundlag for kick',
         select = function(btn)
             kickreason = LocalInput('Kick Reason', 255, 'Reason')
         end
@@ -743,15 +743,15 @@ function OpenKickMenu(kickplayer)
 
     local menu_button18 = menu9:AddButton({
         icon = '',
-        label = 'Confirm',
+        label = 'Bekræft',
         value = "kick",
-        description = 'Confirm the kick',
+        description = 'Bekræft kick',
         select = function(btn)
             if kickreason ~= 'Unknown' then
                 TriggerServerEvent('qb-admin:server:kick', kickplayer, kickreason)
                 kickreason = 'Unknown'
             else
-                QBCore.Functions.Notify('You must give a reason!', 'error')
+                QBCore.Functions.Notify('Du skal skrive et grundlag!', 'error')
             end
         end
     })
@@ -797,16 +797,16 @@ function OpenPermsMenu(permsply)
 
             local menu_button21 = menu10:AddButton({
                 icon = '',
-                label = 'Confirm',
+                label = 'Bekræft',
                 value = "giveperms",
-                description = 'Give the permission group',
+                description = 'Giv permission til group',
                 select = function(btn)
                     if selectedgroup ~= 'Unknown' then
                         TriggerServerEvent('qb-admin:server:setPermissions', permsply.id, selectedgroup)
-			QBCore.Functions.Notify('Authority group changed!', 'success')
+			QBCore.Functions.Notify('Group blev ændret!', 'success')
                         selectedgroup = 'Unknown'
                     else
-                        QBCore.Functions.Notify('Choose a group!', 'error')
+                        QBCore.Functions.Notify('Vælg en group!', 'error')
                     end
                 end
             })
@@ -993,7 +993,7 @@ Citizen.CreateThread(function()	-- While loop needed for delete lazer
                 DrawEntityBoundingBox(entity, color)
                 DrawLine(position.x, position.y, position.z, coords.x, coords.y, coords.z, color.r, color.g, color.b, color.a)
                 Draw2DText('Obj: ~b~' .. entity .. '~w~ Model: ~b~' .. GetEntityModel(entity), 4, {255, 255, 255}, 0.4, 0.55, 0.888)
-                Draw2DText('If you want to delete the object click on ~g~E', 4, {255, 255, 255}, 0.4, 0.55, 0.888 + 0.025)
+                Draw2DText('Hvis du ønsker at fjerne obkjektet skal du trykke ~g~E', 4, {255, 255, 255}, 0.4, 0.55, 0.888 + 0.025)
                 -- When E pressed then remove targeted entity
                 if IsControlJustReleased(0, 38) then
                     -- Set as missionEntity so the object can be remove (Even map objects)

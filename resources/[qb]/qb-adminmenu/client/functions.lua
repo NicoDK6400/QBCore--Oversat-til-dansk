@@ -94,14 +94,14 @@ function CopyToClipboard(dataType)
       SendNUIMessage({
           string = string.format('vector3(%s, %s, %s)', x, y, z)
       })
-      QBCore.Functions.Notify("Coordinates copied to clipboard!", "success")
+      QBCore.Functions.Notify("Koordinater blev kopieret!", "success")
   elseif dataType == 'heading' then
       local heading = GetEntityHeading(ped)
       local h = math.round(heading, 2)
       SendNUIMessage({
           string = h
       })
-      QBCore.Functions.Notify("Heading copied to clipboard!", "success")
+      QBCore.Functions.Notify("Heading blev kopieret!", "success")
   end
 end
 
@@ -119,7 +119,7 @@ function ToggleShowCoordinates()
             c.z = math.round(coords.z, 2)
             heading = math.round(heading, 2)
             Citizen.Wait(0)
-            Draw2DText(string.format('~w~Ped Coordinates:~b~ vector4(~w~%s~b~, ~w~%s~b~, ~w~%s~b~, ~w~%s~b~)', c.x, c.y, c.z, heading), 4, {66, 182, 245}, 0.4, x + 0.0, y + 0.0)
+            Draw2DText(string.format('~w~Ped Koordinater:~b~ vector4(~w~%s~b~, ~w~%s~b~, ~w~%s~b~, ~w~%s~b~)', c.x, c.y, c.z, heading), 4, {66, 182, 245}, 0.4, x + 0.0, y + 0.0)
         end
     end)
 end
@@ -139,7 +139,7 @@ function ToggleVehicleDeveloperMode()
               local modelName = GetLabelText(GetDisplayNameFromVehicleModel(hash))
               local eHealth = GetVehicleEngineHealth(vehicle)
               local bHealth = GetVehicleBodyHealth(vehicle)
-              Draw2DText('Vehicle Developer Data:', 4, {66, 182, 245}, 0.4, x + 0.0, y + 0.0)
+              Draw2DText('Kørertøjs Dev Data:', 4, {66, 182, 245}, 0.4, x + 0.0, y + 0.0)
               Draw2DText(string.format('Entity ID: ~b~%s~s~ | Net ID: ~b~%s~s~', vehicle, netID), 4, {255, 255, 255}, 0.4, x + 0.0, y + 0.025)
               Draw2DText(string.format('Model: ~b~%s~s~ | Hash: ~b~%s~s~', modelName, hash), 4, {255, 255, 255}, 0.4, x + 0.0, y + 0.050)
               Draw2DText(string.format('Engine Health: ~b~%s~s~ | Body Health: ~b~%s~s~', math.round(eHealth, 2), math.round(bHealth, 2)), 4, {255, 255, 255}, 0.4, x + 0.0, y + 0.075)

@@ -73,22 +73,22 @@ Citizen.CreateThread(function()
                     local TaskData = GetCompletedTasks()
                     if TaskData ~= nil then
                         if not BuilderData.ShowDetails then
-                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Detail view')
-                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + 0.2, 'Exercises: '..TaskData.completed..' / '..TaskData.total)
+                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Vis detaljer')
+                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + 0.2, 'Udførelser: '..TaskData.completed..' / '..TaskData.total)
                         else
-                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Details hide')
+                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Fjern detaljer')
                             for k, v in pairs(Config.Projects[Config.CurrentProject].ProjectLocations["tasks"]) do
                                 if v.completed then
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + OffsetZ, v.label..': Completed')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + OffsetZ, v.label..': Færdigt')
                                 else
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + OffsetZ, v.label..': Not completed')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z + OffsetZ, v.label..': Ikke færdigt')
                                 end
                                 OffsetZ = OffsetZ + 0.2
                             end
                         end
 
                         if TaskData.completed == TaskData.total then
-                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z - 0.2, '[G] End project')
+                            DrawText3Ds(data.coords.x, data.coords.y, data.coords.z - 0.2, '[G] Afslut projektet')
                             if IsControlJustPressed(0, 47) then
                                 TriggerServerEvent('qb-builderjob:server:FinishProject')
                             end
@@ -108,7 +108,7 @@ Citizen.CreateThread(function()
                         inRange = true
                         DrawMarker(2, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.2, 55, 155, 255, 255, 0, 0, 0, 1, 0, 0, 0)
                         if TaskDistance < 1.5 then
-                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.25, '[E] Complete task')
+                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z + 0.25, '[E] Udfør opgave')
                             if IsControlJustPressed(0, 38) then
                                 BuilderData.CurrentTask = k
                                 DoTask()

@@ -468,7 +468,7 @@ RegisterNetEvent('qb-clothing:client:openOutfitMenu')
 AddEventHandler('qb-clothing:client:openOutfitMenu', function()
     QBCore.Functions.TriggerCallback('qb-clothing:server:getOutfits', function(result)
         openMenu({
-            {menu = "myOutfits", label = "My Outfits", selected = true, outfits = result},
+            {menu = "myOutfits", label = "Mine Outfits", selected = true, outfits = result},
         })
     end)
 end)
@@ -546,9 +546,9 @@ RegisterNetEvent('qb-clothing:client:openMenu')
 AddEventHandler('qb-clothing:client:openMenu', function()
     customCamLocation = nil
     openMenu({
-        {menu = "character", label = "Character", selected = true},
-        {menu = "clothing", label = "Features", selected = false},
-        {menu = "accessoires", label = "Accessories", selected = false}
+        {menu = "character", label = "Karakter", selected = true},
+        {menu = "clothing", label = "Tilføjelser", selected = false},
+        {menu = "accessoires", label = "Tilbehør", selected = false}
     })
 end)
 
@@ -694,7 +694,7 @@ function openMenu(allowedMenus)
 end
 
 RegisterNUICallback('TrackerError', function()
-    QBCore.Functions.Notify("You can't remove your ankle bracelet ..", "error")
+    QBCore.Functions.Notify("Du kan ikke fjerne din kæde fra anklen ..", "error")
 end)
 
 RegisterNUICallback('saveOutfit', function(data, cb)
@@ -938,7 +938,7 @@ end)
 
 RegisterNUICallback('removeOutfit', function(data, cb)
     TriggerServerEvent('qb-clothing:server:removeOutfit', data.outfitName, data.outfitId)
-    QBCore.Functions.Notify("You have deleted your"..data.outfitName.." outfit!")
+    QBCore.Functions.Notify("Du har slettet"..data.outfitName.." outfit!")
 end)
 
 function ChangeVariation(data)

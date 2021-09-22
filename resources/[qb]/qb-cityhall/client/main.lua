@@ -69,7 +69,7 @@ Citizen.CreateThread(function()
             inRange = true
             DrawMarker(2, Config.Cityhall.coords.x, Config.Cityhall.coords.y, Config.Cityhall.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.2, 155, 152, 234, 155, false, false, false, true, false, false, false)
             if #(pos - vector3(Config.Cityhall.coords.x, Config.Cityhall.coords.y, Config.Cityhall.coords.z)) < 1.5 then
-                DrawText3Ds(Config.Cityhall.coords, '~g~E~w~ - City Services Menu')
+                DrawText3Ds(Config.Cityhall.coords, '~g~E~w~ - Tilgå Rådhuset')
                 if IsControlJustPressed(0, 38) then
                     qbCityhall.Open()
                 end
@@ -92,15 +92,15 @@ end)
 RegisterNetEvent('qb-cityhall:client:sendDriverEmail')
 AddEventHandler('qb-cityhall:client:sendDriverEmail', function(charinfo)
     SetTimeout(math.random(2500, 4000), function()
-        local gender = "Mr"
+        local gender = "Hr"
         if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then
-            gender = "Mrs"
+            gender = "Fru"
         end
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
         TriggerServerEvent('qb-phone:server:sendNewMail', {
-            sender = "Township",
-            subject = "Driving lessons request",
-            message = "Hello " .. gender .. " " .. charinfo.lastname .. ",<br /><br />We have just received a message that someone wants to take driving lessons<br />If you are willing to teach, please contact us:<br />Naam: <strong>".. charinfo.firstname .. " " .. charinfo.lastname .. "</strong><br />Phone Number: <strong>"..charinfo.phone.."</strong><br/><br/>Kind regards,<br />Township Los Santos",
+            sender = "DinKørerskole",
+            subject = "Anmodning om førerret",
+            message = "Goddag " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har modtaget en besked, der er en der gerne vil have førerret<br />Hvis du er villig til at lærer, så kontakt os på:<br />Naam: <strong>".. charinfo.firstname .. " " .. charinfo.lastname .. "</strong><br />Mobil nummer: <strong>"..charinfo.phone.."</strong><br/><br/>Med venlig hilsen,<br />DinKørerskole Los Santos",
             button = {}
         })
     end)
@@ -108,15 +108,15 @@ end)
 
 local idTypes = {
     ["id_card"] = {
-        label = "ID Card",
+        label = "ID Kort",
         item = "id_card"
     },
     ["driver_license"] = {
-        label = "Drivers License",
+        label = "Kørerkort",
         item = "driver_license"
     },
     ["weaponlicense"] = {
-        label = "Firearms License",
+        label = "Våben Licens",
         item = "weaponlicense"
     }
 }
@@ -126,9 +126,9 @@ RegisterNUICallback('requestId', function(data)
         local idType = data.idType
 
         TriggerServerEvent('qb-cityhall:server:requestId', idTypes[idType])
-        QBCore.Functions.Notify('You have recived your '..idTypes[idType].label..' for $50', 'success', 3500)
+        QBCore.Functions.Notify('Du har modtaget dit '..idTypes[idType].label..' for $50', 'success', 3500)
     else
-        QBCore.Functions.Notify('This will not work', 'error')
+        QBCore.Functions.Notify('Dette vil ikke virke', 'error')
     end
 end)
 
@@ -144,10 +144,10 @@ RegisterNUICallback('requestLicenses', function(data, cb)
 
             if type == "driver" then 
                 licenseType = "driver_license" 
-                label = "Drivers Licence" 
+                label = "Kørerkort" 
             elseif type == "weapon" then
                 licenseType = "weaponlicense"
-                label = "Firearms License"
+                label = "Våben Licens"
             end
 
             table.insert(availableLicenses, {
@@ -183,9 +183,9 @@ RegisterNUICallback('applyJob', function(data)
             TriggerServerEvent('qb-cityhall:server:ApplyJob', data.job)
         else
             TriggerServerEvent('qb-cityhall:server:banPlayer')
-            TriggerServerEvent("qb-log:server:CreateLog", "anticheat", "POST Request (Abuse)", "red", "** @everyone " ..GetPlayerName(player).. "** has been banned for abusing localhost:13172, sending POST request\'s")         
+            TriggerServerEvent("qb-log:server:CreateLog", "anticheat", "POST Request (Abuse)", "red", "** @everyone " ..GetPlayerName(player).. "** er blevet banned for abuse af localhost:13172, sending POST request\'s")         
         end
     else
-        QBCore.Functions.Notify('Unfortunately will not work ...', 'error')
+        QBCore.Functions.Notify('Dette viker ikke ...', 'error')
     end
 end)

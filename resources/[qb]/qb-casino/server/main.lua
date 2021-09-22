@@ -16,13 +16,13 @@ AddEventHandler("qb-casino:server:sell", function()
                     Player.Functions.RemoveItem(Player.PlayerData.items[k].name, Player.PlayerData.items[k].amount, k)
                         
         Player.Functions.AddMoney("cash", price, "sold-casino-chips")
-            TriggerClientEvent('QBCore:Notify', src, "You sold your chips for $"..price)
+            TriggerClientEvent('QBCore:Notify', src, "Du solgte dine chips for $"..price)
             TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "blue", "**"..GetPlayerName(src) .. "** got $"..price.." for selling the Chips")
                 end
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You have no chips..")
+        TriggerClientEvent('QBCore:Notify', src, "Du har ingen chips..")
     end
 end)
 
@@ -35,7 +35,7 @@ exports["qb-blackjack"]:SetGetChipsCallback(function(source)
         Chips = Chips
     end
 
-    return TriggerClientEvent('QBCore:Notify', src, "You have no chips..")
+    return TriggerClientEvent('QBCore:Notify', src, "Du har ingen chips..")
 end)
 
     exports["qb-blackjack"]:SetTakeChipsCallback(function(source, amount)

@@ -27,9 +27,9 @@ Citizen.CreateThread(function()
                         if dist < 1.5 then
                             sleep = 7
                             if onDuty then
-                                DrawText3D(v.x, v.y, v.z, "~r~E~w~ - Go Off Duty")
+                                DrawText3D(v.x, v.y, v.z, "~r~E~w~ - Gå af arbejde")
                             else
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Go On Duty")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gå på arbejde")
                             end
                             if IsControlJustReleased(0, 38) then
                                 onDuty = not onDuty
@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
                                 TriggerServerEvent("police:server:UpdateBlips")
                             end
                         elseif dist < 4.5 then
-                            DrawText3D(v.x, v.y, v.z, "on/off duty")
+                            DrawText3D(v.x, v.y, v.z, "af/på duty")
                         end  
                     end
                 end
@@ -48,12 +48,12 @@ Citizen.CreateThread(function()
                         if onDuty then
                             if dist < 1.5 then
                                 sleep = 7
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Armory")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Artikler")
                                 if IsControlJustReleased(0, 38) then
                                     TriggerServerEvent("inventory:server:OpenInventory", "shop", "hospital", Config.Items)
                                 end
                             elseif dist < 2.5 then
-                                DrawText3D(v.x, v.y, v.z, "Armory")
+                                DrawText3D(v.x, v.y, v.z, "Shop")
                             end  
                         end
                     end
@@ -66,9 +66,9 @@ Citizen.CreateThread(function()
                         DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                         if dist < 1.5 then
                             if IsPedInAnyVehicle(ped, false) then
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Store vehicle")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem kørertøj")
                             else
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Vehicles")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Kørertøjer")
                             end
                             if IsControlJustReleased(0, 38) then
                                 if IsPedInAnyVehicle(ped, false) then
@@ -92,9 +92,9 @@ Citizen.CreateThread(function()
                             DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                             if dist < 1.5 then
                                 if IsPedInAnyVehicle(ped, false) then
-                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Store helicopter")
+                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem helikopter")
                                 else
-                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Take a helicopter")
+                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Helikopter")
                                 end
                                 if IsControlJustReleased(0, 38) then
                                     if IsPedInAnyVehicle(ped, false) then
@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
                                     else
                                         local coords = Config.Locations["helicopter"][k]
                                         QBCore.Functions.SpawnVehicle(Config.Helicopter, function(veh)
-                                            SetVehicleNumberPlateText(veh, "LIFE"..tostring(math.random(1000, 9999)))
+                                            SetVehicleNumberPlateText(veh, "LIV"..tostring(math.random(1000, 9999)))
                                             SetEntityHeading(veh, coords.w)
                                             SetVehicleLivery(veh, 1) -- Ambulance Livery
                                             exports['LegacyFuel']:SetFuel(veh, 100.0)
@@ -125,7 +125,7 @@ Citizen.CreateThread(function()
                 local dist = #(pos - vector3(v.x, v.y, v.z))
                 if dist < 1.5 then
                     sleep = 7
-                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Take the elevator to the roof")
+                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Tag elevatoren op til taget")
                     if IsControlJustReleased(0, 38) then
                         DoScreenFadeOut(500)
                         while not IsScreenFadedOut() do
@@ -149,7 +149,7 @@ Citizen.CreateThread(function()
                 local dist = #(pos - vector3(v.x, v.y, v.z))
                 if dist < 1.5 then
                     sleep = 7
-                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Take the elevator down")
+                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Tag elevatoren ned")
                     if IsControlJustReleased(0, 38) then
                         DoScreenFadeOut(500)
                         while not IsScreenFadedOut() do
@@ -262,7 +262,7 @@ function MakeCall(ped, male, street1, street2)
         sprite = 280,
         color = 4,
         scale = 0.9,
-        text = "Injured Person"
+        text = "Tilskade kommet person"
     }
     if math.random(10) > 5 then
         rand = 0.0 - rand
@@ -308,9 +308,9 @@ AddEventHandler('hospital:client:CheckStatus', function()
                             TriggerEvent("chatMessage", "STATUS CHECK", "error", WeaponDamageList[v])
                         end
                     elseif result["BLEED"] > 0 then
-                        TriggerEvent("chatMessage", "STATUS CHECK", "error", "Is "..Config.BleedingStates[v].label)
+                        TriggerEvent("chatMessage", "STATUS CHECK", "error", "Er "..Config.BleedingStates[v].label)
                     else
-                        QBCore.Functions.Notify('Player Is Healthy', 'success')
+                        QBCore.Functions.Notify('Spilleren er rask', 'success')
                     end
                 end
                 isStatusChecking = true
@@ -318,7 +318,7 @@ AddEventHandler('hospital:client:CheckStatus', function()
             end
         end, playerId)
     else
-        QBCore.Functions.Notify('No Player Nearby', 'error')
+        QBCore.Functions.Notify('Ingen spiller i nærheden', 'error')
     end
 end)
 
@@ -330,7 +330,7 @@ AddEventHandler('hospital:client:RevivePlayer', function()
             if player ~= -1 and distance < 5.0 then
                 local playerId = GetPlayerServerId(player)
                 isHealingPerson = true
-                QBCore.Functions.Progressbar("hospital_revive", "Reviving person..", 5000, false, true, {
+                QBCore.Functions.Progressbar("hospital_revive", "Genopliver person..", 5000, false, true, {
                     disableMovement = false,
                     disableCarMovement = false,
                     disableMouse = false,
@@ -342,18 +342,18 @@ AddEventHandler('hospital:client:RevivePlayer', function()
                 }, {}, {}, function() -- Done
                     isHealingPerson = false
                     StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                    QBCore.Functions.Notify("You revived the person!")
+                    QBCore.Functions.Notify("Du genoplivede personen!")
                     TriggerServerEvent("hospital:server:RevivePlayer", playerId)
                 end, function() -- Cancel
                     isHealingPerson = false
                     StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                    QBCore.Functions.Notify("Failed!", "error")
+                    QBCore.Functions.Notify("Mislykkedes!", "error")
                 end)
             else
-                QBCore.Functions.Notify("No Player Nearby", "error")
+                QBCore.Functions.Notify("Ingen spiller i nærheden", "error")
             end
         else
-            QBCore.Functions.Notify("You Need A First Aid Kit", "error")
+            QBCore.Functions.Notify("Du mangler et Første hjælps Kit", "error")
         end
     end, 'firstaid')
 end)
@@ -378,18 +378,18 @@ AddEventHandler('hospital:client:TreatWounds', function()
                 }, {}, {}, function() -- Done
                     isHealingPerson = false
                     StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                    QBCore.Functions.Notify("You helped the person!")
+                    QBCore.Functions.Notify("Du hjalp personen!")
                     TriggerServerEvent("hospital:server:TreatWounds", playerId)
                 end, function() -- Cancel
                     isHealingPerson = false
                     StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                    QBCore.Functions.Notify("Failed!", "error")
+                    QBCore.Functions.Notify("Mislykkedes!", "error")
                 end)
             else
-                QBCore.Functions.Notify("No Player Nearby", "error")
+                QBCore.Functions.Notify("Ingen spiller i nærheden", "error")
             end
         else
-            QBCore.Functions.Notify("You Need A Bandage", "error")
+            QBCore.Functions.Notify("Du mangler Bandage", "error")
         end
     end, 'bandage')
 end)

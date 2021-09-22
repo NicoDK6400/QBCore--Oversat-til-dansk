@@ -95,7 +95,7 @@ AddEventHandler('qb-bankrobbery:UseBankcardA', function()
                 if CurrentCops >= Config.MinimumPaletoPolice then
                     if not Config.BigBanks["paleto"]["isOpened"] then 
                         TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                        QBCore.Functions.Progressbar("security_pass", "Validitating card..", math.random(5000, 10000), false, true, {
+                        QBCore.Functions.Progressbar("security_pass", "Validere kort..", math.random(5000, 10000), false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,
@@ -127,13 +127,13 @@ AddEventHandler('qb-bankrobbery:UseBankcardA', function()
                             QBCore.Functions.Notify("Canceled..", "error")
                         end)
                     else
-                        QBCore.Functions.Notify("It looks like the bank is already opened..", "error")
+                        QBCore.Functions.Notify("Ser ud til at banken allerede er åben..", "error")
                     end
                 else
-                    QBCore.Functions.Notify('Minimum Of '..Config.MinimumPaletoPolice..' Police Needed', "error")
+                    QBCore.Functions.Notify('Minimum af '..Config.MinimumPaletoPolice..' politi er der brug for', "error")
                 end
             else
-                QBCore.Functions.Notify("The security lock is active, the door cannot be opened at the moment..", "error", 5500)
+                QBCore.Functions.Notify("Sikkerhedslåsen er aktiv, døren kan ikke åbnes i øjeblikket..", "error", 5500)
             end
         end)
     end 

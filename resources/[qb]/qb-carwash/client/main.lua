@@ -34,12 +34,12 @@ Citizen.CreateThread(function()
                     if dist <= 7.5 then
                         if Driver == PlayerPed then
                             if not washingVehicle then
-                                DrawText3Ds(Config.Locations[k]["coords"]["x"], Config.Locations[k]["coords"]["y"], Config.Locations[k]["coords"]["z"], '~g~E~w~ - Washing car ($'..Config.DefaultPrice..')')
+                                DrawText3Ds(Config.Locations[k]["coords"]["x"], Config.Locations[k]["coords"]["y"], Config.Locations[k]["coords"]["z"], '~g~E~w~ - Vasket bil ($'..Config.DefaultPrice..')')
                                 if IsControlJustPressed(0, 38) then
                                     TriggerServerEvent('qb-carwash:server:washCar')
                                 end
                             else
-                                DrawText3Ds(Config.Locations[k]["coords"]["x"], Config.Locations[k]["coords"]["y"], Config.Locations[k]["coords"]["z"], 'The car wash is not available ..')
+                                DrawText3Ds(Config.Locations[k]["coords"]["x"], Config.Locations[k]["coords"]["y"], Config.Locations[k]["coords"]["z"], 'Bilvask er ikke tilgængelig ..')
                             end
                         end
                     end
@@ -63,7 +63,7 @@ AddEventHandler('qb-carwash:client:washCar', function()
 
     washingVehicle = true
 
-    QBCore.Functions.Progressbar("search_cabin", "Vehicle is being washed ..", math.random(4000, 8000), false, true, {
+    QBCore.Functions.Progressbar("search_cabin", "Køretøjet vaskes ..", math.random(4000, 8000), false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
@@ -74,7 +74,7 @@ AddEventHandler('qb-carwash:client:washCar', function()
         WashDecalsFromVehicle(PedVehicle, 1.0)
         washingVehicle = false
     end, function() -- Cancel
-        QBCore.Functions.Notify("Washing canceled ..", "error")
+        QBCore.Functions.Notify("Vask afbrudt ..", "error")
         washingVehicle = false
     end)
 end)
