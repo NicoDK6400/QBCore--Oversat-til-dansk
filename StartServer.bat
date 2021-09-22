@@ -1,1 +1,1 @@
-"artifact\FXServer.exe" +exec server.cfg +set onesync on +set svgui_disable true
+"artifact\FXServer.exe" +exec server.cfg +set onesync on +set svgui_disable true +set sv_enforceGameBuild 2060
