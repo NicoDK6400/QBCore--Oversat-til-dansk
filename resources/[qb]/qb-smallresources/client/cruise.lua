@@ -35,7 +35,7 @@ CreateThread(function()
               Player = PlayerPedId()
               TriggerCruiseControl()
           else
-              QBCore.Functions.Notify("Cruise control unavailable", "error")
+              QBCore.Functions.Notify("Fartpilot er ikke en mulighed", "error")
           end
       end
   end
@@ -45,11 +45,11 @@ function TriggerCruiseControl ()
   if CruisedSpeed == 0 and IsDriving() then
     if GetVehiculeSpeed() > 0 and GetVehicleCurrentGear(GetVehicle()) > 0  then
       CruisedSpeed = GetVehiculeSpeed()
-      CruisedSpeedMph = TransformToMph(CruisedSpeed) -- Comment me for km/h
-      --CruisedSpeedKm = TransformToKm(CruisedSpeed) -- Uncomment me for km/h
+      --CruisedSpeedMph = TransformToMph(CruisedSpeed) -- Comment me for km/h
+      CruisedSpeedKm = TransformToKm(CruisedSpeed) -- Uncomment me for km/h
       TriggerEvent('seatbelt:client:ToggleCruise')
-      QBCore.Functions.Notify("Cruise Activated: " .. CruisedSpeedMph ..  " MP/H") -- Comment me for km/h
-      --QBCore.Functions.Notify("Cruise Activated: " .. CruisedSpeedKm ..  " km/h") -- Uncomment me for km/h
+      --QBCore.Functions.Notify("Fartpilot aktiveret: " .. CruisedSpeedMph ..  " MP/H") -- Comment me for km/h
+      QBCore.Functions.Notify("Fartpilot aktiveret: " .. CruisedSpeedKm ..  " km/h") -- Uncomment me for km/h
 
       Citizen.CreateThread(function ()
         while CruisedSpeed > 0 and IsInVehicle() == Player do
@@ -58,7 +58,7 @@ function TriggerCruiseControl ()
           if not IsTurningOrHandBraking() and GetVehiculeSpeed() < (CruisedSpeed - 1.5) then
             CruisedSpeed = 0
             TriggerEvent('seatbelt:client:ToggleCruise')
-            QBCore.Functions.Notify("Cruise Deactivated", "error")
+            QBCore.Functions.Notify("Fartpilot deaktiveret", "error")
             Wait(2000)
             break
           end
@@ -76,7 +76,7 @@ function TriggerCruiseControl ()
           if IsControlJustPressed(2, 72) then
             CruisedSpeed = 0
             TriggerEvent('seatbelt:client:ToggleCruise')
-            QBCore.Functions.Notify("Cruise Deactivated", "error")
+            QBCore.Functions.Notify("Fartpilot deaktiveret", "error")
             Wait(2000)
             break
           end

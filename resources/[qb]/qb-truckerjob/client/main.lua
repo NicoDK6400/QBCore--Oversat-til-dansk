@@ -90,9 +90,9 @@ Citizen.CreateThread(function()
                     DrawMarker(2, Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 200, 200, 222, false, false, false, true, false, false, false)
                     if #(pos - vector3(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z)) < 1.5 then
                         if IsPedInAnyVehicle(PlayerPedId(), false) then
-                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Store Vehicle")
+                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Gem kørertøj")
                         else
-                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Vehicle")
+                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Kørertøj")
                         end
                         if IsControlJustReleased(0, 38) then
                             if IsPedInAnyVehicle(PlayerPedId(), false) then
@@ -101,10 +101,10 @@ Citizen.CreateThread(function()
                                         DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
                                         TriggerServerEvent('qb-trucker:server:DoBail', false)
                                     else
-                                        QBCore.Functions.Notify('This is not a commercial vehicle!', 'error')
+                                        QBCore.Functions.Notify('Dette er ikke et erhvervskøretøj!', 'error')
                                     end
                                 else
-                                    QBCore.Functions.Notify('You must be the driver to do this..')
+                                    QBCore.Functions.Notify('Du skal være fører for at kunne det..')
                                 end
                             else
                                 MenuGarage()
@@ -117,7 +117,7 @@ Citizen.CreateThread(function()
     
                 if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 4.5 then
                     if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 1.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Lønseddel")
                         if IsControlJustReleased(0, 38) then
                             if JobsDone > 0 then
                                 TriggerServerEvent("qb-trucker:server:01101110", JobsDone)
@@ -131,11 +131,11 @@ Citizen.CreateThread(function()
                                     CurrentBlip = nil
                                 end
                             else
-                                QBCore.Functions.Notify("You haven't done any work yet..", "error")
+                                QBCore.Functions.Notify("Du har ikke lavet noget arbejde endnu..", "error")
                             end
                         end
                     elseif #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 2.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Lønseddel")
                     end  
                 end
     
@@ -147,10 +147,10 @@ Citizen.CreateThread(function()
                                 if isTruckerVehicle(vehicle) and CurrentPlate == GetVehicleNumberPlateText(vehicle) then
                                     local trunkpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, -2.5, 0)
                                     if #(pos - vector3(trunkpos.x, trunkpos.y, trunkpos.z)) < 1.5 and not isWorking then
-                                        DrawText3D(trunkpos.x, trunkpos.y, trunkpos.z, "~g~E~w~ - Pick Up Products")
+                                        DrawText3D(trunkpos.x, trunkpos.y, trunkpos.z, "~g~E~w~ - Tag produkterne")
                                         if IsControlJustReleased(0, 38) then
                                             isWorking = true
-                                            QBCore.Functions.Progressbar("work_carrybox", "Take A Box Of Products", 2000, false, true, {
+                                            QBCore.Functions.Progressbar("work_carrybox", "Tag en kasse med produkter", 2000, false, true, {
                                                 disableMovement = true,
                                                 disableCarMovement = true,
                                                 disableMouse = false,
@@ -167,22 +167,22 @@ Citizen.CreateThread(function()
                                             end, function() -- Cancel
                                                 isWorking = false
                                                 StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                                                QBCore.Functions.Notify("Canceled", "error")
+                                                QBCore.Functions.Notify("Afbrudt", "error")
                                             end)
                                         end
                                     else
-                                        DrawText3D(trunkpos.x, trunkpos.y, trunkpos.z, "Pick Up Products")
+                                        DrawText3D(trunkpos.x, trunkpos.y, trunkpos.z, "Tag produkterne")
                                     end
                                 end
                             elseif hasBox then
                                 if #(pos - vector3(CurrentLocation.x, CurrentLocation.y, CurrentLocation.z)) < 1.5 and not isWorking then
-                                    DrawText3D(CurrentLocation.x, CurrentLocation.y, CurrentLocation.z, "~g~E~w~ - Deliver Products")
+                                    DrawText3D(CurrentLocation.x, CurrentLocation.y, CurrentLocation.z, "~g~E~w~ - Udlevere produkter")
                                     if IsControlJustReleased(0, 38) then
                                         isWorking = true
                                         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                                         Citizen.Wait(500)
                                         TriggerEvent('animations:client:EmoteCommandStart', {"bumbin"})
-                                        QBCore.Functions.Progressbar("work_dropbox", "Deliver Box Of Products", 2000, false, true, {
+                                        QBCore.Functions.Progressbar("work_dropbox", "Udlever en kasse med produkter", 2000, false, true, {
                                             disableMovement = true,
                                             disableCarMovement = true,
                                             disableMouse = false,
@@ -195,7 +195,7 @@ Citizen.CreateThread(function()
                                             if currentCount == CurrentLocation.dropcount then
                                                 table.insert(LocationsDone, CurrentLocation.id)
                                                 TriggerServerEvent("qb-shops:server:RestockShopItems", CurrentLocation.store)
-                                                QBCore.Functions.Notify("You Have Delivered All Products, To The Next Point")
+                                                QBCore.Functions.Notify("Du har afleveret en kasse, videre til næste")
                                                 local chance = math.random(1,100)
                                                 if chance < 26 then
                                                     TriggerServerEvent('qb-trucker:server:nano')
@@ -213,11 +213,11 @@ Citizen.CreateThread(function()
                                         end, function() -- Cancel
                                             isWorking = false
                                             ClearPedTasks(PlayerPedId())
-                                            QBCore.Functions.Notify("Canceled", "error")
+                                            QBCore.Functions.Notify("Afbrudt", "error")
                                         end)
                                     end
                                 else
-                                    DrawText3D(CurrentLocation.x, CurrentLocation.y, CurrentLocation.z, "Deliver Products")
+                                    DrawText3D(CurrentLocation.x, CurrentLocation.y, CurrentLocation.z, "Udlever pakker")
                                 end
                             end
                         end
@@ -248,7 +248,7 @@ function getNewLocation()
         SetBlipRoute(CurrentBlip, true)
         SetBlipRouteColour(CurrentBlip, 3)
     else
-        QBCore.Functions.Notify("You Went To All The Shops .. Time For Your Payslip!")
+        QBCore.Functions.Notify("Du har været hos alle butikker .. Tid til en lønseddel!")
         if CurrentBlip ~= nil then
             RemoveBlip(CurrentBlip)
 	    ClearAllBlipRoutes()
@@ -307,19 +307,19 @@ function MenuGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Vehicles", "VehicleList", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Kørertøj", "VehicleList", nil)
+    Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
     ped = PlayerPedId();
-    MenuTitle = "Vehicles:"
+    MenuTitle = "Kørertøj:"
     ClearMenu()
     for k, v in pairs(Config.Vehicles) do
-        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", k, "Garage", " Motor: 100%", " Body: 100%", " Fuel: 100%")
+        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", k, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")
     end
         
-    Menu.addButton("Back", "MenuGarage",nil)
+    Menu.addButton("Tilbage", "MenuGarage",nil)
 end
 
 function TakeOutVehicle(vehicleInfo)

@@ -10,7 +10,7 @@ AddEventHandler('qb-streetraces:NewRace', function(RaceTable)
         table.insert(Races[RaceId].joined, QBCore.Functions.GetIdentifier(src, 'license'))
         TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
         TriggerClientEvent('qb-streetraces:SetRaceId', src, RaceId)
-        TriggerClientEvent('QBCore:Notify', src, "You joind the race for €"..Races[RaceId].amount..",-", 'success')
+        TriggerClientEvent('QBCore:Notify', src, "Du tilmeldte dig for $"..Races[RaceId].amount..",-", 'success')
     end
 end)
 
@@ -19,7 +19,7 @@ AddEventHandler('qb-streetraces:RaceWon', function(RaceId)
     local src = source
     local xPlayer = QBCore.Functions.GetPlayer(src)
     xPlayer.Functions.AddMoney('cash', Races[RaceId].pot, "race-won")
-    TriggerClientEvent('QBCore:Notify', src, "You won the race and €"..Races[RaceId].pot..",- recieved", 'success')
+    TriggerClientEvent('QBCore:Notify', src, "Du vandt racet og modtog $"..Races[RaceId].pot..",-", 'success')
     TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
     TriggerClientEvent('qb-streetraces:RaceDone', -1, RaceId, GetPlayerName(src))
 end)
@@ -36,18 +36,18 @@ AddEventHandler('qb-streetraces:JoinRace', function(RaceId)
             if xPlayer.Functions.RemoveMoney('cash', Races[RaceId].amount, "streetrace-joined") then
                 TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
                 TriggerClientEvent('qb-streetraces:SetRaceId', src, RaceId)
-                TriggerClientEvent('QBCore:Notify', zPlayer.PlayerData.source, GetPlayerName(src).." Joined the race", 'primary')
+                TriggerClientEvent('QBCore:Notify', zPlayer.PlayerData.source, GetPlayerName(src).." Tilmeldte sig", 'primary')
             end
         else
-            TriggerClientEvent('QBCore:Notify', src, "You dont have enough cash", 'error')
+            TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok penge", 'error')
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "The person wo made the race is offline!", 'error')
+        TriggerClientEvent('QBCore:Notify', src, "Personen der har lavet racet er ikke online!", 'error')
         Races[RaceId] = {}
     end
 end)
 
-QBCore.Commands.Add("createrace", "Start A Street Race", {{name="amount", help="The Stake Amount For The Race."}}, false, function(source, args)
+QBCore.Commands.Add("createrace", "Start et Street Race", {{name="amount", help="Indsatsbeløbet til løbet."}}, false, function(source, args)
     local src = source
     local amount = tonumber(args[1])
     local Player = QBCore.Functions.GetPlayer(src)
@@ -55,16 +55,16 @@ QBCore.Commands.Add("createrace", "Start A Street Race", {{name="amount", help="
     if GetJoinedRace(QBCore.Functions.GetIdentifier(src, 'license')) == 0 then
         TriggerClientEvent('qb-streetraces:CreateRace', src, amount)
     else
-        TriggerClientEvent('QBCore:Notify', src, "You Are Already In A Race", 'error')    
+        TriggerClientEvent('QBCore:Notify', src, "Du er allerede tilmeldt dig et race", 'error')    
     end
 end)
 
-QBCore.Commands.Add("stoprace", "Stop The Race You Created", {}, false, function(source, args)
+QBCore.Commands.Add("stoprace", "Stop det race du startede", {}, false, function(source, args)
     local src = source
     CancelRace(src)
 end)
 
-QBCore.Commands.Add("quitrace", "Get Out Of A Race. (You Will NOT Get Your Money Back!)", {}, false, function(source, args)
+QBCore.Commands.Add("quitrace", "Giv op på race. (Du får ikke dine penge retur!)", {}, false, function(source, args)
     local src = source
     local xPlayer = QBCore.Functions.GetPlayer(src)
     local RaceId = GetJoinedRace(QBCore.Functions.GetIdentifier(src, 'license'))
@@ -73,16 +73,16 @@ QBCore.Commands.Add("quitrace", "Get Out Of A Race. (You Will NOT Get Your Money
     if RaceId ~= 0 then
         if GetCreatedRace(QBCore.Functions.GetIdentifier(src, 'license')) ~= RaceId then
             RemoveFromRace(QBCore.Functions.GetIdentifier(src, 'license'))
-            TriggerClientEvent('QBCore:Notify', src, "You Have Stepped Out Of The Race! And You Lost Your Money", 'error')
+            TriggerClientEvent('QBCore:Notify', src, "Du forlod dit race! Dine penge er tabte", 'error')
         else
-            TriggerClientEvent('QBCore:Notify', src, "/stoprace To Stop The Race", 'error')
+            TriggerClientEvent('QBCore:Notify', src, "/stoprace For at stoppe race", 'error')
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You Are Not In A Race ", 'error')
+        TriggerClientEvent('QBCore:Notify', src, "Du er ikke i et race ", 'error')
     end
 end)
 
-QBCore.Commands.Add("startrace", "Start The Race", {}, false, function(source, args)
+QBCore.Commands.Add("startrace", "Start Race", {}, false, function(source, args)
     local src = source
     local RaceId = GetCreatedRace(QBCore.Functions.GetIdentifier(src, 'license'))
     
@@ -92,7 +92,7 @@ QBCore.Commands.Add("startrace", "Start The Race", {}, false, function(source, a
         TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
         TriggerClientEvent("qb-streetraces:StartRace", -1, RaceId)
     else
-        TriggerClientEvent('QBCore:Notify', src, "You Have Not Started A Race", 'error')
+        TriggerClientEvent('QBCore:Notify', src, "Du har ikke startet et race", 'error')
         
     end
 end)
@@ -108,20 +108,20 @@ function CancelRace(source)
                     for _, iden in pairs(Races[key].joined) do
                         local xdPlayer = QBCore.Functions.GetPlayer(iden)
                             xdPlayer.Functions.AddMoney('cash', Races[key].amount, "race-cancelled")
-                            TriggerClientEvent('QBCore:Notify', xdPlayer.PlayerData.source, "Race Has Stopped, You Got Back $"..Races[key].amount.."", 'error')
+                            TriggerClientEvent('QBCore:Notify', xdPlayer.PlayerData.source, "Race er blevet stoppet, du fik $"..Races[key].amount.." tilbage", 'error')
                             TriggerClientEvent('qb-streetraces:StopRace', xdPlayer.PlayerData.source)
                             RemoveFromRace(iden)
                     end
                 else
-                    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "The Race Has Already Started", 'error')
+                    TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "Race er allerede startet", 'error')
                 end
-                TriggerClientEvent('QBCore:Notify', source, "Race Stopped!", 'error')
+                TriggerClientEvent('QBCore:Notify', source, "Race stoppede!", 'error')
                 Races[key] = nil
             end
         end
         TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
     else
-        TriggerClientEvent('QBCore:Notify', source, "You Have Not Started A Race!", 'error')
+        TriggerClientEvent('QBCore:Notify', source, "Du har ikke startet et race!", 'error')
     end
 end
 

@@ -15,7 +15,7 @@ Citizen.CreateThread(function ()
         local pos = GetEntityCoords(PlayerPedId(), true)
         ---- BUITEN
         if #(pos - vector3(Config['delivery'].outsideLocation.x, Config['delivery'].outsideLocation.y, Config['delivery'].outsideLocation.z)) < 1.3 then
-            DrawText3D(Config['delivery'].outsideLocation.x, Config['delivery'].outsideLocation.y, Config['delivery'].outsideLocation.z + 1, "~g~E~w~ - To Enter")
+            DrawText3D(Config['delivery'].outsideLocation.x, Config['delivery'].outsideLocation.y, Config['delivery'].outsideLocation.z + 1, "~g~E~w~ - Gå ind")
             if IsControlJustReleased(0, 38) then
                 DoScreenFadeOut(500)
                 while not IsScreenFadedOut() do
@@ -28,7 +28,7 @@ Citizen.CreateThread(function ()
         ---- BINNEN
 
             if #(pos - vector3(Config['delivery'].insideLocation.x, Config['delivery'].insideLocation.y, Config['delivery'].insideLocation.z)) < 1.3 then
-                DrawText3D(Config['delivery'].insideLocation.x, Config['delivery'].insideLocation.y, Config['delivery'].insideLocation.z + 1, "~g~E~w~ - To Go Outside")
+                DrawText3D(Config['delivery'].insideLocation.x, Config['delivery'].insideLocation.y, Config['delivery'].insideLocation.z + 1, "~g~E~w~ - Gå ud")
                 if IsControlJustReleased(0, 38) then
                     DoScreenFadeOut(500)
                     while not IsScreenFadedOut() do
@@ -44,16 +44,16 @@ Citizen.CreateThread(function ()
             DrawMarker(2, 1049.15, -3100.63, -39.20, 0.9, 0, 0, 0, 0, 0, 0.2001, 0.2001, 0.2001, 255, 255, 255, 255, 0, 0, 0, 0)
             if #(pos - vector3(1049.15, -3100.63, -39.95)) < 1.3 then
                 if onDuty then
-                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ - Clock Out")
+                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ - Stempel ud")
                 else
-                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ -  Clock In")
+                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ -  Stempel ind")
                 end
                 if IsControlJustReleased(0, 38) then
                     onDuty = not onDuty
                     if onDuty then
-                        QBCore.Functions.Notify("You Have Been Clocked In", "success")
+                        QBCore.Functions.Notify("Du stemplede ind på arbejde", "success")
                     else
-                        QBCore.Functions.Notify("You Have Clocked Out", "error")
+                        QBCore.Functions.Notify("Du stemplede ud, god fyraften!", "error")
                     end
                 end
             end
@@ -78,9 +78,9 @@ Citizen.CreateThread(function ()
                 local pos = GetEntityCoords(PlayerPedId(), true)
                 if carryPackage == nil then
                     if #(pos - vector3(packagePos.x, packagePos.y, packagePos.z)) < 2.3 then
-                        DrawText3D(packagePos.x,packagePos.y,packagePos.z+ 1, "~g~E~w~ - Pack Package")
+                        DrawText3D(packagePos.x,packagePos.y,packagePos.z+ 1, "~g~E~w~ - Pak pakker")
                         if IsControlJustReleased(0, 38) then
-                            QBCore.Functions.Progressbar("pickup_reycle_package", "Pick Up The Package ..", math.random(4000, 6000), false, true, {
+                            QBCore.Functions.Progressbar("pickup_reycle_package", "Tager pakken op ..", math.random(4000, 6000), false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -95,11 +95,11 @@ Citizen.CreateThread(function ()
                     end
                 else
                     if #(pos - vector3(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z)) < 2.0 then
-                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "~g~E~w~ - Hand In The Package")
+                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "~g~E~w~ - Overdrag pakken")
                         if IsControlJustReleased(0, 38) then
                             DropPackage()
                             ScrapAnim()
-                            QBCore.Functions.Progressbar("deliver_reycle_package", "Unpacking The Package", 5000, false, true, {
+                            QBCore.Functions.Progressbar("deliver_reycle_package", "Pakker ud...", 5000, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -111,7 +111,7 @@ Citizen.CreateThread(function ()
                             end)
                         end
                     else
-                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "Hand In")
+                        DrawText3D(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z, "Overdrag")
                     end
                 end
             else

@@ -1,4 +1,4 @@
-QBCore.Commands.Add("fix", "Repair your vehicle (Admin Only)", {}, false, function(source, args)
+QBCore.Commands.Add("fix", "Reparere kørertøj (Kun Admin)", {}, false, function(source, args)
     TriggerClientEvent('iens:repaira', source)
     TriggerClientEvent('vehiclemod:client:fixEverything', source)
 end, "admin")

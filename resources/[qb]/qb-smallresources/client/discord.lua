@@ -30,8 +30,8 @@ Citizen.CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and 
             last is the url (this has to start with "fivem://connect/" or "https://") 
         ]]--
-        SetDiscordRichPresenceAction(0, "First Button!", "fivem://connect/localhost:30120")
-        SetDiscordRichPresenceAction(1, "Second Button!", "fivem://connect/localhost:30120")
+        SetDiscordRichPresenceAction(0, "Join serveren!", "https://fivem.dk")
+        SetDiscordRichPresenceAction(1, "Join vores discord!", "https://discord.gg/dkfivem")
 
         -- It updates every minute just in case.
 	Citizen.Wait(60000)

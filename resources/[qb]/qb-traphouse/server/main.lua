@@ -8,7 +8,7 @@ AddEventHandler('qb-traphouse:server:TakeoverHouse', function(Traphouse)
         if Player.Functions.RemoveMoney('cash', Config.TakeoverPrice) then
             TriggerClientEvent('qb-traphouse:client:TakeoverHouse', src, Traphouse)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'You dont have enough cash..', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge..', 'error')
         end
     end
 end)
@@ -40,11 +40,11 @@ AddEventHandler('qb-traphouse:server:AddHouseKeyHolder', function(CitizenId, Tra
                     TriggerClientEvent('qb-traphouse:client:SyncData', -1, TraphouseId, Config.TrapHouses[TraphouseId])
                 end
             else
-                TriggerClientEvent('QBCore:Notify', src, 'There Are No Slots Left')
+                TriggerClientEvent('QBCore:Notify', src, 'Der er ingen ledige pladser')
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Error Has Occurred')
+        TriggerClientEvent('QBCore:Notify', src, 'Noget gik galt')
     end
 end)
 
@@ -89,14 +89,14 @@ function HasTraphouseAndOwner(CitizenId)
     return retval
 end
 
-QBCore.Commands.Add("entertraphouse", "Enter traphouse", {}, false, function(source, args)
+QBCore.Commands.Add("entertraphouse", "Tilgå traphouse", {}, false, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
  
     TriggerClientEvent('qb-traphouse:client:EnterTraphouse', src)
 end)
 
-QBCore.Commands.Add("multikeys", "Give Keys To Traphouse", {{name = "id", help = "Player id"}}, true, function(source, args)
+QBCore.Commands.Add("multikeys", "Giv nøgler til Traphouse", {{name = "id", help = "Spiller id"}}, true, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local TargetId = tonumber(args[1])
@@ -129,20 +129,20 @@ QBCore.Commands.Add("multikeys", "Give Keys To Traphouse", {{name = "id", help =
                                 TriggerClientEvent('qb-traphouse:client:SyncData', -1, Traphouse, Config.TrapHouses[Traphouse])
                             end
                         else
-                            TriggerClientEvent('QBCore:Notify', src, 'There Are No Slots Left')
+                            TriggerClientEvent('QBCore:Notify', src, 'Ingen ledige pladser')
                         end
                     end
                 else
-                    TriggerClientEvent('QBCore:Notify', src, 'Error Has Occurred')
+                    TriggerClientEvent('QBCore:Notify', src, 'Noget gik galt')
                 end
             else
-                TriggerClientEvent('QBCore:Notify', src, 'This Person Already Has Keys', 'error')
+                TriggerClientEvent('QBCore:Notify', src, 'Denne person har allerede nøgler', 'error')
             end
         else
-            TriggerClientEvent('QBCore:Notify', src, 'You Do Not Own A Traphouse Or Are Not The Owner', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du ejer ikke et traphouse, eller er ejer af et', 'error')
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'This Person Is Not In The City', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Denne person er ikke online', 'error')
     end
 end)
 
@@ -155,7 +155,7 @@ AddEventHandler('qb-traphouse:server:TakeMoney', function(TraphouseId)
         Config.TrapHouses[TraphouseId].money = 0
         TriggerClientEvent('qb-traphouse:client:SyncData', -1, TraphouseId, Config.TrapHouses[TraphouseId])
     else
-        TriggerClientEvent('QBCore:Notify', src, 'There issent any money in the cupboard', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Der er ingen penge i skabet', 'error')
     end
 end)
 

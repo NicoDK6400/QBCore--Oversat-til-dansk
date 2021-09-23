@@ -42,7 +42,7 @@ AddEventHandler('seatbelt:client:UseHarness', function(ItemData)
     if inveh and class ~= 8 and class ~= 13 and class ~= 14 then
         if not harnessOn then
             LocalPlayer.state:set("inv_busy", true, true)
-            QBCore.Functions.Progressbar("harness_equip", "Attaching Race Harness", 5000, false, true, {
+            QBCore.Functions.Progressbar("harness_equip", "Sætter racesele i...", 5000, false, true, {
                 disableMovement = false,
                 disableCarMovement = false,
                 disableMouse = false,
@@ -56,7 +56,7 @@ AddEventHandler('seatbelt:client:UseHarness', function(ItemData)
             harnessData = ItemData
         else
             LocalPlayer.state:set("inv_busy", true, true)
-            QBCore.Functions.Progressbar("harness_equip", "Removing Race Harness", 5000, false, true, {
+            QBCore.Functions.Progressbar("harness_equip", "Fjerner raceseler...", 5000, false, true, {
                 disableMovement = false,
                 disableCarMovement = false,
                 disableMouse = false,
@@ -67,7 +67,7 @@ AddEventHandler('seatbelt:client:UseHarness', function(ItemData)
             end)
         end
     else
-        QBCore.Functions.Notify('You\'re not in a car.', 'error')
+        QBCore.Functions.Notify('Du er ikke i et kørertøj.', 'error')
     end
 end)
 

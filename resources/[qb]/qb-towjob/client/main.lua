@@ -53,7 +53,7 @@ RegisterNetEvent('jobs:client:ToggleNpc')
 AddEventHandler('jobs:client:ToggleNpc', function()
     if QBCore.Functions.GetPlayerData().job.name == "tow" then
         if CurrentTow ~= nil then 
-            QBCore.Functions.Notify("First Finish Your Work", "error")
+            QBCore.Functions.Notify("Færdiggør dit arbejde først", "error")
             return
         end
         NpcOn = not NpcOn
@@ -94,7 +94,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
 
             if NpcOn and CurrentLocation ~= nil then
                 if GetEntityModel(targetVehicle) ~= GetHashKey(CurrentLocation.model) then
-                    QBCore.Functions.Notify("This Is Not The Right Vehicle", "error")
+                    QBCore.Functions.Notify("Dette er ikke det korrekte kørertøj", "error")
                     return
                 end
             end
@@ -103,7 +103,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
                     local towPos = GetEntityCoords(vehicle)
                     local targetPos = GetEntityCoords(targetVehicle)
                     if #(towPos - targetPos) < 11.0 then
-                        QBCore.Functions.Progressbar("towing_vehicle", "Hoisting the Vehicle...", 5000, false, true, {
+                        QBCore.Functions.Progressbar("towing_vehicle", "Hejser kørertøjet...", 5000, false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,
@@ -119,7 +119,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
                             CurrentTow = targetVehicle
                             if NpcOn then
                                 RemoveBlip(CurrentBlip)
-                                QBCore.Functions.Notify("Take The Vehicle To Hayes Depot", "success", 5000)
+                                QBCore.Functions.Notify("Tag kørertøjet op Hayes Depot", "success", 5000)
                                 CurrentBlip2 = AddBlipForCoord(491.00, -1314.69, 29.25)
                                 SetBlipColour(CurrentBlip2, 3)
                                 SetBlipRoute(CurrentBlip2, true)
@@ -129,7 +129,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
                                     TriggerServerEvent('qb-tow:server:nano')
                                 end
                             end
-                            QBCore.Functions.Notify("Vehicle Towed")
+                            QBCore.Functions.Notify("Kørertøj towed")
                         end, function() -- Cancel
                             StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_ped", 1.0)
                             QBCore.Functions.Notify("Failed", "error")
@@ -138,7 +138,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
                 end
             end
         else
-            QBCore.Functions.Progressbar("untowing_vehicle", "Remove The Vehicle", 5000, false, true, {
+            QBCore.Functions.Progressbar("untowing_vehicle", "Fjern kørertøjet", 5000, false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
@@ -167,7 +167,7 @@ AddEventHandler('qb-tow:client:TowVehicle', function()
             end)
         end
     else
-        QBCore.Functions.Notify("You Must Have Been In A Towing Vehicle First", "error")
+        QBCore.Functions.Notify("Du skal have været i en towtruck inden", "error")
     end
 end)
 
@@ -190,9 +190,9 @@ Citizen.CreateThread(function()
                     DrawMarker(2, Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 200, 200, 222, false, false, false, true, false, false, false)
                     if #(pos - vector3(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z)) < 1.5 then
                         if IsPedInAnyVehicle(PlayerPedId(), false) then
-                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Store The Vehicle")
+                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Gem kørertøjet")
                         else
-                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Vehicles")
+                            DrawText3D(Config.Locations["vehicle"].coords.x, Config.Locations["vehicle"].coords.y, Config.Locations["vehicle"].coords.z, "~g~E~w~ - Kørertøjer")
                         end
                         if IsControlJustReleased(0, 38) then
                             if IsPedInAnyVehicle(PlayerPedId(), false) then
@@ -209,7 +209,7 @@ Citizen.CreateThread(function()
     
                 if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 4.5 then
                     if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 1.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Lønseddel")
                         if IsControlJustReleased(0, 38) then
                             if JobsDone > 0 then
                                 RemoveBlip(CurrentBlip)
@@ -217,11 +217,11 @@ Citizen.CreateThread(function()
                                 JobsDone = 0
                                 NpcOn = false
                             else
-                                QBCore.Functions.Notify("You Havent Done Any Work Yet", "error")
+                                QBCore.Functions.Notify("Du har ikke lavet noget arbejde endnu", "error")
                             end
                         end
                     elseif #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 2.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Lønseddel")
                     end  
                 end
 
@@ -250,8 +250,8 @@ function deliverVehicle(vehicle)
     RemoveBlip(CurrentBlip2)
     JobsDone = JobsDone + 1
     VehicleSpawned = false
-    QBCore.Functions.Notify("You Have Delivered A Vehicle", "success")
-    QBCore.Functions.Notify("A New Vehicle Can Be Picked Up")
+    QBCore.Functions.Notify("Du har afleveret et kørertøj", "success")
+    QBCore.Functions.Notify("Et nyt kørertøj kan nu hentes")
 
     local randomLocation = getRandomVehicleLocation()
     CurrentLocation.x = Config.Locations["towspots"][randomLocation].coords.x
@@ -295,19 +295,19 @@ function MenuGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Vehicles", "VehicleList", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Kørertøjer", "VehicleList", nil)
+    Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
     ped = PlayerPedId();
-    MenuTitle = "Vehicles:"
+    MenuTitle = "Kørertøjer:"
     ClearMenu()
     for k, v in pairs(Config.Vehicles) do
-        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", k, "Garage", " Motor: 100%", " Body: 100%", " Fuel: 100%")
+        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", k, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")
     end
         
-    Menu.addButton("Back", "MenuGarage",nil)
+    Menu.addButton("Tilbage", "MenuGarage",nil)
 end
 
 function TakeOutVehicle(vehicleInfo)

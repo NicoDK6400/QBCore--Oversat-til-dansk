@@ -4,7 +4,7 @@ Config.BailPrice = 250
 
 Config.Locations = {
     ["main"] = {
-        label = "Towing HQ",
+        label = "Towing firma",
         coords = vector4(471.39, -1311.03, 29.21, 114.5),
     },
     ["vehicle"] = {

@@ -75,7 +75,7 @@ function CleanVehicle(vehicle)
 	local ped = PlayerPedId()
 	local pos = GetEntityCoords(ped)
 	TaskStartScenarioInPlace(ped, "WORLD_HUMAN_MAID_CLEAN", 0, true)
-	QBCore.Functions.Progressbar("cleaning_vehicle", "Cleaning the car...", math.random(10000, 20000), false, true, {
+	QBCore.Functions.Progressbar("cleaning_vehicle", "Rydder kørertøjer...", math.random(10000, 20000), false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,
@@ -90,7 +90,7 @@ function CleanVehicle(vehicle)
 		ClearAllPedProps(ped)
 		ClearPedTasks(ped)
 	end, function() -- Cancel
-		QBCore.Functions.Notify("Failed!", "error")
+		QBCore.Functions.Notify("Mislykkedes!", "error")
 		ClearAllPedProps(ped)
 		ClearPedTasks(ped)
 	end)
@@ -143,7 +143,7 @@ function RepairVehicleFull(vehicle)
     else
         SetVehicleDoorOpen(vehicle, 4, false, false)
     end
-	QBCore.Functions.Progressbar("repair_vehicle", "Repairing vehicle..", math.random(20000, 30000), false, true, {
+	QBCore.Functions.Progressbar("repair_vehicle", "Reparere kørertøj..", math.random(20000, 30000), false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,
@@ -154,7 +154,7 @@ function RepairVehicleFull(vehicle)
 		flags = 16,
 	}, {}, {}, function() -- Done
 		StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-		QBCore.Functions.Notify("Vehicle repaired!")
+		QBCore.Functions.Notify("Kørertøj repareret!")
 		SetVehicleEngineHealth(vehicle, 1000.0)
 		SetVehicleEngineOn(vehicle, true, false)
 		SetVehicleTyreFixed(vehicle, 0)
@@ -170,7 +170,7 @@ function RepairVehicleFull(vehicle)
 		TriggerServerEvent('qb-vehiclefailure:removeItem', "advancedrepairkit")
 	end, function() -- Cancel
 		StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-		QBCore.Functions.Notify("Failed!", "error")
+		QBCore.Functions.Notify("Mislykkedes!", "error")
 		if (IsBackEngine(GetEntityModel(vehicle))) then
 			SetVehicleDoorShut(vehicle, 5, false)
 		else
@@ -185,7 +185,7 @@ function RepairVehicle(vehicle)
     else
         SetVehicleDoorOpen(vehicle, 4, false, false)
     end
-	QBCore.Functions.Progressbar("repair_vehicle", "Repairing vehicle..", math.random(10000, 20000), false, true, {
+	QBCore.Functions.Progressbar("repair_vehicle", "Reparere kørertøj..", math.random(10000, 20000), false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,
@@ -196,7 +196,7 @@ function RepairVehicle(vehicle)
 		flags = 16,
 	}, {}, {}, function() -- Done
 		StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-		QBCore.Functions.Notify("Vehicle repaired!")
+		QBCore.Functions.Notify("Kørertøj repareret!")
 		SetVehicleEngineHealth(vehicle, 500.0)
 		SetVehicleEngineOn(vehicle, true, false)
 		SetVehicleTyreFixed(vehicle, 0)
@@ -212,7 +212,7 @@ function RepairVehicle(vehicle)
 		TriggerServerEvent('qb-vehiclefailure:removeItem', "repairkit")
 	end, function() -- Cancel
 		StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_player", 1.0)
-		QBCore.Functions.Notify("Failed!", "error")
+		QBCore.Functions.Notify("Mislykket!", "error")
 		if (IsBackEngine(GetEntityModel(vehicle))) then
 			SetVehicleDoorShut(vehicle, 5, false)
 		else
@@ -359,11 +359,11 @@ AddEventHandler('iens:repair', function()
 				healthPetrolTankLast=750.0
 					SetVehicleEngineOn(vehicle, true, false )
 				SetVehicleOilLevel(vehicle,(GetVehicleOilLevel(vehicle)/3)-0.5)
-				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", and now go to a garage!")
+				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", og gå nu til en garage!")
 				fixMessagePos = fixMessagePos + 1
 				if fixMessagePos > repairCfg.fixMessageCount then fixMessagePos = 1 end
 			else
-				notification("~r~Your vehicle is too damaged!")
+				notification("~r~Dit kørertøj er for smadret!")
 			end
 		else
 			notification("~y~" .. repairCfg.noFixMessages[noFixMessagePos] )
@@ -371,7 +371,7 @@ AddEventHandler('iens:repair', function()
 			if noFixMessagePos > repairCfg.noFixMessageCount then noFixMessagePos = 1 end
 		end
 	else
-		notification("~y~You must be in a vehicle to repair it!")
+		notification("~y~Du skal sidde i et kørertøj for at kunne reparere!")
 	end
 end)
 
@@ -383,7 +383,7 @@ AddEventHandler('iens:repaira', function()
 		SetVehicleDirtLevel(vehicle)
 		SetVehicleUndriveable(vehicle, false)
 		WashDecalsFromVehicle(vehicle, 1.0)
-		notification("Vehicle repaired!")
+		notification("Kørertøj Repareret!")
 		SetVehicleFixed(vehicle)
 		healthBodyLast=1000.0
 		healthEngineLast=1000.0
@@ -391,20 +391,20 @@ AddEventHandler('iens:repaira', function()
 		SetVehicleEngineOn(vehicle, true, false )
 		return
 	else
-		notification("You must be in a vehicle to repair it!")
+		notification("Du skal sidde i et kørertøj for at kunne reparere!")
 	end
 end)
 
 RegisterNetEvent('iens:besked')
 AddEventHandler('iens:besked', function()
 
-notification("~r~There is roadside assistance available call that via your phone!")
+notification("~r~Der er brug for din assistance på vejen!")
 
 end)
 
 RegisterNetEvent('iens:notAllowed')
 AddEventHandler('iens:notAllowed', function()
-	notification("~r~You don't have permission to repair vehicles")
+	notification("~r~Du har ikke rettighederne til at kunne reparere")
 end)
 
 if cfg.torqueMultiplierEnabled or cfg.preventVehicleFlip or cfg.limpMode then

@@ -146,11 +146,11 @@ QBCore.Functions.CreateUseableItem("firework4", function(source, item)
     TriggerClientEvent("fireworks:client:UseFirework", source, item.name, "scr_indep_fireworks")
 end)
 
-QBCore.Commands.Add("resetarmor", "Resets Vest (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("resetarmor", "Reset vest (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("consumables:client:ResetArmor", source)
     else
-        TriggerClientEvent('QBCore:Notify', source,  "For Emergency Service Only", "error")
+        TriggerClientEvent('QBCore:Notify', source,  "Kun for beredskabstjenester", "error")
     end
 end)

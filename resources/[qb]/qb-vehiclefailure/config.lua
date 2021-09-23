@@ -212,23 +212,23 @@ repairCfg = {
 	},
 
 	fixMessages = {
-        "You checked the oil level",
-        "You closed the oil spill with chewing gum",
-        "You made the oil hose with tape",
-        "you have temporarily stopped the oil leak",
-        "You kicked the bike and it works again",
-        "You removed some rust",
-        "You yelled at your car, and it works again"
+        "Du kontrollerede olie niveauet",
+        "Du lukkede olie lækkagen med tyggegummi",
+        "Du lavede olieslangen med tape",
+        "du har midlertidigt stoppet olielækagen",
+        "Du sparkede på cyklen, og den virker igen",
+        "Du fjernede lidt rust",
+        "Du råbte og skreg af dit kørertøj, nu virker den"
     },
     fixMessageCount = 7,
 
     noFixMessages = {
-        "You looked at your oil level, and this looked normal",
-        "You looked at your bike, and nothing seems wrong",
-        "You looked at the duck tape on your oil hose and seemed fine",
-        "You turned the radio up. The weird engine noise is now gone",
-        "The rust remover you used had no effect",
-        "Never try to make something that isn't broken, but you didn't listen"
+        "Du kiggede på dit oliestand, og det så normalt ud",
+        "Du kiggede på din cykel, og intet ser galt ud",
+        "Du kiggede på andetapen på din olieslange og virkede fin",
+        "Du skruede op for radioen. Den mærkelige motorstøj er nu væk",
+        "Den rustfjerner, du brugte, havde ingen effekt",
+        "Aldrig rod med noget der virker, men du ville ikke lytte..."
     },
 	noFixMessageCount = 6
 }

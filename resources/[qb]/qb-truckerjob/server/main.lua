@@ -10,21 +10,21 @@ AddEventHandler('qb-trucker:server:DoBail', function(bool, vehInfo)
         if Player.PlayerData.money.cash >= Config.BailPrice then
             Bail[Player.PlayerData.citizenid] = Config.BailPrice
             Player.Functions.RemoveMoney('cash', Config.BailPrice, "tow-received-bail")
-            TriggerClientEvent('QBCore:Notify', src, '$250 Deposit Paid With Cash', 'success')
+            TriggerClientEvent('QBCore:Notify', src, '$250 i depositum blev kontant afregnet', 'success')
             TriggerClientEvent('qb-trucker:client:SpawnVehicle', src, vehInfo)
         elseif Player.PlayerData.money.bank >= Config.BailPrice then
             Bail[Player.PlayerData.citizenid] = Config.BailPrice
             Player.Functions.RemoveMoney('bank', Config.BailPrice, "tow-received-bail")
-            TriggerClientEvent('QBCore:Notify', src, '$250 Deposit Paid From Bank', 'success')
+            TriggerClientEvent('QBCore:Notify', src, '$250 i depositum blev betalt fra din konto', 'success')
             TriggerClientEvent('qb-trucker:client:SpawnVehicle', src, vehInfo)
         else
-            TriggerClientEvent('QBCore:Notify', src, '$250 Deposit Required', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du skal lave et depositum på $250', 'error')
         end
     else
         if Bail[Player.PlayerData.citizenid] ~= nil then
             Player.Functions.AddMoney('cash', Bail[Player.PlayerData.citizenid], "trucker-bail-paid")
             Bail[Player.PlayerData.citizenid] = nil
-            TriggerClientEvent('QBCore:Notify', src, '$250 Deposit Refunded To Cash', 'success')
+            TriggerClientEvent('QBCore:Notify', src, '$250 fik du tilbage fra dit depositum', 'success')
         end
     end
 end)
@@ -50,7 +50,7 @@ AddEventHandler('qb-trucker:server:01101110', function(drops)
     local payment = price - taxAmount
     Player.Functions.AddJobReputation(drops)
     Player.Functions.AddMoney("bank", payment, "trucker-salary")
-    TriggerClientEvent('QBCore:Notify', src, 'You Earned $'..payment, 'success')
+    TriggerClientEvent('QBCore:Notify', src, 'Du har tjent $'..payment, 'success')
 end)
 
 RegisterNetEvent('qb-trucker:server:nano')

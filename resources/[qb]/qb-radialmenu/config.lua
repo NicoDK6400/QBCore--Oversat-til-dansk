@@ -266,7 +266,7 @@ Config.MenuItems = {
                                 shouldClose = true
                             }, {
                                 id = 'Bracelet',
-                                title = 'Bracelet',
+                                title = 'Armbånd',
                                 icon = 'user',
                                 type = 'client',
                                 event = 'qb-radialmenu:ToggleProps',
@@ -294,52 +294,52 @@ Config.MenuItems = {
     },
     [3] = {
         id = 'vehicle',
-        title = 'Vehicle',
+        title = 'Kørertøj',
         icon = 'car',
         items = {
             {
                 id = 'vehicledoors',
-                title = 'Vehicle Doors',
+                title = 'Bil dør',
                 icon = 'car-side',
                 items = {
                     {
                         id = 'door0',
-                        title = 'Drivers door',
+                        title = 'Fører dør',
                         icon = 'car-side',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
                         shouldClose = false
                     }, {
                         id = 'door4',
-                        title = 'Hood',
+                        title = 'Motorhjem',
                         icon = 'car',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
                         shouldClose = false
                     }, {
                         id = 'door1',
-                        title = 'Passengers door',
+                        title = 'Passager dør',
                         icon = 'car-side',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
                         shouldClose = false
                     }, {
                         id = 'door3',
-                        title = 'Right rear',
+                        title = 'Højre bagdør',
                         icon = 'car-side',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
                         shouldClose = false
                     }, {
                         id = 'door5',
-                        title = 'Trunk',
+                        title = 'Baggagerum',
                         icon = 'car',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
                         shouldClose = false
                     }, {
                         id = 'door2',
-                        title = 'Left rear',
+                        title = 'Venstre bagdør',
                         icon = 'car-side',
                         type = 'client',
                         event = 'qb-radialmenu:client:openDoor',
@@ -348,96 +348,96 @@ Config.MenuItems = {
                 }
             }, {
                 id = 'vehicleextras',
-                title = 'Vehicle Extras',
+                title = 'Kørertøjs tilbehør',
                 icon = 'plus',
                 items = {
                     {
                         id = 'extra1',
-                        title = 'Extra 1',
+                        title = 'Tilbehør 1',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra2',
-                        title = 'Extra 2',
+                        title = 'Tilbehør 2',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra3',
-                        title = 'Extra 3',
+                        title = 'Tilbehør 3',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra4',
-                        title = 'Extra 4',
+                        title = 'Tilbehør 4',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra5',
-                        title = 'Extra 5',
+                        title = 'Tilbehør 5',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra6',
-                        title = 'Extra 6',
+                        title = 'Tilbehør 6',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra7',
-                        title = 'Extra 7',
+                        title = 'Tilbehør 7',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra8',
-                        title = 'Extra 8',
+                        title = 'Tilbehør 8',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra9',
-                        title = 'Extra 9',
+                        title = 'Tilbehør 9',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra10',
-                        title = 'Extra 10',
+                        title = 'Tilbehør 10',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra11',
-                        title = 'Extra 11',
+                        title = 'Tilbehør 11',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra12',
-                        title = 'Extra 12',
+                        title = 'Tilbehør 12',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
                         shouldClose = false
                     }, {
                         id = 'extra13',
-                        title = 'Extra 13',
+                        title = 'Tilbehør 13',
                         icon = 'box-open',
                         type = 'client',
                         event = 'qb-radialmenu:client:setExtra',
@@ -446,12 +446,12 @@ Config.MenuItems = {
                 }
             }, {
                 id = 'vehicleseats',
-                title = 'Vehicle Seats',
+                title = 'Bilsæder',
                 icon = 'chair',
                 items = {
                     {
                         id = 'door0',
-                        title = 'Driver',
+                        title = 'Fører',
                         icon = 'chair',
                         type = 'client',
                         event = 'qb-radialmenu:client:ChangeSeat',
@@ -463,7 +463,7 @@ Config.MenuItems = {
     },
     [4] = {
         id = 'jobinteractions',
-        title = 'Work',
+        title = 'Arbejder',
         icon = 'briefcase',
         items = {}
     }
@@ -480,47 +480,47 @@ Config.JobInteractions = {
             shouldClose = true
         },{
             id = 'revivep',
-            title = 'Revive',
+            title = 'Genopliv',
             icon = 'user-md',
             type = 'client',
             event = 'hospital:client:RevivePlayer',
             shouldClose = true
         },{
             id = 'treatwounds',
-            title = 'Heal wounds',
+            title = 'Hel sår',
             icon = 'band-aid',
             type = 'client',
             event = 'hospital:client:TreatWounds',
             shouldClose = true
         }, {
             id = 'emergencybutton2',
-            title = 'Emergency button',
+            title = 'Nødknap',
             icon = 'bell',
             type = 'client',
             event = 'police:client:SendPoliceEmergencyAlert',
             shouldClose = true
         }, {
             id = 'escort',
-            title = 'Escort',
+            title = 'Eskorter',
             icon = 'user-friends',
             type = 'client',
             event = 'police:client:EscortPlayer',
             shouldClose = true
         }, {
             id = 'stretcheroptions',
-            title = 'Stretcher',
+            title = 'Bårer',
             icon = 'procedures',
             items = {
                 {
                     id = 'spawnstretcher',
-                    title = 'Spawn Stretcher',
+                    title = 'Spawn bårer',
                     icon = 'plus',
                     type = 'client',
                     event = 'qb-radialmenu:client:TakeStretcher',
                     shouldClose = false
                 }, {
                     id = 'despawnstretcher',
-                    title = 'Remove Stretcher',
+                    title = 'Fjern bårer',
                     icon = 'minus',
                     type = 'client',
                     event = 'qb-radialmenu:client:RemoveStretcher',
@@ -532,14 +532,14 @@ Config.JobInteractions = {
     ["taxi"] = {
         {
             id = 'togglemeter',
-            title = 'Show/Hide Meter',
+            title = 'Vis/Gem taxameter',
             icon = 'eye-slash',
             type = 'client',
             event = 'qb-taxi:client:toggleMeter',
             shouldClose = false
         }, {
             id = 'togglemouse',
-            title = 'Start/Stop Meter',
+            title = 'Start/Stop taxameter',
             icon = 'hourglass-start',
             type = 'client',
             event = 'qb-taxi:client:enableMeter',
@@ -563,7 +563,7 @@ Config.JobInteractions = {
             shouldClose = true
         }, {
             id = 'towvehicle',
-            title = 'Tow vehicle',
+            title = 'Tow kørertøj',
             icon = 'truck-pickup',
             type = 'client',
             event = 'qb-tow:client:TowVehicle',
@@ -573,40 +573,40 @@ Config.JobInteractions = {
     ["police"] = {
         {
             id = 'emergencybutton',
-            title = 'Emergency button',
+            title = 'Nødknap',
             icon = 'bell',
             type = 'client',
             event = 'police:client:SendPoliceEmergencyAlert',
             shouldClose = true
         }, {
             id = 'checkvehstatus',
-            title = 'Check Tune Status',
+            title = 'Oversigt over tun',
             icon = 'info-circle',
             type = 'client',
             event = 'qb-tunerchip:client:TuneStatus',
             shouldClose = true
         }, {
             id = 'resethouse',
-            title = 'Reset house lock',
+            title = 'Reset bolig lås',
             icon = 'key',
             type = 'client',
             event = 'qb-houses:client:ResetHouse',
             shouldClose = true
         }, {
             id = 'takedriverlicense',
-            title = 'Revoke Drivers License',
+            title = 'Inddrag førerret',
             icon = 'id-card',
             type = 'client',
             event = 'police:client:SeizeDriverLicense',
             shouldClose = true
         }, {
             id = 'policeinteraction',
-            title = 'Police Actions',
+            title = 'Politi funktioner',
             icon = 'tasks',
             items = {
                 {
                     id = 'statuscheck',
-                    title = 'Check Health Status',
+                    title = 'Se helbred',
                     icon = 'heartbeat',
                     type = 'client',
                     event = 'hospital:client:CheckStatus',
@@ -620,21 +620,21 @@ Config.JobInteractions = {
                     shouldClose = true
                 }, {
                     id = 'escort',
-                    title = 'Escort',
+                    title = 'Eskorter',
                     icon = 'user-friends',
                     type = 'client',
                     event = 'police:client:EscortPlayer',
                     shouldClose = true
                 }, {
                     id = 'searchplayer',
-                    title = 'Search',
+                    title = 'Søg',
                     icon = 'search',
                     type = 'client',
                     event = 'police:client:SearchPlayer',
                     shouldClose = true
                 }, {
                     id = 'jailplayer',
-                    title = 'Jail',
+                    title = 'Fængsel',
                     icon = 'user-lock',
                     type = 'client',
                     event = 'police:client:JailPlayer',
@@ -643,54 +643,54 @@ Config.JobInteractions = {
             }
         }, {
             id = 'policeobjects',
-            title = 'Objects',
+            title = 'Objekter',
             icon = 'road',
             items = {
                 {
                     id = 'spawnpion',
-                    title = 'Cone',
+                    title = 'Kegle',
                     icon = 'exclamation-triangle',
                     type = 'client',
                     event = 'police:client:spawnCone',
                     shouldClose = false
                 }, {
                     id = 'spawnhek',
-                    title = 'Gate',
+                    title = 'Port',
                     icon = 'torii-gate',
                     type = 'client',
                     event = 'police:client:spawnBarier',
                     shouldClose = false
                 }, {
                     id = 'spawnschotten',
-                    title = 'Speed Limit Sign',
+                    title = 'Hastigheds skilt',
                     icon = 'sign',
                     type = 'client',
                     event = 'police:client:spawnSchotten',
                     shouldClose = false
                 }, {
                     id = 'spawntent',
-                    title = 'Tent',
+                    title = 'Telt',
                     icon = 'campground',
                     type = 'client',
                     event = 'police:client:spawnTent',
                     shouldClose = false
                 }, {
                     id = 'spawnverlichting',
-                    title = 'Lighting',
+                    title = 'Lys',
                     icon = 'lightbulb',
                     type = 'client',
                     event = 'police:client:spawnLight',
                     shouldClose = false
                 }, {
                     id = 'spikestrip',
-                    title = 'Spike Strips',
+                    title = 'Sømmåtte',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'police:client:SpawnSpikeStrip',
                     shouldClose = false
                 }, {
                     id = 'deleteobject',
-                    title = 'Remove object',
+                    title = 'Fjern objekter',
                     icon = 'trash',
                     type = 'client',
                     event = 'police:client:deleteObject',
@@ -702,7 +702,7 @@ Config.JobInteractions = {
     ["hotdog"] = {
         {
             id = 'togglesell',
-            title = 'Toggle sell',
+            title = 'Slå salg til/fra af Hotdogs',
             icon = 'hotdog',
             type = 'client',
             event = 'qb-hotdogjob:client:ToggleSell',
@@ -745,101 +745,101 @@ Config.Commands = {
     ["top"] = {
         Func = function() ToggleClothing("Top") end,
         Sprite = "top",
-        Desc = "Take your shirt off/on",
+        Desc = "Tag shirt af/på",
         Button = 1,
-        Name = "Torso"
+        Name = "Overkrop"
     },
     ["gloves"] = {
         Func = function() ToggleClothing("Gloves") end,
         Sprite = "gloves",
-        Desc = "Take your gloves off/on",
+        Desc = "Tag handsker af/på",
         Button = 2,
-        Name = "Gloves"
+        Name = "Handsker"
     },
     ["visor"] = {
         Func = function() ToggleProps("Visor") end,
         Sprite = "visor",
-        Desc = "Toggle hat variation",
+        Desc = "Vælg hat variationer",
         Button = 3,
-        Name = "Visor"
+        Name = "Hatte variationer"
     },
     ["bag"] = {
         Func = function() ToggleClothing("Bag") end,
         Sprite = "bag",
-        Desc = "Opens or closes your bag",
+        Desc = "Åbner/lukker din taske",
         Button = 8,
-        Name = "Bag"
+        Name = "Taske"
     },
     ["shoes"] = {
         Func = function() ToggleClothing("Shoes") end,
         Sprite = "shoes",
-        Desc = "Take your shoes off/on",
+        Desc = "Tag sko af/på",
         Button = 5,
-        Name = "Shoes"
+        Name = "Sko"
     },
     ["vest"] = {
         Func = function() ToggleClothing("Vest") end,
         Sprite = "vest",
-        Desc = "Take your vest off/on",
+        Desc = "Tag veste af/på",
         Button = 14,
-        Name = "Vest"
+        Name = "Veste"
     },
     ["hair"] = {
         Func = function() ToggleClothing("Hair") end,
         Sprite = "hair",
-        Desc = "Put your hair up/down/in a bun/ponytail.",
+        Desc = "Sæt dit hår op/ned/i en knude/hestehale.",
         Button = 7,
         Name = "Hair"
     },
     ["hat"] = {
         Func = function() ToggleProps("Hat") end,
         Sprite = "hat",
-        Desc = "Take your hat off/on",
+        Desc = "Tag hat af/på",
         Button = 4,
         Name = "Hat"
     },
     ["glasses"] = {
         Func = function() ToggleProps("Glasses") end,
         Sprite = "glasses",
-        Desc = "Take your glasses off/on",
+        Desc = "Tag briller af/på",
         Button = 9,
-        Name = "Glasses"
+        Name = "Briller"
     },
     ["ear"] = {
         Func = function() ToggleProps("Ear") end,
         Sprite = "ear",
-        Desc = "Take your ear accessory off/on",
+        Desc = "Tag øre tilbehør af/på",
         Button = 10,
-        Name = "Ear"
+        Name = "Øre"
     },
     ["neck"] = {
         Func = function() ToggleClothing("Neck") end,
         Sprite = "neck",
-        Desc = "Take your neck accessory off/on",
+        Desc = "Tag dit tilbehør fra hals af/på",
         Button = 11,
-        Name = "Neck"
+        Name = "Hals/nakke"
     },
     ["watch"] = {
         Func = function() ToggleProps("Watch") end,
         Sprite = "watch",
-        Desc = "Take your watch off/on",
+        Desc = "Tag ur af/på",
         Button = 12,
-        Name = "Watch",
+        Name = "Ur",
         Rotation = 5.0
     },
     ["bracelet"] = {
         Func = function() ToggleProps("Bracelet") end,
         Sprite = "bracelet",
-        Desc = "Take your bracelet off/on",
+        Desc = "Armbånd af/på",
         Button = 13,
-        Name = "Bracelet"
+        Name = "Armbånd"
     },
     ["mask"] = {
         Func = function() ToggleClothing("Mask") end,
         Sprite = "mask",
-        Desc = "Take your mask off/on",
+        Desc = "Tag maske af/på",
         Button = 6,
-        Name = "Mask"
+        Name = "Maske"
     }
 }
 
@@ -849,7 +849,7 @@ Config.ExtraCommands = {
     ["pants"] = {
         Func = function() ToggleClothing("Pants", true) end,
         Sprite = "pants",
-        Desc = "Take your pants off/on",
+        Desc = "Take your pants af/på",
         Name = "Pants",
         OffsetX = -0.04,
         OffsetY = 0.0
@@ -857,7 +857,7 @@ Config.ExtraCommands = {
     ["shirt"] = {
         Func = function() ToggleClothing("Shirt", true) end,
         Sprite = "shirt",
-        Desc = "Take your shirt off/on",
+        Desc = "Take your shirt af/på",
         Name = "shirt",
         OffsetX = 0.04,
         OffsetY = 0.0
@@ -898,7 +898,7 @@ Config.ExtraCommands = {
                 return false
             end
         end,
-        Desc = "Take your bag off/on",
+        Desc = "Take your bag af/på",
         Name = "bagoff",
         OffsetX = -0.12,
         OffsetY = 0.2

@@ -69,12 +69,12 @@ Config.Teleports = {
         [1] = {
             coords = vector4(3540.74, 3675.59, 20.99, 167.5),
             ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
+            drawText = '[E] Tag elevator op'
         },
         [2] = {
             coords = vector4(3540.74, 3675.59, 28.11, 172.5),
             ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
+            drawText = '[E] Tag elevator ned'
         },
         
     },
@@ -83,12 +83,12 @@ Config.Teleports = {
         [1] = {
             coords = vector4(909.49, -1589.22, 30.51, 92.24),
             ["AllowVehicle"] = false, 
-            drawText = '[E] Enter Coke Processing'
+            drawText = '[E] For at gå ind til coke fremstilling'
         },
         [2] = {
             coords = vector4(1088.81, -3187.57, -38.99, 181.7),
             ["AllowVehicle"] = false,
-            drawText = '[E] Leave'
+            drawText = '[E] Forlad'
         },
     },
 }

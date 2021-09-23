@@ -65,7 +65,7 @@ AddEventHandler('qb-taxi:client:DoTaxiNpc', function()
                 if NpcData.NpcBlip ~= nil then
                     RemoveBlip(NpcData.NpcBlip)
                 end
-                QBCore.Functions.Notify('The NPC Is Indicated On Your GPS', 'success')
+                QBCore.Functions.Notify('NPC er bliver indikeret på din GPS', 'success')
                 NpcData.NpcBlip = AddBlipForCoord(Config.NPCLocations.TakeLocations[NpcData.CurrentNpc].x, Config.NPCLocations.TakeLocations[NpcData.CurrentNpc].y, Config.NPCLocations.TakeLocations[NpcData.CurrentNpc].z)
                 SetBlipColour(NpcData.NpcBlip, 3)
                 SetBlipRoute(NpcData.NpcBlip, true)
@@ -111,7 +111,7 @@ AddEventHandler('qb-taxi:client:DoTaxiNpc', function()
                                     ClearPedTasksImmediately(NpcData.Npc)
                                     FreezeEntityPosition(NpcData.Npc, false)
                                     TaskEnterVehicle(NpcData.Npc, veh, -1, freeSeat, 1.0, 0)
-                                    QBCore.Functions.Notify('Bring The NPC To The Specified Location')
+                                    QBCore.Functions.Notify('Bring NPCen til det angivne sted')
                                     if NpcData.NpcBlip ~= nil then
                                         RemoveBlip(NpcData.NpcBlip)
                                     end
@@ -125,13 +125,13 @@ AddEventHandler('qb-taxi:client:DoTaxiNpc', function()
                     end
                 end)
             else
-                QBCore.Functions.Notify('You Are Already Doing An NPC Mission')
+                QBCore.Functions.Notify('Du laver allerede en NPC mission')
             end
       --  else
          --   QBCore.Functions.Notify('No NPCs Are Available')
        -- end
     else
-        QBCore.Functions.Notify('You Are Not In A Taxi')
+        QBCore.Functions.Notify('Du er ikke i en taxa')
     end
 end)
 
@@ -180,7 +180,7 @@ function GetDeliveryLocation()
                         SendNUIMessage({
                             action = "resetMeter"
                         })
-                        QBCore.Functions.Notify('Person Was Dropped Off', 'success')
+                        QBCore.Functions.Notify('Personen blev sat af', 'success')
                         if NpcData.DeliveryBlip ~= nil then
                             RemoveBlip(NpcData.DeliveryBlip)
                         end
@@ -282,14 +282,14 @@ Citizen.CreateThread(function()
 
                         if vehDist < 1.5 then
                             if whitelistedVehicle() then
-                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Vehicle Parking')
+                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Parking')
                                 if IsControlJustReleased(0, 38) then
                                     if IsPedInAnyVehicle(PlayerPedId(), false) then
                                         DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
                                     end
                                 end
                             else
-                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Job Vehicles')
+                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Firma kørertøjer')
                                 if IsControlJustReleased(0, 38) then
                                     TaxiGarage()
                                     Menu.hidden = not Menu.hidden
@@ -331,10 +331,10 @@ AddEventHandler('qb-taxi:client:toggleMeter', function()
                 meterIsOpen = false
             end
         else
-            QBCore.Functions.Notify('This Vehicle Has No Taxi Meter', 'error')
+            QBCore.Functions.Notify('Dette kørertøj er ikke i besidelse af et taxameter', 'error')
         end
     else
-        QBCore.Functions.Notify('You\'re Not In A Vehicle ', 'error')
+        QBCore.Functions.Notify('Du er ikke i et kørertøj ', 'error')
     end
 end)
 
@@ -347,7 +347,7 @@ AddEventHandler('qb-taxi:client:enableMeter', function()
             action = "toggleMeter"
         })
     else
-        QBCore.Functions.Notify('The Taxi Meter Is Not Active', 'error')
+        QBCore.Functions.Notify('Taxameteret er ikke sat til', 'error')
     end
 end)
 
@@ -371,7 +371,7 @@ AddEventHandler('qb-taxi:client:toggleMuis', function()
             mouseActive = true
         end
     else
-        QBCore.Functions.Notify('No Taxi Meter In Sight', 'error')
+        QBCore.Functions.Notify('Intet taxameter at finde!', 'error')
     end
 end)
 
@@ -406,8 +406,8 @@ function TaxiGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Vehicles", "VehicleList", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Kørertøjer", "VehicleList", nil)
+    Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function VehicleList()
@@ -415,16 +415,16 @@ function VehicleList()
     MenuTitle = "Vehicles:"
     ClearMenu()
     for k, v in pairs(Config.AllowedVehicles) do
-        Menu.addButton(Config.AllowedVehicles[k].label, "TakeVehicle", k, "Garage", " Motor: 100%", " Body: 100%", " Fuel: 100%")
+        Menu.addButton(Config.AllowedVehicles[k].label, "TakeVehicle", k, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")
     end
         
-    Menu.addButton("Back", "TaxiGarage",nil)
+    Menu.addButton("Tilbage", "TaxiGarage",nil)
 end
 
 function TakeVehicle(k)
     local coords = Config.Location
     QBCore.Functions.SpawnVehicle(Config.AllowedVehicles[k].model, function(veh)
-        SetVehicleNumberPlateText(veh, "TAXI"..tostring(math.random(1000, 9999)))
+        SetVehicleNumberPlateText(veh, "TAXA"..tostring(math.random(1000, 9999)))
         exports['LegacyFuel']:SetFuel(veh, 100.0)
         closeMenuFull()
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
@@ -465,6 +465,6 @@ Citizen.CreateThread(function()
     SetBlipColour(TaxiBlip, 5)
 
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("Downtown Cab")
+    AddTextComponentSubstringPlayerName("Downtown Taxa")
     EndTextCommandSetBlipName(TaxiBlip)
 end)

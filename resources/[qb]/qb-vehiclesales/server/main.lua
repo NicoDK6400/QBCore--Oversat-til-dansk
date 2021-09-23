@@ -36,10 +36,10 @@ AddEventHandler('qb-occasions:server:ReturnVehicle', function(vehicleData)
             TriggerClientEvent("qb-occasions:client:ReturnOwnedVehicle", src, result[1])
             TriggerClientEvent('qb-occasion:client:refreshVehicles', -1)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'This is not your vehicle', 'error', 3500)
+            TriggerClientEvent('QBCore:Notify', src, 'Dette er ikke dit kørertøj', 'error', 3500)
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Vehicle does not exist', 'error', 3500)
+        TriggerClientEvent('QBCore:Notify', src, 'Kørertøj eksistere ikke', 'error', 3500)
     end
 end)
 
@@ -72,7 +72,7 @@ AddEventHandler('qb-occasions:server:sellVehicleBack', function(vData)
     local plate = vData.plate
 
     Player.Functions.AddMoney('bank', price)
-    TriggerClientEvent('QBCore:Notify', src, 'You have sold your car for $' .. price, 'success', 5500)
+    TriggerClientEvent('QBCore:Notify', src, 'Du har solgt dit kørertøj for $' .. price, 'success', 5500)
     exports.oxmysql:execute('DELETE FROM player_vehicles WHERE plate = ?', {plate})
 end)
 
@@ -121,12 +121,12 @@ AddEventHandler('qb-occasions:server:buyVehicle', function(vehicleData)
                 {result[1].plate, result[1].occasionid})
             -- Send selling mail to seller
             TriggerEvent('qb-phone:server:sendNewMailToOffline', SellerCitizenId, {
-                sender = 'Larrys RV Sales',
-                subject = "You have sold a vehicle!",
-                message = 'You made $'..NewPrice..' from the sale of your '..QBCore.Shared.Vehicles[result[1].model].name..''
+                sender = 'Larrys RV Salg',
+                subject = "Du har solgt et kørertøj!",
+                message = 'Du tjente $'..NewPrice..' fra dit salg af '..QBCore.Shared.Vehicles[result[1].model].name..''
             })
         else
-            TriggerClientEvent('QBCore:Notify', src, 'You dont have enough money', 'error', 3500)
+            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge', 'error', 3500)
         end
     end
 end)

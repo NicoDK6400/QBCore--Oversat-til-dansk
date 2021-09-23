@@ -14,7 +14,7 @@ Citizen.CreateThread(function()
 end)
 RegisterNetEvent("consumables:client:UseJoint")
 AddEventHandler("consumables:client:UseJoint", function()
-    QBCore.Functions.Progressbar("smoke_joint", "Lighting joint..", 1500, false, true, {
+    QBCore.Functions.Progressbar("smoke_joint", "Tænder en pind..", 1500, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -48,7 +48,7 @@ local ParachuteEquiped = false
 RegisterNetEvent("consumables:client:UseParachute")
 AddEventHandler("consumables:client:UseParachute", function()
     EquipParachuteAnim()
-    QBCore.Functions.Progressbar("use_parachute", "parachute using..", 5000, false, true, {
+    QBCore.Functions.Progressbar("use_parachute", "bruger faldskærm..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -72,7 +72,7 @@ RegisterNetEvent("consumables:client:ResetParachute")
 AddEventHandler("consumables:client:ResetParachute", function()
     if ParachuteEquiped then 
         EquipParachuteAnim()
-        QBCore.Functions.Progressbar("reset_parachute", "Packing parachute..", 40000, false, true, {
+        QBCore.Functions.Progressbar("reset_parachute", "Pakker faldsskærmen ned..", 40000, false, true, {
             disableMovement = false,
             disableCarMovement = false,
             disableMouse = false,
@@ -91,7 +91,7 @@ AddEventHandler("consumables:client:ResetParachute", function()
             ParachuteEquiped = false
         end)
     else
-        QBCore.Functions.Notify("U dont have a parachute!", "error")
+        QBCore.Functions.Notify("Du har ikke en faldskærm!", "error")
     end
 end)
 
@@ -109,7 +109,7 @@ end)
 
 RegisterNetEvent("consumables:client:UseArmor")
 AddEventHandler("consumables:client:UseArmor", function()
-    QBCore.Functions.Progressbar("use_armor", "Putting on the body armour..", 5000, false, true, {
+    QBCore.Functions.Progressbar("use_armor", "Tager skudsikker veste på..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -127,7 +127,7 @@ RegisterNetEvent("consumables:client:UseHeavyArmor")
 AddEventHandler("consumables:client:UseHeavyArmor", function()
     local ped = PlayerPedId()
     local PlayerData = QBCore.Functions.GetPlayerData()
-    QBCore.Functions.Progressbar("use_heavyarmor", "Putting on body armour..", 5000, false, true, {
+    QBCore.Functions.Progressbar("use_heavyarmor", "Tager tung skudsikker veste på..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -168,14 +168,14 @@ AddEventHandler("consumables:client:ResetArmor", function()
             TriggerServerEvent("QBCore:Server:AddItem", "heavyarmor", 1)
         end)
     else
-        QBCore.Functions.Notify("You\'re not wearing a vest..", "error")
+        QBCore.Functions.Notify("Du har ingen veste på..", "error")
     end
 end)
 
 RegisterNetEvent("consumables:client:DrinkAlcohol")
 AddEventHandler("consumables:client:DrinkAlcohol", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"drink"})
-    QBCore.Functions.Progressbar("snort_coke", "Drinking liquor..", math.random(3000, 6000), false, true, {
+    QBCore.Functions.Progressbar("snort_coke", "Drikker alkohol..", math.random(3000, 6000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -194,14 +194,14 @@ AddEventHandler("consumables:client:DrinkAlcohol", function(itemName)
         
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        QBCore.Functions.Notify("Cancelled..", "error")
+        QBCore.Functions.Notify("Afbrudt..", "error")
     end)
 end)
 
 RegisterNetEvent("consumables:client:Cokebaggy")
 AddEventHandler("consumables:client:Cokebaggy", function()
     local ped = PlayerPedId()
-    QBCore.Functions.Progressbar("snort_coke", "Quick sniff..", math.random(5000, 8000), false, true, {
+    QBCore.Functions.Progressbar("snort_coke", "Skyder coke..", math.random(5000, 8000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -218,14 +218,14 @@ AddEventHandler("consumables:client:Cokebaggy", function()
         CokeBaggyEffect()
     end, function() -- Cancel
         StopAnimTask(ped, "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        QBCore.Functions.Notify("Canceled..", "error")
+        QBCore.Functions.Notify("Afbrudt..", "error")
     end)
 end)
 
 RegisterNetEvent("consumables:client:Crackbaggy")
 AddEventHandler("consumables:client:Crackbaggy", function()
     local ped = PlayerPedId()
-    QBCore.Functions.Progressbar("snort_coke", "Smoking crack..", math.random(7000, 10000), false, true, {
+    QBCore.Functions.Progressbar("snort_coke", "Ryger crack..", math.random(7000, 10000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
         disableMouse = false,
@@ -242,13 +242,13 @@ AddEventHandler("consumables:client:Crackbaggy", function()
         CrackBaggyEffect()
     end, function() -- Cancel
         StopAnimTask(ped, "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        QBCore.Functions.Notify("Canceled..", "error")
+        QBCore.Functions.Notify("Afbrudt..", "error")
     end)
 end)
 
 RegisterNetEvent('consumables:client:EcstasyBaggy')
 AddEventHandler('consumables:client:EcstasyBaggy', function()
-    QBCore.Functions.Progressbar("use_ecstasy", "Pops Pills", 3000, false, true, {
+    QBCore.Functions.Progressbar("use_ecstasy", "Popper en pille", 3000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -264,14 +264,14 @@ AddEventHandler('consumables:client:EcstasyBaggy', function()
         EcstasyEffect()
     end, function() -- Cancel
         StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-        QBCore.Functions.Notify("Failed", "error")
+        QBCore.Functions.Notify("Mislykkedes", "error")
     end)
 end)
 
 RegisterNetEvent("consumables:client:Eat")
 AddEventHandler("consumables:client:Eat", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"eat"})
-    QBCore.Functions.Progressbar("eat_something", "Eating..", 5000, false, true, {
+    QBCore.Functions.Progressbar("eat_something", "Spiser..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -287,7 +287,7 @@ end)
 RegisterNetEvent("consumables:client:Drink")
 AddEventHandler("consumables:client:Drink", function(itemName)
     TriggerEvent('animations:client:EmoteCommandStart', {"drink"})
-    QBCore.Functions.Progressbar("drink_something", "Drinking..", 5000, false, true, {
+    QBCore.Functions.Progressbar("drink_something", "Drikker..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,

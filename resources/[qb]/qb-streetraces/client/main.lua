@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
                 for k, race in pairs(Races) do
                     if Races[k] ~= nil then
                         if #(pos - vector3(Races[k].startx, Races[k].starty, Races[k].startz)) < 15.0 and not Races[k].started then
-                            DrawText3Ds(Races[k].startx, Races[k].starty, Races[k].startz, "[~g~H~w~] To Join The Race (~g~$"..Races[k].amount..",-~w~)")
+                            DrawText3Ds(Races[k].startx, Races[k].starty, Races[k].startz, "[~g~H~w~] For at tilmelde dig (~g~$"..Races[k].amount..",-~w~)")
                             if IsControlJustReleased(0, 74) then
                                 TriggerServerEvent("qb-streetraces:JoinRace", k)
                             end
@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
             -- In race nog niet gestart
             if RaceId ~= 0 and not InRace then
                 if #(pos - vector3(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz)) < 15.0 and not Races[RaceId].started then
-                    DrawText3Ds(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz, "Race Will Start Soon")
+                    DrawText3Ds(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz, "Race vil starte snart")
                 end
             end
             -- In race en gestart
@@ -57,7 +57,7 @@ Citizen.CreateThread(function()
             
             if ShowCountDown then
                 if #(pos - vector3(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz)) < 15.0 and Races[RaceId].started then
-                    DrawText3Ds(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz, "Race start in ~g~"..RaceCount)
+                    DrawText3Ds(Races[RaceId].startx, Races[RaceId].starty, Races[RaceId].startz, "Race starter om ~g~"..RaceCount)
                 end
             end
         end
@@ -78,7 +78,7 @@ AddEventHandler('qb-streetraces:RaceDone', function(race, winner)
     if RaceId ~= 0 and RaceId == race then
         RaceId = 0
         InRace = false
-        QBCore.Functions.Notify("Race Is Over! The Winner Is "..winner.. "!")
+        QBCore.Functions.Notify("Race er ovre! Vinderen er "..winner.. "!")
     end
 end)
 
@@ -110,12 +110,12 @@ AddEventHandler('qb-streetraces:CreateRace', function(amount)
                 joined = {}
             }
             TriggerServerEvent("qb-streetraces:NewRace", race)
-            QBCore.Functions.Notify("Race Made For $"..amount.."", "success")
+            QBCore.Functions.Notify("Race for $"..amount.."", "success")
         else
-            QBCore.Functions.Notify("End Position Is Too Close", "error")
+            QBCore.Functions.Notify("Slutningen er for tæt på", "error")
         end
     else
-        QBCore.Functions.Notify("You Need To Drop A Marker", "error")
+        QBCore.Functions.Notify("Du skal markere points", "error")
     end
 end)
 
@@ -143,6 +143,6 @@ function RaceCountDown()
     ShowCountDown = false
     RaceCount = 5
     FreezeEntityPosition(GetVehiclePedIsIn(PlayerPedId(), true), false)
-    QBCore.Functions.Notify("GOOOOOOOOO!!!")
+    QBCore.Functions.Notify("KØØØØØØØØØØØR, for satan!")
 end
 

@@ -22,7 +22,7 @@ AddEventHandler('smallresource:client:LoadNitrous', function()
     if not NitrousActivated then
         if IsInVehicle and not IsThisModelABike(GetEntityModel(GetVehiclePedIsIn(ped))) then
             if GetPedInVehicleSeat(veh, -1) == ped then
-                QBCore.Functions.Progressbar("use_nos", "Connecting NOS...", 1000, false, true, {
+                QBCore.Functions.Progressbar("use_nos", "Forbinder NOS...", 1000, false, true, {
                     disableMovement = false,
                     disableCarMovement = false,
                     disableMouse = false,
@@ -35,13 +35,13 @@ AddEventHandler('smallresource:client:LoadNitrous', function()
                     TriggerServerEvent('nitrous:server:LoadNitrous', Plate)
                 end)
             else
-                QBCore.Functions.Notify("You cannot do that from this seat!", "error")
+                QBCore.Functions.Notify("Du kan ikke gører det fra det sæde!", "error")
             end
         else
-            QBCore.Functions.Notify('You\'re Not In A Car', 'error')
+            QBCore.Functions.Notify('Du er ikke i et kørertøj', 'error')
         end
     else
-        QBCore.Functions.Notify('You Already Have NOS Active', 'error')
+        QBCore.Functions.Notify('Du har allerede aktiveret NOS', 'error')
     end
 end)
 

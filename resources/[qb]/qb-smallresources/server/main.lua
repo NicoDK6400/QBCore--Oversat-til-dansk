@@ -9,7 +9,7 @@ QBCore.Functions.CreateCallback('nos:GetNosLoadedVehs', function(source, cb)
     cb(VehicleNitrous)
 end)
 
-QBCore.Commands.Add("id", "Check Your ID #", {}, false, function(source, args)
+QBCore.Commands.Add("id", "Tjek dit ID #", {}, false, function(source, args)
     TriggerClientEvent('QBCore:Notify', source,  "ID: "..source)
 end)
 

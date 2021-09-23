@@ -90,7 +90,7 @@ Citizen.CreateThread(function()
 			end
 
             if dist <= 1.0 then
-				DrawText3D(MissionMarker.x, MissionMarker.y, MissionMarker.z, "~g~[E]~b~ To accept missions")
+				DrawText3D(MissionMarker.x, MissionMarker.y, MissionMarker.z, "~g~[E]~b~ For at acceptere")
 				if IsControlJustPressed(0, 38) then
 				TriggerServerEvent("AttackTransport:akceptujto")
 				Citizen.Wait(500)
@@ -130,7 +130,7 @@ AddEventHandler('AttackTransport:InfoForLspd', function(x, y, z)
 			SetBlipScale(blip, 1.0)
 			SetBlipColour(blip, 2)
 			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString('Assault on the transport of cash')
+			AddTextComponentString('Overfald på pengetransport')
 			EndTextCommandSetBlipName(blip)
 			SetNewWaypoint(x, y)
 			Citizen.Wait(10000)
@@ -148,7 +148,7 @@ AddEventHandler('AttackTransport:InfoForLspd', function(x, y, z)
 				Citizen.Wait(100)
 			end
 			if SilenceAlarm == 0 then
-				hintToDisplay('Press ~INPUT_DETONATE~ to silence the alarm')
+				hintToDisplay('Tryk ~INPUT_DETONATE~ for at dæmme alarmen')
 				SilenceAlarm = 1
 			end
 			if IsControlPressed(0, 47) and GuardsDead == 1 then 
@@ -191,7 +191,7 @@ AddEventHandler('qb-armoredtruckheist:client:robberyCall', function(streetLabel,
             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
             TriggerEvent('qb-policealerts:client:AddPoliceAlert', {
                 timeOut = 10000,
-                alertTitle = "Armored Truck Robbery Attempt",
+                alertTitle = "Røveri på Pengetransport",
                 coords = {
                     x = coords.x,
                     y = coords.y,
@@ -219,7 +219,7 @@ AddEventHandler('qb-armoredtruckheist:client:robberyCall', function(streetLabel,
         SetBlipScale(blip, 1.2)
         SetBlipFlashes(blip, true)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("10-90: Armored Truck Robbery")
+        AddTextComponentString("10-90: Røveri på Pengetransport")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -237,9 +237,9 @@ end)
 function MissionNotification()
 	Citizen.Wait(2000)
 	TriggerServerEvent('qb-phone:server:sendNewMail', {
-	sender = "The Boss",
-	subject = "New Target",
-	message = "So you are intrested in making some money? good... go get yourself a Gun and make it happen... sending you the location now.",
+	sender = "Chefen",
+	subject = "Ny opgave",
+	message = "Nåå, så du er interesseret i at lave penge? alright... skaf dig et våben og udfør opgaven... jeg sender dig lokationen nu.",
 	})
 	Citizen.Wait(3000)
 end
@@ -277,7 +277,7 @@ SetBlipSprite(TruckBlip, 57)
 SetBlipColour(TruckBlip, 1)
 SetBlipFlashes(TruckBlip, true)
 BeginTextCommandSetBlipName("STRING")
-AddTextComponentString('Van with Cash')
+AddTextComponentString('Vogn med penge')
 EndTextCommandSetBlipName(TruckBlip)
 --
 RequestModel("s_m_m_security_01")
@@ -325,7 +325,7 @@ Citizen.CreateThread(function()
 				DrawMarker(0, transCoords.x, transCoords.y, transCoords.z+4.5, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 135, 31, 35, 100, 1, 0, 0, 0)
 				if warning == 0 then
 				warning = 1
-				QBCore.Functions.Notify("Get rid of the guards before you place the bomb.", "error")
+				QBCore.Functions.Notify("Skaf dig af med svagterne inden du smider bomben på.", "error")
 				end
 				
 				if GuardsDead == 0 then
@@ -340,7 +340,7 @@ Citizen.CreateThread(function()
 			
 			if dist <= 7 and BlownUp == 0 and PlayerJob.name ~= 'police' then
 				if BlowBackdoor == 0 then
-					hintToDisplay('Press [G] to blow up the back door and take the money')
+					hintToDisplay('Tryk [G] for at sprænge dørene op')
 					BlowBackdoor = 1
 				end
 				if IsControlPressed(0, 47) and GuardsDead == 1 then 
@@ -376,7 +376,7 @@ if IsVehicleStopped(transport) then
 			ClearPedTasks(PlayerPedId())
 			DetachEntity(prop)
 			AttachEntityToEntity(prop, transport, GetEntityBoneIndexByName(transport, 'door_pside_r'), -0.7, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
-			QBCore.Functions.Notify('The load will be detonated in '..TimeToBlow / 1000 ..' seconds.', "error")
+			QBCore.Functions.Notify('Der sprænges om '..TimeToBlow / 1000 ..' sekunder.', "error")
 			FreezeEntityPosition(PlayerPedId(), false)
 			Citizen.Wait(TimeToBlow)
 			local transCoords = GetEntityCoords(transport)
@@ -386,16 +386,16 @@ if IsVehicleStopped(transport) then
 			ApplyForceToEntity(transport, 0, transCoords.x,transCoords.y,transCoords.z, 0.0, 0.0, 0.0, 1, false, true, true, true, true)
 			BlownUp = 1
 			lootable = 1
-			QBCore.Functions.Notify('You can start collecting cash.', "success")
+			QBCore.Functions.Notify('Hent dig pengene.', "success")
 			RemoveBlip(TruckBlip)
 		else
-			QBCore.Functions.Notify('Get out of the water', "error")
+			QBCore.Functions.Notify('Hop ud af vandet!', "error")
 		end
 	else
-		QBCore.Functions.Notify('The vehicle must be empty to place the load', "error")
+		QBCore.Functions.Notify('Kørertøjet skal være tømt for at kunne lægge mere i', "error")
 	end
 else
-	QBCore.Functions.Notify('You cant rob a vehicle that is moving.', "error")
+	QBCore.Functions.Notify('Du kan ikke røve et kørertøj i bevægelse.', "error")
 end
 end
 
@@ -415,7 +415,7 @@ Citizen.CreateThread(function()
 			
 			if dist <= 4.5 then
 				if PickupMoney == 0 then
-					hintToDisplay('Press [E] to take the money')
+					hintToDisplay('Tryk [E] for at tage pengene ud')
 					PickupMoney = 1
 				end
 				if IsControlJustPressed(0, 38) then 
@@ -459,13 +459,13 @@ function TakingMoney()
 	AttachEntityToEntity(bag, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 57005), 0.0, 0.0, -0.16, 250.0, -30.0, 0.0, false, false, false, false, 2, true)
 	TaskPlayAnim(PlayerPedId(), "anim@heists@ornate_bank@grab_cash_heels", "grab", 8.0, -8.0, -1, 1, 0, false, false, false)
 	FreezeEntityPosition(PlayerPedId(), true)
-	QBCore.Functions.Notify('You are packing cash into a bag', "success")
+	QBCore.Functions.Notify('Du smider penge i posen', "success")
 	local _time = GetGameTimer()
 	while GetGameTimer() - _time < 20000 do
 		if IsControlPressed(0, 47) then
 			break
 		end
-		hintToDisplay('Hold [G] to bail out')
+		hintToDisplay('Hold [G] for at afbryde')
 		Citizen.Wait(1)
 	end
 	LootTime = GetGameTimer() - _time
