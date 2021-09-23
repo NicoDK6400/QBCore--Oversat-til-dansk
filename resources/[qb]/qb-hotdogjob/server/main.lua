@@ -52,7 +52,7 @@ AddEventHandler('qb-hotdogjob:server:UpdateReputation', function(quality)
         return
     end
 
-    if quality == "exotic" then
+    if quality == "forrygende" then
         if JobReputation["hotdog"] ~= nil and JobReputation["hotdog"] + 3 > Config.MaxReputation then
             JobReputation["hotdog"] = Config.MaxReputation
             Player.Functions.SetMetaData("jobrep", JobReputation)
@@ -64,7 +64,7 @@ AddEventHandler('qb-hotdogjob:server:UpdateReputation', function(quality)
         else
             JobReputation["hotdog"] = JobReputation["hotdog"] + 3
         end
-    elseif quality == "rare" then
+    elseif quality == "dejlig" then
         if JobReputation["hotdog"] ~= nil and JobReputation["hotdog"] + 2 > Config.MaxReputation then
             JobReputation["hotdog"] = Config.MaxReputation
             Player.Functions.SetMetaData("jobrep", JobReputation)
@@ -76,7 +76,7 @@ AddEventHandler('qb-hotdogjob:server:UpdateReputation', function(quality)
         else
             JobReputation["hotdog"] = JobReputation["hotdog"] + 2
         end
-    elseif quality == "common" then
+    elseif quality == "almindelig" then
         if JobReputation["hotdog"] ~= nil and JobReputation["hotdog"] + 1 > Config.MaxReputation then
             JobReputation["hotdog"] = Config.MaxReputation
             Player.Functions.SetMetaData("jobrep", JobReputation)
@@ -94,6 +94,6 @@ AddEventHandler('qb-hotdogjob:server:UpdateReputation', function(quality)
 end)
 
 
-QBCore.Commands.Add("removestand", "Delete Stand (Admin Only)", {}, false, function(source, args)
+QBCore.Commands.Add("removestand", "Fjern bod (Kun Admin)", {}, false, function(source, args)
     TriggerClientEvent('qb-hotdogjob:staff:DeletStand', source)
 end, 'admin')

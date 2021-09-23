@@ -17,7 +17,7 @@ Config.Locations = {
 }
 
 Config.Stock = {
-    ["exotic"] = {
+    ["forrygende"] = {
         Current = 0,
         Max = {
             [1] = 15,
@@ -25,7 +25,7 @@ Config.Stock = {
             [3] = 45,
             [4] = 60,
         },
-        Label = "Perfect (A)",
+        Label = "Perfekt (A)",
         Price = {
             [1] = {
                 min = 8,
@@ -45,7 +45,7 @@ Config.Stock = {
             },
         }
     },
-    ["rare"] = {
+    ["dejlig"] = {
         Current = 0,
         Max = {
             [1] = 15,
@@ -53,7 +53,7 @@ Config.Stock = {
             [3] = 45,
             [4] = 60,
         },
-        Label = "Rare (B)",
+        Label = "Dejligt (B)",
         Price = {
             [1] = {
                 min = 6,
@@ -73,7 +73,7 @@ Config.Stock = {
             },
         }
     },
-    ["common"] = {
+    ["almindelig"] = {
         Current = 0,
         Max = {
             [1] = 15,
@@ -81,7 +81,7 @@ Config.Stock = {
             [3] = 45,
             [4] = 60,
         },
-        Label = "Common (C)",
+        Label = "Almindelig (C)",
         Price = {
             [1] = {
                 min = 4,

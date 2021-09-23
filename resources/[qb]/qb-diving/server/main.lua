@@ -48,7 +48,7 @@ AddEventHandler('qb-diving:server:BuyBoat', function(boatModel, BerthId)
         else
             missingMoney = (BoatPrice - PlayerMoney.cash)
         end
-        TriggerClientEvent('QBCore:Notify', src, 'Not Enough Money, You Are Missing $' .. missingMoney .. '', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Du har ikke penge nok, du mangler $' .. missingMoney .. '', 'error')
     end
 end)
 
@@ -120,10 +120,10 @@ AddEventHandler('qb-diving:server:CallCops', function(Coords)
         local Player = QBCore.Functions.GetPlayer(v)
         if Player ~= nil then
             if (Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty) then
-                local msg = "This coral may be stolen"
+                local msg = "Denne koral er evt. stjålet"
                 TriggerClientEvent('qb-diving:client:CallCops', Player.PlayerData.source, Coords, msg)
                 local alertData = {
-                    title = "Illegal diving",
+                    title = "Ulovlig dykkeri",
                     coords = {
                         x = Coords.x,
                         y = Coords.y,
@@ -139,7 +139,7 @@ end)
 
 local AvailableCoral = {}
 
-QBCore.Commands.Add("divingsuit", "Take off your diving suit", {}, false, function(source, args)
+QBCore.Commands.Add("divingsuit", "Tag dit dykkerudstyr af", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("qb-diving:client:UseGear", source, false)
 end)
@@ -169,7 +169,7 @@ AddEventHandler('qb-diving:server:SellCoral', function()
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'You don\'t have any coral to sell..', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Du har ingen koraller at sælge..', 'error')
     end
 end)
 

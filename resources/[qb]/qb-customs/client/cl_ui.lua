@@ -241,13 +241,13 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
         local repairCost = math.ceil(1000 - vehicleHealth)
 
         TriggerServerEvent("qb-customs:updateRepairCost", repairCost)
-        createMenu("repairMenu", "Welcome to Benny's Original Motorworks", "Repair Vehicle")
+        createMenu("repairMenu", "Velkommen til Benny's Original Motorworks", "Repair Vehicle")
         populateMenu("repairMenu", -1, "Repair", "$" .. repairCost)
         finishPopulatingMenu("repairMenu")
     end
 
     --#[Main Menu]#--
-    createMenu("mainMenu", "Welcome to Benny's Original Motorworks", "Choose a Category")
+    createMenu("mainMenu", "Velkommen til Benny's Original Motorworks", "Choose a Category")
 
     for k, v in ipairs(vehicleCustomisation) do 
         local validMods, amountValidMods = CheckValidMods(v.category, v.id)

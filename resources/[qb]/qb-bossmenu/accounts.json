@@ -1,8 +1,1 @@
-{
-    "police":1000000,
-    "ambulance":0,
-    "realestate":0,
-    "taxi":0,
-    "cardealer":0,
-    "mechanic":0
-}
+{"realestate":0,"mechanic":0,"police":1000000,"ambulance":4000,"cardealer":0,"taxi":0}

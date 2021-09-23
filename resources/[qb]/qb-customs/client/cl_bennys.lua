@@ -837,12 +837,12 @@ Citizen.CreateThread(function()
 
                     if nearDefault then
                         if not isPlyInBennys then
-                            Draw3DText(v.coords.x, v.coords.y, v.coords.z + 0.5, "[Press ~p~E~w~ - Enter Benny's Motorworks]", 255, 255, 255, 255, 4, 0.45, true, true, true, true, 0, 0, 0, 0, 55)
+                            Draw3DText(v.coords.x, v.coords.y, v.coords.z + 0.5, "[Tryk ~p~E~w~ - Tilgå Benny's Motorworks]", 255, 255, 255, 255, 4, 0.45, true, true, true, true, 0, 0, 0, 0, 55)
                             if IsControlJustReleased(1, 38) then
                                 if (v.useJob and isAuthorized((QBCore.Functions.GetPlayerData().job.name), k)) or not v.useJob then
                                     TriggerEvent('event:control:bennys', k)
                                 else
-                                    QBCore.Functions.Notify("You are not authorized", "error")
+                                    QBCore.Functions.Notify("Du er ikke autoriseret", "error")
                                 end
                             end
                         else
@@ -871,7 +871,7 @@ RegisterNetEvent("qb-customs:purchaseFailed")
 AddEventHandler("qb-customs:purchaseFailed", function()
     isPurchaseSuccessful = false
     attemptingPurchase = false
-    QBCore.Functions.Notify("Not enough money", "error")
+    QBCore.Functions.Notify("Du har ikke penge nok", "error")
 end)
 
 

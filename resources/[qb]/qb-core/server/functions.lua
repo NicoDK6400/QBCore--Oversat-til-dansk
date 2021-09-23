@@ -93,7 +93,7 @@ end
 
 QBCore.Functions.Kick = function(source, reason, setKickReason, deferrals)
 	local src = source
-	reason = "\n"..reason.."\n🔸 Check our Discord for further information: "..QBCore.Config.Server.discord
+	reason = "\n"..reason.."\n🔸 Tjek vores Discord for mere information: "..QBCore.Config.Server.discord
 	if(setKickReason ~=nil) then
 		setKickReason(reason)
 	end
@@ -228,7 +228,7 @@ QBCore.Functions.IsPlayerBanned = function (source)
         if os.time() < result[1].expire then
             retval = true
             local timeTable = os.date("*t", tonumber(result.expire))
-            message = "You have been banned from the server:\n"..result[1].reason.."\nYour ban expires "..timeTable.day.. "/" .. timeTable.month .. "/" .. timeTable.year .. " " .. timeTable.hour.. ":" .. timeTable.min .. "\n"
+            message = "Du er blevet banned fra denne server:\n"..result[1].reason.."\nDit ban udløber "..timeTable.day.. "/" .. timeTable.month .. "/" .. timeTable.year .. " " .. timeTable.hour.. ":" .. timeTable.min .. "\n"
         else
             exports.oxmysql:execute('DELETE FROM bans WHERE id = ?', { result[1].id })
         end

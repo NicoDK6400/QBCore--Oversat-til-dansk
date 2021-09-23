@@ -12,7 +12,7 @@ Config.Locations = {
         coords = vector4(-340.74, -1561.82, 25.23, 58.0),
     },
     ["paycheck"] = {
-        label = "Paycheck",
+        label = "Lønseddel",
         coords = vector4(-346.68, -1572.39, 25.22, 163.5), 
     },
     ["trashcan"] ={

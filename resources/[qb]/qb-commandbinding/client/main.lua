@@ -59,10 +59,10 @@ for k, v in pairs(availableKeys) do
                     Citizen.Wait(1000)
                     keyPressed = false
                 else
-                    QBCore.Functions.Notify('There is still nothing ['..v[2]..'] bound, /binds to bind a command', 'primary', 4000)
+                    QBCore.Functions.Notify('Der er stadig ikke bundet nogen commands ['..v[2]..'] , /binds til at bind en command', 'primary', 4000)
                 end
             else
-                QBCore.Functions.Notify('You have not bound any commands, /binds to bind a command', 'primary', 4000)
+                QBCore.Functions.Notify('Du har ikke bundet nogle, /binds til at bind en command', 'primary', 4000)
             end
         end
     end, false)
@@ -80,7 +80,7 @@ RegisterNUICallback('save', function(data)
         ["F10"] = {["command"] = data.keyData["F10"][1], ["argument"] = data.keyData["F10"][2]},
     }
 
-    QBCore.Functions.Notify('Command bindings have been saved!', 'success')
+    QBCore.Functions.Notify('Command Binds blev gemt!', 'success')
 
     TriggerServerEvent('qb-commandbinding:server:setKeyMeta', keyData)
 end)

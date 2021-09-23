@@ -59,7 +59,7 @@ local menu_button5 = menu2:AddCheckbox({
 })
 local menu_button6 = menu2:AddButton({
     icon = '🏥',
-    label = 'Genoplov',
+    label = 'Genopliv',
     value = 'revive',
     description = 'Genopliv dig selv'
 })
@@ -191,7 +191,7 @@ menu_button11:On("select",function()
             icon = '☀️',
             label = 'Høj sol',
             value = "EXTRASUNNY",
-            description = 'I\'m Hedebølge!'
+            description = 'Hedebølge!'
         },
         [2] = {
             icon = '☀️',

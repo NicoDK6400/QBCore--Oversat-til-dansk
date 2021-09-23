@@ -99,7 +99,7 @@ Citizen.CreateThread(function()
 			if dist > 50.0 then
 				DisableEditMode()
 				closeDecorateUI()
-				QBCore.Functions.Notify("You have gone out of range!")
+				QBCore.Functions.Notify("Du er gået uden for rækkevidde!")
 			end
 		end
 	end
@@ -115,10 +115,10 @@ AddEventHandler("qb-houses:client:decorate", function()
 				openDecorateUI()
 			end
 		else
-			QBCore.Functions.Notify("You must have the keys to the house!", "error")
+			QBCore.Functions.Notify("Du skal have nøglerne til huset!", "error")
 		end
 	else
-		QBCore.Functions.Notify("You are not in a house!", "error")
+		QBCore.Functions.Notify("Du er ikke i huset!", "error")
 	end
 end)
 

@@ -291,7 +291,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 	self.Functions.AddItem = function(item, amount, slot, info)
 		local totalWeight = QBCore.Player.GetTotalWeight(self.PlayerData.items)
 		local itemInfo = QBCore.Shared.Items[item:lower()]
-		if itemInfo == nil then TriggerClientEvent('QBCore:Notify', source, "Item Does Not Exist", "error") return end
+		if itemInfo == nil then TriggerClientEvent('QBCore:Notify', source, "Item eksistere ikke", "error") return end
 		local amount = tonumber(amount)
 		local slot = tonumber(slot) ~= nil and tonumber(slot) or QBCore.Player.GetFirstSlotByItem(self.PlayerData.items, item)
 		if itemInfo["type"] == "weapon" and info == nil then
@@ -322,7 +322,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 				end
 			end
 		else
-			TriggerClientEvent('QBCore:Notify', self.PlayerData.source, "Your inventory is too heavy!", "error")
+			TriggerClientEvent('QBCore:Notify', self.PlayerData.source, "Dit inventory er fyldt!", "error")
 		end
 		return false
 	end
@@ -468,7 +468,7 @@ QBCore.Player.Save = function(source)
 			})
 		end
 		QBCore.Player.SaveInventory(source)
-		QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name .." PLAYER SAVED!")
+		QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name .." SPILLER GEMT!")
 	else
 		QBCore.ShowError(GetCurrentResourceName(), "ERROR QBCORE.PLAYER.SAVE - PLAYERDATA IS EMPTY!")
 	end

@@ -32,51 +32,51 @@ end)
 
 local menu_button = menu:AddButton({
     icon = '📋',
-    label = 'Employees',
+    label = 'Ansatte',
     value = menu3,
-    description = 'Manage Employees'
+    description = 'Manage ansatte'
 })
 local menu_button1 = menu:AddButton({
     icon = '🤝',
-    label = 'Recruit',
+    label = 'Ansæt',
     value = menu4,
-    description = 'Hire New Players'
+    description = 'Ansæt nye spillere'
 })
 local menu_button2 = menu:AddButton({
     icon = '📦',
-    label = 'Storage',
+    label = 'Lager',
     value = nil,
-    description = 'Personal Storage'
+    description = 'Personligt lager'
 })
 local menu_button3 = menu:AddButton({
     icon = '👕',
     label = 'Outfits',
     value = nil,
-    description = 'View Outfits'
+    description = 'Se outfits'
 })
 local menu_button4 = menu:AddButton({
     icon = '💰',
     label = 'Society Money',
     value = menu2,
-    description = 'View/Manage Society Money'
+    description = 'Se/brug Society Money'
 })
 local menu_button5 = menu2:AddButton({
     icon = '💲',
     label = '',
     value = nil,
-    description = 'Current Society Amount'
+    description = 'Aktuel Society mængde'
 })
 local menu_button6 = menu2:AddButton({
     icon = '🤑',
-    label = 'Withdraw',
+    label = 'Udbetal',
     value = menu2,
-    description = 'Withdraw Money From Society'
+    description = 'Udbetal penge fra Society'
 })
 local menu_button7 = menu2:AddButton({
     icon = '🏦',
-    label = 'Deposit',
+    label = 'Indbetal',
     value = menu2,
-    description = 'Deposit Money Into Society'
+    description = 'Indbetal penge til Society'
 })
 
 -- Storage
@@ -107,7 +107,7 @@ menu_button6:On("select", function()
         TriggerServerEvent("qb-gangmenu:server:withdrawMoney", tonumber(result))
         UpdateSociety()
     else
-        QBCore.Functions.Notify('Not High Enough Rank', "error")
+        QBCore.Functions.Notify('Ikke høj nok rang', "error")
     end
 end)
 
@@ -167,7 +167,7 @@ CreateThread(function()
                 if k == PlayerGang.name then
                     if #(pos - v) < 1.0 then
                         sleep = 7
-                        DrawText3D(v, "~g~E~w~ - Gang Menu")
+                        DrawText3D(v, "~g~E~w~ - Bande Menu")
                         if IsControlJustReleased(0, 38) then
                             MenuV:OpenMenu(menu)
                         end
@@ -182,7 +182,7 @@ end)
 -- FUNCTIONS
 function UpdateSociety()
     QBCore.Functions.TriggerCallback('qb-gangmenu:server:GetAccount', function(cb)
-        menu_button5.Label = 'Society Amount: $' ..comma_value(cb)
+        menu_button5.Label = 'Society mængde: $' ..comma_value(cb)
     end, PlayerGang.name)
 end
 
@@ -193,15 +193,15 @@ function ManageEmployees(employee)
     buttons = {
         [1] = {
             icon = '↕️',
-            label = "Promote/Demote",
+            label = "Forfrem/Degradere",
             value = "promote",
             description = "Promote " .. employee.name
         },
         [3] = {
             icon = '🔥',
-            label = "Fire",
+            label = "Brand",
             value = "Fire",
-            description = "Fire " .. employee.name
+            description = "Brand " .. employee.name
         }
     }
     for k, v in pairs(buttons) do

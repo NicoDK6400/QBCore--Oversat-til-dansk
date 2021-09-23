@@ -10,7 +10,7 @@ AddEventHandler('qb-drugs:server:updateDealerItems', function(itemData, amount, 
         Player.Functions.RemoveItem(itemData.name, amount)
         Player.Functions.AddMoney('cash', amount * Config.Dealers[dealer]["products"][itemData.slot].price)
 
-        TriggerClientEvent("QBCore:Notify", src, "This item is not available.. You've got an refund.", "error")
+        TriggerClientEvent("QBCore:Notify", src, "Denne genstand er ikke ledigt.. Du har fået en refundering.", "error")
     end
 end)
 
@@ -59,7 +59,7 @@ AddEventHandler('qb-drugs:server:succesDelivery', function(deliveryData, inTime)
             end
 
             TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["weed_brick"], "remove")
-            TriggerClientEvent('QBCore:Notify', src, 'The order has been delivered completely', 'success')
+            TriggerClientEvent('QBCore:Notify', src, 'Din ordre er blevet afleveret korrekt', 'success')
 
             SetTimeout(math.random(5000, 10000), function()
                 TriggerClientEvent('qb-drugs:client:sendDeliveryMail', src, 'perfect', deliveryData)
@@ -88,7 +88,7 @@ AddEventHandler('qb-drugs:server:succesDelivery', function(deliveryData, inTime)
             end)
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'You\'re too late...', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Du kom for sent...', 'error')
 
         Player.Functions.RemoveItem('weed_brick', deliveryData["amount"])
         Player.Functions.AddMoney('cash', (deliveryData["amount"] * 6000 / 100 * 4), "dilvery-drugs-too-late")
@@ -109,7 +109,7 @@ end)
 
 RegisterServerEvent('qb-drugs:server:callCops')
 AddEventHandler('qb-drugs:server:callCops', function(streetLabel, coords)
-    local msg = "A suspicious situation has been located at " .. streetLabel .. ", possibly drug dealing."
+    local msg = "Mistænkelig adfærd finder sted ved " .. streetLabel .. ", muligvis narkosalg."
     local alertData = {
         title = "Drug Dealing",
         coords = {
@@ -143,7 +143,7 @@ function GetCurrentCops()
     return amount
 end
 
-QBCore.Commands.Add("newdealer", "Place A Dealer (Admin Only)", {{
+QBCore.Commands.Add("newdealer", "Placer en dealer (Kun Admin)", {{
     name = "name",
     help = "Dealer name"
 }, {
@@ -160,7 +160,7 @@ QBCore.Commands.Add("newdealer", "Place A Dealer (Admin Only)", {{
     TriggerClientEvent('qb-drugs:client:CreateDealer', source, dealerName, mintime, maxtime)
 end, "admin")
 
-QBCore.Commands.Add("deletedealer", "Delete A Dealer (Admin Only)", {{
+QBCore.Commands.Add("deletedealer", "Fjern dealer (Kun Admin)", {{
     name = "name",
     help = "Name of the dealer"
 }}, true, function(source, args)
@@ -170,29 +170,29 @@ QBCore.Commands.Add("deletedealer", "Delete A Dealer (Admin Only)", {{
         exports.oxmysql:execute('DELETE FROM dealers WHERE name = ?', {dealerName})
         Config.Dealers[dealerName] = nil
         TriggerClientEvent('qb-drugs:client:RefreshDealers', -1, Config.Dealers)
-        TriggerClientEvent('QBCore:Notify', source, "Dealer: " .. dealerName .. " Has Been Deleted", "success")
+        TriggerClientEvent('QBCore:Notify', source, "Dealer: " .. dealerName .. " Blev slettet", "success")
     else
-        TriggerClientEvent('QBCore:Notify', source, "Dealer: " .. dealerName .. " Doesn\'t Exist", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Dealer: " .. dealerName .. " Eksistere ikke", "error")
     end
 end, "admin")
 
-QBCore.Commands.Add("dealers", "View All Dealers (Admin Only)", {}, false, function(source, args)
+QBCore.Commands.Add("dealers", "Vis alle dealere (Kun Admin)", {}, false, function(source, args)
     local DealersText = ""
     if Config.Dealers ~= nil and next(Config.Dealers) ~= nil then
         for k, v in pairs(Config.Dealers) do
             DealersText = DealersText .. "Name: " .. v["name"] .. "<br>"
         end
         TriggerClientEvent('chat:addMessage', source, {
-            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>List of all dealers: </strong><br><br> ' ..
+            template = '<div class="chat-message advert"><div class="chat-message-body"><strong>Liste over dealere: </strong><br><br> ' ..
                 DealersText .. '</div></div>',
             args = {}
         })
     else
-        TriggerClientEvent('QBCore:Notify', source, 'No dealers have been placed.', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Ingen dealere er blevet placeret.', 'error')
     end
 end, "admin")
 
-QBCore.Commands.Add("dealergoto", "Teleport To A Dealer (Admin Only)", {{
+QBCore.Commands.Add("dealergoto", "Teleport til dealer (Kun Admin)", {{
     name = "name",
     help = "Dealer name"
 }}, true, function(source, args)
@@ -201,7 +201,7 @@ QBCore.Commands.Add("dealergoto", "Teleport To A Dealer (Admin Only)", {{
     if Config.Dealers[DealerName] ~= nil then
         TriggerClientEvent('qb-drugs:client:GotoDealer', source, Config.Dealers[DealerName])
     else
-        TriggerClientEvent('QBCore:Notify', source, 'This dealer doesn\'t exist.', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Denne dealer eksistere ikke.', 'error')
     end
 end, "admin")
 
@@ -237,7 +237,7 @@ AddEventHandler('qb-drugs:server:CreateDealer', function(DealerData)
     local Player = QBCore.Functions.GetPlayer(src)
     local result = exports.oxmysql:fetchSync('SELECT * FROM dealers WHERE name = ?', {DealerData.name})
     if result[1] ~= nil then
-        TriggerClientEvent('QBCore:Notify', src, "A dealer already exists with this name..", "error")
+        TriggerClientEvent('QBCore:Notify', src, "En dealer har allerede samme navn..", "error")
     else
         exports.oxmysql:insert('INSERT INTO dealers (name, coords, time, createdby) VALUES (?, ?, ?, ?)', {DealerData.name,
                                                                                                   json.encode(

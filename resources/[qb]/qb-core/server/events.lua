@@ -173,7 +173,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 				table.remove(args, 1)
 				if (QBCore.Functions.HasPermission(source, "god") or QBCore.Functions.HasPermission(source, QBCore.Commands.List[command].permission)) then
 					if (QBCore.Commands.List[command].argsrequired and #QBCore.Commands.List[command].arguments ~= 0 and args[#QBCore.Commands.List[command].arguments] == nil) then
-					    TriggerClientEvent('QBCore:Notify', source, "All arguments must be filled out!", "error")
+					    TriggerClientEvent('QBCore:Notify', source, "Alle argumenter skal være udfyldt!", "error")
 					    local agus = ""
 					    for name, help in pairs(QBCore.Commands.List[command].arguments) do
 					    	agus = agus .. " ["..help.name.."]"
@@ -183,7 +183,7 @@ AddEventHandler('chatMessage', function(source, n, message)
 						QBCore.Commands.List[command].callback(source, args)
 					end
 				else
-					TriggerClientEvent('QBCore:Notify', source, "No Access To This Command", "error")
+					TriggerClientEvent('QBCore:Notify', source, "Adgang nægtet til denne command", "error")
 				end
 			end
 		end
@@ -197,7 +197,7 @@ AddEventHandler('QBCore:CallCommand', function(command, args)
 		if Player ~= nil then
 			if (QBCore.Functions.HasPermission(source, "god")) or (QBCore.Functions.HasPermission(source, QBCore.Commands.List[command].permission)) or (QBCore.Commands.List[command].permission == Player.PlayerData.job.name) then
 				if (QBCore.Commands.List[command].argsrequired and #QBCore.Commands.List[command].arguments ~= 0 and args[#QBCore.Commands.List[command].arguments] == nil) then
-					TriggerClientEvent('QBCore:Notify', source, "All arguments must be filled out!", "error")
+					TriggerClientEvent('QBCore:Notify', source, "Alle argumenter skal være udfyldt!", "error")
 					local agus = ""
 					for name, help in pairs(QBCore.Commands.List[command].arguments) do
 						agus = agus .. " ["..help.name.."]"
@@ -207,7 +207,7 @@ AddEventHandler('QBCore:CallCommand', function(command, args)
 					QBCore.Commands.List[command].callback(source, args)
 				end
 			else
-				TriggerClientEvent('QBCore:Notify', source, "No Access To This Command", "error")
+				TriggerClientEvent('QBCore:Notify', source, "Adgang nægtet til denne command", "error")
 			end
 		end
 	end
@@ -224,10 +224,10 @@ AddEventHandler('QBCore:ToggleDuty', function()
 	local Player = QBCore.Functions.GetPlayer(src)
 	if Player.PlayerData.job.onduty then
 		Player.Functions.SetJobDuty(false)
-		TriggerClientEvent('QBCore:Notify', src, "You are now off duty!")
+		TriggerClientEvent('QBCore:Notify', src, "Du er nu gået af arbejde!")
 	else
 		Player.Functions.SetJobDuty(true)
-		TriggerClientEvent('QBCore:Notify', src, "You are now on duty!")
+		TriggerClientEvent('QBCore:Notify', src, "Du er nu gået på arbejde!")
 	end
 	TriggerClientEvent("QBCore:Client:SetDuty", src, Player.PlayerData.job.onduty)
 end)

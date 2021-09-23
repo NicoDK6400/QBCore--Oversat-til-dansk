@@ -40,7 +40,7 @@ AddEventHandler("qb-gangmenu:server:withdrawMoney", function(amount)
         Accounts[gang] = Accounts[gang] - amount
         Player.Functions.AddMoney("cash", amount)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Not Enough Money', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Ikke nok penge', 'error')
         return
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
@@ -62,7 +62,7 @@ AddEventHandler("qb-gangmenu:server:depositMoney", function(amount)
     if Player.Functions.RemoveMoney("cash", amount) then
         Accounts[gang] = Accounts[gang] + amount
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Not Enough Money', "error")
+        TriggerClientEvent('QBCore:Notify', src, 'Ikke nok penge', "error")
         return
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
@@ -135,11 +135,11 @@ AddEventHandler('qb-gangmenu:server:updateGrade', function(target, grade)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
     if Employee then
         if Employee.Functions.SetGang(Player.PlayerData.gang.name, grade) then
-            TriggerClientEvent('QBCore:Notify', src, "Grade Changed Successfully!", "success")
-            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "Your Gang Grade Is Now [" .. grade .. "].",
+            TriggerClientEvent('QBCore:Notify', src, "Rank blev ændret!", "success")
+            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "Din rank er nu [" .. grade .. "].",
                 "success")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Grade Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Ranken findes ikke", "error")
         end
     else
         local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
@@ -150,9 +150,9 @@ AddEventHandler('qb-gangmenu:server:updateGrade', function(target, grade)
             employeegang.grade = gang.grades[data.grade]
             exports.oxmysql:execute('UPDATE players SET gang = ? WHERE citizenid = ?',
                 {json.encode(employeegang), target})
-            TriggerClientEvent('QBCore:Notify', src, "Grade Changed Successfully!", "success")
+            TriggerClientEvent('QBCore:Notify', src, "Rank blev ændret!", "success")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Player Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Ranken findes ikke", "error")
         end
     end
 end)
@@ -165,12 +165,12 @@ AddEventHandler('qb-gangmenu:server:fireEmployee', function(target)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
     if Employee then
         if Employee.Functions.SetGang("none", '0') then
-            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Gang Fire', "Successfully fired " ..
+            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Gang Fire', "Fyret blev " ..
                 GetPlayerName(Employee.PlayerData.source) .. ' (' .. Player.PlayerData.gang.name .. ')', src)
-            TriggerClientEvent('QBCore:Notify', src, "Fired successfully!", "success")
-            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "You Were Fired", "error")
+            TriggerClientEvent('QBCore:Notify', src, "En fyring blev fortaget!", "success")
+            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "Du blev fyret", "error")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Contact Server Developer", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Kontakt server udviklerne", "error")
         end
     else
         local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
@@ -186,11 +186,11 @@ AddEventHandler('qb-gangmenu:server:fireEmployee', function(target)
             gang.grade.name = nil
             gang.grade.level = 0
             exports.oxmysql:execute('UPDATE players SET gang = ? WHERE citizenid = ?', {json.encode(gang), target})
-            TriggerClientEvent('QBCore:Notify', src, "Fired successfully!", "success")
+            TriggerClientEvent('QBCore:Notify', src, "En fyring blev fortaget!", "success")
             TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Fire',
                 "Successfully fired " .. target.source .. ' (' .. Player.PlayerData.gang.name .. ')', src)
         else
-            TriggerClientEvent('QBCore:Notify', src, "Player Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Spilleren eksistere ikke", "error")
         end
     end
 end)
@@ -203,10 +203,10 @@ AddEventHandler('qb-gangmenu:server:giveJob', function(recruit)
     local Target = QBCore.Functions.GetPlayer(recruit)
     if Target and Target.Functions.SetGang(Player.PlayerData.gang.name, 0) then
         TriggerClientEvent('QBCore:Notify', src,
-            "You Recruited " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) ..
-                " To " .. Player.PlayerData.gang.label .. "", "success")
+            "Du rekruterede " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) ..
+                " til " .. Player.PlayerData.gang.label .. "", "success")
         TriggerClientEvent('QBCore:Notify', Target.PlayerData.source,
-            "You've Been Recruited To " .. Player.PlayerData.gang.label .. "", "success")
+            "Du blev hyret til " .. Player.PlayerData.gang.label .. "", "success")
         TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Recruit',
             "Successfully recruited " ..
                 (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) .. ' (' ..

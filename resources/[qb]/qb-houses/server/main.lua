@@ -60,7 +60,7 @@ AddEventHandler('qb-houses:server:addNewHouse', function(street, coords, price, 
         decorations = {}
     }
     TriggerClientEvent("qb-houses:client:setHouseConfig", -1, Config.Houses)
-    TriggerClientEvent('QBCore:Notify', src, "You have added a house: " .. label)
+    TriggerClientEvent('QBCore:Notify', src, "Du har tilføjet et hus: " .. label)
 end)
 
 RegisterServerEvent('qb-houses:server:addGarage')
@@ -72,7 +72,7 @@ AddEventHandler('qb-houses:server:addGarage', function(house, coords)
         takeVehicle = coords
     }
     TriggerClientEvent("qb-garages:client:addHouseGarage", -1, house, garageInfo)
-    TriggerClientEvent('QBCore:Notify', src, "You have added a garage: " .. garageInfo.label)
+    TriggerClientEvent('QBCore:Notify', src, "Du har tilføjet en garage: " .. garageInfo.label)
 end)
 
 RegisterServerEvent('qb-houses:server:viewHouse')
@@ -110,7 +110,7 @@ AddEventHandler('qb-houses:server:buyHouse', function(house)
         pData.Functions.RemoveMoney('bank', HousePrice, "bought-house") -- 21% Extra house costs
         TriggerEvent('qb-bossmenu:server:addAccountMoney', "realestate", (HousePrice / 100) * math.random(18, 25))    
     else
-        TriggerClientEvent('QBCore:Notify', source, "You dont have enough money..", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du har ikke penge nok..", "error")
     end
 end)
 
@@ -123,7 +123,7 @@ QBCore.Functions.CreateCallback('qb-houses:server:buyFurniture', function(source
         pData.Functions.RemoveMoney('bank', price, "bought-furniture")
         cb(true)
     else
-        TriggerClientEvent('QBCore:Notify', src, "You dont have enough money..", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Du har ikke penge nok..", "error")
         cb(false)
     end
 end)
@@ -459,7 +459,7 @@ AddEventHandler('qb-houses:server:giveHouseKey', function(target, house)
         if housekeyholders[house] ~= nil then
             for _, cid in pairs(housekeyholders[house]) do
                 if cid == tPlayer.PlayerData.citizenid then
-                    TriggerClientEvent('QBCore:Notify', src, 'This person already has the keys of the house!', 'error',
+                    TriggerClientEvent('QBCore:Notify', src, 'Denne person har allerede husets nøgler!', 'error',
                         3500)
                     return
                 end
@@ -469,7 +469,7 @@ AddEventHandler('qb-houses:server:giveHouseKey', function(target, house)
                 {json.encode(housekeyholders[house]), house})
             TriggerClientEvent('qb-houses:client:refreshHouse', tPlayer.PlayerData.source)
             TriggerClientEvent('QBCore:Notify', tPlayer.PlayerData.source,
-                'You have the keys of ' .. Config.Houses[house].adress .. ' recieved!', 'success', 2500)
+                'Du har modtaget nøglerne til ' .. Config.Houses[house].adress .. ' !', 'success', 2500)
         else
             local sourceTarget = QBCore.Functions.GetPlayer(src)
             housekeyholders[house] = {
@@ -480,10 +480,10 @@ AddEventHandler('qb-houses:server:giveHouseKey', function(target, house)
                 {json.encode(housekeyholders[house]), house})
             TriggerClientEvent('qb-houses:client:refreshHouse', tPlayer.PlayerData.source)
             TriggerClientEvent('QBCore:Notify', tPlayer.PlayerData.source,
-                'You have the keys of ' .. Config.Houses[house].adress .. ' recieved!', 'success', 2500)
+                'Du har modtaget nøglerne til ' .. Config.Houses[house].adress .. ' !', 'success', 2500)
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Something went wrond try again!', 'error', 2500)
+        TriggerClientEvent('QBCore:Notify', src, 'Noget endte galt, prøv igen!', 'error', 2500)
     end
 end)
 
@@ -503,12 +503,12 @@ AddEventHandler('qb-houses:server:setLocation', function(coords, house, type)
     TriggerClientEvent('qb-houses:client:refreshLocations', -1, house, json.encode(coords), type)
 end)
 
-QBCore.Commands.Add("createhouse", "Create House (Real Estate Only)", {{
+QBCore.Commands.Add("createhouse", "Lav en bolig (Kun for mæglere)", {{
     name = "price",
-    help = "Price of the house"
+    help = "Prisen på boligen"
 }, {
     name = "tier",
-    help = "Name of the item(no label)"
+    help = "Navnet på item(ikke label)"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local price = tonumber(args[1])
@@ -516,16 +516,16 @@ QBCore.Commands.Add("createhouse", "Create House (Real Estate Only)", {{
     if Player.PlayerData.job.name == "realestate" then
         TriggerClientEvent("qb-houses:client:createHouses", source, price, tier)
     else
-        TriggerClientEvent('QBCore:Notify', source, "Only realestate can use this command", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Kun for mæglere kan benytte denne command", "error")
     end
 end)
 
-QBCore.Commands.Add("addgarage", "Add House Garage (Real Estate Only)", {}, false, function(source, args)
+QBCore.Commands.Add("addgarage", "Add House Garage (Kun for mæglere)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "realestate" then
         TriggerClientEvent("qb-houses:client:addGarage", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, "Only realestate can use this command", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Kun for mæglere kan benytte denne command", "error")
     end
 end)
 
@@ -699,7 +699,7 @@ QBCore.Functions.CreateUseableItem("police_stormram", function(source, item)
     if (Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty) then
         TriggerClientEvent("qb-houses:client:HomeInvasion", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, "This is only possible for emergency services!", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Dette er kun muligt for redningstjenester!", "error")
     end
 end)
 
@@ -709,14 +709,14 @@ AddEventHandler('qb-houses:server:SetHouseRammed', function(bool, house)
     TriggerClientEvent('qb-houses:client:SetHouseRammed', -1, bool, house)
 end)
 
-QBCore.Commands.Add("enter", "Enter House", {}, false, function(source, args)
+QBCore.Commands.Add("enter", "Gå i bolig", {}, false, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 
     TriggerClientEvent('qb-houses:client:EnterHouse', src)
 end)
 
-QBCore.Commands.Add("ring", "Ring The Doorbell", {}, false, function(source, args)
+QBCore.Commands.Add("ring", "Ring på døren", {}, false, function(source, args)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 

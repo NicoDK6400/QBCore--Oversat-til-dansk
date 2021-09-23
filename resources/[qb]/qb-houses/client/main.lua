@@ -175,10 +175,10 @@ AddEventHandler('qb-houses:client:toggleDoorlock', function()
                 QBCore.Functions.Notify("House is locked!", "error", 2500)
             end
         else
-            QBCore.Functions.Notify("You don't have the keys of the house...", "error", 3500)
+            QBCore.Functions.Notify("Du har ikke husets nøgler...", "error", 3500)
         end
     else
-        QBCore.Functions.Notify("There is no door nearby", "error", 3500)
+        QBCore.Functions.Notify("Der er ingen dør i nærheden", "error", 3500)
     end
 end)
 
@@ -297,13 +297,13 @@ Citizen.CreateThread(function()
                     if CurrentHouse ~= nil then
                         if stashLocation ~= nil then
                             if #(pos - vector3(stashLocation.x, stashLocation.y, stashLocation.z)) < 1.5 then
-                                DrawText3Ds(stashLocation.x, stashLocation.y, stashLocation.z, '~g~E~w~ - Stash')
+                                DrawText3Ds(stashLocation.x, stashLocation.y, stashLocation.z, '~g~E~w~ - Obevar')
                                 if IsControlJustPressed(0, 38) then -- E
                                     TriggerServerEvent("inventory:server:OpenInventory", "stash", CurrentHouse)
                                     TriggerEvent("inventory:client:SetCurrentStash", CurrentHouse)
                                 end
                             elseif #(pos - vector3(stashLocation.x, stashLocation.y, stashLocation.z)) < 3 then
-                                DrawText3Ds(stashLocation.x, stashLocation.y, stashLocation.z, 'Stash')
+                                DrawText3Ds(stashLocation.x, stashLocation.y, stashLocation.z, 'Opbevaring')
                             end
                         end
                     end
@@ -328,7 +328,7 @@ Citizen.CreateThread(function()
                     if CurrentHouse ~= nil then
                         if logoutLocation ~= nil then
                             if #(pos - vector3(logoutLocation.x, logoutLocation.y, logoutLocation.z)) < 1.5 then
-                                DrawText3Ds(logoutLocation.x, logoutLocation.y, logoutLocation.z, '~g~E~w~ - Change Characters')
+                                DrawText3Ds(logoutLocation.x, logoutLocation.y, logoutLocation.z, '~g~E~w~ - Ændre karakter')
                                 if IsControlJustPressed(0, 38) then -- E
                                     DoScreenFadeOut(250)
                                     while not IsScreenFadedOut() do
@@ -344,7 +344,7 @@ Citizen.CreateThread(function()
                                     end)
                                 end
                             elseif #(pos - vector3(logoutLocation.x, logoutLocation.y, logoutLocation.z)) < 3 then
-                                DrawText3Ds(logoutLocation.x, logoutLocation.y, logoutLocation.z, 'Change Characters')
+                                DrawText3Ds(logoutLocation.x, logoutLocation.y, logoutLocation.z, 'Ændre karakter')
                             end
                         end
                     end
@@ -380,7 +380,7 @@ AddEventHandler('qb-houses:client:RingDoor', function(player, house)
     if closesthouse == house and inside then
         CurrentDoorBell = player
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "doorbell", 0.1)
-        QBCore.Functions.Notify("Someone is ringing the door!")
+        QBCore.Functions.Notify("Nogen ringer på døren!")
     end
 end)
 
@@ -416,12 +416,12 @@ AddEventHandler('qb-houses:client:giveHouseKey', function(data)
         if housedist < 10 then
             TriggerServerEvent('qb-houses:server:giveHouseKey', playerId, closesthouse)
         else
-            QBCore.Functions.Notify("You're not close enough to the door..", "error")
+            QBCore.Functions.Notify("Du er ikke tæt nok på døren..", "error")
         end
     elseif closesthouse == nil then
-        QBCore.Functions.Notify("There is no house near you", "error")
+        QBCore.Functions.Notify("Der er intet hus i nærheden af ​​dig", "error")
     else
-        QBCore.Functions.Notify("No one around!", "error")
+        QBCore.Functions.Notify("Ingen i nærheden!", "error")
     end
 end)
 
@@ -437,14 +437,14 @@ AddEventHandler('qb-houses:client:removeHouseKey', function(data)
                     HouseKeysMenu()
                     Menu.hidden = not Menu.hidden
                 else
-                    QBCore.Functions.Notify("You're not a house owner..", "error")
+                    QBCore.Functions.Notify("Du er ikke en husejer..", "error")
                 end
             end, closesthouse)
         else
-            QBCore.Functions.Notify("You're not close enough to the door..", "error")
+            QBCore.Functions.Notify("Du er ikke tæt nok på døren..", "error")
         end
     else
-        QBCore.Functions.Notify("You're not close enough to the door..", "error")
+        QBCore.Functions.Notify("Du er ikke tæt nok på døren..", "error")
     end
 end)
 
@@ -483,14 +483,14 @@ function HouseKeysMenu()
         MenuTitle = "Sleutelhouders:"
         ClearMenu()
         if holders == nil or next(holders) == nil then
-            QBCore.Functions.Notify("No key holders found..", "error", 3500)
+            QBCore.Functions.Notify("Ingen nøgleholdere fundet..", "error", 3500)
             closeMenuFull()
         else
             for k, v in pairs(holders) do
                 Menu.addButton(holders[k].firstname .. " " .. holders[k].lastname, "optionMenu", holders[k]) 
             end
         end
-        Menu.addButton("Exit Menu", "closeMenuFull", nil) 
+        Menu.addButton("Luk Menu", "closeMenuFull", nil) 
     end, closesthouse)
 end
 
@@ -517,7 +517,7 @@ end
 
 function removeOutfit(oData)
     TriggerServerEvent('clothes:removeOutfit', oData.outfitname)
-    QBCore.Functions.Notify(oData.outfitname.." Is removed", "success", 2500)
+    QBCore.Functions.Notify(oData.outfitname.." Er fjernet", "success", 2500)
     closeMenuFull()
 end
 
@@ -956,10 +956,10 @@ AddEventHandler('qb-houses:client:setLocation', function(data)
                 TriggerServerEvent('qb-houses:server:setLocation', coords, closesthouse, 3)
             end
         else
-            QBCore.Functions.Notify('You do not own this house', 'error')
+            QBCore.Functions.Notify('Du ejer ikke dette hus', 'error')
         end
     else    
-        QBCore.Functions.Notify('You are not in a house', 'error')
+        QBCore.Functions.Notify('Du er ikke i et hus', 'error')
     end
 end)
 
@@ -1028,7 +1028,7 @@ AddEventHandler('qb-houses:client:HomeInvasion', function()
                             }, function()
                                 if RamsDone + 1 >= Config.RamsNeeded then
                                     TriggerServerEvent('qb-houses:server:lockHouse', false, closesthouse)
-                                    QBCore.Functions.Notify('It worked the door is now out.', 'success')
+                                    QBCore.Functions.Notify('Det virkede døren er nu ude.', 'success')
                                     TriggerServerEvent('qb-houses:server:SetHouseRammed', true, closesthouse)
                                     DoRamAnimation(false)
                                 else
@@ -1043,25 +1043,25 @@ AddEventHandler('qb-houses:client:HomeInvasion', function()
                             end, function()
                                 RamsDone = 0
                                 TriggerServerEvent('qb-houses:server:SetRamState', false, closesthouse)
-                                QBCore.Functions.Notify('It failed try again.', 'error')
+                                QBCore.Functions.Notify('Det mislykkedes, prøv igen.', 'error')
                                 DoRamAnimation(false)
                             end)
                             TriggerServerEvent('qb-houses:server:SetRamState', true, closesthouse)
                         else
-                            QBCore.Functions.Notify('Someone is already working on the door..', 'error')
+                            QBCore.Functions.Notify('Nogen arbejder allerede på døren..', 'error')
                         end
                     else
-                        QBCore.Functions.Notify('19/5000 This house is already open..', 'error')
+                        QBCore.Functions.Notify('19/5000 dette hus er allerede åbent..', 'error')
                     end
                 else
-                    QBCore.Functions.Notify('You\'re not near a house..', 'error')
+                    QBCore.Functions.Notify('Du er ikke tæt nok på et hus..', 'error')
                 end
             else
-                QBCore.Functions.Notify('There is no police force present..', 'error')
+                QBCore.Functions.Notify('Der er intet politi i omegnen..', 'error')
             end
         end)
     else
-        QBCore.Functions.Notify('You\'re not near a house..', 'error')
+        QBCore.Functions.Notify('Du er ikke tæt nok på et hus..', 'error')
     end
 end)
 
@@ -1091,9 +1091,9 @@ AddEventHandler('qb-houses:client:ResetHouse', function()
             TriggerServerEvent('qb-houses:server:SetRamState', false, closesthouse)
             TriggerServerEvent('qb-houses:server:lockHouse', true, closesthouse)
             RamsDone = 0
-            QBCore.Functions.Notify('You locked the house again..', 'success')
+            QBCore.Functions.Notify('Du låste huset igen..', 'success')
         else
-            QBCore.Functions.Notify('This door is not broken open ..', 'error')
+            QBCore.Functions.Notify('Denne dør er ikke brudt op ..', 'error')
         end
     end
 end)

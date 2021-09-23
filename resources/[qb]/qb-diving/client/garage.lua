@@ -32,7 +32,7 @@ Citizen.CreateThread(function()
                 if dist < 10 then
                     DrawMarker(2, QBBoatshop.PoliceBoat.x, QBBoatshop.PoliceBoat.y, QBBoatshop.PoliceBoat.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                     if #(pos - vector3(QBBoatshop.PoliceBoat.x, QBBoatshop.PoliceBoat.y, QBBoatshop.PoliceBoat.z)) < 1.5 then
-                        QBCore.Functions.DrawText3D(QBBoatshop.PoliceBoat.x, QBBoatshop.PoliceBoat.y, QBBoatshop.PoliceBoat.z, "~g~E~w~ - Take Boat")
+                        QBCore.Functions.DrawText3D(QBBoatshop.PoliceBoat.x, QBBoatshop.PoliceBoat.y, QBBoatshop.PoliceBoat.z, "~g~E~w~ - Tag båd")
                         if IsControlJustReleased(0, 38) then
                             local coords = QBBoatshop.PoliceBoatSpawn
                             QBCore.Functions.SpawnVehicle("predator", function(veh)
@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
                 if dist < 10 then
                     DrawMarker(2, QBBoatshop.PoliceBoat2.x, QBBoatshop.PoliceBoat2.y, QBBoatshop.PoliceBoat2.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                     if #(pos - vector3(QBBoatshop.PoliceBoat2.x, QBBoatshop.PoliceBoat2.y, QBBoatshop.PoliceBoat2.z)) < 1.5 then
-                        QBCore.Functions.DrawText3D(QBBoatshop.PoliceBoat2.x, QBBoatshop.PoliceBoat2.y, QBBoatshop.PoliceBoat2.z, "~g~E~w~ - Take Boat")
+                        QBCore.Functions.DrawText3D(QBBoatshop.PoliceBoat2.x, QBBoatshop.PoliceBoat2.y, QBBoatshop.PoliceBoat2.z, "~g~E~w~ - Tag båd")
                         if IsControlJustReleased(0, 38) then
                             local coords = QBBoatshop.PoliceBoatSpawn2
                             QBCore.Functions.SpawnVehicle("predator", function(veh)
@@ -109,7 +109,7 @@ Citizen.CreateThread(function()
                     DrawMarker(35, v.coords.put.x, v.coords.put.y, v.coords.put.z + 0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.7, 1.7, 1.7, 255, 55, 15, 255, false, false, false, true, false, false, false)
                     if PutDistance < 2 then
                         if inBoat then
-                            DrawText3D(v.coords.put.x, v.coords.put.y, v.coords.put.z, '~g~E~w~ - Remove boat')
+                            DrawText3D(v.coords.put.x, v.coords.put.y, v.coords.put.z, '~g~E~w~ - Fjern båd')
                             if IsControlJustPressed(0, 38) then
                                 RemoveVehicle()
                             end
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
                 if not inBoat then
                     DrawMarker(2, v.coords.take.x, v.coords.take.y, v.coords.take.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.5, -0.30, 15, 255, 55, 255, false, false, false, true, false, false, false)
                     if TakeDistance < 2 then
-                        DrawText3D(v.coords.take.x, v.coords.take.y, v.coords.take.z, '~g~E~w~ - Take the boat')
+                        DrawText3D(v.coords.take.x, v.coords.take.y, v.coords.take.z, '~g~E~w~ - Tag båden')
                         if IsControlJustPressed(1, 177) and not Menu.hidden then
                             CloseMenu()
                             PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
@@ -153,7 +153,7 @@ Citizen.CreateThread(function()
                 if not inBoat then
                     DrawMarker(2, v.coords.take.x, v.coords.take.y, v.coords.take.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.5, -0.30, 15, 255, 55, 255, false, false, false, true, false, false, false)
                     if TakeDistance < 2 then
-                        DrawText3D(v.coords.take.x, v.coords.take.y, v.coords.take.z, '~g~E~w~ -Boat storage')
+                        DrawText3D(v.coords.take.x, v.coords.take.y, v.coords.take.z, '~g~E~w~ -opbevaring af både')
                         if IsControlJustPressed(1, 177) and not Menu.hidden then
                             CloseMenu()
                             PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
@@ -239,10 +239,10 @@ function MenuBoatDepot()
     ClearMenu()
     QBCore.Functions.TriggerCallback("qb-diving:server:GetDepotBoats", function(result)
         ped = PlayerPedId();
-        MenuTitle = "My Vehicles :"
+        MenuTitle = "Mine både :"
 
         if result == nil then
-            QBCore.Functions.Notify("You have no vehicles in this Depot", "error", 5000)
+            QBCore.Functions.Notify("Du har ikke nogle både i dette lager", "error", 5000)
             CloseMenu()
         else
             -- Menu.addButton(QBBoatshop.Depots[CurrentDock].label, "yeet", QBBoatshop.Depots[CurrentDock].label)
@@ -267,10 +267,10 @@ function VehicleList()
     ClearMenu()
     QBCore.Functions.TriggerCallback("qb-diving:server:GetMyBoats", function(result)
         ped = PlayerPedId();
-        MenuTitle = "My Vehicles :"
+        MenuTitle = "Mine både :"
 
         if result == nil then
-            QBCore.Functions.Notify("You have no vehicles in this Boathouse", "error", 5000)
+            QBCore.Functions.Notify("Du har ingen både i bådshuset", "error", 5000)
             CloseMenu()
         else
             -- Menu.addButton(QBBoatshop.Docks[CurrentDock].label, "yeet", QBBoatshop.Docks[CurrentDock].label)
@@ -297,7 +297,7 @@ function TakeOutVehicle(vehicle)
             SetVehicleNumberPlateText(veh, vehicle.plate)
             SetEntityHeading(veh, QBBoatshop.Docks[CurrentDock].coords.put.w)
             exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
-            QBCore.Functions.Notify("vehicle Out: Fuel: "..currentFuel.. "%", "primary", 4500)
+            QBCore.Functions.Notify("Båd: Fuel: "..currentFuel.. "%", "primary", 4500)
             CloseMenu()
             TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
             TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
@@ -305,7 +305,7 @@ function TakeOutVehicle(vehicle)
             TriggerServerEvent('qb-diving:server:SetBoatState', Trim(GetVehicleNumberPlateText(veh)), 0, CurrentDock, 100)
         end, QBBoatshop.Docks[CurrentDock].coords.put, true)
     else
-        QBCore.Functions.Notify("The boat is not in the boathouse", "error", 4500)
+        QBCore.Functions.Notify("Båden er ikke i bådshuset", "error", 4500)
     end
 end
 
@@ -314,7 +314,7 @@ function TakeOutDepotBoat(vehicle)
         SetVehicleNumberPlateText(veh, vehicle.plate)
         SetEntityHeading(veh, QBBoatshop.Depots[CurrentDock].coords.put.w)
         exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
-        QBCore.Functions.Notify("Vehicle Off: Fuel: "..currentFuel.. "%", "primary", 4500)
+        QBCore.Functions.Notify("Båden er slukket: Fuel: "..currentFuel.. "%", "primary", 4500)
         CloseMenu()
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
         TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))

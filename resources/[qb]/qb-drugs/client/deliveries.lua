@@ -32,7 +32,7 @@ Citizen.CreateThread(function()
                 if dealerDist <= 1.5 and not isHealingPerson then
                     if not interacting then
                         if not dealerIsHome then
-                            DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] To knock')
+                            DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at banke')
 
                             if IsControlJustPressed(0, 38) then
                                 currentDealer = id
@@ -40,9 +40,9 @@ Citizen.CreateThread(function()
                             end
                         elseif dealerIsHome then
                             if dealer["name"] == "Mystery man" then
-                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] To buy / [G] Help your guy ($5000)')
+                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Hjælp din makker ($5000)')
                             else
-                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] To buy / [G] Start a mission')
+                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Start en mission')
                             end
                             if IsControlJustPressed(0, 38) then
                                 buyDealerStuff()
@@ -54,7 +54,7 @@ Citizen.CreateThread(function()
                                     if player ~= -1 and distance < 5.0 then
                                         local playerId = GetPlayerServerId(player)
                                         isHealingPerson = true
-                                        QBCore.Functions.Progressbar("hospital_revive", "Put person back on their feet..", 5000, false, true, {
+                                        QBCore.Functions.Progressbar("hospital_revive", "Får personen på benene igen..", 5000, false, true, {
                                             disableMovement = false,
                                             disableCarMovement = false,
                                             disableMouse = false,
@@ -66,7 +66,7 @@ Citizen.CreateThread(function()
                                         }, {}, {}, function() -- Done
                                             isHealingPerson = false
                                             StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                                            QBCore.Functions.Notify("You have helped a person!")
+                                            QBCore.Functions.Notify("Du har hjulpet en person!")
                                             TriggerServerEvent("hospital:server:RevivePlayer", playerId, true)
                                         end, function() -- Cancel
                                             isHealingPerson = false
@@ -74,16 +74,16 @@ Citizen.CreateThread(function()
                                             QBCore.Functions.Notify("Failed!", "error")
                                         end)
                                     else
-                                        QBCore.Functions.Notify("There is no one nearby..", "error")
+                                        QBCore.Functions.Notify("Der er ingen spiller i nærheden..", "error")
                                     end
                                 else
                                     if waitingDelivery == nil then
-                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "These are the products, I\'ll keep in touch through email")
+                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail")
                                         requestDelivery()
                                         interacting = false
                                         dealerIsHome = false
                                     else
-                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'You still need to complete a delivery, what are you waiting for?!')
+                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'Du mangler at fuldfører en mission, hvad venter du på knægt?!')
                                     end
                                 end
                             end
@@ -171,12 +171,12 @@ function knockDoorAnim(home)
         Citizen.Wait(1000)
         dealerIsHome = true
         if Config.Dealers[currentDealer]["name"] == "Mystery man" then
-            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hello my child, what can I do for you')
+            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hej mit barn, hvad kan jeg gøre for dig')
         elseif Config.Dealers[currentDealer]["name"] == "Fred" then
             dealerIsHome = false
-            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Unfortunately I don\'t do business anymore ... You should have treated me better')
+            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Desværre, jeg laver ikke handler med dig længere ... Du skulle have behandlet mig bedre')
         else
-            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Yo '..myData.charinfo.firstname..', what can I do for you?')
+            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Yo '..myData.charinfo.firstname..', hvad kan jeg gøre for dig?')
         end
         -- knockTimeout()
     else
@@ -192,7 +192,7 @@ function knockDoorAnim(home)
         TaskPlayAnim(PlayerPed, knockAnimLib, "exit", 3.0, 3.0, -1, 1, 0, false, false, false)
         knockingDoor = false
         Citizen.Wait(1000)
-        QBCore.Functions.Notify('It looks like no one is home..', 'error', 3500)
+        QBCore.Functions.Notify('Ser ud til at ingen er hjemme..', 'error', 3500)
     end
 end
 
@@ -222,7 +222,7 @@ function requestDelivery()
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[currentDealer]["name"],
             subject = "Delivery Location",
-            message = "Here is all info about the delivery, <br>Items: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> be in time!!",
+            message = "Her er alt information til leveringen, <br>Items: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> lad vær med at komme for sent!!",
             button = {
                 enabled = true,
                 buttonEvent = "qb-drugs:client:setLocation",
@@ -253,7 +253,7 @@ end
 
 function setMapBlip(x, y)
     SetNewWaypoint(x, y)
-    QBCore.Functions.Notify('The route to the delivery location has been set on your map.', 'success');
+    QBCore.Functions.Notify('Ruten til leverings adressen er blevet opdateret med til dit kort.', 'success');
 end
 
 RegisterNetEvent('qb-drugs:client:setLocation')
@@ -262,7 +262,7 @@ AddEventHandler('qb-drugs:client:setLocation', function(locationData)
         activeDelivery = locationData
     else
         setMapBlip(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"])
-        QBCore.Functions.Notify('You still have an open delivery...')
+        QBCore.Functions.Notify('Du har stadig en levering åben...')
         return
     end
 
@@ -285,7 +285,7 @@ AddEventHandler('qb-drugs:client:setLocation', function(locationData)
                 if dist < 15 then
                     inDeliveryRange = true
                     if dist < 1.5 then
-                        DrawText3D(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"], activeDelivery["coords"]["z"], '[E] '..activeDelivery["amount"]..'x '..QBCore.Shared.Items[activeDelivery["itemData"]["item"]]["label"]..' deliver.')
+                        DrawText3D(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"], activeDelivery["coords"]["z"], '[E] '..activeDelivery["amount"]..'x '..QBCore.Shared.Items[activeDelivery["itemData"]["item"]]["label"]..' aflevér.')
 
                         if IsControlJustPressed(0, 38) then
                             deliverStuff(activeDelivery)
@@ -330,7 +330,7 @@ function deliverStuff(activeDelivery)
         Citizen.Wait(500)
         TriggerEvent('animations:client:EmoteCommandStart', {"bumbin"})
         checkPedDistance()
-        QBCore.Functions.Progressbar("work_dropbox", "Delivering products..", 3500, false, true, {
+        QBCore.Functions.Progressbar("work_dropbox", "Udlevere produkter..", 3500, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
@@ -413,19 +413,19 @@ AddEventHandler('qb-drugs:client:sendDeliveryMail', function(type, deliveryData)
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
             subject = "Delivery",
-            message = "You did good work, hope to see you again ;)<br><br>Groeten, "..Config.Dealers[deliveryData["dealer"]]["name"]
+            message = "Godt arbejde, jeg håber vi snart ses igen ;)<br><br>Groeten, "..Config.Dealers[deliveryData["dealer"]]["name"]
         })
     elseif type == 'bad' then
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
             subject = "Delivery",
-            message = "I have received complaints about your delivery, don\'t let this happen again..."
+            message = "Jeg har modtaget klager over din levering, håber ikke det gentager sig..."
         })
     elseif type == 'late' then
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
             subject = "Delivery",
-            message = "You weren\'t on time. Did you have more important things to do than business?"
+            message = "Du ankom ikke til tiden. Hvad er vigtigere end dit arbejde?"
         })
     end
 end)
@@ -460,5 +460,5 @@ AddEventHandler('qb-drugs:client:GotoDealer', function(DealerData)
     local ped = PlayerPedId()
 
     SetEntityCoords(ped, DealerData["coords"]["x"], DealerData["coords"]["y"], DealerData["coords"]["z"])
-    QBCore.Functions.Notify('You have been teleported : '.. DealerData["name"] .. ' Good luck!', 'success')
+    QBCore.Functions.Notify('Du er blevet teleporteret : '.. DealerData["name"] .. ' Held og lykke!', 'success')
 end)

@@ -23,7 +23,7 @@ QBCore.Commands.Add("setcryptoworth", "Set crypto value", {{name="crypto", help=
                     NewWorth = NewWorth
                 })
 
-                TriggerClientEvent('QBCore:Notify', src, "You have the value of "..Crypto.Labels[crypto].."adapted from: ($"..Crypto.Worth[crypto].." to: $"..NewWorth..") ("..ChangeLabel.." "..PercentageChange.."%)")
+                TriggerClientEvent('QBCore:Notify', src, "Du har værdigen af "..Crypto.Labels[crypto].."taget fra: ($"..Crypto.Worth[crypto].." til: $"..NewWorth..") ("..ChangeLabel.." "..PercentageChange.."%)")
                 Crypto.Worth[crypto] = NewWorth
                 TriggerClientEvent('qb-crypto:client:UpdateCryptoWorth', -1, crypto, NewWorth)
                 exports.oxmysql:insert('INSERT INTO crypto (worth, history) VALUES (:worth, :history) ON DUPLICATE KEY UPDATE worth = :worth, history = :history', {
@@ -32,19 +32,19 @@ QBCore.Commands.Add("setcryptoworth", "Set crypto value", {{name="crypto", help=
                 })
                 -- exports.oxmysql:execute('UPDATE crypto SET worth = ?, history = ? WHERE crypto = ?', { NewWorth, "", crypto })
             else
-                TriggerClientEvent('QBCore:Notify', src, "You have not given a new value .. Current values: "..Crypto.Worth[crypto])
+                TriggerClientEvent('QBCore:Notify', src, "Du har ikke givet en ny værdi .. Nuværende værdi: "..Crypto.Worth[crypto])
             end
         else
-            TriggerClientEvent('QBCore:Notify', src, "This Crypto does not exist :(, available: Qbit")
+            TriggerClientEvent('QBCore:Notify', src, "Denne crypto eksistere ikke :(, ledigt er: Qbit")
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You have not provided Crypto, available: Qbit")
+        TriggerClientEvent('QBCore:Notify', src, "Du har ikke indgivet den rigtige crypto, ledit er: Qbit")
     end
 end, "admin")
 
 QBCore.Commands.Add("checkcryptoworth", "", {}, false, function(source, args)
     local src = source
-    TriggerClientEvent('QBCore:Notify', src, "The Qbit has a value of: $"..Crypto.Worth["qbit"])
+    TriggerClientEvent('QBCore:Notify', src, "Qbit har værdien af: $"..Crypto.Worth["qbit"])
 end, "admin")
 
 QBCore.Commands.Add("crypto", "", {}, false, function(source, args)
@@ -52,7 +52,7 @@ QBCore.Commands.Add("crypto", "", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(src)
     local MyPocket = math.ceil(Player.PlayerData.money.crypto * Crypto.Worth["qbit"])
 
-    TriggerClientEvent('QBCore:Notify', src, "You have: "..Player.PlayerData.money.crypto.." QBit, with a value of: $"..MyPocket..",-")
+    TriggerClientEvent('QBCore:Notify', src, "Du har: "..Player.PlayerData.money.crypto.." QBit, med en værdi af: $"..MyPocket..",-")
 end, "admin")
 
 RegisterServerEvent('qb-crypto:server:FetchWorth')
@@ -80,7 +80,7 @@ AddEventHandler('qb-crypto:server:ExchangeFail', function()
     if ItemData ~= nil then
         Player.Functions.RemoveItem("cryptostick", 1)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["cryptostick"], "remove")
-        TriggerClientEvent('QBCore:Notify', src, "Attempt failed, the stick crashed ..", 'error', 5000)
+        TriggerClientEvent('QBCore:Notify', src, "Forsøget mislykkedes, sticket crashede ..", 'error', 5000)
     end
 end)
 
@@ -117,9 +117,9 @@ AddEventHandler('qb-crypto:server:ExchangeSuccess', function(LuckChance)
 
         Player.Functions.RemoveItem("cryptostick", 1)
         Player.Functions.AddMoney('crypto', Amount)
-        TriggerClientEvent('QBCore:Notify', src, "You have exchanged your Cryptostick for: "..Amount.." QBit(\'s)", "success", 3500)
+        TriggerClientEvent('QBCore:Notify', src, "Du har byttet din Cryptostick til: "..Amount.." QBit(\'s)", "success", 3500)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["cryptostick"], "remove")
-        TriggerClientEvent('qb-phone:client:AddTransaction', src, Player, {}, "There are "..Amount.." Qbit('s) credited!", "Credit")
+        TriggerClientEvent('qb-phone:client:AddTransaction', src, Player, {}, "Der er krediteret "..Amount.." Qbit('s)!", "Credit")
     end
 end)
 
@@ -157,7 +157,7 @@ QBCore.Functions.CreateCallback('qb-crypto:server:BuyCrypto', function(source, c
             WalletId = Player.PlayerData.metadata["walletid"],
         }
         Player.Functions.RemoveMoney('bank', tonumber(data.Price))
-        TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "You have "..tonumber(data.Coins).." Qbit('s) purchased!", "Credit")
+        TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "Du har købt "..tonumber(data.Coins).." Qbit('s)!", "Credit")
         Player.Functions.AddMoney('crypto', tonumber(data.Coins))
         cb(CryptoData)
     else
@@ -176,7 +176,7 @@ QBCore.Functions.CreateCallback('qb-crypto:server:SellCrypto', function(source, 
             WalletId = Player.PlayerData.metadata["walletid"],
         }
         Player.Functions.RemoveMoney('crypto', tonumber(data.Coins))
-        TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "You have "..tonumber(data.Coins).." Qbit('s) sold!", "Depreciation")
+        TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "Du har solgt "..tonumber(data.Coins).." Qbit('s)!", "Depreciation")
         Player.Functions.AddMoney('bank', tonumber(data.Price))
         cb(CryptoData)
     else
@@ -198,12 +198,12 @@ QBCore.Functions.CreateCallback('qb-crypto:server:TransferCrypto', function(sour
                 WalletId = Player.PlayerData.metadata["walletid"],
             }
             Player.Functions.RemoveMoney('crypto', tonumber(data.Coins))
-            TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "You have "..tonumber(data.Coins).." Qbit('s) transferred!", "Depreciation")
+            TriggerClientEvent('qb-phone:client:AddTransaction', source, Player, data, "Du har overført "..tonumber(data.Coins).." Qbit('s)!", "Depreciation")
             local Target = QBCore.Functions.GetPlayerByCitizenId(result[1].citizenid)
 
             if Target ~= nil then
                 Target.Functions.AddMoney('crypto', tonumber(data.Coins))
-                TriggerClientEvent('qb-phone:client:AddTransaction', Target.PlayerData.source, Player, data, "There are "..tonumber(data.Coins).." Qbit('s) credited!", "Credit")
+                TriggerClientEvent('qb-phone:client:AddTransaction', Target.PlayerData.source, Player, data, "Der er krediteret "..tonumber(data.Coins).." Qbit('s)!", "Credit")
             else
                 MoneyData = json.decode(result[1].money)
                 MoneyData.crypto = MoneyData.crypto + tonumber(data.Coins)
@@ -270,7 +270,7 @@ RefreshCrypto = function()
         Crypto.Worth[coin] = result[1].worth
         if result[1].history ~= nil then
             Crypto.History[coin] = json.decode(result[1].history)
-            TriggerClientEvent("QBCore:Notify", -1,"Crypto now stands at "..result[1].worth.."", "success")
+            TriggerClientEvent("QBCore:Notify", -1,"Crypto står nu til "..result[1].worth.."", "success")
             TriggerClientEvent('qb-crypto:client:UpdateCryptoWorth', -1, coin, result[1].worth, json.decode(result[1].history))
         else
             TriggerClientEvent('qb-crypto:client:UpdateCryptoWorth', -1, coin, result[1].worth, nil)

@@ -151,7 +151,7 @@ function PayCheckLoop(location)
             if distance < 20 then
                 DrawMarker(2, coords.x, coords.y, coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 233, 55, 22, 222, false, false, false, true, false, false, false)
                 if distance < 1.5 then
-                    DrawText3D(coords.x, coords.y, coords.z, "~g~E~w~ - Payslip")
+                    DrawText3D(coords.x, coords.y, coords.z, "~g~E~w~ - Lønseddel")
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent('qb-garbagejob:server:PayShit', Earnings, location)
                         Earnings = 0
@@ -185,9 +185,9 @@ Citizen.CreateThread(function()
                                 QBCore.Functions.TriggerCallback('qb-garbagejob:server:CheckBail', function(DidBail)
                                     if DidBail then
                                         BringBackCar()
-                                        QBCore.Functions.Notify("You have $250,- deposit returned!")
+                                        QBCore.Functions.Notify("Du har fået dine $250,- i depositum tilbage!")
                                     else
-                                        QBCore.Functions.Notify("You have no deposit paid on this vehicle..")
+                                        QBCore.Functions.Notify("Du har intet depositum betalt på dette køretøj..")
                                     end
                                 end)
                             end
@@ -210,11 +210,11 @@ Citizen.CreateThread(function()
                                             GarbageLocation = 1
                                             IsWorking = true
                                             SetGarbageRoute()
-                                            QBCore.Functions.Notify("You have $250,- deposit paid!")
-                                            QBCore.Functions.Notify("You have started working, location marked on GPS!")
+                                            QBCore.Functions.Notify("Du har indbetalt $ 250,-!")
+                                            QBCore.Functions.Notify("Du er begyndt at arbejde, placering markeret med GPS!")
                                         end, coords, true)
                                     else
-                                        QBCore.Functions.Notify("You have not enough money for the deposit.. Deposit costs are $1000,-")
+                                        QBCore.Functions.Notify("Du har ikke penge nok til depositum .. Depositum er på $ 1000,-")
                                     end
                                 end)
                             end
@@ -249,7 +249,7 @@ Citizen.CreateThread(function()
                                 if not hasGarbageBag then
                                     if CanTakeBag then
                                         if Distance < 1.5 then
-                                            DrawText3D2(DeliveryData.coords, "~g~E~w~ - Grab a garbage bag")
+                                            DrawText3D2(DeliveryData.coords, "~g~E~w~ - Tag en skraldesæk")
                                             if IsControlJustPressed(0, 51) then
                                                 if AmountOfBags == 0 then
                                                     -- Randomizes how many bags to deliver
@@ -259,20 +259,20 @@ Citizen.CreateThread(function()
                                                 TakeAnim()
                                             end
                                         elseif Distance < 10 then
-                                            DrawText3D2(DeliveryData.coords, "Stand here to grab a garbage bag.")
+                                            DrawText3D2(DeliveryData.coords, "Stå her for at tag en skraldesæk.")
                                         end
                                     end
                                 else
                                     if DoesEntityExist(GarbageVehicle) then
                                         if Distance < 10 then
-                                            DrawText3D2(DeliveryData.coords, "Put the bag in your truck..")
+                                            DrawText3D2(DeliveryData.coords, "Smid sækken bag i..")
                                         end
 
                                         local Coords = GetOffsetFromEntityInWorldCoords(GarbageVehicle, 0.0, -4.5, 0.0)
                                         local TruckDist = #(pos - Coords)
 
                                         if TruckDist < 2 then
-                                            DrawText3D(Coords.x, Coords.y, Coords.z, "~g~E~w~ - Dispose of Garbage Bag")
+                                            DrawText3D(Coords.x, Coords.y, Coords.z, "~g~E~w~ - Bortskaf skraldessækken")
                                             if IsControlJustPressed(0, 51) then
                                                 hasGarbageBag = false
                                                 local AmountOfLocations = #Config.Locations["trashcan"]
@@ -288,10 +288,10 @@ Citizen.CreateThread(function()
                                                             TriggerServerEvent('qb-garbagejob:server:nano')
                                                         end
                                                         SetGarbageRoute()
-                                                        QBCore.Functions.Notify("All garbage bags are done, proceed to the next location!")
+                                                        QBCore.Functions.Notify("Alle affaldsposer er færdige, fortsæt til det næste sted!")
                                                     else
                                                         -- Finished work
-                                                        QBCore.Functions.Notify("You are done working! Go back to the depot.")
+                                                        QBCore.Functions.Notify("Du er færdig med at arbejde! Gå tilbage til depotet.")
                                                         IsWorking = false
                                                         RemoveBlip(DeliveryBlip)
                                                         SetRouteBack()
@@ -302,19 +302,19 @@ Citizen.CreateThread(function()
                                                     -- Didn't deliver all the bags yet
                                                     AmountOfBags = AmountOfBags - 1
                                                     if AmountOfBags > 1 then
-                                                        QBCore.Functions.Notify("There are still "..AmountOfBags.." bags left!")
+                                                        QBCore.Functions.Notify("Der er stadig "..AmountOfBags.." sække tilbage!")
                                                     else
-                                                        QBCore.Functions.Notify("There is still "..AmountOfBags.." bags over there!")
+                                                        QBCore.Functions.Notify("Der er stadig "..AmountOfBags.." sække derovre!")
                                                     end
                                                     hasGarbageBag = false
                                                 end
                                                 DeliverAnim()
                                             end
                                         elseif TruckDist < 10 then
-                                            DrawText3D(Coords.x, Coords.y, Coords.z, "Stand here..")
+                                            DrawText3D(Coords.x, Coords.y, Coords.z, "Stå her..")
                                         end
                                     else
-                                        DrawText3D2(DeliveryData.coords, "You have no truck..")
+                                        DrawText3D2(DeliveryData.coords, "Du har ingen skraldebil..")
                                     end
                                 end
                             end

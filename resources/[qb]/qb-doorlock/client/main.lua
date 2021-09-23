@@ -68,13 +68,13 @@ AddEventHandler('lockpicks:UseLockpick', function()
 							closestDoorKey, closestDoorValue = k, v
 							TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
 						else
-							QBCore.Functions.Notify("You Dont Have A Screwdriver Set", "error")
+							QBCore.Functions.Notify("Du har ikke et dirkesæt", "error")
 						end
 					else
-						QBCore.Functions.Notify('The Door Is Not Locked', 'error', 2500)
+						QBCore.Functions.Notify('Døren er ikke låst', 'error', 2500)
 					end
 				else
-					QBCore.Functions.Notify('This Door Can Not Be Lockpicked', 'error', 2500)
+					QBCore.Functions.Notify('Denne lås kan ikke dirkes op', 'error', 2500)
 				end
 			end
 		end
@@ -103,7 +103,7 @@ function lockpickFinish(success)
 		QBCore.Functions.Notify('Success!', 'success', 2500)
 		setDoorLocking(closestDoorValue, closestDoorKey)
     else
-        QBCore.Functions.Notify('Failed', 'error', 2500)
+        QBCore.Functions.Notify('Fejlede', 'error', 2500)
     end
 end
 
@@ -205,24 +205,24 @@ Citizen.CreateThread(function()
 
 				if isAuthorized then
 					if current.locked then
-						displayText = "[~g~E~w~] - Locked"
+						displayText = "[~g~E~w~] - Låst"
 					elseif not current.locked then
-						displayText = "[~g~E~w~] - Unlocked"
+						displayText = "[~g~E~w~] - Ulåst"
 
 					end
 				elseif not isAuthorized then
 					if current.locked then
-						displayText = "~r~Locked"
+						displayText = "~r~Låst"
 					elseif not current.locked then
-						displayText = "~g~Unlocked"
+						displayText = "~g~Ulåst"
 					end
 				end
 
 				if current.locking then
 					if current.locked then
-						displayText = "~g~Unlocking.."
+						displayText = "~g~Låser op.."
 					else
-						displayText = "~r~Locking.."
+						displayText = "~r~Låser.."
 					end
 				end
 
@@ -236,7 +236,7 @@ Citizen.CreateThread(function()
 					if isAuthorized then
 						setDoorLocking(current, i)
 					else
-						QBCore.Functions.Notify('Not Authorized', 'error')
+						QBCore.Functions.Notify('Ikke autoriseret', 'error')
 					end
 				end
 			end

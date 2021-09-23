@@ -121,21 +121,21 @@ Citizen.CreateThread(function()
                     DrawMarker(2, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.3, 255, 0, 0, 255, 0, 0, 0, 1, 0, 0, 0)
                     if not IsWorking then
                         if distance < OffsetData.Distance then
-                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Start Working")
+                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Start arbejde")
                             if IsControlJustPressed(0, 38) then
                                 StartWorking()
                             end
                         elseif distance < 3 then
-                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "Start Working")
+                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "Start arbejde")
                         end
                     else
                         if distance < OffsetData.Distance then
-                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Stop Working")
+                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "[E] Stop arbejde")
                             if IsControlJustPressed(0, 38) then
                                 StopWorking()
                             end
                         elseif distance < 3 then
-                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "Stop Working")
+                            DrawText3Ds(v.coords.x, v.coords.y, v.coords.z, "Stop arbejde")
                         end
                     end
                 end
@@ -163,9 +163,9 @@ function StartWorking()
             HotdogLoop()
             UpdateUI()
             CheckLoop()
-            QBCore.Functions.Notify('You have $250 deposit paid!..', 'success')
+            QBCore.Functions.Notify('Du har betalt et depositum på $ 250!..', 'success')
         else
-            QBCore.Functions.Notify('You have no money for the deposit..', 'error')
+            QBCore.Functions.Notify('Du har ingen penge til depositum..', 'error')
         end
     end)
 end
@@ -202,7 +202,7 @@ function HotdogLoop()
 
                     if ObjectDistance < 1.0 then
                         if not IsPushing then
-                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[G] Grab Stall')
+                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[G] Grib bod')
                             if IsControlJustPressed(0, 47) then
                                if SellingData.Enabled then
                                     if SellingData.Target ~= nil then
@@ -220,13 +220,13 @@ function HotdogLoop()
                                 end
                             end
                         else
-                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[G] Release Stall')
+                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[G] Slip bod')
                             if IsControlJustPressed(0, 47) then
                                 LetKraamLose()
                             end
                         end
                     elseif ObjectDistance < 3.0 then
-                        DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, 'Grab Stall')
+                        DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, 'Grib bod')
                     end
                 end
             else
@@ -260,9 +260,9 @@ function HotdogLoop()
 
                     if ObjectDistance < 1.0 then
                         if SellingData.Enabled then
-                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[E] Hotdog prepare [Sale: ~g~Selling~w~]')
+                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[E] Forbered Hotdog [Salg: ~g~Sælger~w~]')
                         else
-                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[E] Hotdog prepare [Sale: ~r~Not Selling~w~]')
+                            DrawText3Ds(ObjectOffset.x, ObjectOffset.y, ObjectOffset.z, '[E] Forbered Hotdog [Salg: ~r~Sælger ikke~w~]')
                         end
                         if IsControlJustPressed(0, 38) then
                             StartHotdogMinigame()
@@ -336,10 +336,10 @@ function ToggleSell()
                 end
             end)
         else
-            QBCore.Functions.Notify('You are to far from your Hot Dog Stand..', 'error')
+            QBCore.Functions.Notify('Du er for langt fra din Hot Dog Stand..', 'error')
         end
     else
-        QBCore.Functions.Notify('You do not have a hotdog stand', 'error')
+        QBCore.Functions.Notify('Du har ikke en hotdog bod', 'error')
     end
 end
 
@@ -427,7 +427,7 @@ function SellToPed(ped)
 	    SellingData.Target = nil
 	    SellingData.HasTarget = false
 	    SellingData.Hotdog = nil
-            QBCore.Functions.Notify('You are too far from your stall ...', 'error')
+            QBCore.Functions.Notify('Du er for langt fra din bod...', 'error')
             break
         end
         Citizen.Wait(100)
@@ -466,9 +466,9 @@ function SellToPed(ped)
                     end
                 end
               
-                QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '[7] Sale '..HotdogsForSale..'x in front of $'..(HotdogsForSale * SellingPrice)..' / [8] Reject')
+                QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '[7] Salg '..HotdogsForSale..'x for en pris af $'..(HotdogsForSale * SellingPrice)..' / [8] Reject')
                 if IsControlJustPressed(0, 161) or IsDisabledControlJustPressed(0, 161) then
-                    QBCore.Functions.Notify(HotdogsForSale..'x Hotdog(\'s) sold in front of $'..(HotdogsForSale * SellingPrice), 'success')
+                    QBCore.Functions.Notify(HotdogsForSale..'x Hotdog(\'s) sælges til $'..(HotdogsForSale * SellingPrice), 'success')
                     TriggerServerEvent('qb-hotdogjob:server:Sell', HotdogsForSale, SellingPrice)
                     SellingData.HasTarget = false
                     local Myped = PlayerPedId()
@@ -514,7 +514,7 @@ function SellToPed(ped)
                 end
 
                 if IsControlJustPressed(0, 162) or IsDisabledControlJustPressed(0, 162) then
-                    QBCore.Functions.Notify('Customer Refused!', 'error')
+                    QBCore.Functions.Notify('Kunden afviste!', 'error')
                     SellingData.HasTarget = false
 
                     FreezeEntityPosition(ped, false)
@@ -538,7 +538,7 @@ function SellToPed(ped)
 	    	    SellingData.Target = nil
 	    	    SellingData.HasTarget = false
 	    	    SellingData.Hotdog = nil
-                QBCore.Functions.Notify('You are too far from your stall ...', 'error')
+                QBCore.Functions.Notify('Du er for langt fra din bod...', 'error')
                 break
             end
         else
@@ -552,7 +552,7 @@ function SellToPed(ped)
 	    SellingData.Target = nil
 	    SellingData.HasTarget = false
 	    SellingData.Hotdog = nil
-            QBCore.Functions.Notify('You are too far from your stall ...', 'error')
+            QBCore.Functions.Notify('Du er for langt fra din bod...', 'error')
             break
         end
         
@@ -599,26 +599,26 @@ function PreparingAnimCheck()
 end
 
 function FinishMinigame(faults)
-    local Quality = "common"
+    local Quality = "almindelig"
     if faults == 0 then
-        Quality = "exotic"
+        Quality = "dejlig"
     elseif faults == 1 then
-        Quality = "rare"
+        Quality = "forrygende"
     end
     if Config.Stock[Quality].Current + 1 <= Config.Stock[Quality].Max[Config.MyLevel] then
         TriggerServerEvent('qb-hotdogjob:server:UpdateReputation', Quality)
         if Config.MyLevel == 1 then
-            QBCore.Functions.Notify('You have a '..Config.Stock[Quality].Label..' Hot Dog Made!')
+            QBCore.Functions.Notify('Du har lavet en '..Config.Stock[Quality].Label..' Hot Dog!')
             Config.Stock[Quality].Current = Config.Stock[Quality].Current + 1
         else
             local Luck = math.random(1, 2)
             local LuckyNumber = math.random(1, 2)
             local LuckyAmount = math.random(1, Config.MyLevel)
             if Luck == LuckyNumber then
-                QBCore.Functions.Notify('You have '..LuckyAmount..' '..Config.Stock[Quality].Label..' Hotdog\'s made!')
+                QBCore.Functions.Notify('Du har lavet en '..LuckyAmount..' '..Config.Stock[Quality].Label..' Hotdog\'s!')
                 Config.Stock[Quality].Current = Config.Stock[Quality].Current + LuckyAmount
             else
-                QBCore.Functions.Notify('You have a '..Config.Stock[Quality].Label..' Hotdog made!')
+                QBCore.Functions.Notify('Du har lavet en '..Config.Stock[Quality].Label..' Hotdog!')
                 Config.Stock[Quality].Current = Config.Stock[Quality].Current + 1
             end
         end
@@ -681,13 +681,13 @@ function StopWorking()
                 for _, v in pairs(Config.Stock) do
                     v.Current = 0
                 end
-                QBCore.Functions.Notify('You have a $250 deposit returned!', 'success')
+                QBCore.Functions.Notify('Du har fået dine $250 i depositum tilbage!', 'success')
             else
-                QBCore.Functions.Notify('Something is my friend..', 'error')
+                QBCore.Functions.Notify('Noget, må er min ven..', 'error')
             end
         end)
     else
-        QBCore.Functions.Notify('Your hot dog stand was nowhere to be seen, You will not receive your deposit back!', 'error')
+        QBCore.Functions.Notify('Dit hotdog bod var ingen steder at se. Du modtager ikke dit depositum tilbage!', 'error')
         IsWorking = false
         StandObject = nil
         IsPushing = false
@@ -753,7 +753,7 @@ AddEventHandler('qb-hotdogjob:staff:DeletStand', function()
             end
             Citizen.Wait(100)            
             DeleteEntity(Object)
-            QBCore.Functions.Notify('Hotdogstand mode removed!')
+            QBCore.Functions.Notify('Hotdog bod fjernet!')
         end
     end
 end)
