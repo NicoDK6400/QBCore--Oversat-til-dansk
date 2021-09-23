@@ -52,10 +52,10 @@ Citizen.CreateThread(function()
                                                 if validWeapon() then
                                                     smashVitrine(case)
                                                 else
-                                                    QBCore.Functions.Notify('Your weapon is not strong enough..', 'error')
+                                                    QBCore.Functions.Notify('Dit våben er ikke stærk nok..', 'error')
                                                 end
                                             else
-                                                QBCore.Functions.Notify('Not Enough Police ('.. Config.RequiredCops ..') Required', 'error')
+                                                QBCore.Functions.Notify('Ikke nok politi, minimum ('.. Config.RequiredCops ..') !', 'error')
                                             end                
                                         end)
                                     end
@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
                             if storeDist < 2 then
                                 if not firstAlarm then
                                     if validWeapon() then
-                                        local data = {displayCode = '112', description = 'Suspicious Activity', isImportant = 0, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry Store'}
+                                        local data = {displayCode = '112', description = 'Mistænkelig aktivitet', isImportant = 0, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry røveri'}
                                         local dispatchData = {dispatchData = data, caller = 'Alarm', coords = vector3(-633.9, -241.7, 38.1)}
                                         TriggerServerEvent('wf-alerts:svNotify', dispatchData)
                                         firstAlarm = true
@@ -128,12 +128,12 @@ function smashVitrine(k)
         TriggerServerEvent("evidence:server:CreateFingerDrop", plyCoords)
     elseif math.random(1, 100) <= 5 and IsWearingHandshoes() then
         TriggerServerEvent("evidence:server:CreateFingerDrop", plyCoords)
-        QBCore.Functions.Notify("You've left a fingerprint on the glass", "error")
+        QBCore.Functions.Notify("Du har efterladt et fingeraftryk", "error")
     end
 
     smashing = true
 
-    QBCore.Functions.Progressbar("smash_vitrine", "Stocking a display", Config.WhitelistedWeapons[pedWeapon]["timeOut"], false, true, {
+    QBCore.Functions.Progressbar("smash_vitrine", "Smadre glasmontre", Config.WhitelistedWeapons[pedWeapon]["timeOut"], false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
@@ -143,7 +143,7 @@ function smashVitrine(k)
         TriggerServerEvent('qb-jewellery:server:setVitrineState', "isBusy", false, k)
         TriggerServerEvent('qb-jewellery:server:vitrineReward')
         TriggerServerEvent('qb-jewellery:server:setTimeout')
-        local data = {displayCode = '211A', description = 'Robbery', isImportant = 1, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry Store'}
+        local data = {displayCode = '211A', description = 'Røveri', isImportant = 1, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry røveri'}
         local dispatchData = {dispatchData = data, caller = 'Alarm', coords = vector3(-633.9, -241.7, 38.1)}
         TriggerServerEvent('wf-alerts:svNotify', dispatchData)
         smashing = false
@@ -212,7 +212,7 @@ AddEventHandler('qb-jewellery:client:PoliceAlertMessage', function(title, coords
         SetBlipAlpha(blip, transG)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("911 - Suspicious Situation at Jewelry Store")
+        AddTextComponentString("911 - Mistænkelig aktivitet ved Jewelry Store")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)

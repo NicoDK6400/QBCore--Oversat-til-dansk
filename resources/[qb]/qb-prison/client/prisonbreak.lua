@@ -44,7 +44,7 @@ Citizen.CreateThread(function()
                         if securityLockdown then
                             DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "~r~SYSTEM LOCKDOWN")
                         elseif Gates[k].hit then
-                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "SYSTEM BREACH")
+                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "SYSTEM BRUD")
                         elseif not requiredItemsShowed then
                             requiredItemsShowed = true
                             TriggerEvent('inventory:client:requiredItems', requiredItems, true)
@@ -84,7 +84,7 @@ Citizen.CreateThread(function()
             ShopBlip = nil
             TriggerServerEvent("prison:server:SecurityLockdown")
             TriggerEvent('prison:client:PrisonBreakAlert')
-            QBCore.Functions.Notify("You escaped... Get the hell out of here.!", "error")
+            QBCore.Functions.Notify("Du brød ud... Få røven ud af bukserne og kom væk!", "error")
 		end
 	end
 end)
@@ -95,7 +95,7 @@ AddEventHandler('electronickit:UseElectronickit', function()
         QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
             if result then 
                 TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                QBCore.Functions.Progressbar("hack_gate", "Electronic kit plug in..", math.random(5000, 10000), false, true, {
+                QBCore.Functions.Progressbar("hack_gate", "Bruger hacker kit..", math.random(5000, 10000), false, true, {
                     disableMovement = true,
                     disableCarMovement = true,
                     disableMouse = false,
@@ -110,10 +110,10 @@ AddEventHandler('electronickit:UseElectronickit', function()
                     TriggerEvent("mhacking:start", math.random(5, 9), math.random(10, 18), OnHackDone)
                 end, function() -- Cancel
                     StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                    QBCore.Functions.Notify("Cancelled..", "error")
+                    QBCore.Functions.Notify("Afbrudt..", "error")
                 end)
             else
-                QBCore.Functions.Notify("You're missing an item..", "error")
+                QBCore.Functions.Notify("Du mangler en ting..", "error")
             end
         end, "gatecrack")
     end
@@ -123,7 +123,7 @@ RegisterNetEvent('prison:client:SetLockDown')
 AddEventHandler('prison:client:SetLockDown', function(isLockdown)
     securityLockdown = isLockdown
     if securityLockDown and inJail then
-        TriggerEvent("chatMessage", "HOSTAGE", "error", "Highest security level is active, stay with the cell blocks!")
+        TriggerEvent("chatMessage", "HOSTAGE", "error", "Højeste sikkerhedsniveau er aktivt, bliv ved cellerne!")
     end
 end)
 
@@ -132,7 +132,7 @@ AddEventHandler('prison:client:PrisonBreakAlert', function()
     -- TriggerEvent("chatMessage", "ALERT", "error", "Attentie alle eenheden! Poging tot uitbraak in de gevangenis!")
     TriggerEvent('qb-policealerts:client:AddPoliceAlert', {
         timeOut = 10000,
-        alertTitle = "Prison outbreak",
+        alertTitle = "Fængelsflugt",
         details = {
             [1] = {
                 icon = '<i class="fas fa-lock"></i>',

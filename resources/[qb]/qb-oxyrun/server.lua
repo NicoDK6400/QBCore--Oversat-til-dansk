@@ -7,7 +7,7 @@ AddEventHandler('oxydelivery:server', function()
 		
 		TriggerClientEvent("oxydelivery:startDealing", source)
 	else
-		TriggerClientEvent('QBCore:Notify', source, 'You dont have enough money', 'error')
+		TriggerClientEvent('QBCore:Notify', source, 'Du har ikke nok penge', 'error')
 	end
 end)
 

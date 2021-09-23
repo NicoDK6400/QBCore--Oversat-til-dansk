@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Jobs = {
-    ["electrician"] = "Electrician",
+    ["electrician"] = "Elektriker",
 }
 
 Config.Locations = {

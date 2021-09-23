@@ -5,7 +5,7 @@ AddEventHandler('police:client:CheckDistance', function()
         local playerId = GetPlayerServerId(player)
         TriggerServerEvent("police:server:SetTracker", playerId)
     else
-        QBCore.Functions.Notify("No one nearby!", "error")
+        QBCore.Functions.Notify("Ingen i nærheden!", "error")
     end
 end)
 

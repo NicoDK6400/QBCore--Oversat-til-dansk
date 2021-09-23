@@ -209,7 +209,7 @@ AddEventHandler('qb-radialmenu:client:openDoor', function(data)
             end
         end
     else
-        QBCore.Functions.Notify('There is no vehicle in sight...', 'error', 2500)
+        QBCore.Functions.Notify('Der er intet kørertøj i nærheden...', 'error', 2500)
     end
 end)
 
@@ -234,20 +234,20 @@ AddEventHandler('qb-radialmenu:client:setExtra', function(data)
                     SetVehicleExtra(veh, extra, 1)
                     SetVehicleEngineHealth(veh, enginehealth)
                     SetVehicleBodyHealth(veh, bodydamage)
-                    QBCore.Functions.Notify('Extra ' .. extra .. ' Deactivated', 'error', 2500)
+                    QBCore.Functions.Notify('Ekstra ' .. extra .. ' Deaktiveret', 'error', 2500)
                 else
                     enginehealth = GetVehicleEngineHealth(veh)
                     bodydamage = GetVehicleBodyHealth(veh)
                     SetVehicleExtra(veh, extra, 0)
                     SetVehicleEngineHealth(veh, enginehealth)
                     SetVehicleBodyHealth(veh, bodydamage)
-                    QBCore.Functions.Notify('Extra ' .. extra .. ' Activated', 'success', 2500)
+                    QBCore.Functions.Notify('Ekstra ' .. extra .. ' Aktiveret', 'success', 2500)
                 end    
             else
-                QBCore.Functions.Notify('Extra ' .. extra .. ' is not present on this vehicle ', 'error', 2500)
+                QBCore.Functions.Notify('Ekstra ' .. extra .. ' er ikke muligt på dette kørertøj ', 'error', 2500)
             end
         else
-            QBCore.Functions.Notify('You\'re not a driver of a vehicle!', 'error', 2500)
+            QBCore.Functions.Notify('Du er ikke føreren af kørertøjet!', 'error', 2500)
         end
     end
 end)
@@ -270,10 +270,10 @@ AddEventHandler('qb-radialmenu:trunk:client:Door', function(plate, door, open)
 end)
 
 local Seats = {
-    ["-1"] = "Driver's Seat",
-    ["0"] = "Passenger's Seat",
-    ["1"] = "Rear Left Seat",
-    ["2"] = "Rear Right Seat",
+    ["-1"] = "Førersæde",
+    ["0"] = "passagersædet",
+    ["1"] = "Venstre bagsæde",
+    ["2"] = "Højre bagsæde",
 }
 
 RegisterNetEvent('qb-radialmenu:client:ChangeSeat')
@@ -288,15 +288,15 @@ AddEventHandler('qb-radialmenu:client:ChangeSeat', function(data)
         if IsSeatFree then
             if kmh <= 100.0 then
                 SetPedIntoVehicle(PlayerPedId(), Veh, data.id)
-                QBCore.Functions.Notify('You are now on the  '..data.title..'!')
+                QBCore.Functions.Notify('Du er nu på  '..data.title..'!')
             else
-                QBCore.Functions.Notify('This vehicle is going too fast..')
+                QBCore.Functions.Notify('Dette kørertøj kører for hurtigt..')
             end
         else
-            QBCore.Functions.Notify('This seat is occupied..')
+            QBCore.Functions.Notify('Dette sæde er taget..')
         end
     else
-        QBCore.Functions.Notify('You have a race harness on you cant switch..', 'error')
+        QBCore.Functions.Notify('Du har en racersele på, du kan ikke tage af/på..', 'error')
     end
 end)
 

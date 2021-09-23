@@ -40,10 +40,10 @@ AddEventHandler('qb-radialmenu:client:TakeStretcher', function()
                 IsAttached = true
             end)
         else
-            QBCore.Functions.Notify("Something went wrong..", 'error')
+            QBCore.Functions.Notify("Noget gik galt..", 'error')
         end
     else
-        QBCore.Functions.Notify("You're not near an Ambulance..", 'error')
+        QBCore.Functions.Notify("Du er ikke i nærheden af en Ambulance..", 'error')
     end
 end)
 
@@ -67,7 +67,7 @@ AddEventHandler('qb-radialmenu:client:RemoveStretcher', function()
                 IsLayingOnBed = false
             end
         else
-            QBCore.Functions.Notify('You\'re too far away!', 'error')
+            QBCore.Functions.Notify('Du er for langt væk', 'error')
         end
     end
 end)
@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
 
             if Distance <= 1.0 then
                 if not IsAttached then
-                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, '~g~E~w~ -Push Stretcher')
+                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, '~g~E~w~ -Skub bårer')
                     if IsControlJustPressed(0, 51) then
                         AttachToStretcher()
                         IsAttached = true
@@ -111,7 +111,7 @@ Citizen.CreateThread(function()
                         FreezeEntityPosition(StretcherObject, true)
                     end
                 else
-                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, '~g~E~w~ - Stop Pushing')
+                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, '~g~E~w~ - Stop med at skubbe')
                     if IsControlJustPressed(0, 51) then
                         DetachStretcher()
                         IsAttached = false
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
 
                 if not IsLayingOnBed then
                     if not IsAttached then
-                        DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z + 0.2, '~g~G~w~ - Lay On Stretcher')
+                        DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z + 0.2, '~g~G~w~ - Lig på båren')
                         if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
                             LayOnStretcher()
                         end
@@ -128,10 +128,10 @@ Citizen.CreateThread(function()
                 end
             elseif Distance <= 2 then
                 if not IsLayingOnBed then
-                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, 'Push Here')
+                    DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z, 'Skub her')
                 else
                     if not IsAttached then
-                        DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z + 0.2, '~g~G~w~ - Get Off Stretcher')
+                        DrawText3Ds(OffsetCoords.x, OffsetCoords.y, OffsetCoords.z + 0.2, '~g~G~w~ - Gå af båre')
                         if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
                             GetOffStretcher()
                         end
@@ -262,7 +262,7 @@ AddEventHandler('qb-radialmenu:client:Result', function(IsBusy, type)
             AttachEntityToEntity(PlayerPed, Object, 0, 0, 0.0, 1.6, 0.0, 0.0, 360.0, 0.0, false, false, false, false, 2, true)
             IsLayingOnBed = true
         else
-            QBCore.Functions.Notify("This stretcher is already in use!", "error")
+            QBCore.Functions.Notify("Denne bårer er allerede i brug!", "error")
             IsLayingOnBed = false
         end
     else
@@ -276,7 +276,7 @@ AddEventHandler('qb-radialmenu:client:Result', function(IsBusy, type)
             FreezeEntityPosition(Obj, false)
             IsAttached = true
         else
-            QBCore.Functions.Notify("This stretcher is already in use!", "error")
+            QBCore.Functions.Notify("Denne bårer er allerede i brug!", "error")
             IsAttached = false
         end
     end

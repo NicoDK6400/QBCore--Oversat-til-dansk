@@ -87,17 +87,17 @@ end)
 RegisterNetEvent('police:client:sendBillingMail')
 AddEventHandler('police:client:sendBillingMail', function(amount)
     SetTimeout(math.random(2500, 4000), function()
-        local gender = "Mr."
+        local gender = "Hr."
         if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then
-            gender = "Mrs."
+            gender = "Fru."
         end
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
         TriggerServerEvent('qb-phone:server:sendNewMail', {
-            sender = "Central Judicial Collection Agency",
-            subject = "Debt collection",
-            message = "Dear " .. gender .. " " .. charinfo.lastname ..
-                ",<br /><br />The Central Judicial Collection Agency (CJCA) charged the fines you received from the police.<br />There is <strong>$" ..
-                amount .. "</strong> withdrawn from your account.<br /><br />Kind regards,<br />Mr. I.K. Graai",
+            sender = "Gældstyrrelsen",
+            subject = "Indsamling af udeastånde gæld",
+            message = "Kære " .. gender .. " " .. charinfo.lastname ..
+                ",<br /><br />Gældstyrrelsen (CJCA) opkrævede de bøder, du modtog fra politiet..<br />Der er blevet trukket <strong>$" ..
+                amount .. "</strong> fra din konto.<br /><br />Med venlig hilsen,<br />Mr. I.K. Graai",
             button = {}
         })
     end)
@@ -303,10 +303,10 @@ AddEventHandler('police:client:GunShotAlert', function(streetLabel, isAutomatic,
     if PlayerJob.name == 'police' and onDuty then
         local msg = ""
         local blipSprite = 313
-        local blipText = "Shots fired"
+        local blipText = "Skud affyret"
         local MessageDetails = {}
         if fromVehicle then
-            blipText = "Shots fired from a vehicle"
+            blipText = "Skud affyret fra et kørertøj"
             MessageDetails = {
                 [1] = {
                     icon = '<i class="fas fa-car"></i>',
@@ -405,7 +405,7 @@ AddEventHandler('police:client:VehicleCall', function(pos, alertTitle, streetLab
         SetBlipScale(blip, 1.0)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("Alert: Vehicle burglary")
+        AddTextComponentString("Alarm: Biltyveri")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -425,7 +425,7 @@ AddEventHandler('police:client:HouseRobberyCall', function(coords, msg, gender, 
     if PlayerJob.name == 'police' and onDuty then
         TriggerEvent('qb-policealerts:client:AddPoliceAlert', {
             timeOut = 5000,
-            alertTitle = "Burglary attempt",
+            alertTitle = "Indbrudsforsøg",
             coords = {
                 x = coords.x,
                 y = coords.y,
@@ -454,7 +454,7 @@ AddEventHandler('police:client:HouseRobberyCall', function(coords, msg, gender, 
         SetBlipScale(blip, 0.7)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("Alert: Burglary house")
+        AddTextComponentString("Alarm: Indbrud i bolig")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -475,7 +475,7 @@ AddEventHandler('112:client:SendPoliceAlert', function(notifyType, data, blipSet
         if notifyType == "flagged" then
             TriggerEvent('qb-policealerts:client:AddPoliceAlert', {
                 timeOut = 5000,
-                alertTitle = "Burglary attempt",
+                alertTitle = "Forsøgt indbrud i bolig",
                 details = {
                     [1] = {
                         icon = '<i class="fas fa-video"></i>',
@@ -565,7 +565,7 @@ AddEventHandler('police:server:SendEmergencyMessageCheck', function(MainPlayer, 
     if ((PlayerData.job.name == "police" or PlayerData.job.name == "ambulance" or PlayerData.job.name == "doctor") and
         onDuty) then
         TriggerEvent('chatMessage',
-            "911 ALERT - " .. MainPlayer.PlayerData.charinfo.firstname .. " " .. MainPlayer.PlayerData.charinfo.lastname ..
+            "911 ALARM - " .. MainPlayer.PlayerData.charinfo.firstname .. " " .. MainPlayer.PlayerData.charinfo.lastname ..
                 " (" .. MainPlayer.PlayerData.source .. ")", "warning", message)
         TriggerEvent("police:client:EmergencySound")
         local transG = 250
@@ -577,7 +577,7 @@ AddEventHandler('police:server:SendEmergencyMessageCheck', function(MainPlayer, 
         SetBlipScale(blip, 0.9)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("911 alert")
+        AddTextComponentString("911 alarm")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -596,7 +596,7 @@ RegisterNetEvent('police:client:Send112AMessage')
 AddEventHandler('police:client:Send112AMessage', function(message)
     local PlayerData = QBCore.Functions.GetPlayerData()
     if ((PlayerData.job.name == "police" or PlayerData.job.name == "ambulance") and onDuty) then
-        TriggerEvent('chatMessage', "ANONYMOUS REPORT", "warning", message)
+        TriggerEvent('chatMessage', "ANONYM ANMELDELSE", "warning", message)
         TriggerEvent("police:client:EmergencySound")
     end
 end)

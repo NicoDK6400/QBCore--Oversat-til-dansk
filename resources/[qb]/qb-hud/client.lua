@@ -131,13 +131,13 @@ end)
 
 function GetDirectionText(heading)
     if ((heading >= 0 and heading < 45) or (heading >= 315 and heading < 360)) then
-        return 'North'
+        return 'Nord'
     elseif (heading >= 45 and heading < 135) then
-        return 'South'
+        return 'Syd'
     elseif (heading >= 135 and heading < 225) then
-        return 'East'
+        return 'Øst'
     elseif (heading >= 225 and heading < 315) then
-        return 'West'
+        return 'Vest'
     end
 end
 

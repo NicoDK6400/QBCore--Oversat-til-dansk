@@ -48,7 +48,7 @@ Citizen.CreateThread(function()
 				jailTime = jailTime - 1
 				if jailTime <= 0 then
 					jailTime = 0
-					QBCore.Functions.Notify("Your time is up! Check yourself out at the visitors center", "success", 10000)
+					QBCore.Functions.Notify("Din tid er ovre! Tjek ud i besøgscenteret", "success", 10000)
 				end
 				TriggerServerEvent("prison:server:SetJailStatus", jailTime)
 			end
@@ -98,8 +98,8 @@ end)
 
 RegisterNetEvent('prison:client:Enter')
 AddEventHandler('prison:client:Enter', function(time)
-	QBCore.Functions.Notify("You're in jail for "..time.." months..", "error")
-	TriggerEvent("chatMessage", "SYSTEM", "warning", "Your property has been seized, you'll get everything back when your time is up..")
+	QBCore.Functions.Notify("Du afsogner i "..time.." måneder..", "error")
+	TriggerEvent("chatMessage", "SYSTEM", "warning", "Din ejendom er beslaglagt. Du får alt tilbage, når din tid er ovre..")
 	DoScreenFadeOut(500)
 	while not IsScreenFadedOut() do
 		Citizen.Wait(10)
@@ -123,18 +123,18 @@ AddEventHandler('prison:client:Enter', function(time)
 	Citizen.Wait(2000)
 
 	DoScreenFadeIn(1000)
-	QBCore.Functions.Notify("Do some work for sentence reduction, instant job: "..Config.Jobs[currentJob])
+	QBCore.Functions.Notify("Lav noget arbejde for at nedsætte din, jobs: "..Config.Jobs[currentJob])
 end)
 
 RegisterNetEvent('prison:client:Leave')
 AddEventHandler('prison:client:Leave', function()
 	if jailTime > 0 then 
-		QBCore.Functions.Notify("You still have to... "..jailTime.." months..")
+		QBCore.Functions.Notify("Din tid tilbage: "..jailTime.." måneder..")
 	else
 		jailTime = 0
 		TriggerServerEvent("prison:server:SetJailStatus", 0)
 		TriggerServerEvent("prison:server:GiveJailItems")
-		TriggerEvent("chatMessage", "SYSTEM", "warning", "you've received your property back..")
+		TriggerEvent("chatMessage", "SYSTEM", "warning", "Du modtog din ejendom igen..")
 		inJail = false
 		RemoveBlip(currentBlip)
 		RemoveBlip(CellsBlip)
@@ -143,7 +143,7 @@ AddEventHandler('prison:client:Leave', function()
 		TimeBlip = nil
 		RemoveBlip(ShopBlip)
 		ShopBlip = nil
-		QBCore.Functions.Notify("You're free! Enjoy it! :)")
+		QBCore.Functions.Notify("Du er fri! NYD DET! :)")
 		DoScreenFadeOut(500)
 		while not IsScreenFadedOut() do
 			Citizen.Wait(10)
@@ -162,7 +162,7 @@ AddEventHandler('prison:client:UnjailPerson', function()
 	if jailTime > 0 then
 		TriggerServerEvent("prison:server:SetJailStatus", 0)
 		TriggerServerEvent("prison:server:GiveJailItems")
-		TriggerEvent("chatMessage", "SYSTEM", "warning", "You got your property back..")
+		TriggerEvent("chatMessage", "SYSTEM", "warning", "Du modtog din ejendom igen..")
 		inJail = false
 		RemoveBlip(currentBlip)
 		RemoveBlip(CellsBlip)
@@ -171,7 +171,7 @@ AddEventHandler('prison:client:UnjailPerson', function()
 		TimeBlip = nil
 		RemoveBlip(ShopBlip)
 		ShopBlip = nil
-		QBCore.Functions.Notify("You're free! Enjoy it! :)")
+		QBCore.Functions.Notify("Du er fri! NYD DET! :)")
 		DoScreenFadeOut(500)
 		while not IsScreenFadedOut() do
 			Citizen.Wait(10)

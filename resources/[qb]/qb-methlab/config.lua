@@ -28,7 +28,7 @@ Config.Locations = {
 
 Config.Tasks = {
     ["Furnace"] = {
-        label = "Furnace",
+        label = "Ovn",
         completed = false,
         started = false,
         -- ingredients = {

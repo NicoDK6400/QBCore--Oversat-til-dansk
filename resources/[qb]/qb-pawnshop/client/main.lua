@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 						sellPrice = GetSellingPrice()
 						sellItemsSet = true
 					elseif sellItemsSet and sellPrice ~= 0 then
-						DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "~g~E~w~ - Sell Watches/ Necklaces / Rings ($"..sellPrice..")")
+						DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "~g~E~w~ - Sælg ure/ halskæder / ringe ($"..sellPrice..")")
 						if IsControlJustReleased(0, 38) then
 							TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
                             QBCore.Functions.Progressbar("sell_pawn_items", "Selling Items", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
@@ -36,14 +36,14 @@ Citizen.CreateThread(function()
 								sellPrice = 0
                             end, function() -- Cancel
 								ClearPedTasks(PlayerPedId())
-								QBCore.Functions.Notify("Canceled..", "error")
+								QBCore.Functions.Notify("Afbrudt..", "error")
 							end)
 						end
 					else
-						DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "Pawnshop: You have nothing to sell")
+						DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "Pawnshop: Du har intet at sælge")
 					end
 				else
-					DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "Pawnshop is closed, opens from ~r~7:00")
+					DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "Pawnshop er lukket, åbner igen fra klokken ~r~7:00")
 				end
 			end
 		end
@@ -68,7 +68,7 @@ Citizen.CreateThread(function()
 						sellHardwarePrice = GetSellingHardwarePrice()
 						sellHardwareItemsSet = true
 					elseif sellHardwareItemsSet and sellHardwarePrice ~= 0 then
-						DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "~g~E~w~ - Sale iPhones/Samsung S10s/Tablets/Laptops ($"..sellHardwarePrice..")")
+						DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "~g~E~w~ - Sælg iPhones/Samsung S10s/Tablets/Bærbare ($"..sellHardwarePrice..")")
 						if IsControlJustReleased(0, 38) then
 							TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
                             QBCore.Functions.Progressbar("sell_pawn_items", "Sell things", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
@@ -78,14 +78,14 @@ Citizen.CreateThread(function()
 								sellHardwarePrice = 0
                             end, function() -- Cancel
 								ClearPedTasks(PlayerPedId())
-								QBCore.Functions.Notify("Canceled", "error")
+								QBCore.Functions.Notify("Afbrudt", "error")
 							end)
 						end
 					else
-						DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "Pawnshop: You have nothing to sell")
+						DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "Pawnshop: Du har intet at sælge")
 					end
 				else
-					DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "Pawnshop closed, open from ~r~9:00")
+					DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "Pawnshop lukket, åbner igen fra klokken ~r~9:00")
 				end
 			end
 		end

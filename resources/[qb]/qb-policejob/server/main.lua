@@ -18,7 +18,7 @@ RegisterServerEvent('police:server:TakeOutImpound')
 AddEventHandler('police:server:TakeOutImpound', function(plate)
     local src = source
     exports.oxmysql:execute('UPDATE player_vehicles SET state = ? WHERE plate  = ?', {0, plate})
-    TriggerClientEvent('QBCore:Notify', src, "Vehicle is taken out of Impound!")
+    TriggerClientEvent('QBCore:Notify', src, "Kørertøjet er blevet taget ud af impound!")
 end)
 
 RegisterServerEvent('police:server:CuffPlayer')
@@ -46,7 +46,7 @@ AddEventHandler('police:server:EscortPlayer', function(playerId)
                 EscortPlayer.PlayerData.metadata["inlaststand"]) then
             TriggerClientEvent("police:client:GetEscorted", EscortPlayer.PlayerData.source, Player.PlayerData.source)
         else
-            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Person is not dead or cuffed!")
+            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Personen er ikke død eller i håndjern!")
         end
     end
 end)
@@ -64,7 +64,7 @@ AddEventHandler('police:server:KidnapPlayer', function(playerId)
             TriggerClientEvent("police:client:GetKidnappedDragger", Player.PlayerData.source,
                 EscortPlayer.PlayerData.source)
         else
-            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Person is not dead or cuffed!")
+            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Personen er ikke død eller i håndjern!")
         end
     end
 end)
@@ -78,7 +78,7 @@ AddEventHandler('police:server:SetPlayerOutVehicle', function(playerId)
         if EscortPlayer.PlayerData.metadata["ishandcuffed"] or EscortPlayer.PlayerData.metadata["isdead"] then
             TriggerClientEvent("police:client:SetOutVehicle", EscortPlayer.PlayerData.source)
         else
-            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Person is not dead or cuffed!")
+            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Personen er ikke død eller i håndjern!")
         end
     end
 end)
@@ -92,7 +92,7 @@ AddEventHandler('police:server:PutPlayerInVehicle', function(playerId)
         if EscortPlayer.PlayerData.metadata["ishandcuffed"] or EscortPlayer.PlayerData.metadata["isdead"] then
             TriggerClientEvent("police:client:PutInVehicle", EscortPlayer.PlayerData.source)
         else
-            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Person is not dead or cuffed!")
+            TriggerClientEvent('chatMessage', src, "SYSTEM", "error", "Personen er ikke død eller i håndjern!")
         end
     end
 end)
@@ -106,7 +106,7 @@ AddEventHandler('police:server:BillPlayer', function(playerId, price)
         if OtherPlayer ~= nil then
             OtherPlayer.Functions.RemoveMoney("bank", price, "paid-bills")
             TriggerEvent('qb-bossmenu:server:addAccountMoney', "police", price)
-            TriggerClientEvent('QBCore:Notify', OtherPlayer.PlayerData.source, "You received a fine of $" .. price)
+            TriggerClientEvent('QBCore:Notify', OtherPlayer.PlayerData.source, "Du modtager en bøde på $" .. price)
         end
     end
 end)
@@ -129,7 +129,7 @@ AddEventHandler('police:server:JailPlayer', function(playerId, time)
                 ["date"] = currentDate
             })
             TriggerClientEvent("police:client:SendToJail", OtherPlayer.PlayerData.source, time)
-            TriggerClientEvent('QBCore:Notify', src, "You sent the person to prison for " .. time .. " months")
+            TriggerClientEvent('QBCore:Notify', src, "Du har sendt personen i fængsel for " .. time .. " måneder")
         end
     end
 end)
@@ -212,7 +212,7 @@ RegisterServerEvent('police:server:VehicleCall')
 AddEventHandler('police:server:VehicleCall', function(pos, msg, alertTitle, streetLabel, modelPlate, modelName)
     local src = source
     local alertData = {
-        title = "Vehicle theft",
+        title = "Biltyveri",
         coords = {
             x = pos.x,
             y = pos.y,
@@ -228,7 +228,7 @@ RegisterServerEvent('police:server:HouseRobberyCall')
 AddEventHandler('police:server:HouseRobberyCall', function(coords, message, gender, streetLabel)
     local src = source
     local alertData = {
-        title = "Burglary",
+        title = "Indbrud",
         coords = {
             x = coords.x,
             y = coords.y,
@@ -245,7 +245,7 @@ AddEventHandler('police:server:SendEmergencyMessage', function(coords, message)
     local src = source
     local MainPlayer = QBCore.Functions.GetPlayer(src)
     local alertData = {
-        title = "911 alert - " .. MainPlayer.PlayerData.charinfo.firstname .. " " ..
+        title = "911 opkald - " .. MainPlayer.PlayerData.charinfo.firstname .. " " ..
             MainPlayer.PlayerData.charinfo.lastname .. " (" .. src .. ")",
         coords = {
             x = coords.x,
@@ -264,8 +264,8 @@ AddEventHandler('police:server:SearchPlayer', function(playerId)
     local SearchedPlayer = QBCore.Functions.GetPlayer(playerId)
     if SearchedPlayer ~= nil then
         TriggerClientEvent('chatMessage', source, "SYSTEM", "warning",
-            "Person has $" .. SearchedPlayer.PlayerData.money["cash"] .. ",- on him..")
-        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You are being searched..")
+            "Personen har $" .. SearchedPlayer.PlayerData.money["cash"] .. ",- af penge på sig..")
+        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du bliver kropsvisiteret..")
     end
 end)
 
@@ -282,7 +282,7 @@ AddEventHandler('police:server:SeizeCash', function(playerId)
         SearchedPlayer.Functions.RemoveMoney("cash", moneyAmount, "police-cash-seized")
         Player.Functions.AddItem("moneybag", 1, false, info)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["moneybag"], "add")
-        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Your cash is confiscated..")
+        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Dine penge er blevet konfiskeret..")
     end
 end)
 
@@ -300,9 +300,9 @@ AddEventHandler('police:server:SeizeDriverLicense', function(playerId)
             }
             SearchedPlayer.Functions.SetMetaData("licences", licenses)
             TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source,
-                "Your driving license has been confiscated..")
+                "Dit kørerkort og førerret er blevet frataget dig..")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Can't confiscate driving license..", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Kan ikke indrage førerret..", "error")
         end
     end
 end)
@@ -316,8 +316,8 @@ AddEventHandler('police:server:RobPlayer', function(playerId)
         local money = SearchedPlayer.PlayerData.money["cash"]
         Player.Functions.AddMoney("cash", money, "police-player-robbed")
         SearchedPlayer.Functions.RemoveMoney("cash", money, "police-player-robbed")
-        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You have been robbed of $" .. money)
-        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "You have stolen $" .. money)
+        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du er blevet røvet for $" .. money)
+        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "Du stajl $" .. money)
     end
 end)
 
@@ -387,12 +387,12 @@ AddEventHandler('police:server:Impound', function(plate, fullImpound, price, bod
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, depotprice = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
                 {0, price, body, engine, fuel, plate})
-            TriggerClientEvent('QBCore:Notify', src, "Vehicle taken into depot for $" .. price .. "!")
+            TriggerClientEvent('QBCore:Notify', src, "Kørertøj sat i depot for $" .. price .. "!")
         else
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
                 {2, body, engine, fuel, plate})
-            TriggerClientEvent('QBCore:Notify', src, "Vehicle completely seized!")
+            TriggerClientEvent('QBCore:Notify', src, "Kørertøj blev konfiskeret!")
         end
     end
 end)
@@ -444,7 +444,7 @@ AddEventHandler('evidence:server:AddBlooddropToInventory', function(bloodId, blo
             BloodDrops[bloodId] = nil
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You must have an empty evidence bag with you", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Du skal have en tom bevispose med dig", "error")
     end
 end)
 
@@ -459,7 +459,7 @@ AddEventHandler('evidence:server:AddFingerprintToInventory', function(fingerId, 
             FingerDrops[fingerId] = nil
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You must have an empty evidence bag with you", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Du skal have en tom bevispose med dig", "error")
     end
 end)
 
@@ -516,7 +516,7 @@ AddEventHandler('evidence:server:AddCasingToInventory', function(casingId, casin
             Casings[casingId] = nil
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You must have an empty evidence bag with you", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Du skal have en tom bevispose med dig", "error")
     end
 end)
 
@@ -546,15 +546,15 @@ AddEventHandler('police:server:SetTracker', function(targetId)
 
     if TrackerMeta then
         Target.Functions.SetMetaData("tracker", false)
-        TriggerClientEvent('QBCore:Notify', targetId, 'Your anklet is taken off.', 'error', 5000)
+        TriggerClientEvent('QBCore:Notify', targetId, 'fodlænke.', 'error', 5000)
         TriggerClientEvent('QBCore:Notify', source,
-            'You took off an ankle bracelet from ' .. Target.PlayerData.charinfo.firstname .. " " ..
+            'Du tog en fodlænke af ' .. Target.PlayerData.charinfo.firstname .. " " ..
                 Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('police:client:SetTracker', targetId, false)
     else
         Target.Functions.SetMetaData("tracker", true)
-        TriggerClientEvent('QBCore:Notify', targetId, 'You put on an ankle strap.', 'error', 5000)
-        TriggerClientEvent('QBCore:Notify', source, 'You put on an ankle strap to ' ..
+        TriggerClientEvent('QBCore:Notify', targetId, 'Du tog en fodlænke på.', 'error', 5000)
+        TriggerClientEvent('QBCore:Notify', source, 'Du tog en fodlænke på ' ..
             Target.PlayerData.charinfo.firstname .. " " .. Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('police:client:SetTracker', targetId, true)
     end
@@ -566,11 +566,11 @@ AddEventHandler('police:server:SendTrackerLocation', function(coords, requestId)
     local TrackerMeta = Target.PlayerData.metadata["tracker"]
 
     local msg =
-        "The location of " .. Target.PlayerData.charinfo.firstname .. " " .. Target.PlayerData.charinfo.lastname ..
-            " is marked on your map."
+        "Lokationen af " .. Target.PlayerData.charinfo.firstname .. " " .. Target.PlayerData.charinfo.lastname ..
+            " er nu på dit kort."
 
     local alertData = {
-        title = "Anklet location",
+        title = "Fodlænke lokation",
         coords = {
             x = coords.x,
             y = coords.y,
@@ -750,7 +750,7 @@ QBCore.Functions.CreateCallback('police:GetCops', function(source, cb)
     cb(amount)
 end)
 
---[[ QBCore.Commands.Add("setpolice", "Hire An Officer (Police Only)", {{name="id", help="Player ID"}}, true, function(source, args)
+--[[ QBCore.Commands.Add("setpolice", "Hire An Officer (Kun Politi)", {{name="id", help="Player ID"}}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local Myself = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then 
@@ -760,7 +760,7 @@ end)
     end
 end) ]]
 
-QBCore.Commands.Add("spikestrip", "Place Spike Strip (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("spikestrip", "Smid sømmåtte (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then
         if (Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty) then
@@ -769,12 +769,12 @@ QBCore.Commands.Add("spikestrip", "Place Spike Strip (Police Only)", {}, false, 
     end
 end)
 
-QBCore.Commands.Add("grantlicense", "Grant a license to someone", {{
+QBCore.Commands.Add("grantlicense", "Giv en licens til en person", {{
     name = "id",
-    help = "ID of a person"
+    help = "ID af spilleren"
 }, {
     name = "license",
-    help = "License Type"
+    help = "Licens type"
 }}, true, function(source, args)
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
@@ -785,24 +785,24 @@ QBCore.Commands.Add("grantlicense", "Grant a license to someone", {{
                 local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
                 licenseTable[args[2]] = true
                 SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
-                TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You have been granted a license",
+                TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du har fået en licens",
                     "success", 5000)
-                TriggerClientEvent('QBCore:Notify', source, "You granted a license", "success", 5000)
+                TriggerClientEvent('QBCore:Notify', source, "Du har fået en licens", "success", 5000)
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, "Invalid license type", "error")
+            TriggerClientEvent('QBCore:Notify', source, "Ugyldig licens type", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You must be a Sergeant to grant licenses!", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du skal være en sergent for at give licenser!", "error")
     end
 end)
 
-QBCore.Commands.Add("revokelicense", "Revoke a license from someone", {{
+QBCore.Commands.Add("revokelicense", "Fratag en licens fra en spiller", {{
     name = "id",
-    help = "ID of a person"
+    help = "ID af personen"
 }, {
     name = "license",
-    help = "License Type"
+    help = "Licens type"
 }}, true, function(source, args)
     local source = source
     local Player = QBCore.Functions.GetPlayer(source)
@@ -813,19 +813,19 @@ QBCore.Commands.Add("revokelicense", "Revoke a license from someone", {{
                 local licenseTable = SearchedPlayer.PlayerData.metadata["licences"]
                 licenseTable[args[2]] = false
                 SearchedPlayer.Functions.SetMetaData("licences", licenseTable)
-                TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "You've had a license revoked",
+                TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du er blevet frataget en licens",
                     "error", 5000)
-                TriggerClientEvent('QBCore:Notify', source, "You revoked a license", "success", 5000)
+                TriggerClientEvent('QBCore:Notify', source, "Du fratog en licens", "success", 5000)
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, "Invalid license type", "error")
+            TriggerClientEvent('QBCore:Notify', source, "Ugyldig licens type", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You must be a Sergeant to revoke licenses!", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du skal være en sergent for at give licenser!", "error")
     end
 end)
 
---[[ QBCore.Commands.Add("firepolice", "Fire An Officer (Police Only)", {{name="id", help="Player ID"}}, true, function(source, args)
+--[[ QBCore.Commands.Add("firepolice", "Fire An Officer (Kun Politi)", {{name="id", help="Player ID"}}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local Myself = QBCore.Functions.GetPlayer(source)
     if Player ~= nil then 
@@ -844,9 +844,9 @@ function IsHighCommand(citizenid)
     return retval
 end
 
-QBCore.Commands.Add("pobject", "Place/Delete An Object (Police Only)", {{
+QBCore.Commands.Add("pobject", "Tilføj/fjen et objekt (Kun Politi)", {{
     name = "type",
-    help = "Type object you want or 'delete' to delete"
+    help = "Type objekt du vil 'fjerne' for at fjerne"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local type = args[1]:lower()
@@ -865,78 +865,78 @@ QBCore.Commands.Add("pobject", "Place/Delete An Object (Police Only)", {{
             TriggerClientEvent("police:client:deleteObject", source)
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("cuff", "Cuff Player (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("cuff", "Sæt i håndjern (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:CuffPlayer", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("palert", "Make a police alert", {{
+QBCore.Commands.Add("palert", "Lav en politi anmeldelse", {{
     name = "alert",
-    help = "The Police alert"
+    help = "Politi anmeldelse"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
 
     if (Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty) then
         if args[1] ~= nil then
             local msg = table.concat(args, " ")
-            TriggerClientEvent("chatMessage", -1, "POLICE ALERT", "error", msg)
+            TriggerClientEvent("chatMessage", -1, "POLICE ANMELDELSE", "error", msg)
             TriggerEvent("qb-log:server:CreateLog", "palert", "Police alert", "blue",
                 "**" .. GetPlayerName(source) .. "** (CitizenID: " .. Player.PlayerData.citizenid .. " | ID: " .. source ..
                     ") **Alert:** " .. msg, false)
             TriggerClientEvent('police:PlaySound', -1)
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "You must enter message!")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Du skal skrive en besked!")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("escort", "Escort Player", {}, false, function(source, args)
+QBCore.Commands.Add("escort", "Eskorter spiller", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("police:client:EscortPlayer", source)
 end)
 
--- QBCore.Commands.Add("mdt", "Open MDT (Police Only)", {}, false, function(source, args)
+-- QBCore.Commands.Add("mdt", "Open MDT (Kun Politi)", {}, false, function(source, args)
 --	local Player = QBCore.Functions.GetPlayer(source)
 --    if Player.PlayerData.job.name == "police" then
 --        TriggerClientEvent("police:client:toggleDatabank", source)
 --    else
---        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+--        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
 --    end
 -- end)
 
-QBCore.Commands.Add("callsign", "Give Yourself A Callsign", {{
+QBCore.Commands.Add("callsign", "Div dig selv et callsign", {{
     name = "name",
-    help = "Name of your callsign"
+    help = "Navngiv dit callsign"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     Player.Functions.SetMetaData("callsign", table.concat(args, " "))
 end)
 
-QBCore.Commands.Add("clearcasings", "Clear Area of Casings (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("clearcasings", "Ryd området for patronhylstre (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("evidence:client:ClearCasingsInArea", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("jail", "Jail Player (Police Only)", {{
+QBCore.Commands.Add("jail", "Sæt spiller i fængsel (Kun Politi)", {{
     name = "id",
-    help = "Player ID"
+    help = "Spiller ID"
 }, {
     name = "time",
-    help = "Time they have to be in jail"
+    help = "Tid de skal være i fængsel"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
@@ -945,71 +945,71 @@ QBCore.Commands.Add("jail", "Jail Player (Police Only)", {{
         if time > 0 then
             TriggerClientEvent("police:client:JailCommand", source, playerId, time)
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Time must be higher then 0")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Tiden skal være større end 0")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("unjail", "Unjail Player (Police Only)", {{
+QBCore.Commands.Add("unjail", "Løslad spiller (Kun Politi)", {{
     name = "id",
-    help = "Player ID"
+    help = "Spiller ID"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         local playerId = tonumber(args[1])
         TriggerClientEvent("prison:client:UnjailPerson", playerId)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("clearblood", "Clear The Area of Blood (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("clearblood", "Ryd området for blod (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("evidence:client:ClearBlooddropsInArea", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("seizecash", "Seize Cash (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("seizecash", "Konfisker penge (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty then
         TriggerClientEvent("police:client:SeizeCash", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("sc", "Soft Cuff (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("sc", "Sæt i håndjern (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:CuffPlayerSoft", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("cam", "View Security Camera (Police Only)", {{
+QBCore.Commands.Add("cam", "Se overvågning (Kun Politi)", {{
     name = "camid",
-    help = "Camera ID"
+    help = "Kamera ID"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:ActiveCamera", source, tonumber(args[1]))
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("flagplate", "Flag A Plate (Police Only)", {{
+QBCore.Commands.Add("flagplate", "Efterlys et reg.nr. (Kun Politi)", {{
     name = "plate",
-    help = "License"
+    help = "Registreringsnummer"
 }, {
     name = "reason",
-    help = "Reason of flagging the vehicle"
+    help = "Grunden til efterlysning"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
 
@@ -1023,78 +1023,78 @@ QBCore.Commands.Add("flagplate", "Flag A Plate (Police Only)", {{
             reason = table.concat(reason, " ")
         }
         TriggerClientEvent('QBCore:Notify', source,
-            "Vehicle (" .. args[1]:upper() .. ") is flagged for: " .. table.concat(reason, " "))
+            "Kørertøjet (" .. args[1]:upper() .. ") er blevet efterlyst på baggrund af: " .. table.concat(reason, " "))
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("unflagplate", "Unflag A Plate (Police Only)", {{
+QBCore.Commands.Add("unflagplate", "Fjern efterlysning på reg.nr. (Kun Politi)", {{
     name = "plate",
-    help = "License plate"
+    help = "Registreringsnummer"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         if Plates ~= nil and Plates[args[1]:upper()] ~= nil then
             if Plates[args[1]:upper()].isflagged then
                 Plates[args[1]:upper()].isflagged = false
-                TriggerClientEvent('QBCore:Notify', source, "Vehicle (" .. args[1]:upper() .. ") is unflagged")
+                TriggerClientEvent('QBCore:Notify', source, "Kørertøjet (" .. args[1]:upper() .. ") er blevet fjernet fra efterlysningen")
             else
-                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "error", "Vehicle is not flagged!")
+                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "error", "Kørertøj er ikke efterlyst!")
             end
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Vehicle is not flagged!")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("plateinfo", "Run A Plate (Police Only)", {{
+QBCore.Commands.Add("plateinfo", "Slå registreringsnummer op (Kun Politi)", {{
     name = "plate",
-    help = "License plate"
+    help = "Registreringsnummer"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         if Plates ~= nil and Plates[args[1]:upper()] ~= nil then
             if Plates[args[1]:upper()].isflagged then
-                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "normal", "Vehicle (" .. args[1]:upper() ..
-                    ") has been flagged for: " .. Plates[args[1]:upper()].reason)
+                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "normal", "Kørertøjet (" .. args[1]:upper() ..
+                    ") er blevet efterlyst for: " .. Plates[args[1]:upper()].reason)
             else
-                TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Vehicle is not flagged!")
+                TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
             end
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Vehicle is not flagged!")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("depot", "Impound With Price (Police Only)", {{
+QBCore.Commands.Add("depot", "Impound med omkostninger (Kun Politi)", {{
     name = "price",
-    help = "Price for how much the person has to pay (may be empty)"
+    help = "Prisen personen skal betale (kan svares blankt)"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:ImpoundVehicle", source, false, tonumber(args[1]))
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("impound", "Impound A Vehicle (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("impound", "Impound A Vehicle (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:ImpoundVehicle", source, true)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("paytow", "Pay Tow Driver (Police, EMS Only)", {{
+QBCore.Commands.Add("paytow", "Beatal vognmand (Kun Politi, EMS)", {{
     name = "id",
-    help = "ID of the player"
+    help = "ID af spilleren"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" or Player.PlayerData.job.name == "ambulance" then
@@ -1104,18 +1104,18 @@ QBCore.Commands.Add("paytow", "Pay Tow Driver (Police, EMS Only)", {{
             if OtherPlayer.PlayerData.job.name == "tow" then
                 OtherPlayer.Functions.AddMoney("bank", 500, "police-tow-paid")
                 TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "SYSTEM", "warning",
-                    "You received $ 500 for your service!")
-                TriggerClientEvent('QBCore:Notify', source, 'You paid a bergnet worker')
+                    "Du modtog $ 500 for din service!")
+                TriggerClientEvent('QBCore:Notify', source, 'Du betalte en vognmand')
             else
-                TriggerClientEvent('QBCore:Notify', source, 'Person is not a bergnet worker', "error")
+                TriggerClientEvent('QBCore:Notify', source, 'Personen er ikke en vognmand', "error")
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("paylawyer", "Pay Lawyer (Police, Judge Only)", {{
+QBCore.Commands.Add("paylawyer", "Betal advokat (Kun Politi, Advokat)", {{
     name = "id",
     help = "ID of the player"
 }}, true, function(source, args)
@@ -1127,23 +1127,23 @@ QBCore.Commands.Add("paylawyer", "Pay Lawyer (Police, Judge Only)", {{
             if OtherPlayer.PlayerData.job.name == "lawyer" then
                 OtherPlayer.Functions.AddMoney("bank", 500, "police-lawyer-paid")
                 TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "SYSTEM", "warning",
-                    "You received $ 500 for your pro bono case!")
-                TriggerClientEvent('QBCore:Notify', source, 'You paid a lawyer')
+                    "Du modtog $ 500 for din sag!")
+                TriggerClientEvent('QBCore:Notify', source, 'Du betalte en advokat')
             else
-                TriggerClientEvent('QBCore:Notify', source, 'Person is not a lawyer', "error")
+                TriggerClientEvent('QBCore:Notify', source, 'Personen er ikke advokat', "error")
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("radar", "Enable Police Radar (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("radar", "Slå fartmåler til/fra (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("wk:toggleRadar", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
@@ -1154,9 +1154,9 @@ QBCore.Functions.CreateUseableItem("handcuffs", function(source, item)
     end
 end)
 
-QBCore.Commands.Add("911", "Send a report to emergency services", {{
+QBCore.Commands.Add("911", "Send en besked til beredskabstjenester", {{
     name = "message",
-    help = "Message you want to send"
+    help = "Beskeden du ønsker at sende"
 }}, true, function(source, args)
     local message = table.concat(args, " ")
     local Player = QBCore.Functions.GetPlayer(source)
@@ -1167,13 +1167,13 @@ QBCore.Commands.Add("911", "Send a report to emergency services", {{
             "**" .. GetPlayerName(source) .. "** (CitizenID: " .. Player.PlayerData.citizenid .. " | ID: " .. source ..
                 ") **Alert:** " .. message, false)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'You dont have a phone', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Du har ingen mobil', 'error')
     end
 end)
 
-QBCore.Commands.Add("911a", "Send an anonymous report to emergency services (gives no location)", {{
+QBCore.Commands.Add("911a", "Send en anonym besked til beredskabstjenester (giver ingen lokation)", {{
     name = "message",
-    help = "Message you want to send"
+    help = "Beskeden du ønsker at sende"
 }}, true, function(source, args)
     local message = table.concat(args, " ")
     local Player = QBCore.Functions.GetPlayer(source)
@@ -1182,16 +1182,16 @@ QBCore.Commands.Add("911a", "Send an anonymous report to emergency services (giv
         TriggerClientEvent("police:client:CallAnim", source)
         TriggerClientEvent('police:client:Send112AMessage', -1, message)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'You dont have a phone', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Du har ingen mobil', 'error')
     end
 end)
 
-QBCore.Commands.Add("911r", "Send a message back to a alert", {{
+QBCore.Commands.Add("911r", "Send en besked tilbage til afsender", {{
     name = "id",
-    help = "ID of the alert"
+    help = "ID af opkaldet"
 }, {
     name = "message",
-    help = "Message you want to send"
+    help = "Beskeden du ønsker at sende"
 }}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local OtherPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
@@ -1209,17 +1209,17 @@ QBCore.Commands.Add("911r", "Send a message back to a alert", {{
     end
 end)
 
-QBCore.Commands.Add("anklet", "Attach Tracking Anklet (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("anklet", "Fastgør fodlænke (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
 
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:CheckDistance", source)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
 end)
 
-QBCore.Commands.Add("ankletlocation", "Get the location of a persons anklet", {{"csn", "CSN of the person"}}, true,
+QBCore.Commands.Add("ankletlocation", "Få lokation af fodlænke", {{"csn", "CSN af personen"}}, true,
     function(source, args)
         local Player = QBCore.Functions.GetPlayer(source)
 
@@ -1232,16 +1232,16 @@ QBCore.Commands.Add("ankletlocation", "Get the location of a persons anklet", {{
                     if Target.PlayerData.metadata["tracker"] then
                         TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, source)
                     else
-                        TriggerClientEvent('QBCore:Notify', source, 'This person doesn\'t have an anklet on.', 'error')
+                        TriggerClientEvent('QBCore:Notify', source, 'Denne person har ingen fodlænke.', 'error')
                     end
                 end
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+            TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
         end
     end)
 
-QBCore.Commands.Add("removeanklet", "Remove Tracking Anklet (Police Only)", {{"bsn", "BSN of person"}}, true,
+QBCore.Commands.Add("removeanklet", "Fjern fodlænke (Kun Politi)", {{"bsn", "BSN af personen"}}, true,
     function(source, args)
         local Player = QBCore.Functions.GetPlayer(source)
 
@@ -1254,16 +1254,16 @@ QBCore.Commands.Add("removeanklet", "Remove Tracking Anklet (Police Only)", {{"b
                     if Target.PlayerData.metadata["tracker"] then
                         TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, source)
                     else
-                        TriggerClientEvent('QBCore:Notify', source, 'This person does not have an anklet', 'error')
+                        TriggerClientEvent('QBCore:Notify', source, 'Denne person har ingen fodlænke', 'error')
                     end
                 end
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, 'For Emergency Services Only', 'error')
+            TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
         end
     end)
 
-QBCore.Commands.Add("ebutton", "Respond To A Call (Police, EMS, Mechanic Only)", {}, false, function(source, args)
+QBCore.Commands.Add("ebutton", "Besvar et opkald (Kun Politi, EMS, Mekanikere)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if ((Player.PlayerData.job.name == "police" or Player.PlayerData.job.name == "ambulance" or
         Player.PlayerData.job.name == "doctor") and Player.PlayerData.job.onduty) then
@@ -1271,21 +1271,21 @@ QBCore.Commands.Add("ebutton", "Respond To A Call (Police, EMS, Mechanic Only)",
     end
 end)
 
-QBCore.Commands.Add("takedrivinglicense", "Seize Drivers License (Police Only)", {}, false, function(source, args)
+QBCore.Commands.Add("takedrivinglicense", "Fratag førerret (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if ((Player.PlayerData.job.name == "police") and Player.PlayerData.job.onduty) then
         TriggerClientEvent("police:client:SeizeDriverLicense", source)
     end
 end)
 
-QBCore.Commands.Add("takedna", "Take a DNA sanple from a person (empty evidence bag needed) (Police Only)",
+QBCore.Commands.Add("takedna", "Tag et DNA fra en person (tom bevispose er krævet) (Kun Politi)",
     {{"id", "ID of the person"}}, true, function(source, args)
         local Player = QBCore.Functions.GetPlayer(source)
         local OtherPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
         if ((Player.PlayerData.job.name == "police") and Player.PlayerData.job.onduty) and OtherPlayer ~= nil then
             if Player.Functions.RemoveItem("empty_evidence_bag", 1) then
                 local info = {
-                    label = "DNA Sample",
+                    label = "DNA Prøve",
                     type = "dna",
                     dnalabel = DnaHash(OtherPlayer.PlayerData.citizenid)
                 }
@@ -1294,7 +1294,7 @@ QBCore.Commands.Add("takedna", "Take a DNA sanple from a person (empty evidence 
                         "add")
                 end
             else
-                TriggerClientEvent('QBCore:Notify', source, "You must have an empty evidence bag with you", "error")
+                TriggerClientEvent('QBCore:Notify', source, "Du skal have en tom bevispose på dig", "error")
             end
         end
     end)

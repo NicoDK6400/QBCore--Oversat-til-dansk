@@ -53,13 +53,13 @@ AddEventHandler('qb-methlab:server:CheckIngredients', function()
             if hydrochloricacid.amount >= Config.HydrochloricAcid and ephedrine.amount >= Config.Ephedrine and acetone.amount >= Config.Acetone then 
                 TriggerClientEvent("qb-methlab:client:loadIngredients", source)
             else
-                TriggerClientEvent('QBCore:Notify', source, "You do not have the correct items", 'error')
+                TriggerClientEvent('QBCore:Notify', source, "Du har ikke de korrekte varer", 'error')
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, "You do not have the correct items", 'error')
+            TriggerClientEvent('QBCore:Notify', source, "Du har ikke de korrekte varer", 'error')
         end
 	else
-		TriggerClientEvent('QBCore:Notify', source, "You have nothing...", "error")
+		TriggerClientEvent('QBCore:Notify', source, "Du har intet...", "error")
 	end
 end)
 
@@ -73,10 +73,10 @@ AddEventHandler('qb-methlab:server:breakMeth', function()
         if (meth ~= nil or puremethtray ~= nil) then 
                 TriggerClientEvent("qb-methlab:client:breakMeth", source)
         else
-            TriggerClientEvent('QBCore:Notify', source, "You do not have the correct items", 'error')   
+            TriggerClientEvent('QBCore:Notify', source, "Du har ikke de korrekte varer", 'error')   
         end
 	else
-		TriggerClientEvent('QBCore:Notify', source, "You Have nothing...", "error")
+		TriggerClientEvent('QBCore:Notify', source, "Du har intet...", "error")
 	end
 end)
 
@@ -104,7 +104,7 @@ AddEventHandler('qb-methlab:server:getmethtray', function(amount)
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['methtray'], "remove")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You do not have the correct items", 'error')   
+        TriggerClientEvent('QBCore:Notify', source, "Du har ikke de korrekte varer", 'error')   
     end
 end)
 

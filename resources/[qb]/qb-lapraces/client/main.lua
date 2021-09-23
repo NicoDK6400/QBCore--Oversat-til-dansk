@@ -47,7 +47,7 @@ AddEventHandler('qb-lapraces:client:StartRaceEditor', function(RaceName)
         CreatorUI()
         CreatorLoop()
     else
-        QBCore.Functions.Notify('You are already making a race.', 'error')
+        QBCore.Functions.Notify('Du deltager allerede i et race.', 'error')
     end 
 end)
 
@@ -125,7 +125,7 @@ function CreatorLoop()
                     if CreatorData.Checkpoints ~= nil and next(CreatorData.Checkpoints) ~= nil then
                         DeleteCheckpoint()
                     else
-                        QBCore.Functions.Notify('You have not placed any checkpoints yet..', 'error')
+                        QBCore.Functions.Notify('Du har ikke placeret nogle checkpoints endnu..', 'error')
                     end
                 end
 
@@ -133,7 +133,7 @@ function CreatorLoop()
                     if CreatorData.Checkpoints ~= nil and #CreatorData.Checkpoints >= 2 then
                         SaveRace()
                     else
-                        QBCore.Functions.Notify('You must have at least 10 checkpoints', 'error')
+                        QBCore.Functions.Notify('Du skal minimum have lavet 10 checkpoints', 'error')
                     end
                 end
 
@@ -141,7 +141,7 @@ function CreatorLoop()
                     if CreatorData.TireDistance + 1.0 ~= 16.0 then
                         CreatorData.TireDistance = CreatorData.TireDistance + 1.0
                     else
-                        QBCore.Functions.Notify('You can not go higher than 15')
+                        QBCore.Functions.Notify('Du kan ikke gå over 15')
                     end
                 end
 
@@ -149,18 +149,18 @@ function CreatorLoop()
                     if CreatorData.TireDistance - 1.0 ~= 1.0 then
                         CreatorData.TireDistance = CreatorData.TireDistance - 1.0
                     else
-                        QBCore.Functions.Notify('You cannot go lower than 2')
+                        QBCore.Functions.Notify('Du kan ikke gå lavere end 2')
                     end
                 end
             else
                 local coords = GetEntityCoords(PlayerPedId())
-                DrawText3Ds(coords.x, coords.y, coords.z, 'You must be in a vehicle')
+                DrawText3Ds(coords.x, coords.y, coords.z, 'Du skal sidde i et kørertøj')
             end
 
             if IsControlJustPressed(0, 163) or IsDisabledControlJustPressed(0, 163) then
                 if not CreatorData.ConfirmDelete then
                     CreatorData.ConfirmDelete = true
-                    QBCore.Functions.Notify('Press [9] again to confirm', 'error', 5000)
+                    QBCore.Functions.Notify('Tryk [9] for at bekræfte', 'error', 5000)
                 else
                     for id, CheckpointData in pairs(CreatorData.Checkpoints) do
                         if CheckpointData.blip ~= nil then
@@ -189,7 +189,7 @@ function CreatorLoop()
                     RaceData.InCreator = false
                     CreatorData.RaceName = nil
                     CreatorData.Checkpoints = {}
-                    QBCore.Functions.Notify('Race-editor canceled!', 'error')
+                    QBCore.Functions.Notify('Race-editor afbrudt!', 'error')
                     CreatorData.ConfirmDelete = false
                 end
             end
@@ -212,7 +212,7 @@ function SaveRace()
 
     TriggerServerEvent('qb-lapraces:server:SaveRace', CreatorData)
 
-    QBCore.Functions.Notify('Race: '..CreatorData.RaceName..' is saved!', 'success')
+    QBCore.Functions.Notify('Race: '..CreatorData.RaceName..' er gemt!', 'success')
 
     for id,_ in pairs(CreatorData.Checkpoints) do
         if CreatorData.Checkpoints[id].blip ~= nil then
@@ -319,10 +319,10 @@ function DeleteCheckpoint()
             end
             CreatorData.Checkpoints = NewCheckpoints
         else
-            QBCore.Functions.Notify('You cant go to fast', 'error')
+            QBCore.Functions.Notify('Det kan ikke gå hurtigt nok', 'error')
         end
     else
-        QBCore.Functions.Notify('You cant go too fast', 'error')
+        QBCore.Functions.Notify('Du må ikke være for hurtig', 'error')
     end
 end
 
@@ -428,13 +428,13 @@ AddEventHandler('qb-lapraces:client:JoinRace', function(Data, Laps)
         SetupRace(Data, Laps)
         TriggerServerEvent('qb-lapraces:server:UpdateRaceState', CurrentRaceData.RaceId, false, true)
     else
-        QBCore.Functions.Notify('Youre already in a race..', 'error')
+        QBCore.Functions.Notify('Du deltager allerede i et race..', 'error')
     end
 end)
 
 RegisterNetEvent('qb-lapraces:client:LeaveRace')
 AddEventHandler('qb-lapraces:client:LeaveRace', function(data)
-    QBCore.Functions.Notify('You have completed the race!')
+    QBCore.Functions.Notify('Du har gennemført et race!')
     for k, v in pairs(CurrentRaceData.Checkpoints) do
         if CurrentRaceData.Checkpoints[k].blip ~= nil then
             RemoveBlip(CurrentRaceData.Checkpoints[k].blip)
@@ -594,7 +594,7 @@ AddEventHandler('qb-lapraces:client:RaceCountdown', function()
         while Countdown ~= 0 do
             if CurrentRaceData.RaceName ~= nil then
                 if Countdown == 10 then
-                    QBCore.Functions.Notify('The race will start in 10 seconds', 'error', 2500)
+                    QBCore.Functions.Notify('Race vil starte om 10 sekunder', 'error', 2500)
                     PlaySound(-1, "slow", "SHORT_PLAYER_SWITCH_SOUND_SET", 0, 0, 1)
                 elseif Countdown <= 5 then
                     QBCore.Functions.Notify(Countdown, 'error', 500)
@@ -609,7 +609,7 @@ AddEventHandler('qb-lapraces:client:RaceCountdown', function()
         end
         if CurrentRaceData.RaceName ~= nil then
             SetNewWaypoint(CurrentRaceData.Checkpoints[CurrentRaceData.CurrentCheckpoint + 1].coords.x, CurrentRaceData.Checkpoints[CurrentRaceData.CurrentCheckpoint + 1].coords.y)
-            QBCore.Functions.Notify('GO!', 'success', 1000)
+            QBCore.Functions.Notify('KØR!', 'success', 1000)
             SetBlipScale(CurrentRaceData.Checkpoints[CurrentRaceData.CurrentCheckpoint + 1].blip, 1.0)
             FreezeEntityPosition(GetVehiclePedIsIn(PlayerPedId(), true), false)
             DoPilePfx()
@@ -620,7 +620,7 @@ AddEventHandler('qb-lapraces:client:RaceCountdown', function()
             Countdown = 10
         end
     else
-        QBCore.Functions.Notify('You are not currently in a race..', 'error')
+        QBCore.Functions.Notify('Du deltager i øjeblikket ikke i et race..', 'error')
     end
 end)
 
@@ -748,9 +748,9 @@ end
 function FinishRace()
     TriggerServerEvent('qb-lapraces:server:FinishPlayer', CurrentRaceData, CurrentRaceData.TotalTime, CurrentRaceData.TotalLaps, CurrentRaceData.BestLap)
     if CurrentRaceData.BestLap ~= 0 then
-        QBCore.Functions.Notify('Race finished in '..SecondsToClock(CurrentRaceData.TotalTime)..', with the best lap: '..SecondsToClock(CurrentRaceData.BestLap))
+        QBCore.Functions.Notify('Race afsluttede efter '..SecondsToClock(CurrentRaceData.TotalTime)..', med best lap: '..SecondsToClock(CurrentRaceData.BestLap))
     else
-        QBCore.Functions.Notify('Race finished in '..SecondsToClock(CurrentRaceData.TotalTime))
+        QBCore.Functions.Notify('Race afsluttede efter '..SecondsToClock(CurrentRaceData.TotalTime))
     end
     for k, v in pairs(CurrentRaceData.Checkpoints) do
         if CurrentRaceData.Checkpoints[k].blip ~= nil then
@@ -789,7 +789,7 @@ RegisterNetEvent('qb-lapraces:client:PlayerFinishs')
 AddEventHandler('qb-lapraces:client:PlayerFinishs', function(RaceId, Place, FinisherData)
     if CurrentRaceData.RaceId ~= nil then
         if CurrentRaceData.RaceId == RaceId then
-            QBCore.Functions.Notify(FinisherData.PlayerData.charinfo.firstname..' is finished on spot: '..Place, 'error', 3500)
+            QBCore.Functions.Notify(FinisherData.PlayerData.charinfo.firstname..' aflsuttede på en: '..Place.. ' plads!', 'error', 3500)
         end
     end
 end)
@@ -820,7 +820,7 @@ AddEventHandler('qb-lapraces:client:WaitingDistanceCheck', function()
                     if dist > 115.0 then
                         if ToFarCountdown ~= 0 then
                             ToFarCountdown = ToFarCountdown - 1
-                            QBCore.Functions.Notify('Go back to the start or you will be kicked from the race: '..ToFarCountdown..'s', 'error', 500)
+                            QBCore.Functions.Notify('Gå tilbage til starten ellers vil du få et kick fra race: '..ToFarCountdown..'s', 'error', 500)
                         else
                             TriggerServerEvent('qb-lapraces:server:LeaveRace', CurrentRaceData)
                             ToFarCountdown = 10

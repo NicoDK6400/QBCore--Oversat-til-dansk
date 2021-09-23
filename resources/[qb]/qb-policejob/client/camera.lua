@@ -103,7 +103,7 @@ AddEventHandler('police:client:ActiveCamera', function(cameraId)
         })
         DoScreenFadeIn(250)
     else
-        QBCore.Functions.Notify("Camera doesn\'t exist..", "error")
+        QBCore.Functions.Notify("Kamera eksistere ikke..", "error")
     end
 end)
 
@@ -214,7 +214,7 @@ function CreateInstuctionScaleform(scaleform)
     PushScaleformMovieFunction(scaleform, "SET_DATA_SLOT")
     PushScaleformMovieFunctionParameterInt(1)
     InstructionButton(GetControlInstructionalButton(1, 194, true))
-    InstructionButtonMessage("Close Camera")
+    InstructionButtonMessage("Luk kamera")
     PopScaleformMovieFunctionVoid()
 
     PushScaleformMovieFunction(scaleform, "DRAW_INSTRUCTIONAL_BUTTONS")

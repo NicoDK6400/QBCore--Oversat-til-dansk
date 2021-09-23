@@ -1,4 +1,4 @@
-QBCore.Commands.Add("setlawyer", "Register someone as a lawyer", {{name="id", help="Id of the player"}}, true, function(source, args)
+QBCore.Commands.Add("setlawyer", "Register nogen som advokat", {{name="id", help="Id af spilleren"}}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local playerId = tonumber(args[1])
     local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
@@ -12,31 +12,31 @@ QBCore.Commands.Add("setlawyer", "Register someone as a lawyer", {{name="id", he
             }
             OtherPlayer.Functions.SetJob("lawyer", 0)
             OtherPlayer.Functions.AddItem("lawyerpass", 1, false, lawyerInfo)
-            TriggerClientEvent("QBCore:Notify", source, "You have " .. OtherPlayer.PlayerData.charinfo.firstname .. " " .. OtherPlayer.PlayerData.charinfo.lastname .. " hired as a lawyer")
-            TriggerClientEvent("QBCore:Notify", OtherPlayer.PlayerData.source, "You are now a lawyer")
+            TriggerClientEvent("QBCore:Notify", source, "Du har " .. OtherPlayer.PlayerData.charinfo.firstname .. " " .. OtherPlayer.PlayerData.charinfo.lastname .. " ansat som advokat")
+            TriggerClientEvent("QBCore:Notify", OtherPlayer.PlayerData.source, "Du er nu advokat")
             TriggerClientEvent('inventory:client:ItemBox', OtherPlayer.PlayerData.source, QBCore.Shared.Items["lawyerpass"], "add")
         else
-            TriggerClientEvent("QBCore:Notify", source, "Person is present", "error")
+            TriggerClientEvent("QBCore:Notify", source, "Personen er tilgængelig", "error")
         end
     else
-        TriggerClientEvent("QBCore:Notify", source, "You are not a judge.", "error")
+        TriggerClientEvent("QBCore:Notify", source, "Du er ikke advokat.", "error")
     end
 end)
 
-QBCore.Commands.Add("removelawyer", "Remove someone as a lawyer", {{name="id", help="ID of the player"}}, true, function(source, args)
+QBCore.Commands.Add("removelawyer", "Fjern nogen som advokat", {{name="id", help="ID af spilleren"}}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local playerId = tonumber(args[1])
     local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
     if Player.PlayerData.job.name == "judge" then
         if OtherPlayer ~= nil then
 	    OtherPlayer.Functions.SetJob("unemployed", 0)
-            TriggerClientEvent("QBCore:Notify", OtherPlayer.PlayerData.source, "You are now unemployed")
-            TriggerClientEvent("QBCore:Notify", source, "You have " .. OtherPlayer.PlayerData.charinfo.firstname .. " " .. OtherPlayer.PlayerData.charinfo.lastname .. "dismiss as a lawyer")
+            TriggerClientEvent("QBCore:Notify", OtherPlayer.PlayerData.source, "Du er nu arbejdsløs")
+            TriggerClientEvent("QBCore:Notify", source, "Du har " .. OtherPlayer.PlayerData.charinfo.firstname .. " " .. OtherPlayer.PlayerData.charinfo.lastname .. "fyret som advokat")
         else
-            TriggerClientEvent("QBCore:Notify", source, "Person is not present", "error")
+            TriggerClientEvent("QBCore:Notify", source, "Personen er ikke tilgængelig", "error")
         end
     else
-        TriggerClientEvent("QBCore:Notify", source, "Youre not a judge..", "error")
+        TriggerClientEvent("QBCore:Notify", source, "Du er ikke advokat..", "error")
     end
 end)
 

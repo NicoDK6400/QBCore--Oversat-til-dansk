@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
             if #(pos - vector3(Config.Locations["exit"].coords.x, Config.Locations["exit"].coords.y, Config.Locations["exit"].coords.z)) < 20 then
                 inRange = true
                 if #(pos - vector3(Config.Locations["exit"].coords.x, Config.Locations["exit"].coords.y, Config.Locations["exit"].coords.z)) < 1 then
-                    DrawText3Ds(Config.Locations["exit"].coords.x, Config.Locations["exit"].coords.y, Config.Locations["exit"].coords.z, '~g~E~w~ - Leave methlab')
+                    DrawText3Ds(Config.Locations["exit"].coords.x, Config.Locations["exit"].coords.y, Config.Locations["exit"].coords.z, '~g~E~w~ - Forlad methlab')
                     if IsControlJustPressed(0, 38) then
                         ExitMethlab()
                     end
@@ -90,7 +90,7 @@ Citizen.CreateThread(function()
                 inRange = true
                 DrawMarker(2, Config.Locations["break"].coords.x, Config.Locations["break"].coords.y, Config.Locations["break"].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.3, 0.1, 222, 11, 11, 155, false, false, false, true, false, false, false)
                 if #(pos - vector3(Config.Locations["break"].coords.x, Config.Locations["break"].coords.y, Config.Locations["break"].coords.z)) < 1 then
-                    DrawText3Ds(Config.Locations["break"].coords.x - 0.06, Config.Locations["break"].coords.y + 0.90, Config.Locations["break"].coords.z, '~g~G~w~ - Break Meth ')
+                    DrawText3Ds(Config.Locations["break"].coords.x - 0.06, Config.Locations["break"].coords.y + 0.90, Config.Locations["break"].coords.z, '~g~G~w~ - Knæk meth ')
                     if IsControlJustPressed(0, 47) then
                         TriggerServerEvent("qb-methlab:server:breakMeth")
                     end
@@ -106,7 +106,7 @@ Citizen.CreateThread(function()
                 if  not machineStarted then
                     if not loadIngredients then
                         if #(pos - vector3(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y, Config.Tasks["Furnace"].coords.z)) < 1 then
-                            DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[G] Load Ingredients')
+                            DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[G] Tilføj ingredienser')
                             if IsControlJustPressed(0, 47) then
                                 TriggerServerEvent("qb-methlab:server:CheckIngredients")
                             end
@@ -114,14 +114,14 @@ Citizen.CreateThread(function()
                     else
                         if not finishedMachine then
                             if #(pos - vector3(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y, Config.Tasks["Furnace"].coords.z)) < 1 then
-                                DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[E] Start Machine')
+                                DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[E] Start Maskine')
                                 if IsControlJustPressed(0, 38) then
                                     StartMachine()
                                 end
                             end
                         else
                             if #(pos - vector3(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y, Config.Tasks["Furnace"].coords.z)) < 1 then
-                                DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[E] Get Meth')
+                                DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y,  Config.Tasks["Furnace"].coords.z + 0.2, '[E] Tag meth')
                                 if IsControlJustPressed(0, 38) then
                                     TriggerServerEvent("qb-methlab:server:receivemethtray")
                                     finishedMachine = false
@@ -132,7 +132,7 @@ Citizen.CreateThread(function()
                         end
                     end
                 else
-                    DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y, Config.Tasks["Furnace"].coords.z - 0.4, 'Ready in '..machinetimer..'s')
+                    DrawText3Ds(Config.Tasks["Furnace"].coords.x, Config.Tasks["Furnace"].coords.y, Config.Tasks["Furnace"].coords.z - 0.4, 'Færdigt om '..machinetimer..'s')
                 end
             end
         end
@@ -191,7 +191,7 @@ function BreakMinigame()
 end
 
 function breakingMeth(amount)
-    QBCore.Functions.Progressbar("break_meth", "Breaking Meth ..", Config.BreakMethTimer, false, true, {
+    QBCore.Functions.Progressbar("break_meth", "Knækker meth ..", Config.BreakMethTimer, false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
@@ -231,7 +231,7 @@ function ProcessMinigame()
     }, function()
         if SucceededAttempts + 1 >= NeededAttempts then
             TriggerServerEvent('qb-methlab:server:loadIngredients')
-            QBCore.Functions.Notify("You loaded the ingredients!", "success")
+            QBCore.Functions.Notify("Du tilføjede ingredienserne!", "success")
             FailedAttemps = 0
             SucceededAttempts = 0
             NeededAttempts = 0
@@ -246,7 +246,7 @@ function ProcessMinigame()
             })
         end
 	end, function()
-            QBCore.Functions.Notify("Failed", "error")
+            QBCore.Functions.Notify("Fejlede!", "error")
     end)
 end
 
@@ -273,7 +273,7 @@ AddEventHandler('qb-methlab:client:UseLabKey', function(labkey)
             if labkey == ClosestMethlab then
                 EnterMethlab()
             else
-                QBCore.Functions.Notify('This is not the correct key..', 'error')
+                QBCore.Functions.Notify('Dette er ikke den rigtige nøgle..', 'error')
             end
         end
     end
@@ -291,7 +291,7 @@ Citizen.CreateThread(function()
 
                 if MethDoor <= 1 then
                      if not interacting then
-                        DrawText3Ds(321.72,-305.87,52.50, '~r~ Locked')
+                        DrawText3Ds(321.72,-305.87,52.50, '~r~ Låst')
 
                         if IsControlJustPressed(0, 38) then
                             local ped = PlayerPedId()
@@ -302,7 +302,7 @@ Citizen.CreateThread(function()
                                  if labkey == ClosestMethlab then
                                     EnterMethlab()
                                  else
-                                     QBCore.Functions.Notify('Looks like it needs a key...', 'error')
+                                     QBCore.Functions.Notify('Ser ud til at du skal bruge en nøgle...', 'error')
                                  end
                             end
                         end

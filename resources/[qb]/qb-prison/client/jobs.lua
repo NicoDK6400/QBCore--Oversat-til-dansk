@@ -15,7 +15,7 @@ Citizen.CreateThread(function()
                     DrawMarker(2, Config.Locations.jobs[currentJob][currentLocation].coords.x, Config.Locations.jobs[currentJob][currentLocation].coords.y, Config.Locations.jobs[currentJob][currentLocation].coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 150, 200, 50, 222, false, false, false, true, false, false, false)
                     if #(pos - vector3(Config.Locations.jobs[currentJob][currentLocation].coords.x, Config.Locations.jobs[currentJob][currentLocation].coords.y, Config.Locations.jobs[currentJob][currentLocation].coords.z)) < 1 and not isWorking then
                         isWorking = true
-                        QBCore.Functions.Progressbar("work_electric", "Working on electricity..", math.random(5000, 10000), false, true, {
+                        QBCore.Functions.Progressbar("work_electric", "Arbejder med elektricitet..", math.random(5000, 10000), false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,
@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
                         end, function() -- Cancel
                             isWorking = false
                             StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            QBCore.Functions.Notify("Cancelled..", "error")
+                            QBCore.Functions.Notify("Afbrudt..", "error")
                         end)
                     end
                 end
@@ -47,7 +47,7 @@ end)
 
 function JobDone()
     if math.random(1, 100) <= 50 then
-        QBCore.Functions.Notify("You've worked some time off your sentence")
+        QBCore.Functions.Notify("Du har arbejdet noget tid af din afsogning")
         jailTime = jailTime - math.random(1, 2)
     end
     local newLocation = math.random(1, #Config.Locations.jobs[currentJob])
@@ -81,7 +81,7 @@ function CreateJobBlip()
         if Chance == Odd then
             TriggerServerEvent('QBCore:Server:AddItem', 'phone', 1)
             TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items["phone"], "add")
-            QBCore.Functions.Notify("You found a phone..", "success")
+            QBCore.Functions.Notify("Du fandt en mobil..", "success")
         end
     end
 end

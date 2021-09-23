@@ -144,12 +144,12 @@ function GetVehicleStatus(plate)
     return retval
 end
 
-QBCore.Commands.Add("setvehiclestatus", "Set Vehicle Status", {{
+QBCore.Commands.Add("setvehiclestatus", "Sæt kørertøjs status", {{
     name = "part",
-    help = "Type The Part You Want To Edit"
+    help = "Skriv hvilken type du vil ændre"
 }, {
     name = "amount",
-    help = "The Percentage Fixed"
+    help = "Procentdel er blevet repareret"
 }}, true, function(source, args)
     local part = args[1]:lower()
     local level = tonumber(args[2])
@@ -202,11 +202,11 @@ AddEventHandler('qb-vehicletuning:server:CheckForItems', function(part)
             end
         else
             TriggerClientEvent('QBCore:Notify', src,
-                "You Dont Have Enough " .. QBCore.Shared.Items[Config.RepairCostAmount[part].item]["label"] .. " (min. " ..
+                "Du har ikke nok af " .. QBCore.Shared.Items[Config.RepairCostAmount[part].item]["label"] .. " (min. " ..
                     Config.RepairCostAmount[part].costs .. "x)", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "You Do Not Have " ..
+        TriggerClientEvent('QBCore:Notify', src, "Du har ikke " ..
             QBCore.Shared.Items[Config.RepairCostAmount[part].item]["label"] .. " bij je!", "error")
     end
 end)
@@ -222,9 +222,9 @@ function IsAuthorized(CitizenId)
     return retval
 end
 
-QBCore.Commands.Add("setmechanic", "Give Someone The Mechanic job", {{
+QBCore.Commands.Add("setmechanic", "Giv nogen et mekaniker job", {{
     name = "id",
-    help = "ID Of The Player"
+    help = "ID af spilleren"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
 
@@ -235,21 +235,21 @@ QBCore.Commands.Add("setmechanic", "Give Someone The Mechanic job", {{
             if TargetData ~= nil then
                 TargetData.Functions.SetJob("mechanic")
                 TriggerClientEvent('QBCore:Notify', TargetData.PlayerData.source,
-                    "You Were Hired As An Autocare Employee!")
-                TriggerClientEvent('QBCore:Notify', source, "You have (" .. TargetData.PlayerData.charinfo.firstname ..
-                    ") Hired As An Autocare Employee!")
+                    "Du blev ansat hos Autocare!")
+                TriggerClientEvent('QBCore:Notify', source, "Du har (" .. TargetData.PlayerData.charinfo.firstname ..
+                    ") som en ny kollega hos Autocare!")
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, "You Must Provide A Player ID!")
+            TriggerClientEvent('QBCore:Notify', source, "Du skal oplyse et spiller ID!")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You Cannot Do This!", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du kan ikke gøre det sådan!", "error")
     end
 end)
 
-QBCore.Commands.Add("firemechanic", "Fire A Mechanic", {{
+QBCore.Commands.Add("firemechanic", "Fyr en mekaniker", {{
     name = "id",
-    help = "ID Of The Player"
+    help = "ID af spilleren"
 }}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
 
@@ -261,18 +261,18 @@ QBCore.Commands.Add("firemechanic", "Fire A Mechanic", {{
                 if TargetData.PlayerData.job.name == "mechanic" then
                     TargetData.Functions.SetJob("unemployed")
                     TriggerClientEvent('QBCore:Notify', TargetData.PlayerData.source,
-                        "You Were Fired As An Autocare Employee!")
+                        "Du blev fyret fra Autocare!")
                     TriggerClientEvent('QBCore:Notify', source,
-                        "You have (" .. TargetData.PlayerData.charinfo.firstname .. ") Fired As Autocare Employee!")
+                        "Du har fyret (" .. TargetData.PlayerData.charinfo.firstname .. ") fra Autocare!")
                 else
-                    TriggerClientEvent('QBCore:Notify', source, "Youre Not An Employee of Autocare!", "error")
+                    TriggerClientEvent('QBCore:Notify', source, "Du er ikke ansat hos Autocare!", "error")
                 end
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, "You Must Provide A Player ID!", "error")
+            TriggerClientEvent('QBCore:Notify', source, "Du skal oplyse spilleren ID", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You Cannot Do This!", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du kan ikke gøre det sådan!", "error")
     end
 end)
 

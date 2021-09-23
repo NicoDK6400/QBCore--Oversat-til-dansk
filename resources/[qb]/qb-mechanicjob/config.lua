@@ -119,9 +119,9 @@ Config.MinimalMetersForDamage = {
 }
 
 Config.Damages = {
-    ["radiator"] = "Radiator",
-    ["axle"] = "Drive Shaft",
-    ["brakes"] = "Brakes",
-    ["clutch"] = "Clutch",
-    ["fuel"] = "Fuel Tank",
+    ["radiator"] = "Køler",
+    ["axle"] = "Aksel",
+    ["brakes"] = "Bremser",
+    ["clutch"] = "Kobling",
+    ["fuel"] = "Fuel tank",
 }
