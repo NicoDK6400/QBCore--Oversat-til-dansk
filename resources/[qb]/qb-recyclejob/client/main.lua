@@ -8,7 +8,7 @@ Citizen.CreateThread(function ()
     SetBlipScale(RecycleBlip, 0.8)
     SetBlipAsShortRange(RecycleBlip, true)
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString("Recycle Center")
+    AddTextComponentString("Genbrugs center")
     EndTextCommandSetBlipName(RecycleBlip)
     while true do
         Citizen.Wait(0)
@@ -46,12 +46,12 @@ Citizen.CreateThread(function ()
                 if onDuty then
                     DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ - Stempel ud")
                 else
-                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ -  Stempel ind")
+                    DrawText3D(1049.15, -3100.63, -38.95, "~g~E~w~ - Stempel ind")
                 end
                 if IsControlJustReleased(0, 38) then
                     onDuty = not onDuty
                     if onDuty then
-                        QBCore.Functions.Notify("Du stemplede ind på arbejde", "success")
+                        QBCore.Functions.Notify("Du stemplede ind, god arbejdslyst!", "success")
                     else
                         QBCore.Functions.Notify("Du stemplede ud, god fyraften!", "error")
                     end
@@ -99,7 +99,7 @@ Citizen.CreateThread(function ()
                         if IsControlJustReleased(0, 38) then
                             DropPackage()
                             ScrapAnim()
-                            QBCore.Functions.Progressbar("deliver_reycle_package", "Aflevere pakken...", 5000, false, true, {
+                            QBCore.Functions.Progressbar("deliver_reycle_package", "Afleverer pakken...", 5000, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,

@@ -2823,9 +2823,9 @@ var requiredItemOpen = false;
         }
         var type = "Used";
         if (data.type == "add") {
-            type = "Received";
+            type = "Modtaget";
         } else if (data.type == "remove") {
-            type = "Removed";
+            type = "Fjernet";
         }
 
         var $itembox = $(".itembox-container.template").clone();

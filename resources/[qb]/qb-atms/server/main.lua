@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(3600000)
         dailyWithdraws = {}
-        TriggerClientEvent('QBCore:Notify', -1, "Daily Withdraw Limit Reset", "success")
+        TriggerClientEvent('QBCore:Notify', -1, "Daglig udbetalingsgrænsen er nulstillet", "success")
     end
 end)
 
@@ -129,9 +129,9 @@ AddEventHandler('qb-atms:server:doAccountWithdraw', function(data)
                     xCH.Functions.RemoveMoney('bank', tonumber(data.amount))
                     xPlayer.Functions.AddMoney('cash', tonumber(data.amount))
                     dailyWithdraws[cardHolder] = dailyWithdraws[cardHolder] + tonumber(data.amount)
-                    TriggerClientEvent('QBCore:Notify', src, "Withdraw $" .. data.amount .. ' from credit card. Daily Withdraws: ' .. dailyWithdraws[cardHolder], "success")
+                    TriggerClientEvent('QBCore:Notify', src, "Udbetalt $" .. data.amount .. ' fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
                 else
-                    TriggerClientEvent('QBCore:Notify', src, "You cant go into minus in ATM.", "error")
+                    TriggerClientEvent('QBCore:Notify', src, "Du kan ikke gå i minus i en hæveautomat.", "error")
                 end
 
                 banking['online'] = true
@@ -148,9 +148,9 @@ AddEventHandler('qb-atms:server:doAccountWithdraw', function(data)
                     xCH.money.bank = bankCount
                     exports.oxmysql:execute('UPDATE players SET money = ? WHERE citizenid = ?', { xCH.money, cardHolder })
                     dailyWithdraws[cardHolder] = dailyWithdraws[cardHolder] + tonumber(data.amount)
-                    TriggerClientEvent('QBCore:Notify', src, "Withdraw $" .. data.amount .. ' from credit card. Daily Withdraws: ' .. dailyWithdraws[cardHolder], "success")
+                    TriggerClientEvent('QBCore:Notify', src, "Udbetaling $" .. data.amount .. ' fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
                 else
-                    TriggerClientEvent('QBCore:Notify', src, "You cant go into minus in ATM.", "error")
+                    TriggerClientEvent('QBCore:Notify', src, "Du kan ikke gå i minus i en hæveautomat.", "error")
                 end
 
                 banking['online'] = false
@@ -161,7 +161,7 @@ AddEventHandler('qb-atms:server:doAccountWithdraw', function(data)
             end
             TriggerClientEvent('qb-atms:client:updateBankInformation', src, banking)
         else
-            TriggerClientEvent('QBCore:Notify', src, "You have reached the daily limit.", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Du har nået dit daglige loft.", "error")
         end
     end
 end)

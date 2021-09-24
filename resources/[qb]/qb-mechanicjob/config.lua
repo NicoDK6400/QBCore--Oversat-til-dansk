@@ -18,12 +18,12 @@ Config.MaxStatusValues = {
 
 Config.ValuesLabels = {
     ["engine"] = "Motor",
-    ["body"] = "Body",
-    ["radiator"] = "Radiator",
-    ["axle"] = "Drive Shaft",
-    ["brakes"] = "Brakes",
-    ["clutch"] = "Clutch",
-    ["fuel"] = "Fuel Ttank",
+    ["body"] = "Karosseri",
+    ["radiator"] = "Køler",
+    ["axle"] = "Askel",
+    ["brakes"] = "Bremser",
+    ["clutch"] = "Kobling",
+    ["fuel"] = "Brændstofstank",
 }
 
 Config.RepairCost = {
@@ -123,5 +123,5 @@ Config.Damages = {
     ["axle"] = "Aksel",
     ["brakes"] = "Bremser",
     ["clutch"] = "Kobling",
-    ["fuel"] = "Fuel tank",
+    ["fuel"] = "Brændstofstank",
 }
