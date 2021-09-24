@@ -95,7 +95,7 @@ AddEventHandler('qb-bankrobbery:UseBankcardA', function()
                 if CurrentCops >= Config.MinimumPaletoPolice then
                     if not Config.BigBanks["paleto"]["isOpened"] then 
                         TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                        QBCore.Functions.Progressbar("security_pass", "Validere kort..", math.random(5000, 10000), false, true, {
+                        QBCore.Functions.Progressbar("security_pass", "Validerer kort..", math.random(5000, 10000), false, true, {
                             disableMovement = true,
                             disableCarMovement = true,
                             disableMouse = false,

@@ -84,7 +84,7 @@ Garages = {
         showBlip = true
     },
     ["dumbogarage"] = {
-        label = "Dumbo Privat Parkering",
+        label = "Havn Parkering",
         takeVehicle = vector3(157.26, -3240.00, 7.00),
         spawnPoint = vector4(165.32, -3236.10, 5.93, 268.5), 
         putVehicle = vector3(165.32, -3230.00, 5.93),

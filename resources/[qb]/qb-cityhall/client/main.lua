@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
     SetBlipColour(CityhallBlip, 0)
 
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("City Services")
+    AddTextComponentSubstringPlayerName("Offentlige services")
     EndTextCommandSetBlipName(CityhallBlip)
 end)
 

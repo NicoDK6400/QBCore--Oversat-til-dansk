@@ -50,7 +50,7 @@ onDuty = false
 injured = {}
 
 BodyParts = {
-    ['HEAD'] = { label = 'hoved', causeLimp = false, isDamaged = false, severity = 0 },
+    ['HEAD'] = { label = 'hovede', causeLimp = false, isDamaged = false, severity = 0 },
     ['NECK'] = { label = 'nakke', causeLimp = false, isDamaged = false, severity = 0 },
     ['SPINE'] = { label = 'ryg hvirvl', causeLimp = true, isDamaged = false, severity = 0 },
     ['UPPER_BODY'] = { label = 'overkrop', causeLimp = false, isDamaged = false, severity = 0 },
@@ -487,7 +487,7 @@ function DoLimbAlert()
             local limbDamageMsg = ''
             if #injured <= Config.AlertShowInfo then
                 for k, v in pairs(injured) do
-                    limbDamageMsg = limbDamageMsg .. "Din(e) " .. v.label .. " føles "..Config.WoundStates[v.severity]
+                    limbDamageMsg = limbDamageMsg .. "Din(e)/dit " .. v.label .. " føles "..Config.WoundStates[v.severity]
                     if k < #injured then
                         limbDamageMsg = limbDamageMsg .. " | "
                     end

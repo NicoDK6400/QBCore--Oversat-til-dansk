@@ -22,7 +22,7 @@ $(document).ready(function (){
                     loadingDots++;
                     loadingProgress++;
                     if (loadingProgress == 3) {
-                        originalText = "Validere spiller data"
+                        originalText = "Validerer spiller data"
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 4) {
@@ -30,7 +30,7 @@ $(document).ready(function (){
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 6) {
-                        originalText = "Validere karaktere"
+                        originalText = "Validerer karaktere"
                         $("#loading-text").html(originalText);
                     }
                     if(loadingDots == 4) {

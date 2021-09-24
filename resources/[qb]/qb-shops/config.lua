@@ -438,7 +438,7 @@ Config.Products = {
 
 Config.Locations = {
     ["beancoffee"] = {
-        ["label"] = "Bean Machine Coffee",
+        ["label"] = "Starbuks",
         ["type"] = "normal",
         ["coords"] = {
             [1] = vector3(-633.72, 236.15, 81.88)
@@ -670,7 +670,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["hardware"] = {
-        ["label"] = "Hardware Store",
+        ["label"] = "Elektronik butik",
         ["type"] = "hardware",
         ["coords"] = {
             [1] = vector3(45.55, -1749.01, 29.6)
@@ -679,7 +679,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["hardware2"] = {
-        ["label"] = "Hardware Store",
+        ["label"] = "Elektronik butik",
         ["type"] = "hardware",
         ["coords"] = {
             [1] = vector3(2747.8, 3472.86, 55.67)
@@ -688,7 +688,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["hardware3"] = {
-        ["label"] = "Hardware Store",
+        ["label"] = "Elektronik butik",
         ["type"] = "hardware",
         ["coords"] = {
             [1] = vector3(-421.84, 6136.09, 31.78)
@@ -706,7 +706,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation1"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(-662.1, -935.3, 21.8)
@@ -715,7 +715,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation2"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(810.2, -2157.3, 29.6)
@@ -724,7 +724,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation3"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(1693.4, 3759.5, 34.7)
@@ -733,7 +733,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation4"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(-330.2, 6083.8, 31.4)
@@ -742,7 +742,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation5"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(252.3, -50.0, 69.9)
@@ -751,7 +751,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation6"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(22.0, -1107.2, 29.8)
@@ -760,7 +760,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation7"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(2567.6, 294.3, 108.7)
@@ -769,7 +769,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation8"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(-1117.5, 2698.6, 18.5)
@@ -778,7 +778,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["ammunation9"] = {
-        ["label"] = "Ammunation",
+        ["label"] = "Våbenbutik",
         ["type"] = "weapon",
         ["coords"] = {
             [1] = vector3(842.4, -1033.4, 28.1)
@@ -796,7 +796,7 @@ Config.Locations = {
         ["showblip"] = true,
     },
     ["leisureshop"] = {
-        ["label"] = "Leisure Shop",
+        ["label"] = "Fritids butik",
         ["type"] = "leisure",
         ["coords"] = {
             [1] = vector3(-1508.774, 1509.015, 115.2903)
@@ -805,7 +805,7 @@ Config.Locations = {
         ["showblip"] = true,
     },   
     ["mustapha"] = {
-        ["label"] = "Rental Mustapha",
+        ["label"] = "AVIIS",
         ["type"] = "leisure",
         ["coords"] = {
             [1] = vector3(-31.18, -1397.537, 29.50)

@@ -24,7 +24,7 @@ local function OnPlayerConnecting(name, setKickReason, deferrals)
     -- mandatory wait!
     Wait(0)
 
-    deferrals.update(string.format("Hejsa %s. Validere din Rockstar Licens", name))
+    deferrals.update(string.format("Hejsa %s. Validerer din Rockstar Licens", name))
 
     for _, v in pairs(identifiers) do
         if string.find(v, 'license') then

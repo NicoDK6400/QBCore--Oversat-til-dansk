@@ -227,8 +227,8 @@ end)
 
 function OpenMenu()
     ClearMenu()
-    Menu.addButton("Options", "VehicleOptions", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Handlinger", "VehicleOptions", nil)
+    Menu.addButton("Luk menu", "CloseMenu", nil) 
 end
 
 function VehicleList()
@@ -236,7 +236,7 @@ function VehicleList()
     for k, v in pairs(Config.Vehicles) do
         Menu.addButton(v, "SpawnListVehicle", k) 
     end
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Luk menu", "CloseMenu", nil) 
 end
 
 function SpawnListVehicle(model)
@@ -260,10 +260,10 @@ end
 
 function VehicleOptions()
     ClearMenu()
-    Menu.addButton("Disconnect Vehicle", "UnattachVehicle", nil)
+    Menu.addButton("Frakobl kørertøj", "UnattachVehicle", nil)
     -- Menu.addButton("Check Status", "CheckStatus", nil)
     Menu.addButton("Vehicle Parts", "PartsMenu", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil)
+    Menu.addButton("Luk menu", "CloseMenu", nil)
 end
 
 function PartsMenu()
@@ -294,8 +294,8 @@ function PartsMenu()
             Menu.addButton(v..": "..percentage.."%", "NoDamage", nil) 
         end
     end
-    Menu.addButton("Back", "VehicleOptions", nil) 
-    Menu.addButton("Close Menu", "CloseMenu", nil) 
+    Menu.addButton("Tilbage", "VehicleOptions", nil) 
+    Menu.addButton("Luk menu", "CloseMenu", nil) 
 end
 
 function CheckStatus()

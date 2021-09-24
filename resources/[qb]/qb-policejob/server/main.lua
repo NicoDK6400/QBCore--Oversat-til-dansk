@@ -546,14 +546,14 @@ AddEventHandler('police:server:SetTracker', function(targetId)
 
     if TrackerMeta then
         Target.Functions.SetMetaData("tracker", false)
-        TriggerClientEvent('QBCore:Notify', targetId, 'fodlænke.', 'error', 5000)
+        TriggerClientEvent('QBCore:Notify', targetId, 'fodlænke blev fjernet.', 'error', 5000)
         TriggerClientEvent('QBCore:Notify', source,
             'Du tog en fodlænke af ' .. Target.PlayerData.charinfo.firstname .. " " ..
                 Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('police:client:SetTracker', targetId, false)
     else
         Target.Functions.SetMetaData("tracker", true)
-        TriggerClientEvent('QBCore:Notify', targetId, 'Du tog en fodlænke på.', 'error', 5000)
+        TriggerClientEvent('QBCore:Notify', targetId, 'Du fik en fodlænke på.', 'error', 5000)
         TriggerClientEvent('QBCore:Notify', source, 'Du tog en fodlænke på ' ..
             Target.PlayerData.charinfo.firstname .. " " .. Target.PlayerData.charinfo.lastname, 'error', 5000)
         TriggerClientEvent('police:client:SetTracker', targetId, true)

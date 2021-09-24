@@ -12,9 +12,9 @@ local menu8 = MenuV:CreateMenu(false, 'Ban', 'topright', 220, 20, 60, 'size-125'
 local menu9 = MenuV:CreateMenu(false, 'Kick', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test8')
 local menu10 = MenuV:CreateMenu(false, 'Permissions', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test9')
 local menu11 = MenuV:CreateMenu(false, 'Udvikler funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test10')
-local menu12 = MenuV:CreateMenu(false, 'Vehicle Options', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test11')
-local menu13 = MenuV:CreateMenu(false, 'Vehicle Categories', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test12')
-local menu14 = MenuV:CreateMenu(false, 'Vehicle Models', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test13')
+local menu12 = MenuV:CreateMenu(false, 'Kørertøjs handlinger', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test11')
+local menu13 = MenuV:CreateMenu(false, 'Kørertøjs kategori', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test12')
+local menu14 = MenuV:CreateMenu(false, 'Kørertøjs modeller', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test13')
 
 RegisterNetEvent('qb-admin:client:openMenu')
 AddEventHandler('qb-admin:client:openMenu', function()
