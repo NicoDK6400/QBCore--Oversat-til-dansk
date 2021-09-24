@@ -262,7 +262,7 @@ function VehicleOptions()
     ClearMenu()
     Menu.addButton("Frakobl kørertøj", "UnattachVehicle", nil)
     -- Menu.addButton("Check Status", "CheckStatus", nil)
-    Menu.addButton("Vehicle Parts", "PartsMenu", nil)
+    Menu.addButton("Kørertøjs dele", "PartsMenu", nil)
     Menu.addButton("Luk menu", "CloseMenu", nil)
 end
 
