@@ -369,7 +369,7 @@ $(document).on('click', '.phone-keypad-key', function(e){
         keyPadHTML = $("#phone-keypad-input").text();
     } else if (PressedButton == "*") {
         if (ClearNumberTimer == null) {
-            $("#phone-keypad-input").text("Cleared")
+            $("#phone-keypad-input").text("Ryddet")
             ClearNumberTimer = setTimeout(function(){
                 $("#phone-keypad-input").text("");
                 keyPadHTML = $("#phone-keypad-input").text();

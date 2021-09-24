@@ -283,7 +283,7 @@ menu_button11:On("select",function()
         local menu_button14 = menu6:AddButton({icon = v.icon,label = v.label,value = v,description = v.description,select = function(btn)
             local selection = btn.Value
             TriggerServerEvent('qb-weathersync:server:setWeather', selection.value)
-            QBCore.Functions.Notify('Weather Changed To: '..selection.label)
+            QBCore.Functions.Notify('Vejret blev ændret til: '..selection.label)
         end})
     end
 end)
@@ -567,13 +567,13 @@ function OpenPlayerMenus(player)
         },
         [5] = {
             icon = '➡️',
-            label = "Gå til",
+            label = "TP til",
             value = "goto",
             description = "Gå til " .. player.cid .. " position"
         },
         [6] = {
             icon = '⬅️',
-            label = "TP til",
+            label = "TP til mig",
             value = "bring",
             description = "Hent " .. player.cid .. " til din position"
         },

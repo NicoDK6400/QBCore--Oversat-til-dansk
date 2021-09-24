@@ -2800,7 +2800,7 @@ var requiredItemOpen = false;
     Inventory.UseItem = function(data) {
         $(".itembox-container").hide();
         $(".itembox-container").fadeIn(250);
-        $("#itembox-action").html("<p>Used</p>");
+        $("#itembox-action").html("<p>Brugt</p>");
         $("#itembox-label").html("<p>" + data.item.label + "</p>");
         $("#itembox-image").html(
             '<div class="item-slot-img"><img src="images/' +

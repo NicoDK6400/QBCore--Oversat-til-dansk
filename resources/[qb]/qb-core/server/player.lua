@@ -374,7 +374,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 	self.Functions.ClearInventory = function()
 		self.PlayerData.items = {}
 		self.Functions.UpdatePlayerData()
-		TriggerEvent("qb-log:server:CreateLog", "playerinventory", "ClearInventory", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** inventory cleared")
+		TriggerEvent("qb-log:server:CreateLog", "playerinventory", "ClearInventory", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** inventory -")
 	end
 
 	self.Functions.GetItemByName = function(item)

@@ -22,20 +22,20 @@ Config.CostMultiplier = 1.0
 
 -- Configure the strings as you wish here.
 Config.Strings = {
-	ExitVehicle = "Exit the vehicle to refuel",
-	EToRefuel = "Press ~g~E ~w~to refuel vehicle",
-	JerryCanEmpty = "Jerry can is empty",
-	FullTank = "Tank is full",
-	PurchaseJerryCan = "Press ~g~E ~w~to purchase a jerry can for ~g~$" .. Config.JerryCanCost,
-	CancelFuelingPump = "Press ~g~E ~w~to cancel the fueling",
-	CancelFuelingJerryCan = "Press ~g~E ~w~to cancel the fueling",
-	NotEnoughCash = "Not enough cash",
-	RefillJerryCan = "Press ~g~E ~w~ to refill the jerry can for ",
-	NotEnoughCashJerryCan = "Not enough cash to refill jerry can",
-	JerryCanFull = "Jerry can is full",
+	ExitVehicle = "Forlad kørertøjet for at tanke",
+	EToRefuel = "Tryk ~g~E ~w~for at tanke kørertøjet",
+	JerryCanEmpty = "JerryCan er tom",
+	FullTank = "Tanken is fuld",
+	PurchaseJerryCan = "Tryk ~g~E ~w~for at købe en JerryCan for ~g~$" .. Config.JerryCanCost,
+	CancelFuelingPump = "Tryk ~g~E ~w~for at afbryde optanknigen",
+	CancelFuelingJerryCan = "Tryk ~g~E ~w~for at afbryde optanknigen",
+	NotEnoughCash = "Du har ikke penge nok",
+	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan ",
+	NotEnoughCashJerryCan = "Du har ikke penge nok til at opfylde JerryCan",
+	JerryCanFull = "Jerry can er fuld",
 	TotalCost = "Cost",
-	PurchaseJerryCan = "Press ~g~E ~w~to grab a jerry can",
-	RefillJerryCan = "Press ~g~E ~w~ to refill the jerry can",
+	PurchaseJerryCan = "Tryk ~g~E ~w~for at tage en JerryCan",
+	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan",
 }
 
 Config.PumpModels = {
