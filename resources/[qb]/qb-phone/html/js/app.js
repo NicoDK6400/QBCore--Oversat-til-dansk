@@ -221,7 +221,7 @@ $(document).on('click', '.phone-application', function(e){
             }
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "System", QB.Phone.Data.Applications[PressedApplication].tooltipText+" er ikke ledig!")
+        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "System", QB.Phone.Data.Applications[PressedApplication].tooltipText+" ikke ledig!")
     }
 });
 
