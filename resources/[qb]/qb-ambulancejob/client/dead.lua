@@ -57,9 +57,9 @@ Citizen.CreateThread(function()
             if isDead then
                 if not isInHospitalBed then 
                     if deathTime > 0 then
-                        DrawTxt(0.93, 1.44, 1.0,1.0,0.6, "Respawn om: ~r~" .. math.ceil(deathTime) .. "~w~ sekunder", 255, 255, 255, 255)
+                        DrawTxt(0.93, 1.44, 1.0,1.0,0.6, "Genopliv om: ~r~" .. math.ceil(deathTime) .. "~w~ sekunder", 255, 255, 255, 255)
                     else
-                        DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, "~w~ Hold ~r~[E] ("..hold..")~w~ for at respawn ~r~($"..Config.BillCost..")~w~", 255, 255, 255, 255)
+                        DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, "~w~ Hold ~r~[E] ("..hold..")~w~ nede for at genoplive ~r~($"..Config.BillCost..")~w~", 255, 255, 255, 255)
                     end
                 end
 
@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
                 if LaststandTime > Laststand.MinimumRevive then
                     DrawTxt(0.94, 1.44, 1.0, 1.0, 0.6, "Du bløder ud om: ~r~" .. math.ceil(LaststandTime) .. "~w~ sekunder", 255, 255, 255, 255)
                 else
-                    DrawTxt(0.845, 1.44, 1.0, 1.0, 0.6, "Du bløder ud om: ~r~" .. math.ceil(LaststandTime) .. "~w~ sekunder, du kan få hjælp", 255, 255, 255, 255)
+                    DrawTxt(0.845, 1.44, 1.0, 1.0, 0.6, "Du bløder ud om: ~r~" .. math.ceil(LaststandTime) .. "~w~ sekunder. Du kan nå at få hjælp", 255, 255, 255, 255)
                 end
 
                 if not isEscorted then

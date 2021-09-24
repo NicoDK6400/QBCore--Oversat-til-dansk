@@ -27,18 +27,18 @@ function UpdateUI(type, data) {
                 $(".editor").fadeIn(300);
                 $("#editor-racename").html('Race: ' + data.data.RaceName);
                 $("#editor-checkpoints").html('Checkpoints: ' + data.data.Checkpoints.length + ' / ?');
-                $("#editor-keys-tiredistance").html('<span style="color: rgb(0, 201, 0);">+ ] </span> / <span style="color: rgb(255, 43, 43);">- [</span> - Tire Distance ['+data.data.TireDistance+'.0]');
+                $("#editor-keys-tiredistance").html('<span style="color: rgb(0, 201, 0);">+ ] </span> / <span style="color: rgb(255, 43, 43);">- [</span> - Bane bredde ['+data.data.TireDistance+'.0]');
                 if (data.racedata.ClosestCheckpoint !== undefined && data.racedata.ClosestCheckpoint !== 0) {
-                    $("#editor-keys-delete").html('<span style="color: rgb(255, 43, 43);">8</span> - Delete Checkpoint [' + data.racedata.ClosestCheckpoint + ']');
+                    $("#editor-keys-delete").html('<span style="color: rgb(255, 43, 43);">8</span> - Slet checkpoint [' + data.racedata.ClosestCheckpoint + ']');
                 } else {
                     $("#editor-keys-delete").html("");
                 }
             } else {
                 $("#editor-racename").html('Race: ' + data.data.RaceName);
                 $("#editor-checkpoints").html('Checkpoints: ' + data.data.Checkpoints.length + ' / ?');
-                $("#editor-keys-tiredistance").html('<span style="color: rgb(0, 201, 0);">+ ] </span> / <span style="color: rgb(255, 43, 43);">- [</span> - Tire Distance ['+data.data.TireDistance+'.0]');
+                $("#editor-keys-tiredistance").html('<span style="color: rgb(0, 201, 0);">+ ] </span> / <span style="color: rgb(255, 43, 43);">- [</span> - Bane bredde ['+data.data.TireDistance+'.0]');
                 if (data.racedata.ClosestCheckpoint !== undefined && data.racedata.ClosestCheckpoint !== 0) {
-                    $("#editor-keys-delete").html('<span style="color: rgb(255, 43, 43);">8</span> - Delete Checkpoint [' + data.racedata.ClosestCheckpoint + ']');
+                    $("#editor-keys-delete").html('<span style="color: rgb(255, 43, 43);">8</span> - Slet checkpoint [' + data.racedata.ClosestCheckpoint + ']');
                 } else {
                     $("#editor-keys-delete").html("");
                 }

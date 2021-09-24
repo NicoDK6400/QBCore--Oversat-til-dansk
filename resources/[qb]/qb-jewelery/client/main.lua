@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
 
                             if dist < 0.6 then
                                 if not Config.Locations[case]["isBusy"] and not Config.Locations[case]["isOpened"] then
-                                    DrawText3Ds(Config.Locations[case]["coords"]["x"], Config.Locations[case]["coords"]["y"], Config.Locations[case]["coords"]["z"], '[E] Storing the display case')
+                                    DrawText3Ds(Config.Locations[case]["coords"]["x"], Config.Locations[case]["coords"]["y"], Config.Locations[case]["coords"]["z"], '[E] Øldelæg glasmontre')
                                     if IsControlJustPressed(0, 38) then
                                         QBCore.Functions.TriggerCallback('qb-jewellery:server:getCops', function(cops)
                                             if cops >= Config.RequiredCops then
@@ -55,7 +55,7 @@ Citizen.CreateThread(function()
                                                     QBCore.Functions.Notify('Dit våben er ikke stærk nok..', 'error')
                                                 end
                                             else
-                                                QBCore.Functions.Notify('Ikke nok politi, minimum ('.. Config.RequiredCops ..') !', 'error')
+                                                QBCore.Functions.Notify('Ikke nok politi, minimum '.. Config.RequiredCops ..'!', 'error')
                                             end                
                                         end)
                                     end

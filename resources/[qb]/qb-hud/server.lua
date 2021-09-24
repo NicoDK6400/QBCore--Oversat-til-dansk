@@ -32,7 +32,7 @@ AddEventHandler('hud:server:GainStress', function(amount)
         end
         Player.Functions.SetMetaData('stress', newStress)
         TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Getting Stressed', 'error', 1500)
+        TriggerClientEvent('QBCore:Notify', src, 'Du bliver stresset', 'error', 1500)
 	end
 end)
 
@@ -56,6 +56,6 @@ AddEventHandler('hud:server:RelieveStress', function(amount)
         end
         Player.Functions.SetMetaData('stress', newStress)
         TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'You Are Relaxing')
+        TriggerClientEvent('QBCore:Notify', src, 'Du slapper af')
 	end
 end)

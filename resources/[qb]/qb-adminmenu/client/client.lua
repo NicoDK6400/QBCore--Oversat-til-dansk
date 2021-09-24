@@ -585,7 +585,7 @@ function OpenPlayerMenus(player)
         },
         [8] = {
             icon = '🎒',
-            label = "Åben inventory",
+            label = "Åbn inventory",
             value = "inventory",
             description = "Åben " .. player.cid .. " inventory"
         },
