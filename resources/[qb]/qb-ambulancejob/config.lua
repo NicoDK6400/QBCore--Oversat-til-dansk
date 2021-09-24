@@ -282,17 +282,17 @@ Config.StaggerAreas = {
 }
 
 Config.WoundStates = {
-    'irritated',
-    'quite painful',
-    'painful',
-    'really painful',
+    'irriteret',
+    'gør ret ondt',
+    'smerte',
+    'høj smerte',
 }
 
 Config.BleedingStates = {
-    [1] = {label = 'bleeding a little bit..', damage = 10, chance = 50},
-    [2] = {label = 'bleeding..', damage = 15, chance = 65},
-    [3] = {label = 'bleeding a lot..', damage = 20, chance = 65},
-    [4] = {label = 'bleeding very much..', damage = 25, chance = 75},
+    [1] = {label = 'bløde en smule..', damage = 10, chance = 50},
+    [2] = {label = 'bløder..', damage = 15, chance = 65},
+    [3] = {label = 'bløder en del..', damage = 20, chance = 65},
+    [4] = {label = 'blæder meget..', damage = 25, chance = 75},
 }
 
 Config.MovementRate = {
