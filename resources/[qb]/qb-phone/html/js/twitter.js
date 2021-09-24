@@ -229,7 +229,7 @@ $(document).on('click', '#send-tweet', function(e){
         })
         QB.Phone.Animations.TopSlideUp(".twitter-new-tweet-tab", 450, -120);
     } else {
-        QB.Phone.Notifications.Add("fab fa-twitter", "Twitter", "Fill a message!", "#1DA1F2");
+        QB.Phone.Notifications.Add("fab fa-twitter", "Twitter", "Skriv en besked!", "#1DA1F2");
     }
 });
 
@@ -274,7 +274,7 @@ function CopyMentionTag(elem) {
     var $temp = $("<input>");
     $("body").append($temp);
     $temp.val($(elem).data('mentiontag')).select();
-    QB.Phone.Notifications.Add("fab fa-twitter", "Twitter", $(elem).data('mentiontag')+ " copied!", "rgb(27, 149, 224)", 1250);
+    QB.Phone.Notifications.Add("fab fa-twitter", "Twitter", $(elem).data('mentiontag')+ " kopieret!", "rgb(27, 149, 224)", 1250);
     document.execCommand("copy");
     $temp.remove();
 }
@@ -290,9 +290,9 @@ QB.Phone.Notifications.LoadHashtags = function(hashtags) {
                TweetHandle = "Tweets";
             }
             if (hashtag.messages.length >= MinimumTrending) {
-                Elem = '<div class="twitter-hashtag" id="tag-'+hashtag.hashtag+'"><div class="twitter-hashtag-status">Trending in City</div> <div class="twitter-hashtag-tag">#'+hashtag.hashtag+'</div> <div class="twitter-hashtag-messages">'+hashtag.messages.length+' '+TweetHandle+'</div> </div>';
+                Elem = '<div class="twitter-hashtag" id="tag-'+hashtag.hashtag+'"><div class="twitter-hashtag-status">Populært i byen</div> <div class="twitter-hashtag-tag">#'+hashtag.hashtag+'</div> <div class="twitter-hashtag-messages">'+hashtag.messages.length+' '+TweetHandle+'</div> </div>';
             } else {
-                Elem = '<div class="twitter-hashtag" id="tag-'+hashtag.hashtag+'"><div class="twitter-hashtag-status">Not trending in City</div> <div class="twitter-hashtag-tag">#'+hashtag.hashtag+'</div> <div class="twitter-hashtag-messages">'+hashtag.messages.length+' '+TweetHandle+'</div> </div>';
+                Elem = '<div class="twitter-hashtag" id="tag-'+hashtag.hashtag+'"><div class="twitter-hashtag-status">Ikke populært i byen</div> <div class="twitter-hashtag-tag">#'+hashtag.hashtag+'</div> <div class="twitter-hashtag-messages">'+hashtag.messages.length+' '+TweetHandle+'</div> </div>';
             }
         
             $(".twitter-hashtags").append(Elem);

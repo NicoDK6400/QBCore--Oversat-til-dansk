@@ -381,15 +381,15 @@ end)
 RegisterNetEvent('hospital:client:SendBillEmail')
 AddEventHandler('hospital:client:SendBillEmail', function(amount)
     SetTimeout(math.random(2500, 4000), function()
-        local gender = "Mr."
+        local gender = "Hr."
         if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then
-            gender = "Mrs."
+            gender = "Fr."
         end
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = "Pillbox",
             subject = "Hospital regning",
-            message = "Dear " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har hermed tilsendt dig en regning fra dit sidste ophold på Pillbox.<br />Beløbet du skal betale er: <strong>$"..amount.."</strong><br /><br />Vi ønsker dig god bedring herfra!",
+            message = "Hej " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har hermed tilsendt dig en regning fra dit sidste ophold på Pillbox.<br />Beløbet du skal betale er: <strong>$"..amount.."</strong><br /><br />Vi ønsker dig god bedring herfra!",
             button = {}
         })
     end)

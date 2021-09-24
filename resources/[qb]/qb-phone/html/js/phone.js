@@ -103,7 +103,7 @@ $(document).on('click', '.phone-recent-call', function(e){
                 if (status.CanCall) {
                     if (!status.InCall) {
                         if (QB.Phone.Data.AnonymousCall) {
-                            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You started a anonymous call!");
+                            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du startede et anonymt opkald!");
                         }
                         $(".phone-call-outgoing").css({"display":"block"});
                         $(".phone-call-incoming").css({"display":"none"});
@@ -122,16 +122,16 @@ $(document).on('click', '.phone-recent-call', function(e){
                     
                         QB.Phone.Data.currentApplication = "phone-call";
                     } else {
-                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You're already in a call!");
+                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du er allerede i et opkald!");
                     }
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is busy!");
+                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke ledig!");
                 }
             } else {
-                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is not available!");
+                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke tilgængelig!");
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You can't call yourself!");
+            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du brude få dig nogle venner at ringe til...!");
         }
     });
 });
@@ -171,16 +171,16 @@ $(document).on('click', ".phone-keypad-key-call", function(e){
                     
                         QB.Phone.Data.currentApplication = "phone-call";
                     } else {
-                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You're already in a call!");
+                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du er allerede i et opkald!");
                     }
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is busy!");
+                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke ledig!");
                 }
             } else {
-                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is not available!");
+                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke tilgængelig!");
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You can't call yourself!");
+            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du brude få dig nogle venner at ringe til...!");
         }
     });
 });
@@ -218,7 +218,7 @@ QB.Phone.Functions.LoadContacts = function(myContacts) {
             $(ContactsObject).append(ContactElement);
             $("[data-contactid='"+i+"']").data('contactData', contact);
         });
-        $("#total-contacts").text(TotalContacts+ " contacts");
+        $("#total-contacts").text(TotalContacts+ " kontakter");
     } else {
         $("#total-contacts").text("0 contacten #SAD");
     }
@@ -261,7 +261,7 @@ $(document).on('click', '#new-chat-phone', function(e){
             });
         }, 400)
     } else {
-        QB.Phone.Notifications.Add("fa fa-phone-alt", "Phone", "You can't whatsapp yourself..", "default", 3500);
+        QB.Phone.Notifications.Add("fa fa-phone-alt", "Phone", "Du kan ikke sende dig selv Whatsapp beskeder..", "default", 3500);
     }
 });
 
@@ -321,7 +321,7 @@ $(document).on('click', '#edit-contact-save', function(e){
             $(".phone-edit-contact-name").val("");
         }, 250)
     } else {
-        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "Edit Contact", "Fill out all fields!");
+        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "Edit Contact", "Udfyld alle felter!");
     }
 });
 
@@ -462,7 +462,7 @@ $(document).on('click', '#add-contact-save', function(e){
             $(".amount-of-suggested-contacts").html(amount + " contacts");
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "Add Contact", "Fill out all fields!");
+        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "Add Contact", "Udfyld alle felter!");
     }
 });
 
@@ -512,16 +512,16 @@ SetupCall = function(cData) {
                     
                         QB.Phone.Data.currentApplication = "phone-call";
                     } else {
-                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You're already in a call!");
+                        QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du er allerede i et opkald!");
                     }
                 } else {
                     QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is in a call!");
                 }
             } else {
-                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is not available!");
+                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke tilgængelig!");
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "You can't call your own number!");
+            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du brude få dig nogle venner at ringe til...!");
         }
     });
 }
@@ -568,7 +568,7 @@ IncomingCallAlert = function(CallData, Canceled, AnonymousCall) {
                 if (AnonymousCall) {
                     Label = "You're being called by a anonymous person"
                 }
-                $(".call-notifications-title").html("Incoming Call");
+                $(".call-notifications-title").html("Indgående opkald");
                 $(".call-notifications-content").html(Label);
                 $(".call-notifications").css({"display":"block"});
                 $(".call-notifications").animate({
@@ -671,11 +671,11 @@ QB.Phone.Functions.SetupCurrentCall = function(cData) {
         $(".phone-currentcall-container").css({"display":"block"});
 
         if (cData.CallType == "incoming") {
-            $(".phone-currentcall-title").html("Incoming call");
+            $(".phone-currentcall-title").html("Indgående opkald");
         } else if (cData.CallType == "outgoing") {
-            $(".phone-currentcall-title").html("Outgoing call");
+            $(".phone-currentcall-title").html("Udgående opkald");
         } else if (cData.CallType == "ongoing") {
-            $(".phone-currentcall-title").html("In call ("+cData.CallTime+")");
+            $(".phone-currentcall-title").html("I et opkald ("+cData.CallTime+")");
         }
 
         $(".phone-currentcall-contact").html("met "+cData.TargetData.name);
@@ -729,7 +729,7 @@ QB.Phone.Functions.SetupSuggestedContacts = function(Suggested) {
     $(".suggested-contacts").html("");
     AmountOfSuggestions = Suggested.length;
     if (AmountOfSuggestions > 0) {
-        $(".amount-of-suggested-contacts").html(AmountOfSuggestions + " contacts");
+        $(".amount-of-suggested-contacts").html(AmountOfSuggestions + " kontakter");
         Suggested = Suggested.reverse();
         $.each(Suggested, function(index, suggest){
             var elem = '<div class="suggested-contact" id="suggest-'+index+'"> <i class="fas fa-exclamation-circle"></i> <span class="suggested-name">'+suggest.name[0]+' '+suggest.name[1]+' &middot; <span class="suggested-number">'+suggest.number+'</span></span> </div>';

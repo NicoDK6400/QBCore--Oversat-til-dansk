@@ -144,7 +144,7 @@ QB.Phone.Functions.ReloadWhatsappAlerts = function(chats) {
     });
 }
 
-const monthNames = ["January", "February", "March", "April", "May", "June", "JulY", "August", "September", "October", "November", "December"];
+const monthNames = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
 
 FormatChatDate = function(date) {
     var TestDate = date.split("-");
@@ -196,7 +196,7 @@ $(document).on('click', '#whatsapp-openedchat-send', function(e){
         }));
         $("#whatsapp-openedchat-message").val("");
     } else {
-        QB.Phone.Notifications.Add("fab fa-whatsapp", "Whatsapp", "You can't send a empty message!", "#25D366", 1750);
+        QB.Phone.Notifications.Add("fab fa-whatsapp", "Whatsapp", "Du kan ikke sende en tom besked!", "#25D366", 1750);
     }
 });
 
@@ -220,7 +220,7 @@ $(document).on('keypress', function (e) {
                 }));
                 $("#whatsapp-openedchat-message").val("");
             } else {
-                QB.Phone.Notifications.Add("fab fa-whatsapp", "Whatsapp", "You can't send a empty message!", "#25D366", 1750);
+                QB.Phone.Notifications.Add("fab fa-whatsapp", "Whatsapp", "Du kan ikke sende en tom besked!", "#25D366", 1750);
             }
         }
     }
@@ -373,7 +373,7 @@ QB.Phone.Functions.SetupChatMessages = function(cData, NewChatData) {
         var NewDateDOM = NewDate.getDate();
         var NewDateYear = NewDate.getFullYear();
         var DateString = ""+NewDateDOM+"-"+(NewDateMonth+1)+"-"+NewDateYear;
-        var ChatDiv = '<div class="whatsapp-openedchat-messages-'+DateString+' unique-chat"><div class="whatsapp-openedchat-date">TODAY</div></div>';
+        var ChatDiv = '<div class="whatsapp-openedchat-messages-'+DateString+' unique-chat"><div class="whatsapp-openedchat-date">IDAG</div></div>';
 
         $(".whatsapp-openedchat-messages").append(ChatDiv);
     }

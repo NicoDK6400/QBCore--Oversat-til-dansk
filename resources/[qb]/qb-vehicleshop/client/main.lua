@@ -193,30 +193,30 @@ Citizen.CreateThread(function()
                     if not QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].inUse and not QB.VehicleShops[ClosestShopIndex]["OwnedJob"] then
                         if not QB.VehicleShops[ClosestShopIndex]["opened"] then
                             if not buySure then
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.8, '~g~G~w~ - Change Vehicle (~g~'..displayName..'~w~)')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.8, '~g~G~w~ - Skift kørertøj (~g~'..displayName..'~w~)')
                             end
                             if not buySure then
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.70, '~g~E~w~ - Purchase Vehicle (~g~$'..vehPrice..'~w~)')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.70, '~g~E~w~ - Køb kørertøj (~g~$'..vehPrice..'~w~)')
                             elseif buySure then
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Are You Sure? | ~g~[7]~w~ Confirm -/- ~r~[8]~w~ Cancel')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Er du sikker? | ~g~[7]~w~ Bekræft -/- ~r~[8]~w~ Afbryd')
                             end
                         elseif QB.VehicleShops[ClosestShopIndex]["opened"] then
                             if modelLoaded then
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Choosing A Vehicle')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Vælger kørertøj')
                             else
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Model Loading')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Indlæser Model')
                             end
                         end
                     elseif QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].inUse and not QB.VehicleShops[ClosestShopIndex]["OwnedJob"] then
-                        DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Currently In Use')
+                        DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'I brug i øjeblikket')
                     else
                         if CheckJob() then
-                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.9, '~g~G~w~ - Change Vehicle')
-                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.75, '~b~/sell [id]~w~ - Sell Vehicle ~b~/testdrive~w~ - Test Drive')
+                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.9, '~g~G~w~ - Skift kørertøj')
+                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.75, '~b~/sælg [id]~w~ - Sælg kørertøj ~b~/testkør~w~ - Prøve kørsel')
                         end
 
                         if QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].buying then
-                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.6, '~g~7~w~ - Confirm / ~r~8~w~ - Cancel - ~g~($'..QBCore.Shared.Vehicles[QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle].price..',-)')
+                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.6, '~g~7~w~ - Bekræft / ~r~8~w~ - Afbryd - ~g~($'..QBCore.Shared.Vehicles[QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle].price..',-)')
                             
                             if IsDisabledControlJustPressed(0, 161) then
                                 TriggerServerEvent('qb-vehicleshop:server:buyShowroomVehicle', QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle)
@@ -329,13 +329,13 @@ Citizen.CreateThread(function()
                         end
                     end
                     if IsDisabledControlJustPressed(0, 162) then
-                        QBCore.Functions.Notify('Purchase Cancelled', 'error')
+                        QBCore.Functions.Notify('Køb afbrudt', 'error')
                         buySure = false
                     end
                     DisableControlAction(0, 161, true)
                     DisableControlAction(0, 162, true)
                 elseif QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].inUse then
-                    DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 0.5, 'Currently In Use')
+                    DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 0.5, 'Er i brug i øjeblikket')
                 end
             elseif dist > 1.5 then
                 if QB.VehicleShops[ClosestShopIndex]["opened"] then
@@ -361,13 +361,13 @@ AddEventHandler('qb-vehicleshop:client:DoTestrit', function(plate)
             TriggerServerEvent('qb-vehicletuning:server:SaveVehicleProps', QBCore.Functions.GetVehicleProperties(veh))
             testritveh = veh
 
-            QBCore.Functions.Notify("Good luck on the test drive! You have a 3 minute time limit until the vehicle is deleted.")
+            QBCore.Functions.Notify("Held og lykke med prøvekørslen! Du har 3 minutters tid til at den bliver fjernet.")
 
             SetTimeout(QB.VehicleShops[ClosestShopIndex]["TestDriveTimeLimit"] * 60000, function()
                 if testritveh ~= 0 then
                     testritveh = 0
                     QBCore.Functions.DeleteVehicle(veh)
-                    QBCore.Functions.Notify("The time limit has been reached, the vehicle has been deleted")
+                    QBCore.Functions.Notify("Tiden er nu gået, kørertøjet bliver fjernet")
                 end
             end)
         end, QB.VehicleShops[ClosestShopIndex]["VehicleSpawn"], false)
@@ -383,7 +383,7 @@ AddEventHandler('qb-vehicleshop:client:SellCustomVehicle', function(TargetId)
     if VehicleDist < 2.5 then
         TriggerServerEvent('qb-vehicleshop:server:SellCustomVehicle', TargetId, ClosestVehicle)
     else
-        QBCore.Functions.Notify('Not Near The Vehicle', 'error')
+        QBCore.Functions.Notify('Ikke i nærheden af kørertøj', 'error')
     end
 end)
 

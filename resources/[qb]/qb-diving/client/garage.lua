@@ -255,11 +255,11 @@ function MenuBoatDepot()
                     state = "In Depot"
                 end
 
-                Menu.addButton(QBBoatshop.ShopBoats[v.model]["label"], "TakeOutDepotBoat", v, state, "Fuel: "..currentFuel.. "%")
+                Menu.addButton(QBBoatshop.ShopBoats[v.model]["label"], "TakeOutDepotBoat", v, state, "Tank: "..currentFuel.. "%")
             end
         end
 
-        Menu.addButton("Back", "MenuGarage", nil)
+        Menu.addButton("Tilbage", "MenuGarage", nil)
     end)
 end
 
@@ -283,11 +283,11 @@ function VehicleList()
                     state = "In Boathouse"
                 end
 
-                Menu.addButton(QBBoatshop.ShopBoats[v.model]["label"], "TakeOutVehicle", v, state, "Fuel: "..currentFuel.. "%")
+                Menu.addButton(QBBoatshop.ShopBoats[v.model]["label"], "TakeOutVehicle", v, state, "Tank: "..currentFuel.. "%")
             end
         end
 
-        Menu.addButton("Back", "MenuGarage", nil)
+        Menu.addButton("Tilbage", "MenuGarage", nil)
     end, CurrentDock)
 end
 
@@ -297,7 +297,7 @@ function TakeOutVehicle(vehicle)
             SetVehicleNumberPlateText(veh, vehicle.plate)
             SetEntityHeading(veh, QBBoatshop.Docks[CurrentDock].coords.put.w)
             exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
-            QBCore.Functions.Notify("Båd: Fuel: "..currentFuel.. "%", "primary", 4500)
+            QBCore.Functions.Notify("Båd: Tank: "..currentFuel.. "%", "primary", 4500)
             CloseMenu()
             TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
             TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
@@ -314,7 +314,7 @@ function TakeOutDepotBoat(vehicle)
         SetVehicleNumberPlateText(veh, vehicle.plate)
         SetEntityHeading(veh, QBBoatshop.Depots[CurrentDock].coords.put.w)
         exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
-        QBCore.Functions.Notify("Båden er slukket: Fuel: "..currentFuel.. "%", "primary", 4500)
+        QBCore.Functions.Notify("Båden er slukket: Tank: "..currentFuel.. "%", "primary", 4500)
         CloseMenu()
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
         TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
@@ -326,8 +326,8 @@ function MenuGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("My Vehicles", "VehicleList", nil)
-    Menu.addButton("Close Menu", "CloseMenu", nil)
+    Menu.addButton("Mine både", "VehicleList", nil)
+    Menu.addButton("Luk menu", "CloseMenu", nil)
 end
 
 function CloseMenu()

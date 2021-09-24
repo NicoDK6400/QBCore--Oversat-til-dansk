@@ -1092,7 +1092,7 @@ QBCore.Commands.Add("impound", "Impound A Vehicle (Kun Politi)", {}, false, func
     end
 end)
 
-QBCore.Commands.Add("paytow", "Beatal vognmand (Kun Politi, EMS)", {{
+QBCore.Commands.Add("paytow", "Betal vognmand (Kun Politi, EMS)", {{
     name = "id",
     help = "ID af spilleren"
 }}, true, function(source, args)

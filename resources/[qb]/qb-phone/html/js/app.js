@@ -196,7 +196,7 @@ $(document).on('click', '.phone-application', function(e){
                         $(".house-app-mykeys-container").html("");
                         if (Keys.length > 0) {
                             $.each(Keys, function(i, key){
-                                var elem = '<div class="mykeys-key" id="keyid-'+i+'"> <span class="mykeys-key-label">' + key.HouseData.adress + '</span> <span class="mykeys-key-sub">Click to set GPS</span> </div>';
+                                var elem = '<div class="mykeys-key" id="keyid-'+i+'"> <span class="mykeys-key-label">' + key.HouseData.adress + '</span> <span class="mykeys-key-sub">Klik for at sætte GPS</span> </div>';
 
                                 $(".house-app-mykeys-container").append(elem);
                                 $("#keyid-"+i).data('KeyData', key);
@@ -221,7 +221,7 @@ $(document).on('click', '.phone-application', function(e){
             }
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "System", QB.Phone.Data.Applications[PressedApplication].tooltipText+" is not available!")
+        QB.Phone.Notifications.Add("fas fa-exclamation-circle", "System", QB.Phone.Data.Applications[PressedApplication].tooltipText+" er ikke ledig!")
     }
 });
 
@@ -581,8 +581,8 @@ $(document).ready(function(){
                         $(".call-notifications").css({"display":"block"});
                         $(".call-notifications").animate({right: 5+"vh"});
                     }
-                    $(".call-notifications-title").html("In conversation ("+timeString+")");
-                    $(".call-notifications-content").html("Calling with "+event.data.Name);
+                    $(".call-notifications-title").html("I et opkald ("+timeString+")");
+                    $(".call-notifications-content").html("Ringer med "+event.data.Name);
                     $(".call-notifications").removeClass('call-notifications-shake');
                 } else {
                     $(".call-notifications").animate({
@@ -593,7 +593,7 @@ $(document).ready(function(){
                 }
 
                 $(".phone-call-ongoing-time").html(timeString);
-                $(".phone-currentcall-title").html("In conversation ("+timeString+")");
+                $(".phone-currentcall-title").html("I et opkald ("+timeString+")");
                 break;
             case "CancelOngoingCall":
                 $(".call-notifications").animate({right: -35+"vh"}, function(){

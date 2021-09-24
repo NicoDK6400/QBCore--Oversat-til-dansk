@@ -22,15 +22,15 @@ $(document).ready(function (){
                     loadingDots++;
                     loadingProgress++;
                     if (loadingProgress == 3) {
-                        originalText = "Validating player data"
+                        originalText = "Validere spiller data"
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 4) {
-                        originalText = "Retrieving characters"
+                        originalText = "Indlæser karaktere"
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 6) {
-                        originalText = "Validating characters"
+                        originalText = "Validere karaktere"
                         $("#loading-text").html(originalText);
                     }
                     if(loadingDots == 4) {
@@ -90,20 +90,20 @@ $('.disconnect-btn').click(function(e){
 
 function setupCharInfo(cData) {
     if (cData == 'empty') {
-        $('.character-info-valid').html('<span id="no-char">The selected character slot is not in use yet.<br><br>This character doesn\'t have information yet.</span>');
+        $('.character-info-valid').html('<span id="no-char">Det valgte slot, er ledigt..<br><br>Denne karakter har ingen information endnu.</span>');
     } else {
-        var gender = "Man"
-        if (cData.charinfo.gender == 1) { gender = "Woman" }
+        var gender = "Mand"
+        if (cData.charinfo.gender == 1) { gender = "Dame" }
         $('.character-info-valid').html(
-        '<div class="character-info-box"><span id="info-label">Name: </span><span class="char-info-js">'+cData.charinfo.firstname+' '+cData.charinfo.lastname+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Birth date: </span><span class="char-info-js">'+cData.charinfo.birthdate+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Gender: </span><span class="char-info-js">'+gender+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Nationality: </span><span class="char-info-js">'+cData.charinfo.nationality+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Job: </span><span class="char-info-js">'+cData.job.label+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Cash: </span><span class="char-info-js">&#36; '+cData.money.cash+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Navn: </span><span class="char-info-js">'+cData.charinfo.firstname+' '+cData.charinfo.lastname+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Fødselsdato: </span><span class="char-info-js">'+cData.charinfo.birthdate+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Køn: </span><span class="char-info-js">'+gender+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Nationalitet: </span><span class="char-info-js">'+cData.charinfo.nationality+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Arbejde: </span><span class="char-info-js">'+cData.job.label+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Kontant: </span><span class="char-info-js">&#36; '+cData.money.cash+'</span></div>' +
         '<div class="character-info-box"><span id="info-label">Bank: </span><span class="char-info-js">&#36; '+cData.money.bank+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Phone number: </span><span class="char-info-js">'+cData.charinfo.phone+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Account number: </span><span class="char-info-js">'+cData.charinfo.account+'</span></div>');
+        '<div class="character-info-box"><span id="info-label">Telefonnummer: </span><span class="char-info-js">'+cData.charinfo.phone+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Kontonummer: </span><span class="char-info-js">'+cData.charinfo.account+'</span></div>');
     }
 }
 
@@ -136,7 +136,7 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $("#play-text").html("Create");
+            $("#play-text").html("Opret");
             $("#play").css({"display":"block"});
             $("#delete").css({"display":"none"});
             $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
@@ -145,8 +145,8 @@ $(document).on('click', '.character', function(e) {
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $("#play-text").html("Play");
-            $("#delete-text").html("Delete");
+            $("#play-text").html("Spil");
+            $("#delete-text").html("Slet");
             $("#play").css({"display":"block"});
             $("#delete").css({"display":"block"});
             $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
@@ -159,7 +159,7 @@ $(document).on('click', '.character', function(e) {
         if ((selectedChar).data('cid') == "") {
             $(selectedChar).addClass("char-selected");
             setupCharInfo('empty')
-            $("#play-text").html("Register");
+            $("#play-text").html("Registrer");
             $("#play").css({"display":"block"});
             $("#delete").css({"display":"none"});
             $.post('https://qb-multicharacter/cDataPed', JSON.stringify({
@@ -168,8 +168,8 @@ $(document).on('click', '.character', function(e) {
         } else {
             $(selectedChar).addClass("char-selected");
             setupCharInfo($(this).data('cData'))
-            $("#play-text").html("Play");
-            $("#delete-text").html("Delete");
+            $("#play-text").html("Spil");
+            $("#delete-text").html("Slet");
             $("#play").css({"display":"block"});
             $("#delete").css({"display":"block"});
             $.post('https://qb-multicharacter/cDataPed', JSON.stringify({

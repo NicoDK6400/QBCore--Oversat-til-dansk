@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
 			            local weapon = GetSelectedPedWeapon(ped)
                         if weapon ~= -1569615261 then
                             TriggerEvent('inventory:client:CheckWeapon', QBCore.Shared.Weapons[weapon]["name"])
-                            QBCore.Functions.Notify("This weapon is broken and can not be used..", "error")
+                            QBCore.Functions.Notify("Dette våben er i stykker og kan ikke bruges..", "error")
                             MultiplierAmount = 0
                         end
                     end
@@ -114,7 +114,7 @@ AddEventHandler('weapon:client:AddAmmo', function(type, amount, itemData)
             local found, maxAmmo = GetMaxAmmo(ped, weapon)
 
             if total < maxAmmo then
-                QBCore.Functions.Progressbar("taking_bullets", "Loading bullets..", math.random(4000, 6000), false, true, {
+                QBCore.Functions.Progressbar("taking_bullets", "Lader våben...", math.random(4000, 6000), false, true, {
                     disableMovement = false,
                     disableCarMovement = false,
                     disableMouse = false,
@@ -126,19 +126,19 @@ AddEventHandler('weapon:client:AddAmmo', function(type, amount, itemData)
                         TriggerServerEvent("weapons:server:AddWeaponAmmo", CurrentWeaponData, total + amount)
                         TriggerServerEvent('QBCore:Server:RemoveItem', itemData.name, 1, itemData.slot)
                         TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items[itemData.name], "remove")
-                        TriggerEvent('QBCore:Notify', 'Reloaded', "success")
+                        TriggerEvent('QBCore:Notify', 'Våben ladet', "success")
                     end
                 end, function()
-                    QBCore.Functions.Notify("Canceled", "error")
+                    QBCore.Functions.Notify("Afbrudt", "error")
                 end)
             else
-                QBCore.Functions.Notify("Max Ammo Capacity", "error")
+                QBCore.Functions.Notify("Max antal patroner", "error")
             end
         else
-            QBCore.Functions.Notify("You Have No Weapon", "error")
+            QBCore.Functions.Notify("Du har intet våben", "error")
         end
     else
-        QBCore.Functions.Notify("You Have No Weapon.", "error")
+        QBCore.Functions.Notify("Du har intet våben.", "error")
     end
 end)
 
@@ -213,12 +213,12 @@ Citizen.CreateThread(function()
                     if distance < 1 then
                         if data.IsRepairing then
                             if data.RepairingData.CitizenId ~= PlayerData.citizenid then
-                                DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'The repairshop is this moment  ~r~NOT~w~ usable..')
+                                DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'Værkstedet er i øjeblikket  ~r~ikke~w~ brugbar..')
                             else
                                 if not data.RepairingData.Ready then
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'Your weapon will be repaired')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'Dit våben vil blive god som ny')
                                 else
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] to take weapon back')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] for at tage våbnet tilbage')
                                 end
                             end
                         else
@@ -236,9 +236,9 @@ Citizen.CreateThread(function()
                                     end
                                 else
                                     if data.RepairingData.CitizenId ~= PlayerData.citizenid then
-                                        DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'The repairshop is this moment ~r~NOT~w~ usable..')
+                                        DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'Værkstedet er i øjeblikket ~r~ikke~w~ brugbar..')
                                     else
-                                        DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] to take weapon back')
+                                        DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] for at tage våbnet tilbage')
                                         if IsControlJustPressed(0, 38) then
                                             TriggerServerEvent('weapons:server:TakeBackWeapon', k, data)
                                         end
@@ -246,9 +246,9 @@ Citizen.CreateThread(function()
                                 end
                             else
                                 if data.RepairingData.CitizenId == nil then
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'You dont have a weapon in ur hands..')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, 'Du har intet våben i dine hænder..')
                                 elseif data.RepairingData.CitizenId == PlayerData.citizenid then
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] to take weapon back')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] for at tage våbnet tilbage')
                                     if IsControlJustPressed(0, 38) then
                                         TriggerServerEvent('weapons:server:TakeBackWeapon', k, data)
                                     end
@@ -285,11 +285,11 @@ AddEventHandler("weapons:client:EquipAttachment", function(ItemData, attachment)
             if WeaponAttachments[WeaponData.name][attachment] ~= nil then
                 TriggerServerEvent("weapons:server:EquipAttachment", ItemData, CurrentWeaponData, WeaponAttachments[WeaponData.name][attachment])
             else
-                QBCore.Functions.Notify("This weapon does not support this attachment..", "error")
+                QBCore.Functions.Notify("Dette våben har ingen tilføjelser..", "error")
             end
         end
     else
-        QBCore.Functions.Notify("You dont have a weapon in ur hand..", "error")
+        QBCore.Functions.Notify("Du har intet våben i dine hænder..", "error")
     end
 end)
 

@@ -45,13 +45,13 @@ Config.ShowTemp = false
 
 -- simple localization
 Config.Language = {
-    joining = "\xF0\x9F\x8E\x89Joining...",
-    connecting = "\xE2\x8F\xB3Connecting...",
-    idrr = "\xE2\x9D\x97[Queue] Error: Couldn't retrieve any of your id's, try restarting.",
-    err = "\xE2\x9D\x97[Queue] There was an error",
-    pos = "\xF0\x9F\x90\x8CYou are %d/%d in queue \xF0\x9F\x95\x9C%s",
-    connectingerr = "\xE2\x9D\x97[Queue] Error: Error adding you to connecting list",
-    timedout = "\xE2\x9D\x97[Queue] Error: Timed out?",
-    wlonly = "\xE2\x9D\x97[Queue] You must be whitelisted to join this server",
-    steam = "\xE2\x9D\x97 [Queue] Error: Steam must be running"
+    joining = "\xF0\x9F\x8E\x89Tilslutter...",
+    connecting = "\xE2\x8F\xB3Forbinder...",
+    idrr = "\xE2\x9D\x97[Queue] Fejl: Kunne ikke finde nogen id's på dig, prøv med genstart.",
+    err = "\xE2\x9D\x97[Queue] Der skete en fejl",
+    pos = "\xF0\x9F\x90\x8CDu er %d/%d i køen \xF0\x9F\x95\x9C%s",
+    connectingerr = "\xE2\x9D\x97[Queue] Fejl: Kunne ikke sætte dig på køen",
+    timedout = "\xE2\x9D\x97[Queue] Fejl: Mistede forbindelsen?",
+    wlonly = "\xE2\x9D\x97[Queue] Du skal være whitelisted for at kunne join",
+    steam = "\xE2\x9D\x97 [Queue] Fejl: Steam skal kører"
 }

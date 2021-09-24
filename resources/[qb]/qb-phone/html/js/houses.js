@@ -149,7 +149,7 @@ $(document).on('click', '#myhouse-option-transfer-confirm', function(e){
                 });
             }, 100);
         } else {
-            QB.Phone.Notifications.Add("fas fa-home", "Houses", "This is an invalid CSN-number", "#27ae60", 2500);
+            QB.Phone.Notifications.Add("fas fa-home", "Houses", "Dette er ikke et gyldigt CSN-nummer", "#27ae60", 2500);
             shakeElement(".myhouse-option-transfer-container");
             $(".myhouse-option-transfer-container-citizenid").val("");
         }

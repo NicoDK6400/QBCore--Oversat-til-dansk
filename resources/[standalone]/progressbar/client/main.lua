@@ -101,10 +101,10 @@ function Process(action, start, tick, finish)
                 end
             end)
         else
-            TriggerEvent("QBCore:Notify", "You are already doing something!", "error")
+            TriggerEvent("QBCore:Notify", "Du laver allerede noget!", "error")
         end
     else
-        TriggerEvent("QBCore:Notify", "Cant do that action!", "error")
+        TriggerEvent("QBCore:Notify", "Handlingen kan ikke udføres!", "error")
     end
 end
 

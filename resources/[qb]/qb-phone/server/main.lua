@@ -399,15 +399,15 @@ QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, c
         local commission = round(amount * Config.BillingCommissions[society])
         SenderPly.Functions.AddMoney('bank', commission)
         invoiceMailData = {
-            sender = 'Billing Department',
-            subject = 'Commission Received',
-            message = string.format('You received a commission check of $%s when %s %s paid a bill of $%s.', commission, Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
+            sender = 'Regnskabsafdelingen',
+            subject = 'Provision modtaget',
+            message = string.format('Du har modtaget en provision, $%s efter %s %s betalt regningen af $%s.', commission, Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
         }
     elseif not SenderPly and Config.BillingCommissions[society] then
         invoiceMailData = {
-            sender = 'Billing Department',
-            subject = 'Bill Paid',
-            message = string.format('%s %s paid a bill of $%s', Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
+            sender = 'Regnskabsafdelingen',
+            subject = 'Regning betalt',
+            message = string.format('%s %s betalt en regning af $%s', Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
         }
     end
     Ply.Functions.RemoveMoney('bank', amount, "paid-invoice")
@@ -434,12 +434,12 @@ QBCore.Functions.CreateCallback('qb-phone:server:DeclineInvoice', function(sourc
     cb(true, Invoices)
 end)
 
-QBCore.Commands.Add('bill', 'Bill A Player', {{
+QBCore.Commands.Add('bill', 'Send regning til spiller', {{
     name = 'id',
-    help = 'Player ID'
+    help = 'Spiller ID'
 }, {
     name = 'amount',
-    help = 'Fine Amount'
+    help = 'Beløb på regning'
 }}, false, function(source, args)
     local biller = QBCore.Functions.GetPlayer(source)
     local billed = QBCore.Functions.GetPlayer(tonumber(args[1]))
@@ -455,19 +455,19 @@ QBCore.Commands.Add('bill', 'Bill A Player', {{
                         {billed.PlayerData.citizenid, amount, biller.PlayerData.job.name,
                          biller.PlayerData.charinfo.firstname, biller.PlayerData.citizenid})
                     TriggerClientEvent('qb-phone:RefreshPhone', billed.PlayerData.source)
-                    TriggerClientEvent('QBCore:Notify', source, 'Invoice Successfully Sent', 'success')
-                    TriggerClientEvent('QBCore:Notify', billed.PlayerData.source, 'New Invoice Received')
+                    TriggerClientEvent('QBCore:Notify', source, 'Regning blev sendt', 'success')
+                    TriggerClientEvent('QBCore:Notify', billed.PlayerData.source, 'Ny regning modtaget')
                 else
-                    TriggerClientEvent('QBCore:Notify', source, 'Must Be A Valid Amount Above 0', 'error')
+                    TriggerClientEvent('QBCore:Notify', source, 'Det skal være en værdi over 0', 'error')
                 end
             else
-                TriggerClientEvent('QBCore:Notify', source, 'You Cannot Bill Yourself', 'error')
+                TriggerClientEvent('QBCore:Notify', source, 'Hvorfor vil du giv dig selv regninger?', 'error')
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, 'Player Not Online', 'error')
+            TriggerClientEvent('QBCore:Notify', source, 'Spiller ikke online', 'error')
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, 'No Access', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Ingen adgang', 'error')
     end
 end)
 
@@ -621,7 +621,7 @@ AddEventHandler('qb-phone:server:TransferMoney', function(iban, amount)
             sender.Functions.RemoveMoney('bank', amount, "phone-transfered")
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "This account number doesn't exist!", "error")
+        TriggerClientEvent('QBCore:Notify', src, "Dette nummer eksistere ikke!", "error")
     end
 end)
 
@@ -860,7 +860,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', funct
                         status = true,
                         owner = charinfo.firstname .. " " .. charinfo.lastname,
                         citizenid = result[k].citizenid,
-                        label = "Name not found.."
+                        label = "Navn ikke fundet.."
                     })
                 end
             end
@@ -872,7 +872,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', funct
                 status = GeneratedPlates[search].status,
                 owner = GeneratedPlates[search].owner,
                 citizenid = GeneratedPlates[search].citizenid,
-                label = "Brand unknown.."
+                label = "Ukendt ærke.."
             })
         else
             local ownerInfo = GenerateOwnerName()
@@ -887,7 +887,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', funct
                 status = true,
                 owner = ownerInfo.name,
                 citizenid = ownerInfo.citizenid,
-                label = "Brand unknown.."
+                label = "Ukendt mærke.."
             })
         end
     end
@@ -927,7 +927,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb
         end
         cb(vehicleData)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'No Vehicle Nearby', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Ingen kørertøjer i nærheden', 'error')
         cb(nil)
     end
 end)
@@ -1154,7 +1154,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(sou
             end
             cb(true)
         else
-            TriggerClientEvent('QBCore:Notify', source, "This account number does not exist!", "error")
+            TriggerClientEvent('QBCore:Notify', source, "Dette kontonummer eksistere ikke!", "error")
             cb(false)
         end
     end

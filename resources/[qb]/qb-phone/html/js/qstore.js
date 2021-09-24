@@ -11,7 +11,7 @@ SetupAppstore = function(data) {
             app.app = i;
             $("#app-"+i).data('AppData', app);
         } else {
-            var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'<span style="font-size: 1vh;"> - Geïnstalleerd</span></div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-remove"><i class="fas fa-trash"></i></div></div>'
+            var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'<span style="font-size: 1vh;"> - Installeret</span></div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-remove"><i class="fas fa-trash"></i></div></div>'
             $(".store-apps").append(elem);
             app.app = i;
             $("#app-"+i).data('AppData', app);

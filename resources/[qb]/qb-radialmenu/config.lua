@@ -849,7 +849,7 @@ Config.ExtraCommands = {
     ["pants"] = {
         Func = function() ToggleClothing("Pants", true) end,
         Sprite = "pants",
-        Desc = "Take your pants af/på",
+        Desc = "Tag dine bukser af/på",
         Name = "Pants",
         OffsetX = -0.04,
         OffsetY = 0.0
@@ -857,7 +857,7 @@ Config.ExtraCommands = {
     ["shirt"] = {
         Func = function() ToggleClothing("Shirt", true) end,
         Sprite = "shirt",
-        Desc = "Take your shirt af/på",
+        Desc = "Tag din shirt af/på",
         Name = "shirt",
         OffsetX = 0.04,
         OffsetY = 0.0
@@ -865,11 +865,11 @@ Config.ExtraCommands = {
     ["reset"] = {
         Func = function()
             if not ResetClothing(true) then
-                Notify('Nothing To Reset', 'error')
+                Notify('Intet at nulstille', 'error')
             end
         end,
         Sprite = "reset",
-        Desc = "Revert everything back to normal",
+        Desc = "Alt er tilbage til normalt",
         Name = "reset",
         OffsetX = 0.12,
         OffsetY = 0.2,
@@ -898,7 +898,7 @@ Config.ExtraCommands = {
                 return false
             end
         end,
-        Desc = "Take your bag af/på",
+        Desc = "Tag din taske af/på",
         Name = "bagoff",
         OffsetX = -0.12,
         OffsetY = 0.2

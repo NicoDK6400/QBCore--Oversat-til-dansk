@@ -7,17 +7,17 @@ QB.VehicleShops = {
         ["ShopName"] = "pdm", -- Name to get in the shared.lua
         ["ShopLabel"] = "Premium Deluxe Motorsport", -- Blip name
         ["Categories"] = {
-            ["sports"]  = "Sports",
+            ["sports"]  = "Sports biler",
             ["sportsclassics"] = "Sports Classics",
-            ["super"]   = "Super",
+            ["super"]   = "Super biler",
             ["sedans"]  = "Sedans",
             ["coupes"]  = "Coupes",
             ["suvs"]    = "SUVs",
             ["offroad"] = "Offroad",
-            ["muscle"] = "Muscle",
-            ["compacts"] = "Compacts",
-            ["motorcycles"] = "Motorcycles",
-            ["vans"] = "Vans",
+            ["muscle"] = "Muskel biler",
+            ["compacts"] = "Kompakte",
+            ["motorcycles"] = "Motorcykler",
+            ["vans"] = "Vogne",
         },
         ["TestDriveTimeLimit"] = 3, -- Time in minutes until the vehicle gets deleted
         ["Location"] = vector3(-56.71, -1096.6, 25.44), -- Blip Location
@@ -100,14 +100,14 @@ QB.VehicleShops = {
             ["scale"] = 0.29,
             ["font"] = 0,
             ["main"] = {
-                ["title"] = "CATEGORIES",
+                ["title"] = "KATEGORIER",
                 ["Name"] = "main",
                 ["buttons"] = {
                     {name = "Categories", description = ""},
                 }
             },
             ["vehicles"] = {
-                ["title"] = "VEHICLES",
+                ["title"] = "KØRERTØJER",
                 ["name"] = "vehicles",
                 ["buttons"] = {}
             },
@@ -117,10 +117,10 @@ QB.VehicleShops = {
     [2] = {
         -- Vehicle Shop options
         ["ShopName"] = "luxury", -- Name to get in the shared.lua
-        ["ShopLabel"] = "Luxury Vehicle Shop", -- Blip name
+        ["ShopLabel"] = "Imports", -- Blip name
         ["Categories"] = {
-            ["super"]  = "Super",
-            ["sports"]  = "Sports",
+            ["super"]  = "Super biler",
+            ["sports"]  = "Sports biler",
         },
         ["TestDriveTimeLimit"] = 3, -- Time in minutes until the vehicle gets deleted
         ["Location"] = vector3(-63.59, 68.25, 73.06), -- Blip Location
@@ -175,14 +175,14 @@ QB.VehicleShops = {
             ["scale"] = 0.29,
             ["font"] = 0,
             ["main"] = {
-                ["title"] = "CATEGORIES",
+                ["title"] = "KATEGORIER",
                 ["Name"] = "main",
                 ["buttons"] = {
                     {name = "Categories", description = ""},
                 }
             },
             ["vehicles"] = {
-                ["title"] = "VEHICLES",
+                ["title"] = "KØRERTØJER",
                 ["name"] = "vehicles",
                 ["buttons"] = {}
             },
@@ -191,8 +191,8 @@ QB.VehicleShops = {
 }
 
 QB.GarageLabel = {
-    ['motelgarage'] = 'Motel Garage',
-    ['sapcounsel']  = 'San Andreas Parking Counsel',
+    ['motelgarage'] = 'Motel garage',
+    ['sapcounsel']  = 'San Andreas parkering råd',
 }
 
 QB.Classes = {

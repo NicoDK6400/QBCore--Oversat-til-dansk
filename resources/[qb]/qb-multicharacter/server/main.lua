@@ -2,7 +2,7 @@ RegisterServerEvent('qb-multicharacter:server:disconnect')
 AddEventHandler('qb-multicharacter:server:disconnect', function()
     local src = source
 
-    DropPlayer(src, "You have disconnected from QBCore")
+    DropPlayer(src, "Du har frakoblet dig serveren")
 end)
 
 RegisterServerEvent('qb-multicharacter:server:loadUserData')
@@ -99,12 +99,12 @@ QBCore.Functions.CreateCallback("qb-multicharacter:server:setupCharacters", func
     end)
 end)
 
-QBCore.Commands.Add("logout", "Logout of Character (Admin Only)", {}, false, function(source, args)
+QBCore.Commands.Add("logout", "Logout af karaktere (Kun Admin)", {}, false, function(source, args)
     QBCore.Player.Logout(source)
     TriggerClientEvent('qb-multicharacter:client:chooseChar', source)
 end, "admin")
 
-QBCore.Commands.Add("closeNUI", "Close Multi NUI", {}, false, function(source, args)
+QBCore.Commands.Add("closeNUI", "Luk Multi NUI", {}, false, function(source, args)
     TriggerClientEvent('qb-multicharacter:client:closeNUI', source)
 end)
 

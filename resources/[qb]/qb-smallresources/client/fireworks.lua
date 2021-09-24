@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
         if fireworkTime > 0 and fireworkLoc ~= nil then
-            DrawText3Ds(fireworkLoc.x, fireworkLoc.y, fireworkLoc.z, "fyrværkeri over ~r~"..fireworkTime)
+            DrawText3Ds(fireworkLoc.x, fireworkLoc.y, fireworkLoc.z, "fyrværkeri om ~r~"..fireworkTime)
         end
     end
 end)

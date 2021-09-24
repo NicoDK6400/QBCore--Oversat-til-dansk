@@ -73,7 +73,7 @@ QB.Phone.Functions.SetupMails = function(Mails) {
     var MessageTime = Hourssssss + ":" + Minutessss;
 
     $("#mail-header-mail").html(QB.Phone.Data.PlayerData.charinfo.firstname+"."+QB.Phone.Data.PlayerData.charinfo.lastname+"@qbcore.com");
-    $("#mail-header-lastsync").html("Last synchronized "+MessageTime);
+    $("#mail-header-lastsync").html("Sidst synkroniseret "+MessageTime);
     if (Mails !== null && Mails !== undefined) {
         if (Mails.length > 0) {
             $(".mail-list").html("");
@@ -86,13 +86,13 @@ QB.Phone.Functions.SetupMails = function(Mails) {
                 $("#mail-"+mail.mailid).data('MailData', mail);
             });
         } else {
-            $(".mail-list").html('<p class="nomails">You don\'t have any mails..</p>');
+            $(".mail-list").html('<p class="nomails">Du har ingen mails..</p>');
         }
 
     }
 }
 
-var MonthFormatting = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var MonthFormatting = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "July", "August", "September", "Oktober", "November", "December"];
 
 QB.Phone.Functions.SetupMail = function(MailData) {
     var date = new Date(MailData.date);
@@ -156,7 +156,7 @@ $(document).on('click', '#new-advert-submit', function(e){
             message: Advert,
         }));
     } else {
-        QB.Phone.Notifications.Add("fas fa-ad", "Advertisement", "You can\'t post an empty ad!", "#ff8f1a", 2000);
+        QB.Phone.Notifications.Add("fas fa-ad", "Advertisement", "Du kan ikke sende en tom reklame!", "#ff8f1a", 2000);
     }
 });
 
@@ -171,7 +171,7 @@ QB.Phone.Functions.RefreshAdverts = function(Adverts) {
         });
     } else {
         $(".advert-list").html("");
-        var element = '<div class="advert"><span class="advert-sender">There are no advertisements yet!</span></div>';
+        var element = '<div class="advert"><span class="advert-sender">Der er endnu ikke en reklame!</span></div>';
         $(".advert-list").append(element);
     }
 }

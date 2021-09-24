@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.9/purify.min.js" integrity="sha512-VOTFfd4vxPpuE98m9UQTN7j2N2/Blw44lZMhRTnZQqA2gOHq7Yvn5bdIDjjAZuFqqkDtppcjMW+dN3GYbhM94g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>QBCore Phone</title>
+    <title>Phone</title>
 
     <!-- CSS File's -->
     <link rel="stylesheet" href="./css/main.css">
@@ -42,7 +42,7 @@
                 <div class="phone-header">
                     <div id="phone-time">08:05</div>
                     <div id="phone-icons">
-                        <i class="fas fa-signal" id="phone-signal" data-toggle="tooltip" data-placement="left" title="QBCore 5G"></i>
+                        <i class="fas fa-signal" id="phone-signal" data-toggle="tooltip" data-placement="left" title="Fivem.dk 5G"></i>
                         <i class="fas fa-battery-three-quarters" id="phone-battery"></i>
                     </div>
                 </div>
@@ -93,19 +93,19 @@
                 <!-- Container for all application's -->
                 <div class="phone-application-container">
                     <div class="settings-app">
-                        <div class="settings-app-header"><p>Settings</p></div>
+                        <div class="settings-app-header"><p>Indstillinger</p></div>
                         
                         <div class="settings-app-tab-appereance">
-                            <div class="settings-app-tab-header"><p>Appearance</p></div>
+                            <div class="settings-app-tab-header"><p>Udseende</p></div>
                             <div class="settings-app-tab" data-settingstab="background">
                                 <div class="settings-tab-icon"><i class="fas fa-palette" style="color: #9b59b6;"></i></div>
-                                <div class="settings-tab-title"><p>Background</p></div>
-                                <div class="settings-tab-description"><p>Default</p></div>
+                                <div class="settings-tab-title"><p>Baggrund</p></div>
+                                <div class="settings-tab-description"><p>Standard</p></div>
                             </div>
                             <div class="settings-app-tab" data-settingstab="profilepicture">
                                 <div class="settings-tab-icon"></div>
                                 <div class="settings-tab-title"><p>Avatar</p></div>
-                                <div class="settings-tab-description"><p>Default</p></div>
+                                <div class="settings-tab-description"><p>Standard</p></div>
                             </div>
                         </div>
 
@@ -114,12 +114,12 @@
                             <div class="settings-app-tab-header"><p>Infomation</p></div>
                             <div class="settings-app-tab secondTab" data-settingstab="myPhone">
                                 <div class="settings-tab-icon"><i class="fas fa-phone-alt" style="color: #e67e22;"></i></div>
-                                <div class="settings-tab-title"><p>My phone number</p></div>
+                                <div class="settings-tab-title"><p>Mit nummer</p></div>
                                 <div class="settings-tab-description" id="myPhoneNumber"><p>0612345678</p></div>
                             </div>
                             <div class="settings-app-tab secondTab" data-settingstab="serialNumber">
                                 <div class="settings-tab-icon"><i class="fas fa-phone-alt" style="color: #e67e22;"></i></div>
-                                <div class="settings-tab-title"><p>Serial Number</p></div>
+                                <div class="settings-tab-title"><p>Serienummer</p></div>
                                 <div class="settings-tab-description" id="mySerialNumber"><p>0612345678</p></div>
                             </div>
                             <div class="settings-app-tab secondTab" data-settingstab="numberrecognition">
@@ -130,44 +130,44 @@
                                 </label>
 
                                 <div class="settings-tab-icon"><i class="fas fa-user-slash" style="color: #e67e22;"></i></div>
-                                <div class="settings-tab-title"><p>Call Anonymously</p></div>
-                                <div class="settings-tab-description" id="numberrecognition"><p>Off</p></div>
+                                <div class="settings-tab-title"><p>Anonymt opkald</p></div>
+                                <div class="settings-tab-description" id="numberrecognition"><p>Fra</p></div>
                             </div>
                         </div>
 
                         <div class="settings-background-tab">
-                            <div class="settings-app-header"><p>Background</p></div>
+                            <div class="settings-app-header"><p>Baggrund</p></div>
 
                             <div class="background-options">
                                 <div class="background-option" data-background="default-qbcore">
                                     <div class="background-option-icon"> <i class="fas fa-paint-brush"></i> </div>
-                                    <div class="background-option-title"> Default </div>
-                                    <div class="background-option-description"> This is the default background.</div>
+                                    <div class="background-option-title"> Standard </div>
+                                    <div class="background-option-description"> Dette er en Standard baggrund.</div>
                                     <div class="background-option-current"><i class="fas fa-check-circle"></i></div>
                                 </div>
                                 <div class="background-option" data-background="custom-background">
                                     <div class="background-option-icon"><i class="fas fa-paint-brush"></i></div>
-                                    <div class="background-option-title">Personalized</div>
-                                    <div class="background-option-description"> Your own personalized background from a URL.</div>
+                                    <div class="background-option-title">Personliggør</div>
+                                    <div class="background-option-description"> Hent en baggrund fra et URL.</div>
                                 </div>
                             </div>
 
                             <div class="background-buttons">
                                 <div class="background-button" id="accept-background">
-                                    <p>Confirm</p>
+                                    <p>Bekræft</p>
                                 </div>
                                 <div class="background-button" id="cancel-background">
-                                    <p>Cancel</p>
+                                    <p>Afbryd</p>
                                 </div>
                             </div>
 
                             <div class="background-custom">
-                                <div class="background-custom-title">Personalized Background</div>
+                                <div class="background-custom-title">Personliggjort Baggrund</div>
                                 <input type="text" class="custom-background-input" placeholder="URL (.jpg/.png)" spellcheck="false">
 
                                 <div class="background-custom-buttons">
-                                    <div class="custom-background-button" id="accept-custom-background"><p>Confirm</p></div>
-                                    <div class="custom-background-button" id="cancel-custom-background"><p>Cancel</p></div>
+                                    <div class="custom-background-button" id="accept-custom-background"><p>Bekræft</p></div>
+                                    <div class="custom-background-button" id="cancel-custom-background"><p>Afbryd</p></div>
                                 </div>
                             </div>
                         </div>
@@ -178,33 +178,33 @@
                             <div class="profilepicture-options">
                                 <div class="profilepicture-option" data-profilepicture="default">
                                     <div class="profilepicture-option-icon"> <i class="fas fa-paint-brush"></i> </div>
-                                    <div class="profilepicture-option-title"> Default </div>
-                                    <div class="profilepicture-option-description"> Default avatar.</div>
+                                    <div class="profilepicture-option-title"> Standard </div>
+                                    <div class="profilepicture-option-description"> Standard avatar.</div>
                                     <div class="profilepicture-option-current"><i class="fas fa-check-circle"></i></div>
                                 </div>
                                 <div class="profilepicture-option" data-profilepicture="custom-profilepicture">
                                     <div class="profilepicture-option-icon"><i class="fas fa-paint-brush"></i></div>
-                                    <div class="profilepicture-option-title">Personalized</div>
-                                    <div class="profilepicture-option-description"> Your own personalized avatar from a URL.</div>
+                                    <div class="profilepicture-option-title">Personliggjort</div>
+                                    <div class="profilepicture-option-description"> Hent en avatar fra et URL.</div>
                                 </div>
                             </div>
 
                             <div class="profilepicture-buttons">
                                 <div class="profilepicture-button" id="accept-profilepicture">
-                                    <p>Confirm</p>
+                                    <p>Bekræft</p>
                                 </div>
                                 <div class="profilepicture-button" id="cancel-profilepicture">
-                                    <p>Cancel</p>
+                                    <p>Afbryd</p>
                                 </div>
                             </div>
 
                             <div class="profilepicture-custom">
-                                <div class="profilepicture-custom-title">Personalized Avatar</div>
+                                <div class="profilepicture-custom-title">Personliggjort Avatar</div>
                                 <input type="text" class="custom-profilepicture-input" placeholder="URL (.jpg/.png)" spellcheck="false">
 
                                 <div class="profilepicture-custom-buttons">
-                                    <div class="custom-profilepicture-button" id="accept-custom-profilepicture"><p>Confirm</p></div>
-                                    <div class="custom-profilepicture-button" id="cancel-custom-profilepicture"><p>Cancel</p></div>
+                                    <div class="custom-profilepicture-button" id="accept-custom-profilepicture"><p>Bekræft</p></div>
+                                    <div class="custom-profilepicture-button" id="cancel-custom-profilepicture"><p>Afbryd</p></div>
                                 </div>
                             </div>
                         </div>
@@ -212,8 +212,8 @@
 
                     <div class="phone-call-app">
                         <div class="phone-call-incoming">
-                            <div class="phone-call-incoming-title">Incoming Call</div>
-                            <div class="phone-call-incoming-caller">Unknown Number</div>
+                            <div class="phone-call-incoming-title">Indkomne opkald</div>
+                            <div class="phone-call-incoming-caller">Ukendt Nummer</div>
                             <div class="phone-call-incoming-picture"></div>
 
                             <i class="fas fa-phone" id="incoming-answer"></i>
@@ -221,15 +221,15 @@
                         </div>
 
                         <div class="phone-call-outgoing">
-                            <div class="phone-call-outgoing-title">Calling...</div>
-                            <div class="phone-call-outgoing-caller">Unknown Number</div>
+                            <div class="phone-call-outgoing-title">Ringer op</div>
+                            <div class="phone-call-outgoing-caller">Ukendt Nummer</div>
                             <div class="phone-call-outgoing-picture"></div>
 
                             <i class="fas fa-phone" id="outgoing-cancel"></i>
                         </div>
 
                         <div class="phone-call-ongoing">
-                            <div class="phone-call-ongoing-title">Ongoing</div>
+                            <div class="phone-call-ongoing-title">Ringer...</div>
                             <div class="phone-call-ongoing-caller">Unknown Number</div>
                             <div class="phone-call-ongoing-picture"></div>
                             <div class="phone-call-ongoing-time">05:05</div>
@@ -240,8 +240,8 @@
 
                     <div class="phone-app">
                         <div class="phone-app-header">
-                            <p>Phone</p>
-                            <span id="total-contacts">0 contacts</span>
+                            <p>Telefon</p>
+                            <span id="total-contacts">0 Kontakter</span>
                         </div>
 
                         <div class="phone-contacts">
@@ -267,7 +267,7 @@
                         </div>
 
                         <div class="phone-recent">
-                            <div class="phone-recent-header"><p>Phone</p></div>
+                            <div class="phone-recent-header"><p>Telefon</p></div>
 
                             <div class="phone-recent-calls">
                                 <!-- <div class="phone-recent-call"> <div class="phone-recent-call-image">P</div> <div class="phone-recent-call-name">Pieter Post</div> <div class="phone-recent-call-type"><i class="fas fa-phone-slash"></i></div> <div class="phone-recent-call-time">12:05</div> </div> -->
@@ -276,8 +276,8 @@
 
                         <div class="phone-suggestedcontacts">
                             <div class="phone-suggestedcontacts-header">
-                                Suggested Contacts
-                                <p class="amount-of-suggested-contacts">0 contacts</p>
+                                Foreslået kontakter
+                                <p class="amount-of-suggested-contacts">0 kontakter</p>
                             </div>
 
                             <div class="suggested-contacts">
@@ -290,7 +290,7 @@
                         </div>
 
                         <div class="phone-keypad noselect">
-                            <div class="phone-keypad-header"><p>Phone</p></div>
+                            <div class="phone-keypad-header"><p>Telefon</p></div>
                             <div id="phone-keypad-input"></div>
 
                             <div class="phone-keypad-keys">
@@ -311,62 +311,62 @@
                         </div>
 
                         <div class="phone-add-contact">
-                            <div class="phone-add-contact-header"><p>Add Contact</p></div>
+                            <div class="phone-add-contact-header"><p>Tilføj kontakt</p></div>
 
                             <i id="phone-add-contact-name-icon" class="fas fa-user"></i>
-                            <input type="text" class="phone-add-contact-name" placeholder="Contact Name" required spellcheck="false">
+                            <input type="text" class="phone-add-contact-name" placeholder="Navn på kontakt" required spellcheck="false">
 
                             <i id="phone-add-contact-number-icon" class="fas fa-phone-alt"></i>
-                            <input type="number" class="phone-add-contact-number" placeholder="Phone number" required spellcheck="false">
+                            <input type="number" class="phone-add-contact-number" placeholder="Telefon nummer" required spellcheck="false">
 
                             <i id="phone-add-contact-iban-icon" class="fas fa-money-check"></i>
-                            <input type="text" class="phone-add-contact-iban" placeholder="Bank nr. (Not required)" required spellcheck="false">
+                            <input type="text" class="phone-add-contact-iban" placeholder="Bank nr. (Kan undlades)" required spellcheck="false">
 
                             <div class="phone-add-contact-buttons">
-                                <div class="phone-add-contact-button" id="add-contact-save"><p>Save</p></div>
-                                <div class="phone-add-contact-button" id="add-contact-cancel"><p>Cancel</p></div>
+                                <div class="phone-add-contact-button" id="add-contact-save"><p>Gem</p></div>
+                                <div class="phone-add-contact-button" id="add-contact-cancel"><p>Afbryd</p></div>
                             </div>
                         </div>
 
                         <div class="phone-edit-contact">
-                            <div class="phone-edit-contact-header"><p>Add Contact</p></div>
+                            <div class="phone-edit-contact-header"><p>Tilføj kontakt</p></div>
 
                             <i id="phone-edit-contact-name-icon" class="fas fa-user"></i>
-                            <input type="text" class="phone-edit-contact-name" placeholder="Contact Name" required spellcheck="false">
+                            <input type="text" class="phone-edit-contact-name" placeholder="Navn på kontakt" required spellcheck="false">
 
                             <i id="phone-edit-contact-number-icon" class="fas fa-phone-alt"></i>
-                            <input type="number" class="phone-edit-contact-number" placeholder="Phone number" required spellcheck="false">
+                            <input type="number" class="phone-edit-contact-number" placeholder="Telefon nummer" required spellcheck="false">
 
                             <i id="phone-edit-contact-iban-icon" class="fas fa-money-check"></i>
-                            <input type="text" class="phone-edit-contact-iban" placeholder="Bank nr. (Not required)" required spellcheck="false">
+                            <input type="text" class="phone-edit-contact-iban" placeholder="Bank nr. (Kan undlades)" required spellcheck="false">
 
                             <div class="phone-edit-contact-buttons">
-                                <div class="phone-edit-contact-button" id="edit-contact-save"><p>Save</p></div>
-                                <div class="phone-edit-contact-button" id="edit-contact-delete"><p>Delete</p></div>
-                                <div class="phone-edit-contact-button" id="edit-contact-cancel"><p>Cancel</p></div>
+                                <div class="phone-edit-contact-button" id="edit-contact-save"><p>Gem</p></div>
+                                <div class="phone-edit-contact-button" id="edit-contact-delete"><p>Slet</p></div>
+                                <div class="phone-edit-contact-button" id="edit-contact-cancel"><p>Afbryd</p></div>
                             </div>
                         </div>
 
                         <div class="phone-app-footer">
                             <div class="phone-app-footer-button" data-phonefootertab="suggestedcontacts">
-                                <p>Suggested</p>
+                                <p>Foreslået</p>
                             </div>
                             <div class="phone-app-footer-button" data-phonefootertab="keypad">
                                 <p>Keypad</p>
                             </div>
                             <div class="phone-app-footer-button" data-phonefootertab="recent">
-                                <p>Recent</p>
+                                <p>Seneste</p>
                             </div>
                             <div class="phone-app-footer-button phone-selected-footer-tab" data-phonefootertab="contacts">
-                                <p>Contacts</p>
+                                <p>Kontakter</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="houses-app">
                         <div class="houses-app-header">
-                            <div class="houses-app-header-tab houses-app-header-tab-selected" data-housetab="myhouses"><p>My Houses</p></div>
-                            <div class="houses-app-header-tab" data-housetab="mykeys"><p>My Keys</p></div>
+                            <div class="houses-app-header-tab houses-app-header-tab-selected" data-housetab="myhouses"><p>Mine boliger</p></div>
+                            <div class="houses-app-header-tab" data-housetab="mykeys"><p>Mine nøgler</p></div>
                         </div>
 
                         <div class="house-app-myhouses-container">
@@ -388,23 +388,23 @@
                         <div class="myhouses-options-container">
                             <div class="myhouses-options">
                                 <div class="myhouses-options-header">Grove St. 1</div>
-                                <div class="myhouses-option" id="myhouse-option-transfer">TRANSFER</div>
-                                <div class="myhouses-option" id="myhouse-option-keys">KEYS</div>
+                                <div class="myhouses-option" id="myhouse-option-transfer">OVERFØR</div>
+                                <div class="myhouses-option" id="myhouse-option-keys">NØGLER</div>
                                 <br>
                                 <br>
-                                <div class="myhouses-option" id="myhouse-option-close">CLOSE</div>
+                                <div class="myhouses-option" id="myhouse-option-close">LUK</div>
                             </div>
 
                             <div class="myhouse-option-transfer-container">
-                                <div class="myhouse-option-transfer-container-header">Transfer House</div>
+                                <div class="myhouse-option-transfer-container-header">Overfør bolig</div>
                                 <input class="myhouse-option-transfer-container-citizenid" type="text" spellcheck="false" placeholder="CSN" required>
                                 <br>
                                 <br>
                                 <br>
                                 <br>
                                 <br>
-                                <div class="myhouses-option" id="myhouse-option-transfer-confirm">CONFIRM</div>
-                                <div class="myhouses-option" id="myhouse-option-transfer-back">RETURN</div>
+                                <div class="myhouses-option" id="myhouse-option-transfer-confirm">BEKRÆFT</div>
+                                <div class="myhouses-option" id="myhouse-option-transfer-back">TILBAGE</div>
                             </div>
 
                             <div class="myhouse-option-keys-container">
@@ -415,14 +415,14 @@
                                         <div class="house-key-delete"><i class="fas fa-trash"></i></div>
                                     </div> -->
                                 </div>
-                                <div class="myhouses-option" id="myhouse-option-keys-back">RETURN</div>
+                                <div class="myhouses-option" id="myhouse-option-keys-back">TILBAGE</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="garage-app">
                         <div class="garage-app-header">
-                            My Garage
+                            Min garage
                         </div>
                         <div class="garage-homescreen">
                             <div class="garage-vehicles">
@@ -435,18 +435,18 @@
 
                         <div class="garage-detailscreen">
                             <div class="garage-cardetails">
-                                <div class="vehicle-brand"><span class="vehicle-detail">Brand</span><span class="vehicle-answer">BMW M5</span></div>
+                                <div class="vehicle-brand"><span class="vehicle-detail">Mærke</span><span class="vehicle-answer">BMW M5</span></div>
                                 <div class="vehicle-model"><span class="vehicle-detail">Model</span><span class="vehicle-answer">BMW M5</span></div>
-                                <div class="vehicle-plate"><span class="vehicle-detail">License Plate</span><span class="vehicle-answer">BMW M5</span></div>
+                                <div class="vehicle-plate"><span class="vehicle-detail">Reg. Nr.</span><span class="vehicle-answer">BMW M5</span></div>
                                 <div class="vehicle-garage"><span class="vehicle-detail">Garage</span><span class="vehicle-answer">BMW M5</span></div>
                                 <div class="vehicle-status"><span class="vehicle-detail">Status</span><span class="vehicle-answer">BMW M5</span></div>
                                 &nbsp;
-                                <div class="vehicle-fuel"><span class="vehicle-detail">Fuel</span><span class="vehicle-answer">BMW M5</span></div>
-                                <div class="vehicle-engine"><span class="vehicle-detail">Engine</span><span class="vehicle-answer">BMW M5</span></div>
-                                <div class="vehicle-body"><span class="vehicle-detail">Bodywork</span><span class="vehicle-answer">BMW M5</span></div>
+                                <div class="vehicle-fuel"><span class="vehicle-detail">Tank</span><span class="vehicle-answer">BMW M5</span></div>
+                                <div class="vehicle-engine"><span class="vehicle-detail">Motor</span><span class="vehicle-answer">BMW M5</span></div>
+                                <div class="vehicle-body"><span class="vehicle-detail">Karosseri</span><span class="vehicle-answer">BMW M5</span></div>
     
                                 <div class="garage-cardetails-footer">
-                                    RETURN
+                                    TILBAGE
                                 </div>
                             </div>
                         </div>
@@ -454,30 +454,29 @@
 
                     <div class="trucker-app">
                         <div class="trucker-header">
-                            <span class="trucker-header-name"><span style="font-size: 1vh; color: rgba(255, 255, 255, 0.6);">Welcome</span><br><span id="trucker-name">Jay Yay</span></span>
+                            <span class="trucker-header-name"><span style="font-size: 1vh; color: rgba(255, 255, 255, 0.6);">Velkommen</span><br><span id="trucker-name">Jay Yay</span></span>
                             <div class="trucker-header-progress">
                                 <div class="trucker-header-progress-fill"></div>
-                                <span class="trucker-header-progress-text" id="trucker-header-progress-current" style="float: left;">Current: 100 REP</span>
-                                <span class="trucker-header-progress-text" id="trucker-header-progress-next" style="float: right;">Next: 200 REP</span>
+                                <span class="trucker-header-progress-text" id="trucker-header-progress-current" style="float: left;">Nuværende: 100 REP</span>
+                                <span class="trucker-header-progress-text" id="trucker-header-progress-next" style="float: right;">Næste: 200 REP</span>
                             </div>
                             <!-- <div class="trucker-header-currentlevel">1</div> -->
-                            <span class="trucker-header-description">Your current progression<br><span id="trucker-header-tier">Tier 1</span></span>
+                            <span class="trucker-header-description">Din nuværende udvikling<br><span id="trucker-header-tier">Tier 1</span></span>
                         </div>
 
                         <div class="trucker-jobinfo">
                             <div class="trucker-jobinfo-nojob">
                                 <i class="fas fa-ban"></i>
-                                <span id="trucker-jobinfo-nojob-text">You are currently not working</span>
+                                <span id="trucker-jobinfo-nojob-text">Du arbejder ikke i øjeblikket</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="lawyers-app">
                         <div class="lawyers-header">
-                            <p>Services</p>
-                            <span>Available services</span>
+                            <p>Offentlig service</p>
+                            <span>Ledige servicer</span>
                         </div>
-
                         <div class="lawyers-list">
                             <!-- <div class="lawyer-list">
                                 <div class="lawyer-list-firstletter">J</div>
@@ -504,11 +503,11 @@
 
                             <div class="crypto-header-values">
                                 <div class="crypto-header-value crypto-portofolio">
-                                    <span>Wallet</span>
+                                    <span>Pung</span>
                                     <p>0.2555</p>
                                 </div>
                                 <div class="crypto-header-value crypto-course">
-                                    <span>Course</span>
+                                    <span>Kurs</span>
                                     <p>$9000</p>
                                 </div>
                                 <div class="crypto-header-value crypto-volume">
@@ -519,13 +518,13 @@
 
                             <div class="crypto-header-footer">
                                 <div class="crypto-header-footer-item" data-cryptotab="general">
-                                    General
+                                    Generelt
                                 </div>
                                 <div class="crypto-header-footer-item" data-cryptotab="transactions">
-                                    Transactions
+                                    Overførsler
                                 </div>
                                 <div class="crypto-header-footer-item" data-cryptotab="course">
-                                    Course
+                                    Kurs
                                 </div>
                             </div>
                         </div>
@@ -533,9 +532,9 @@
                         <div class="crypto-action-page">
                             <div class="crypto-action-page-buy-crypto">
 
-                                <div class="crypto-action-page-header">Buy Qbit</div>
+                                <div class="crypto-action-page-header">Køb Qbit</div>
 
-                                <div class="crypto-action-page-wallet">Wallet: 1.000500 Qbit('s)</div>
+                                <div class="crypto-action-page-wallet">Pung: 1.000500 Qbit('s)</div>
 
                                 <i class="crypto-action-page-buy-crypto-input-coins-icon fas fa-coins"></i>
                                 <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-buy-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
@@ -554,9 +553,9 @@
                             </div>
                             <div class="crypto-action-page-sell-crypto">
 
-                                <div class="crypto-action-page-header">Sell Qbit</div>
+                                <div class="crypto-action-page-header">Sælg Qbit</div>
 
-                                <div class="crypto-action-page-wallet">Wallet: 1.000500 Qbit('s)</div>
+                                <div class="crypto-action-page-wallet">Pung: 1.000500 Qbit('s)</div>
 
                                 <i class="crypto-action-page-sell-crypto-input-coins-icon fas fa-coins"></i>
                                 <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-sell-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
@@ -575,9 +574,9 @@
                             </div>
                             <div class="crypto-action-page-transfer-crypto">
 
-                                <div class="crypto-action-page-header">Transfer Qbit</div>
+                                <div class="crypto-action-page-header">Overfør Qbit</div>
 
-                                <div class="crypto-action-page-wallet">Wallet: 0 Qbit('s)</div>
+                                <div class="crypto-action-page-wallet">Pung: 0 Qbit('s)</div>
 
                                 <i class="crypto-action-page-transfer-crypto-input-coins-icon fas fa-coins"></i>
                                 <input type="number" oninput="this.value = Math.abs(this.value)" class="crypto-action-page-transfer-crypto-input-coins" required spellcheck="false" placeholder="1.000000" step="0.000001" min="0">
@@ -601,21 +600,21 @@
                                 <div class="cryptotab-general-actions">
                                     <div class="cryptotab-general-action" data-action="buy-crypto">
                                         <i class="fas fa-money-bill-wave"></i>
-                                        <span class="cryptotab-general-action-title">BUY</span>
-                                        <span class="cryptotab-general-action-description">You can buy crypto here.</span>
+                                        <span class="cryptotab-general-action-title">KØB</span>
+                                        <span class="cryptotab-general-action-description">Du kan købe crypto her.</span>
                                     </div>
                                     <div class="cryptotab-general-action" data-action="sell-crypto">
                                         <i class="fas fa-money-bill-wave"></i>
-                                        <span class="cryptotab-general-action-title">SELL</span>
-                                        <span class="cryptotab-general-action-description">You can sell crypto here.</span>
+                                        <span class="cryptotab-general-action-title">SÆLG</span>
+                                        <span class="cryptotab-general-action-description">Du kan sælge crypto her.</span>
                                     </div>
                                     <div class="cryptotab-general-action" data-action="transfer-crypto">
                                         <i class="fas fa-money-bill-wave"></i>
-                                        <span class="cryptotab-general-action-title">TRANSFER</span>
-                                        <span class="cryptotab-general-action-description">You can transfer crypto here.</span>
+                                        <span class="cryptotab-general-action-title">OVERFØR</span>
+                                        <span class="cryptotab-general-action-description">Du kan overføre crypto her.</span>
                                     </div>
                                 </div>
-                                <span class="crypto-walletid">Wallet ID: QB-12345678</span>
+                                <span class="crypto-walletid">Pung ID: QB-12345678</span>
                             </div>
                         
                             <div class="cryptotab-transactions">
@@ -644,7 +643,7 @@
                         <input type="text" id="testerino">
                         <div class="meos-app-header">
                             <span id="meos-app-title">MDT</span>
-                            <span id="meos-app-name">Welcome Jay Nandes</span>
+                            <span id="meos-app-name">Velkommen Jay Nandes</span>
                         </div>
 
                         <div class="meos-homescreen">
@@ -655,21 +654,21 @@
                                 </div>
                                 <div class="meos-block" data-meosblock="vehicle">
                                     <i class="fas fa-car"></i>
-                                    <p>Vehicle</p>
+                                    <p>Kørertøj</p>
                                 </div>
                                 <div class="meos-block" data-meosblock="houses">
                                     <i class="fas fa-house-user"></i>
-                                    <p>House</p>
+                                    <p>Bolig</p>
                                 </div>
                                 <div class="meos-block" data-meosblock="alerts">
                                     <i class="fas fa-bell"></i>
-                                    <p>Alerts</p>
+                                    <p>Alarmer</p>
                                 </div>
                             </div>
 
-                            <span class="meos-recent-header">Most recent alert</span>
+                            <span class="meos-recent-header">Seneste alarmer</span>
                             <div class="meos-recent-alerts">
-                                <div class="meos-recent-alert"> <span class="meos-recent-alert-title">You don't have any alerts!</span></div>
+                                <div class="meos-recent-alert"> <span class="meos-recent-alert-title">Du har ingen alarmer!</span></div>
                             </div>
                         </div>
 
@@ -710,7 +709,7 @@
                             </div>
 
                             <div class="meos-alerts-page">
-                                <div class="meos-clear-alerts">CLEAR</div>
+                                <div class="meos-clear-alerts">RYD</div>
                                 <div class="meos-alerts">
                                     <!-- <div class="meos-alert"> <span class="meos-alert-new" style="margin-bottom: 1vh;">NIEUW</span>
                                         <p class="meos-alert-type">Melding: Test</p>
@@ -730,7 +729,7 @@
                     <div class="advert-app">
                         <div class="advert-home">
                             <div class="advert-header">
-                                <span id="advert-header-text">Advertisements</span>
+                                <span id="advert-header-text">Reklamer</span>
                                 <span id="advert-header-name"></span>
                             </div>
     
@@ -748,7 +747,7 @@
 
                         <div class="new-advert">
                             <div class="new-advert-header">
-                                <span id="new-advert-header-text">New advertisement</span>
+                                <span id="new-advert-header-text">Nye reklamer</span>
                             </div>
 
                             <textarea class="new-advert-textarea" spellcheck="false" required></textarea>
@@ -768,9 +767,9 @@
                     <div class="mail-app">
                         <div class="mail-home">
                             <div class="mail-header">
-                                <span id="mail-header-text">Inbox</span>
+                                <span id="mail-header-text">Indbakke</span>
                                 <span id="mail-header-mail">jay.nandes@qbcore.com</span>
-                                <span id="mail-header-lastsync">Last synchronization 18:31</span>
+                                <span id="mail-header-lastsync">Sidste synkronisering 18:31</span>
                             </div>
     
                             <div class="mail-list">
@@ -825,8 +824,8 @@
                         </div>
                         <div class="download-password-container">
                             <div class="download-password">
-                                <span id="download-password-title">Security</span>
-                                <span id="download-password-disclaimer">To download this application you must enter a password.</span>
+                                <span id="download-password-title">Sikkerhed</span>
+                                <span id="download-password-disclaimer">Inden du kan foretag download, skal du indtaste din kode.</span>
                                 <input type="text" class="download-password-input" spellcheck="false" required>
 
                                 <div class="download-password-buttons">
@@ -844,7 +843,7 @@
                     <div class="racing-app">
                         <div class="racing-overview">
                             <div class="racing-app-header">
-                                Racing - Overview
+                                Race - Oversigt
                             </div>
 
                             <div class="racing-races">
@@ -866,13 +865,13 @@
 
                             <div class="racing-buttons">
                                 <div class="racing-button" id="setup-race">
-                                    <i class="fas fa-flag-checkered"></i> Setup
+                                    <i class="fas fa-flag-checkered"></i> Opsætning
                                 </div>
                                 <div class="racing-button" id="leaderboards-race">
                                     <i class="fas fa-trophy"></i>
                                 </div>
                                 <div class="racing-button" id="create-race">
-                                    <i class="fas fa-plus"></i> Create
+                                    <i class="fas fa-plus"></i> Opret
                                 </div>
                             </div>
                                 
@@ -880,13 +879,13 @@
 
                         <div class="racing-setup">
                             <div class="racing-app-header">
-                                Racing - Setup
+                                Race - Opsætning
                             </div>
 
-                            <span id="racing-setup-trackheader">Race Track</span>
+                            <span id="racing-setup-trackheader">Race - bane</span>
                             <div class="dropdown">
                                 <div class="select">
-                                  <span>Select a Track</span>
+                                  <span>Vælg en bane</span>
                                   <i class="fa fa-chevron-left"></i>
                                 </div>
                                 <input type="hidden" name="gender">
@@ -894,18 +893,18 @@
                             </div>
 
                             <span id="racing-setup-lapsheader">Laps</span>
-                            <input type="number" min="0" oninput="this.value = Math.abs(this.value)" class="racing-setup-laps" required spellcheck="false" placeholder="Number of laps (0 is Sprint)">
+                            <input type="number" min="0" oninput="this.value = Math.abs(this.value)" class="racing-setup-laps" required spellcheck="false" placeholder="Antal laps (0 er sprint)">
 
-                            <span id="racing-setup-informationheader">Race Information</span>
-                            <div class="racing-setup-information-distance">Select a Track</div>
-                            <div class="racing-setup-information-creator">Select a Track</div>
-                            <div class="racing-setup-information-wr">Select a Track</div>
+                            <span id="racing-setup-informationheader">Race information</span>
+                            <div class="racing-setup-information-distance">Vælg en bane</div>
+                            <div class="racing-setup-information-creator">Vælg en bane</div>
+                            <div class="racing-setup-information-wr">Vælg en bane</div>
 
                             <div class="racing-setup-buttons">
-                                <div class="racing-setup-button" id="setup-race-accept" data-toggle="race-setup" data-placement="bottom" title="Accept">
+                                <div class="racing-setup-button" id="setup-race-accept" data-toggle="race-setup" data-placement="bottom" title="Accepter">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="racing-setup-button" id="setup-race-cancel" data-toggle="race-setup" data-placement="bottom" title="Cancel">
+                                <div class="racing-setup-button" id="setup-race-cancel" data-toggle="race-setup" data-placement="bottom" title="Afbryd">
                                     <i class="fas fa-times-circle"></i>
                                 </div>
                             </div>
@@ -913,8 +912,8 @@
 
                         <div class="racing-create">
                             <div class="racing-create-block">
-                                <span id="racing-create-tracknameheader">Track Name</span>
-                                <input type="text" class="racing-create-trackname" required spellcheck="false" placeholder="Name of your track">
+                                <span id="racing-create-tracknameheader">Bane navn</span>
+                                <input type="text" class="racing-create-trackname" required spellcheck="false" placeholder="Navnet på banen">
 
                                 <div class="racing-create-buttons">
                                     <div class="racing-create-button" id="racing-create-accept">
@@ -932,7 +931,7 @@
                                 Racing - Leaderboards
                             </div>
 
-                            <span id="racing-leaderboards-header">Last Tracks</span>
+                            <span id="racing-leaderboards-header">Seneste bane</span>
                             <div class="racing-leaderboards">
                                 <!-- <div class="racing-leaderboard-item">
                                     <span class="racing-leaderboard-item-name"><i class="fas fa-flag-checkered"></i> Prison</span>
@@ -967,7 +966,7 @@
                                 <div class="tweet-message">@JAY</div>
                                 <div class="twt-img" style="top: 1vh;"><img src="'+PictureUrl+'" class="tweeter-image"></div>
                             </div> -->
-                             <div class="twitter-no-tweets"><p>No Tweets have been posted yet.. :(</p></div>
+                             <div class="twitter-no-tweets"><p>Ingen Tweets er blevet lagt op endnu.. :(</p></div>
                         </div>
 
                         <div class="twitter-mentions-tab">
@@ -976,7 +975,7 @@
                                 <div class="tweet-message">Dit is test tweet yeey. :) ggggggggggggggggggggggggggg gggggggggggggggggg</div>
                                 <div class="twt-img" style="top: 1vh;"><img src="'+PictureUrl+'" class="tweeter-image"></div>
                             </div> -->
-                            <div class="twitter-no-tweets"><p>You haven't been mentioned yet.. :(</p></div>
+                            <div class="twitter-no-tweets"><p>Du er ikke blevet nævnt endnu.. :(</p></div>
                         </div>
 
                         <div class="twitter-hashtags-tab">
@@ -993,7 +992,7 @@
                                     <div class="twitter-hashtag-tag">#Test</div>
                                     <div class="twitter-hashtag-messages">5 Tweets</div>
                                 </div> -->
-                                <div class="twitter-no-tweets"><p>There are no hashtags yet #SAD.. :(</p></div>
+                                <div class="twitter-no-tweets"><p>Der er ingen hashtags endnu #SAD.. :(</p></div>
                             </div>
                         </div>
 
@@ -1002,13 +1001,13 @@
                         </div>
 
                         <div class="twitter-new-tweet-tab">
-                            <div class="twitter-new-tweet-header"><p>New Tweet</p></div>
+                            <div class="twitter-new-tweet-header"><p>Ny Tweet</p></div>
 
-                            <textarea id="tweet-new-message" placeholder="Twitter message" cols="30" rows="10" spellcheck="false" required></textarea>
+                            <textarea id="tweet-new-message" placeholder="Twitter besked" cols="30" rows="10" spellcheck="false" required></textarea>
                         
                             <div class="twitter-new-tweet-buttons">
                                 <div class="twitter-new-tweet-button" id="send-tweet"><p>Send</p></div>
-                                <div class="twitter-new-tweet-button" id="cancel-tweet"><p>Cancel</p></div>
+                                <div class="twitter-new-tweet-button" id="cancel-tweet"><p>Afbryd</p></div>
                             </div>
                         </div>
                         
@@ -1026,13 +1025,13 @@
                         </div>
                         <div class="bank-app-loaded">
                             <div class="bank-app-header">
-                                <div data-headertype="accounts" class="bank-app-header-button bank-app-header-button-selected"> <i class="fas fa-align-left"></i> <p>Accounts</p> </div>
-                                <div data-headertype="invoices" class="bank-app-header-button"> <i class="fas fa-file-invoice"></i> <p>Invoices</p> </div>
+                                <div data-headertype="accounts" class="bank-app-header-button bank-app-header-button-selected"> <i class="fas fa-align-left"></i> <p>Kontoer</p> </div>
+                                <div data-headertype="invoices" class="bank-app-header-button"> <i class="fas fa-file-invoice"></i> <p>Regninger</p> </div>
                             </div>
 
                             <div class="bank-app-accounts">
                                 <div class="bank-app-account">
-                                    <div class="bank-app-account-title">Account</div>
+                                    <div class="bank-app-account-title">Konto</div>
                                     <!-- <div class="bank-app-account-number" id="iban-account">NL01QBBA012341234123</div> -->
                                     <input type="text" class="bank-app-account-number" id="iban-account" readonly spellcheck="false">
                                     <div class="bank-app-account-balance">&#36; 5000,00</div>
@@ -1044,7 +1043,7 @@
                             </div>
 
                             <div class="bank-app-transfer">
-                                <div class="bank-app-transfer-header">Transfer Money</div>
+                                <div class="bank-app-transfer-header">Overfør penge</div>
 
                                 <i class="bank-transfer-iban-icon fas fa-credit-card"></i>
                                 <input type="text" id="bank-transfer-iban" class="bank-transfer-input" required spellcheck="false">
@@ -1054,8 +1053,8 @@
                                 <input type="number" min="0" oninput="this.value = Math.abs(this.value)" id="bank-transfer-amount" class="bank-transfer-input" required spellcheck="false">
                             
                                 <div class="bank-app-transfer-buttons">
-                                    <div class="bank-app-transfer-button" id="accept-transfer">Transfer</div>
-                                    <div class="bank-app-transfer-button" id="cancel-transfer">Cancel</div>
+                                    <div class="bank-app-transfer-button" id="accept-transfer">Overfør</div>
+                                    <div class="bank-app-transfer-button" id="cancel-transfer">Afbryd</div>
                                 </div>
                             </div>
 
@@ -1067,14 +1066,14 @@
                         </div>
 
                         <div class="bank-app-my-contacts">
-                            <div class="bank-app-my-contacts-header">My Contacts</div>
+                            <div class="bank-app-my-contacts-header">Mine kontakter</div>
                             <div class="bank-app-my-contacts-list-header">
                                 <input type="text" id="bank-app-my-contact-search" placeholder="Contact name" spellcheck="false">
                             </div>
                             <div class="bank-app-my-contacts-list">
                                 <!-- <div class="bank-app-my-contact"> <div class="bank-app-my-contact-firstletter">P</div> <div class="bank-app-my-contact-name">Pieter Post</div> </div> -->
                             </div>
-                            <div class="bank-app-my-contacts-list-back">Return</div>
+                            <div class="bank-app-my-contacts-list-back">Tilbage</div>
                         </div>
                     </div>
 
@@ -1084,7 +1083,7 @@
                             <div class="whatsapp-header-footer">
                                 <p>Whatsapp</p>
                                 <i id="whatsapp-search-chats" class="fas fa-search"></i>
-                                <input type="text" id="whatsapp-search-input" placeholder="Contactname" spellcheck="false">
+                                <input type="text" id="whatsapp-search-input" placeholder="Konakt" spellcheck="false">
                             </div>
                         </div>
                         <div class="whatsapp-chats">
@@ -1123,8 +1122,8 @@
 
                 <div class="phone-currentcall-container">
                     <div class="phone-currentcall-icon"><i class="fas fa-phone"></i></div>
-                    <div class="phone-currentcall-title">Outgoing call</div>
-                    <div class="phone-currentcall-contact">with 0612345678</div>
+                    <div class="phone-currentcall-title">Udgående opkald</div>
+                    <div class="phone-currentcall-contact">med 0612345678</div>
                 </div>
 
                 <!-- Phone Home Button -->
@@ -1138,14 +1137,14 @@
 
         <div class="screen-notifications-container">
             <div class="screen-notification-icon"><i class="fab fa-twitter"></i></div>
-            <div class="screen-notification-title"><p>New Tweet!</p></div>
-            <div class="screen-notification-content"><p>This is a test notification </p></div>
+            <div class="screen-notification-title"><p>Ny Tweet!</p></div>
+            <div class="screen-notification-content"><p>Dette er en test notifikation </p></div>
         </div>
 
         <div class="call-notifications">
             <div class="call-notifications-icon"><i class="fas fa-phone"></i></div>
-            <div class="call-notifications-title"><p>Incoming Call</p></div>
-            <div class="call-notifications-content"><p>You have an incoming call from Test</p></div>
+            <div class="call-notifications-title"><p>Indgående opkald</p></div>
+            <div class="call-notifications-content"><p>Du har et indgående opkald fra test</p></div>
         </div>
  
         <!-- <div class="emergency-button">

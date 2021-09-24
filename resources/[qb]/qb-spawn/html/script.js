@@ -31,7 +31,7 @@ $(document).on('click', '.location', function(evt){
     var type = $(this).data('type'); //get the text
     var label = $(this).data('label'); //get the text
     if (type !== "lab") {
-        $("#spawn-label").html("Confirm")
+        $("#spawn-label").html("Bekræft")
         $("#submit-spawn").attr("data-location", location);
         $("#submit-spawn").attr("data-type", type);
         $("#submit-spawn").fadeIn(100)
@@ -71,10 +71,10 @@ function setupLocations(locations, myHouses) {
     var parent = $('.spawn-locations')
     $(parent).html("");
 
-    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Where would you like to start?"><p><span id="null">Where would you like to start?</span></p></div>')
+    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Hvor kunne du tænke dig at starte?"><p><span id="null">Hvor kunne du tænke dig at starte?</span></p></div>')
     
     setTimeout(function(){
-        $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Last Location"><p><span id="current-location">Last Location</span></p></div>');
+        $(parent).append('<div class="location" id="location" data-location="current" data-type="current" data-label="Sidste lokation"><p><span id="current-location">Sidste lokation</span></p></div>');
         
         $.each(locations, function(index, location){
             $(parent).append('<div class="location" id="location" data-location="'+location.location+'" data-type="normal" data-label="'+location.label+'"><p><span id="'+location.location+'">'+location.label+'</span></p></div>')
@@ -95,7 +95,7 @@ function setupApps(apps) {
     var parent = $('.spawn-locations')
     $(parent).html("");
 
-    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Choose a apartment"><p><span id="null">Choose An Apartment</span></p></div>')
+    $(parent).append('<div class="loclabel" id="location" data-location="null" data-type="lab" data-label="Vælg en bolig"><p><span id="null">Vælg en bolig</span></p></div>')
 
     $.each(apps, function(index, app){
         $(parent).append('<div class="location" id="location" data-location="'+app.name+'" data-type="appartment" data-label="'+app.label+'"><p><span id="'+app.name+'">'+app.label+'</span></p></div>')

@@ -29,7 +29,7 @@ function SetupCryptoData(Crypto) {
             }
             var Element =   '<div class="cryptotab-course-block">' +
                                 '<i class="fas fa-exchange-alt"></i>' +
-                                '<span class="cryptotab-course-block-title">Course change</span>' +
+                                '<span class="cryptotab-course-block-title">Kurs ændringer</span>' +
                                 '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">$'+change.PreviousWorth+'</span> to <span style="font-size: 1.3vh;">$'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
                             '</div>';
     
@@ -48,7 +48,7 @@ function UpdateCryptoData(Crypto) {
     CryptoData.Worth = Crypto.Worth;
     CryptoData.WalletId = Crypto.WalletId;
 
-    $(".crypto-action-page-wallet").html("Wallet: "+CryptoData.Portfolio+" Qbit('s)");
+    $(".crypto-action-page-wallet").html("Pung: "+CryptoData.Portfolio+" Qbit('s)");
     $(".crypto-walletid").html(CryptoData.WalletId);
     $(".cryptotab-course-list").html("");
     if (CryptoData.History.length > 0) {
@@ -62,7 +62,7 @@ function UpdateCryptoData(Crypto) {
             }
             var Element =   '<div class="cryptotab-course-block">' +
                                 '<i class="fas fa-exchange-alt"></i>' +
-                                '<span class="cryptotab-course-block-title">Course change</span>' +
+                                '<span class="cryptotab-course-block-title">Kurs ændringer</span>' +
                                 '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">$'+change.PreviousWorth+'</span> to <span style="font-size: 1.3vh;">$'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
                             '</div>';
     
@@ -161,16 +161,16 @@ $(document).on('click', '#buy-crypto', function(e){
                     UpdateCryptoData(CryptoData)
                     CloseCryptoPage()
                     QB.Phone.Data.PlayerData.money.bank = parseInt(QB.Phone.Data.PlayerData.money.bank) - parseInt(Price);
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- has been withdrawn from your balance!", "#badc58", 2500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- er blevet udbetalt fra din konto!", "#badc58", 2500);
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough money..", "#badc58", 1500);
+                    QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok penge..", "#badc58", 1500);
                 }
             });
         } else {
-            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough money..", "#badc58", 1500);
+            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok penge..", "#badc58", 1500);
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Fill out all fields!", "#badc58", 1500);
+        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Udfyld alle felter!", "#badc58", 1500);
     }
 });
 
@@ -192,16 +192,16 @@ $(document).on('click', '#sell-crypto', function(e){
                     UpdateCryptoData(CryptoData)
                     CloseCryptoPage()
                     QB.Phone.Data.PlayerData.money.bank = parseInt(QB.Phone.Data.PlayerData.money.bank) + parseInt(Price);
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- has been added to your balance!", "#badc58", 2500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- er blevet tilføjet til din konto!", "#badc58", 2500);
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough Qbits..", "#badc58", 1500);
+                    QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok Qbits..", "#badc58", 1500);
                 }
             });
         } else {
-            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough Qbits..", "#badc58", 1500);
+            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok Qbits..", "#badc58", 1500);
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Fill out all fields!", "#badc58", 1500);
+        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Udfyld alle felter!", "#badc58", 1500);
     }
     CloseCryptoPage();
     e.handled = false;
@@ -222,23 +222,23 @@ $(document).on('click', '#transfer-crypto', function(e){
                     WalletId: WalletId,
                 }), function(CryptoData){
                     if (CryptoData == "notenough") {
-                        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough Qbits..", "#badc58", 1500);
+                        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok Qbits..", "#badc58", 1500);
                     } else if (CryptoData == "notvalid") {
-                        QB.Phone.Notifications.Add("fas fa-university", "Crypto", "this Wallet-ID doesn't exist!", "#badc58", 2500);
+                        QB.Phone.Notifications.Add("fas fa-university", "Crypto", "Dette Pung-ID eksistere ikke!", "#badc58", 2500);
                     } else {
                         UpdateCryptoData(CryptoData)
                         CloseCryptoPage()
-                        QB.Phone.Notifications.Add("fas fa-university", "Crypto", "You transferred "+Coins+",- to "+WalletId+"!", "#badc58", 2500);
+                        QB.Phone.Notifications.Add("fas fa-university", "Crypto", "Du overførte "+Coins+",- til "+WalletId+"!", "#badc58", 2500);
                     }
                 });
             } else {
-                QB.Phone.Notifications.Add("fas fa-university", "Crypto", "You can't transfer to yourself..", "#badc58", 2500);
+                QB.Phone.Notifications.Add("fas fa-university", "Crypto", "Du kan ikke overfører til dig selv..", "#badc58", 2500);
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "You don't have enough Qbits..", "#badc58", 1500);
+            QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok Qbits..", "#badc58", 1500);
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Fill out all fields!!", "#badc58", 1500);
+        QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Udfyld alle felter!", "#badc58", 1500);
     }
 });
 

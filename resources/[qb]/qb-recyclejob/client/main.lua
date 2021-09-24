@@ -91,7 +91,7 @@ Citizen.CreateThread(function ()
                             end)
                         end
                     else
-                        DrawText3D(packagePos.x, packagePos.y, packagePos.z + 1, "Package")
+                        DrawText3D(packagePos.x, packagePos.y, packagePos.z + 1, "Pakke")
                     end
                 else
                     if #(pos - vector3(Config['delivery'].dropLocation.x, Config['delivery'].dropLocation.y, Config['delivery'].dropLocation.z)) < 2.0 then
@@ -99,7 +99,7 @@ Citizen.CreateThread(function ()
                         if IsControlJustReleased(0, 38) then
                             DropPackage()
                             ScrapAnim()
-                            QBCore.Functions.Progressbar("deliver_reycle_package", "Pakker ud...", 5000, false, true, {
+                            QBCore.Functions.Progressbar("deliver_reycle_package", "Aflevere pakken...", 5000, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,

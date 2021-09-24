@@ -242,12 +242,12 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
         TriggerServerEvent("qb-customs:updateRepairCost", repairCost)
         createMenu("repairMenu", "Velkommen til Benny's Original Motorworks", "Repair Vehicle")
-        populateMenu("repairMenu", -1, "Repair", "$" .. repairCost)
+        populateMenu("repairMenu", -1, "Reparer", "$" .. repairCost)
         finishPopulatingMenu("repairMenu")
     end
 
     --#[Main Menu]#--
-    createMenu("mainMenu", "Velkommen til Benny's Original Motorworks", "Choose a Category")
+    createMenu("mainMenu", "Velkommen til Benny's Original Motorworks", "Vælg en kategori")
 
     for k, v in ipairs(vehicleCustomisation) do 
         local validMods, amountValidMods = CheckValidMods(v.category, v.id)
@@ -260,16 +260,16 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     populateMenu("mainMenu", -1, "Respray", "none")
 
     if not isMotorcycle then
-        populateMenu("mainMenu", -2, "Window Tint", "none")
-        populateMenu("mainMenu", -3, "Neons", "none")
+        populateMenu("mainMenu", -2, "Tonede vinduer", "none")
+        populateMenu("mainMenu", -3, "Neon", "none")
     end
 
     populateMenu("mainMenu", 22, "Xenons", "none")
-    populateMenu("mainMenu", 23, "Wheels", "none")
+    populateMenu("mainMenu", 23, "Dæk", "none")
 
-    populateMenu("mainMenu", 24, "Old Livery", "none")
-    populateMenu("mainMenu", 25, "Plate Index", "none")
-    populateMenu("mainMenu", 26, "Vehicle Extras", "none")
+    populateMenu("mainMenu", 24, "Gammel Livery", "none")
+    populateMenu("mainMenu", 25, "Nummerplade", "none")
+    populateMenu("mainMenu", 26, "Kørtøjs tilbehør", "none")
 
     finishPopulatingMenu("mainMenu")
 
@@ -282,7 +282,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
             if v.id == 11 or v.id == 12 or v.id == 13 or v.id == 15 or v.id == 16 then --Performance Upgrades
                 local tempNum = 0
             
-                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category, "Choose an Upgrade")
+                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category, "Vælg en upgrade")
 
                 for m, n in pairs(validMods) do
                     tempNum = tempNum + 1
@@ -307,16 +307,16 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
                 finishPopulatingMenu(v.category:gsub("%s+", "") .. "Menu")
             elseif v.id == 18 then
                 local currentTurboState = GetCurrentTurboState()
-                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Enable or Disable Turbo")
+                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Slå nitro til/fra")
 
-                populateMenu(v.category:gsub("%s+", "") .. "Menu", 0, "Disable", "$0")
-                populateMenu(v.category:gsub("%s+", "") .. "Menu", 1, "Enable", "$" .. vehicleCustomisationPrices.turbo.price)
+                populateMenu(v.category:gsub("%s+", "") .. "Menu", 0, "Slå fra", "$0")
+                populateMenu(v.category:gsub("%s+", "") .. "Menu", 1, "Slå til", "$" .. vehicleCustomisationPrices.turbo.price)
 
                 updateItem2Text(v.category:gsub("%s+", "") .. "Menu", currentTurboState, "Installed")
 
                 finishPopulatingMenu(v.category:gsub("%s+", "") .. "Menu")
             else
-                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Choose a Mod")
+                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Vælg en mod")
 
                 for m, n in pairs(validMods) do
                     populateMenu(v.category:gsub("%s+", "") .. "Menu", n.id, n.name, "$" .. vehicleCustomisationPrices.cosmetics.price)
@@ -332,19 +332,19 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     end
 
     --#[Respray Menu]#--
-    createMenu("ResprayMenu", "Respray", "Choose a Colour Category")
+    createMenu("ResprayMenu", "Udvalg af farve kategorier", "Vælg en farve kategori")
 
-    populateMenu("ResprayMenu", 0, "Primary Colour", "none")
-    populateMenu("ResprayMenu", 1, "Secondary Colour", "none")
-    populateMenu("ResprayMenu", 2, "Pearlescent Colour", "none")
-    populateMenu("ResprayMenu", 3, "Wheel Colour", "none")
-    populateMenu("ResprayMenu", 4, "Interior Colour", "none")
-    populateMenu("ResprayMenu", 5, "Dashboard Colour", "none")
+    populateMenu("ResprayMenu", 0, "Primær farve", "none")
+    populateMenu("ResprayMenu", 1, "Sekundær farve", "none")
+    populateMenu("ResprayMenu", 2, "Pearlescent farve", "none")
+    populateMenu("ResprayMenu", 3, "Fælg farver", "none")
+    populateMenu("ResprayMenu", 4, "Interiør farve", "none")
+    populateMenu("ResprayMenu", 5, "Dashboard farve", "none")
 
     finishPopulatingMenu("ResprayMenu")
 
     --#[Respray Types]#--
-    createMenu("ResprayTypeMenu", "Respray Types", "Choose a Colour Type")
+    createMenu("ResprayTypeMenu", "Udvalg af farver", "Vælg en farve type")
 
     for k, v in ipairs(vehicleResprayOptions) do
         populateMenu("ResprayTypeMenu", v.id, v.category, "none")
@@ -354,7 +354,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Respray Colours]#--
     for k, v in ipairs(vehicleResprayOptions) do 
-        createMenu(v.category .. "Menu", v.category .. " Colours", "Choose a Colour")
+        createMenu(v.category .. "Menu", v.category .. " Farver", "Vælg en farve")
 
         for m, n in ipairs(v.colours) do
             populateMenu(v.category .. "Menu", n.id, n.name, "$" .. vehicleCustomisationPrices.respray.price)
@@ -364,7 +364,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     end
 
     --#[Wheel Categories Menu]#--
-    createMenu("WheelsMenu", "Wheel Categories", "Choose a Category")
+    createMenu("WheelsMenu", "Udvalg af dæk", "Vælg en kategori")
 
     for k, v in ipairs(vehicleWheelOptions) do 
         if isMotorcycle then
@@ -382,10 +382,10 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     for k, v in ipairs(vehicleWheelOptions) do 
         if v.id == -1 then
             local currentCustomWheelState = GetCurrentCustomWheelState()
-            createMenu(v.category:gsub("%s+", "") .. "Menu", v.category, "Enable or Disable Custom Wheels")
+            createMenu(v.category:gsub("%s+", "") .. "Menu", v.category, "Custom dæk til/fra")
 
-            populateMenu(v.category:gsub("%s+", "") .. "Menu", 0, "Disable", "$0")
-            populateMenu(v.category:gsub("%s+", "") .. "Menu", 1, "Enable", "$" .. vehicleCustomisationPrices.customwheels.price)
+            populateMenu(v.category:gsub("%s+", "") .. "Menu", 0, "Slå fra", "$0")
+            populateMenu(v.category:gsub("%s+", "") .. "Menu", 1, "Slå til", "$" .. vehicleCustomisationPrices.customwheels.price)
 
             updateItem2Text(v.category:gsub("%s+", "") .. "Menu", currentCustomWheelState, "Installed")
 
@@ -395,7 +395,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
                 if v.id == 6 then --Motorcycle Wheels
                     local validMods, amountValidMods = CheckValidMods(v.category, v.wheelID, v.id)
 
-                    createMenu(v.category .. "Menu", v.category .. " Wheels", "Choose a Wheel")
+                    createMenu(v.category .. "Menu", v.category .. " Dæk", "Vælg dæk")
 
                     for m, n in pairs(validMods) do
                         populateMenu(v.category .. "Menu", n.id, n.name, "$" .. vehicleCustomisationPrices.wheels.price)
@@ -406,7 +406,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
             else
                 local validMods, amountValidMods = CheckValidMods(v.category, v.wheelID, v.id)
 
-                createMenu(v.category .. "Menu", v.category .. " Wheels", "Choose a Wheel")
+                createMenu(v.category .. "Menu", v.category .. " Dæk", "Vælg dæk")
 
                 for m, n in pairs(validMods) do
                     populateMenu(v.category .. "Menu", n.id, n.name, "$" .. vehicleCustomisationPrices.wheels.price)
@@ -419,7 +419,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Wheel Smoke Menu]#--
     local currentWheelSmokeR, currentWheelSmokeG, currentWheelSmokeB = GetCurrentVehicleWheelSmokeColour()
-    createMenu("TyreSmokeMenu", "Tyre Smoke Customisation", "Choose a Colour")
+    createMenu("TyreSmokeMenu", "Udvalg af dækrøg", "Vælg en farve")
 
     for k, v in ipairs(vehicleTyreSmokeOptions) do
         populateMenu("TyreSmokeMenu", k, v.name, "$" .. vehicleCustomisationPrices.wheelsmoke.price)
@@ -433,7 +433,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Window Tint Menu]#--
     local currentWindowTint = GetCurrentWindowTint()
-    createMenu("WindowTintMenu", "Window Tint Customisation", "Choose a Tint")
+    createMenu("WindowTintMenu", "Udvalg af tonede ruder", "Vælg dine ruder")
 
     for k, v in ipairs(vehicleWindowTintOptions) do 
         populateMenu("WindowTintMenu", v.id, v.name, "$" .. vehicleCustomisationPrices.windowtint.price)
@@ -449,7 +449,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     local livCount = GetVehicleLiveryCount(plyVeh)
     if livCount > 0 then
         local tempOldLivery = GetVehicleLivery(plyVeh)
-        createMenu("OldLiveryMenu", "Old Livery Customisation", "Choose a Livery")
+        createMenu("OldLiveryMenu", "Udvalg af gammel paintjobs", "Vælg ey paintjob")
         if GetVehicleClass(plyVeh) ~= 18 then
             for i=0, GetVehicleLiveryCount(plyVeh)-1 do
                 populateMenu("OldLiveryMenu", i, "Livery", "$100")
@@ -464,7 +464,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     --#[Plate Colour Index Menu]#--
 
     local tempPlateIndex = GetVehicleNumberPlateTextIndex(plyVeh)
-    createMenu("PlateIndexMenu", "Plate Colour", "Choose a Style")
+    createMenu("PlateIndexMenu", "Udvalg af pladefarver", "Vælg dine plader")
     local plateTypes = {
         "Blue on White #1",
         "Yellow on Black",
@@ -486,35 +486,35 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     finishPopulatingMenu("PlateIndexMenu")
 
     --#[Vehicle Extras Menu]#--
-    createMenu("VehicleExtrasMenu", "Vehicle Extras Customisation", "Toggle Extras")
+    createMenu("VehicleExtrasMenu", "Udvalg af kørertøjs tilbehør", "Slå til/fra")
     if GetVehicleClass(plyVeh) ~= 18 then
         for i=1, 12 do
             if DoesExtraExist(plyVeh, i) then
-                populateMenu("VehicleExtrasMenu", i, "Extra "..tostring(i), "Toggle")
+                populateMenu("VehicleExtrasMenu", i, "Ekstra "..tostring(i), "Toggle")
             else
-                populateMenu("VehicleExtrasMenu", i, "No Option", "NONE")
+                populateMenu("VehicleExtrasMenu", i, "Intet tilbehør", "NONE")
             end
         end
     end
     finishPopulatingMenu("VehicleExtrasMenu")
 
     --#[Neons Menu]#--
-    createMenu("NeonsMenu", "Neon Customisation", "Choose a Category")
+    createMenu("NeonsMenu", "Udlavg af neon", "Vælg en kategori")
 
     for k, v in ipairs(vehicleNeonOptions.neonTypes) do
         populateMenu("NeonsMenu", v.id, v.name, "none")
     end
 
-    populateMenu("NeonsMenu", -1, "Neon Colours", "none")
+    populateMenu("NeonsMenu", -1, "Neon farver", "none")
     finishPopulatingMenu("NeonsMenu")
 
     --#[Neon State Menu]#--
     for k, v in ipairs(vehicleNeonOptions.neonTypes) do
         local currentNeonState = GetCurrentNeonState(v.id)
-        createMenu(v.name:gsub("%s+", "") .. "Menu", "Neon Customisation", "Enable or Disable Neon")
+        createMenu(v.name:gsub("%s+", "") .. "Menu", "Neon ændringer", "Slå neon til/fra")
 
-        populateMenu(v.name:gsub("%s+", "") .. "Menu", 0, "Disabled", "$0")
-        populateMenu(v.name:gsub("%s+", "") .. "Menu", 1, "Enabled", "$" .. vehicleCustomisationPrices.neonside.price)
+        populateMenu(v.name:gsub("%s+", "") .. "Menu", 0, "Slået fra", "$0")
+        populateMenu(v.name:gsub("%s+", "") .. "Menu", 1, "Slået til", "$" .. vehicleCustomisationPrices.neonside.price)
 
         updateItem2Text(v.name:gsub("%s+", "") .. "Menu", currentNeonState, "Installed")
 
@@ -523,7 +523,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Neon Colours Menu]#--
     local currentNeonR, currentNeonG, currentNeonB = GetCurrentNeonColour()
-    createMenu("NeonColoursMenu", "Neon Colours", "Choose a Colour")
+    createMenu("NeonColoursMenu", "Neon farver", "Vælg en farve")
 
     for k, v in ipairs(vehicleNeonOptions.neonColours) do
         populateMenu("NeonColoursMenu", k, vehicleNeonOptions.neonColours[k].name, "$" .. vehicleCustomisationPrices.neoncolours.price)
@@ -536,19 +536,19 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     finishPopulatingMenu("NeonColoursMenu")
 
     --#[Xenons Menu]#--
-    createMenu("XenonsMenu", "Xenon Customisation", "Choose a Category")
+    createMenu("XenonsMenu", "Xenon ændringer", "Vælg en kategori")
 
-    populateMenu("XenonsMenu", 0, "Headlights", "none")
-    populateMenu("XenonsMenu", 1, "Xenon Colours", "none")
+    populateMenu("XenonsMenu", 0, "Forlygter", "none")
+    populateMenu("XenonsMenu", 1, "Xenon farver", "none")
 
     finishPopulatingMenu("XenonsMenu")
 
     --#[Xenons Headlights Menu]#--
     local currentXenonState = GetCurrentXenonState()
-    createMenu("HeadlightsMenu", "Headlights Customisation", "Enable or Disable Xenons")
+    createMenu("HeadlightsMenu", "Forlygter ændringer", "Slå Xenons til/fra")
 
-    populateMenu("HeadlightsMenu", 0, "Disable Xenons", "$0")
-    populateMenu("HeadlightsMenu", 1, "Enable Xenons", "$" .. vehicleCustomisationPrices.headlights.price)
+    populateMenu("HeadlightsMenu", 0, "Slå Xenons fra", "$0")
+    populateMenu("HeadlightsMenu", 1, "Slå Xenons til", "$" .. vehicleCustomisationPrices.headlights.price)
 
     updateItem2Text("HeadlightsMenu", currentXenonState, "Installed")
 
@@ -556,7 +556,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Xenons Colour Menu]#--
     local currentXenonColour = GetCurrentXenonColour()
-    createMenu("XenonColoursMenu", "Xenon Colours", "Choose a Colour")
+    createMenu("XenonColoursMenu", "Xenon farver", "Vælg en farve")
 
     for k, v in ipairs(vehicleXenonOptions.xenonColours) do
         populateMenu("XenonColoursMenu", v.id, v.name, "$" .. vehicleCustomisationPrices.xenoncolours.price)

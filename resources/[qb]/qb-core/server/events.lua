@@ -24,7 +24,7 @@ local function OnPlayerConnecting(name, setKickReason, deferrals)
     -- mandatory wait!
     Wait(0)
 
-    deferrals.update(string.format("Hello %s. Validating Your Rockstar License", name))
+    deferrals.update(string.format("Hejsa %s. Validere din Rockstar Licens", name))
 
     for _, v in pairs(identifiers) do
         if string.find(v, 'license') then
@@ -36,14 +36,14 @@ local function OnPlayerConnecting(name, setKickReason, deferrals)
     -- mandatory wait!
     Wait(2500)
 
-    deferrals.update(string.format("Hello %s. We are checking if you are banned.", name))
+    deferrals.update(string.format("Hejsa %s. Vi tjekker lige om du er banned :).", name))
 	
     local isBanned, Reason = QBCore.Functions.IsPlayerBanned(player)
     local isLicenseAlreadyInUse = QBCore.Functions.IsLicenseInUse(license)
 	
     Wait(2500)
 	
-    deferrals.update(string.format("Welcome %s to {Server Name}.", name))
+    deferrals.update(string.format("Velkommen %s til {Server Name}.", name))
 
     if not license then
         deferrals.done('No Valid Rockstar License Found')
