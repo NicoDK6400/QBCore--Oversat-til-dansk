@@ -527,7 +527,7 @@ Config.Stores = {
 	[19] =  {shopType = "barber",  coords = vector3(1931.5, 3729.7, 31.8)},
 	[20] =  {shopType = "barber",  coords = vector3(1212.8, -472.9, 65.2)},
 	[21] =  {shopType = "barber",  coords = vector3(-32.9, -152.3, 56.1)},
-	[22] =  {shopType = "barber",  coords = vector3(-278.1, 6228.5, 30.7)}
+	[22] =  {shopType = "barber",  coords = vector3(-278.1, 6228.5, 30.7)},
 }
 
 Config.ClothingRooms = {

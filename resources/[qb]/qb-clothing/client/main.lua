@@ -1861,7 +1861,7 @@ AddEventHandler('qb-clothing:client:loadOutfit', function(oData)
     end
 
     if oData.outfitName ~= nil then
-        QBCore.Functions.Notify("You have chosen "..oData.outfitName.."! Press Confirm to confirm outfit.")
+        QBCore.Functions.Notify("Du har valgt "..oData.outfitName.."! Tryk Bekræft for at bekræfte.")
     end
 end)
 
