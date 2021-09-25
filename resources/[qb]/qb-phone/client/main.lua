@@ -871,13 +871,13 @@ AddEventHandler('qb-phone:client:BillingEmail', function(data, paid, name)
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = 'Regnskabsafdelingen',
             subject = 'Regning betalt',
-            message = 'Regningen blev betalt fra '..name..' i en sum af $'..data.amount,
+            message = 'Regningen blev betalt fra '..name..' i en sum af '..data.amount.." DKK",
         })
     else
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = 'Regnskabsafdelingen',
             subject = 'Regning afvist',
-            message = 'Regningen blev afvist af '..name..' i en sum af $'..data.amount,
+            message = 'Regningen blev afvist af '..name..' i en sum af '..data.amount.." DKK",
         })
     end
 end)
@@ -1679,7 +1679,7 @@ AddEventHandler('qb-phone:client:RemoveBankMoney', function(amount)
             action = "PhoneNotification",
             PhoneNotify = {
                 title = "Bank",
-                text = "$"..amount.." er blevet trukket fra din konto!", 
+                text = amount.." DKK er blevet trukket fra din konto!", 
                 icon = "fas fa-university", 
                 color = "#ff002f",
                 timeout = 3500,

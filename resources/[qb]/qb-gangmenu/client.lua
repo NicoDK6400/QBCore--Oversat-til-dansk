@@ -198,7 +198,7 @@ end)
 -- FUNCTIONS
 function UpdateSociety()
     QBCore.Functions.TriggerCallback('qb-gangmenu:server:GetAccount', function(cb)
-        menu_button5.Label = 'Society mængde: $' ..comma_value(cb)
+        menu_button5.Label = 'Society mængde: ' ..comma_value(cb).." DKK"
     end, PlayerGang.name)
 end
 

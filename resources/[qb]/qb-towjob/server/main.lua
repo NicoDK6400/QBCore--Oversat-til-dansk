@@ -32,16 +32,16 @@ AddEventHandler('qb-tow:server:DoBail', function(bool, vehInfo)
         if Player.PlayerData.money.bank >= Config.BailPrice then
             Bail[Player.PlayerData.citizenid] = Config.BailPrice
             Player.Functions.RemoveMoney('bank', Config.BailPrice, "tow-paid-bail")
-            TriggerClientEvent('QBCore:Notify', src, 'Du har betalt et depositum på $'..Config.BailPrice..'', 'success')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har betalt et depositum på '..Config.BailPrice..' DKK', 'success')
             TriggerClientEvent('qb-tow:client:SpawnVehicle', src, vehInfo)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge til et depositum på $'..Config.BailPrice..'', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge til et depositum på '..Config.BailPrice..'' DKK, 'error')
         end
     else
         if Bail[Player.PlayerData.citizenid] ~= nil then
             Player.Functions.AddMoney('bank', Bail[Player.PlayerData.citizenid], "tow-bail-paid")
             Bail[Player.PlayerData.citizenid] = nil
-            TriggerClientEvent('QBCore:Notify', src, 'Du fik $'..Config.BailPrice..' tilbage fra dit depositum', 'success')
+            TriggerClientEvent('QBCore:Notify', src, 'Du fik '..Config.BailPrice..' DKK tilbage fra dit depositum', 'success')
         end
     end
 end)
@@ -76,7 +76,7 @@ AddEventHandler('qb-tow:server:11101110', function(drops)
 
     Player.Functions.AddJobReputation(1)
     Player.Functions.AddMoney("bank", payment, "tow-salary")
-    TriggerClientEvent('chatMessage', source, "JOB", "warning", "Du har modtaget løn: $"..payment..", Brutto: $"..price.." (Fra $"..bonus.." Bonus) I $"..taxAmount.." Moms ("..PaymentTax.."%)")
+    TriggerClientEvent('chatMessage', source, "JOB", "warning", "Du har modtaget løn: "..payment.." DKK, Brutto: "..price.." DKK (Fra "..bonus.." DKK Bonus) I "..taxAmount.." DKK Moms ("..PaymentTax.."%)")
 end)
 
 QBCore.Commands.Add("npc", "NPC opgaver", {}, false, function(source, args)

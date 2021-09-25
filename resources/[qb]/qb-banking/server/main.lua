@@ -270,8 +270,8 @@ QBCore.Functions.CreateCallback('qb-banking:getBankingInformation', function(sou
         if (xPlayer) then
             local banking = {
                     ['name'] = xPlayer.PlayerData.charinfo.firstname .. ' ' .. xPlayer.PlayerData.charinfo.lastname,
-                    ['bankbalance'] = '$'.. format_int(xPlayer.PlayerData.money['bank']),
-                    ['cash'] = '$'.. format_int(xPlayer.PlayerData.money['cash']),
+                    ['bankbalance'] = format_int(xPlayer.PlayerData.money['bank']) .. ' DKK',
+                    ['cash'] = format_int(xPlayer.PlayerData.money['cash']) .. ' DKK',
                     ['accountinfo'] = xPlayer.PlayerData.charinfo.account,
                 }
                 
@@ -331,8 +331,8 @@ AddEventHandler('qb-banking:doQuickDeposit', function(amount)
         local bank = xPlayer.Functions.AddMoney('bank', tonumber(amount), 'banking-quick-depo')
         if bank then
             TriggerClientEvent('qb-banking:openBankScreen', src)
-            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..'.')
-            TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of $"..amount.." successfully.")
+            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af '..amount..' DKK.')
+            TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of "..amount.." DKK successfully.")
         end
     end
 end)
@@ -358,8 +358,8 @@ AddEventHandler('qb-banking:doQuickWithdraw', function(amount, branch)
         local bank = xPlayer.Functions.AddMoney('cash', tonumber(amount), 'banking-quick-withdraw')
         if cash then 
             TriggerClientEvent('qb-banking:openBankScreen', src)
-            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..'.')
-            TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of $"..amount.." successfully.")
+            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af '..amount..' DKK.')
+            TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of "..amount.." DKK successfully.")
         end
     end
 end)
@@ -390,8 +390,8 @@ AddEventHandler('qb-banking:savingsDeposit', function(amount)
         while bank == nil do Wait(0) end
         while savings == nil do Wait(0) end
         TriggerClientEvent('qb-banking:openBankScreen', src)
-        TriggerClientEvent('qb-banking:successAlert', src, 'Du har indbetalt et opsparingsbeløb på $'..tostring(amount)..' successfully.')
-        TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings deposit of $"..tostring(amount).." successfully..")
+        TriggerClientEvent('qb-banking:successAlert', src, 'Du har indbetalt et opsparingsbeløb på '..tostring(amount)..' DKK successfully.')
+        TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings deposit of "..tostring(amount).." DKK successfully..")
     end
 end)
 
@@ -408,8 +408,8 @@ AddEventHandler('qb-banking:savingsWithdraw', function(amount)
         while bank == nil do Wait(0) end
         while savings == nil do Wait(0) end
         TriggerClientEvent('qb-banking:openBankScreen', src)
-        TriggerClientEvent('qb-banking:successAlert', src, 'Du foretog en opsparingstrækning på $'..tostring(amount)..' successfully.')
-        TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings withdrawal of $"..tostring(amount).." successfully.")
+        TriggerClientEvent('qb-banking:successAlert', src, 'Du foretog en opsparingstrækning på '..tostring(amount)..' DKK successfully.')
+        TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings withdrawal of "..tostring(amount).." DKK successfully.")
     end
 end)
 
@@ -441,8 +441,8 @@ QBCore.Commands.Add('givecash', 'Give cash to player.', {{name = 'id', help = 'S
 				if #(GetEntityCoords(GetPlayerPed(src)) - GetEntityCoords(GetPlayerPed(id))) < distance then
 					if xPlayer.Functions.RemoveMoney('cash', amount) then
 						if xReciv.Functions.AddMoney('cash', amount) then
-							TriggerClientEvent('QBCore:Notify', src, "Du gav det til ID " .. tostring(id) .. ' ' .. tostring(amount) .. '$.', "success")
-							TriggerClientEvent('QBCore:Notify', id, "Du modtog " .. tostring(amount) .. '$ fra ID ' .. tostring(src), "success")
+							TriggerClientEvent('QBCore:Notify', src, "Du gav det til ID " .. tostring(id) .. ' ' .. tostring(amount) .. ' DKK.', "success")
+							TriggerClientEvent('QBCore:Notify', id, "Du modtog " .. tostring(amount) .. ' DKK fra ID ' .. tostring(src), "success")
 							TriggerClientEvent("payanimation", src)
 						else
 							TriggerClientEvent('QBCore:Notify', src, "Kunne ikke give elementet til det givne id.", "error")

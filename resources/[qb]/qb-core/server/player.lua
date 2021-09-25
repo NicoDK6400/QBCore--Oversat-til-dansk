@@ -245,9 +245,9 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 			self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype]+amount
 			self.Functions.UpdatePlayerData()
 			if amount > 100000 then
-				TriggerEvent("qb-log:server:CreateLog", "playermoney", "AddMoney", "lightgreen", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** $"..amount .. " ("..moneytype..") added, new "..moneytype.." balance: "..self.PlayerData.money[moneytype], true)
+				TriggerEvent("qb-log:server:CreateLog", "playermoney", "AddMoney", "lightgreen", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** "..amount .. " DKK ("..moneytype..") added, new "..moneytype.." balance: "..self.PlayerData.money[moneytype], true)
 			else
-				TriggerEvent("qb-log:server:CreateLog", "playermoney", "AddMoney", "lightgreen", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** $"..amount .. " ("..moneytype..") added, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
+				TriggerEvent("qb-log:server:CreateLog", "playermoney", "AddMoney", "lightgreen", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** "..amount .. " DKK ("..moneytype..") added, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
 			end
 			TriggerClientEvent("hud:client:OnMoneyChange", self.PlayerData.source, moneytype, amount, false)
 			return true
@@ -269,9 +269,9 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 			self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype] - amount
 			self.Functions.UpdatePlayerData()
 			if amount > 100000 then
-				TriggerEvent("qb-log:server:CreateLog", "playermoney", "RemoveMoney", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** $"..amount .. " ("..moneytype..") removed, new "..moneytype.." balance: "..self.PlayerData.money[moneytype], true)
+				TriggerEvent("qb-log:server:CreateLog", "playermoney", "RemoveMoney", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** "..amount .. " DKK ("..moneytype..") removed, new "..moneytype.." balance: "..self.PlayerData.money[moneytype], true)
 			else
-				TriggerEvent("qb-log:server:CreateLog", "playermoney", "RemoveMoney", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** $"..amount .. " ("..moneytype..") removed, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
+				TriggerEvent("qb-log:server:CreateLog", "playermoney", "RemoveMoney", "red", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** "..amount .. " DKK ("..moneytype..") removed, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
 			end
 			TriggerClientEvent("hud:client:OnMoneyChange", self.PlayerData.source, moneytype, amount, true)
 			if moneytype == "bank" then
@@ -290,7 +290,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 		if self.PlayerData.money[moneytype] ~= nil then
 			self.PlayerData.money[moneytype] = amount
 			self.Functions.UpdatePlayerData()
-			TriggerEvent("qb-log:server:CreateLog", "playermoney", "SetMoney", "green", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** $"..amount .. " ("..moneytype..") set, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
+			TriggerEvent("qb-log:server:CreateLog", "playermoney", "SetMoney", "green", "**"..GetPlayerName(self.PlayerData.source) .. " (citizenid: "..self.PlayerData.citizenid.." | id: "..self.PlayerData.source..")** "..amount .. " DKK ("..moneytype..") set, new "..moneytype.." balance: "..self.PlayerData.money[moneytype])
 			return true
 		end
 		return false

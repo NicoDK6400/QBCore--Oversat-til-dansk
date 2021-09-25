@@ -417,13 +417,13 @@ QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, c
         invoiceMailData = {
             sender = 'Regnskabsafdelingen',
             subject = 'Provision modtaget',
-            message = string.format('Du har modtaget en provision, $%s efter %s %s betalt regningen af $%s.', commission, Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
+            message = string.format('Du har modtaget en provision, %s DKK efter %s %s betalt regningen af %s DKK.', commission, Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
         }
     elseif not SenderPly and Config.BillingCommissions[society] then
         invoiceMailData = {
             sender = 'Regnskabsafdelingen',
             subject = 'Regning betalt',
-            message = string.format('%s %s betalt en regning af $%s', Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
+            message = string.format('%s %s betalt en regning af %s DKK', Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname, amount)
         }
     end
     Ply.Functions.RemoveMoney('bank', amount, "paid-invoice")

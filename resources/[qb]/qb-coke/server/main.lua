@@ -96,7 +96,7 @@ AddEventHandler('qb-coke:server:cokesell', function()
                         local amount = Player.PlayerData.items[k].amount * random
 
                         TriggerClientEvent('chatMessage', source, "Dealer Johnny", "normal", 'Yo '..Player.PlayerData.firstname..', det er ikke sådan du har '..Player.PlayerData.items[k].amount..'poser med coke?')
-                        TriggerClientEvent('chatMessage', source, "Dealer Johnny", "normal", 'Jeg køber det hele for $'..amount )
+                        TriggerClientEvent('chatMessage', source, "Dealer Johnny", "normal", 'Jeg køber det hele for '..amount..' DKK' )
 
                         Player.Functions.RemoveItem("cokebaggy", Player.PlayerData.items[k].amount)
                         TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cokebaggy'], "remove")

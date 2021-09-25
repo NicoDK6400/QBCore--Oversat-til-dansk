@@ -145,7 +145,7 @@ AddEventHandler('qb-atms:server:doAccountWithdraw', function(data)
                     xCH.Functions.RemoveMoney('bank', tonumber(data.amount))
                     xPlayer.Functions.AddMoney('cash', tonumber(data.amount))
                     dailyWithdraws[cardHolder] = dailyWithdraws[cardHolder] + tonumber(data.amount)
-                    TriggerClientEvent('QBCore:Notify', src, "Udbetalt $" .. data.amount .. ' fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
+                    TriggerClientEvent('QBCore:Notify', src, "Udbetalt " .. data.amount .. ' DKK fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
                 else
                     TriggerClientEvent('QBCore:Notify', src, "Du kan ikke gå i minus i en hæveautomat.", "error")
                 end
@@ -164,7 +164,7 @@ AddEventHandler('qb-atms:server:doAccountWithdraw', function(data)
                     xCH.money.bank = bankCount
                     exports.oxmysql:execute('UPDATE players SET money = ? WHERE citizenid = ?', { xCH.money, cardHolder })
                     dailyWithdraws[cardHolder] = dailyWithdraws[cardHolder] + tonumber(data.amount)
-                    TriggerClientEvent('QBCore:Notify', src, "Udbetaling $" .. data.amount .. ' fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
+                    TriggerClientEvent('QBCore:Notify', src, "Udbetaling " .. data.amount .. ' DKK fra dit kreditkort. Daglig udbetalinger: ' .. dailyWithdraws[cardHolder], "success")
                 else
                     TriggerClientEvent('QBCore:Notify', src, "Du kan ikke gå i minus i en hæveautomat.", "error")
                 end

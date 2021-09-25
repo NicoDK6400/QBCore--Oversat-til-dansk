@@ -61,7 +61,7 @@ AddEventHandler("qb-gangmenu:server:withdrawMoney", function(amount)
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
     TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Withdraw Money',
-        "Successfully withdrawn $" .. amount .. ' (' .. gang .. ')', src)
+        "Successfully withdrawn " .. amount .. ' DKK (' .. gang .. ')', src)
 end)
 
 -- Deposit Money
@@ -83,7 +83,7 @@ AddEventHandler("qb-gangmenu:server:depositMoney", function(amount)
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
     TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Deposit Money',
-        "Successfully deposited $" .. amount .. ' (' .. gang .. ')', src)
+        "Successfully deposited " .. amount .. ' DKK (' .. gang .. ')', src)
 end)
 
 RegisterServerEvent("qb-gangmenu:server:addAccountMoney")

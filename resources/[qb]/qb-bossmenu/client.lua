@@ -200,7 +200,7 @@ end)
 -- FUNCTIONS
 function UpdateSociety()
     QBCore.Functions.TriggerCallback('qb-bossmenu:server:GetAccount', function(cb)
-        menu_button5.Label = 'Society Amount: $' ..comma_value(cb)
+        menu_button5.Label = 'Society Amount: ' ..comma_value(cb) .. ' DKK'
     end, PlayerJob.name)
 end
 

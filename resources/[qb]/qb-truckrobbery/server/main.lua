@@ -34,7 +34,7 @@ AddEventHandler('AttackTransport:akceptujto', function()
 	accountMoney = xPlayer.PlayerData.money["bank"]
 if ActiveMission == 0 then
 	if accountMoney < ActivationCost then
-	TriggerClientEvent('QBCore:Notify', _source, "Du mangler $"..ActivationCost.." i banken, for at lave missionen")
+	TriggerClientEvent('QBCore:Notify', _source, "Du mangler "..ActivationCost.." DKK i banken, for at lave missionen")
 	else
 		for k, v in pairs(QBCore.Functions.GetPlayers()) do
 			local Player = QBCore.Functions.GetPlayer(v)

@@ -82,7 +82,7 @@ AddEventHandler('qb-garbagejob:server:PayShit', function(amount, location)
             end
         end
 
-        TriggerClientEvent('QBCore:Notify', src, "Du blev betalt $"..amount..",- og er overført til din konto!", "success")
+        TriggerClientEvent('QBCore:Notify', src, "Du blev betalt "..amount..",- DKK og er overført til din konto!", "success")
     else
         TriggerClientEvent('QBCore:Notify', src, "Du har intet tjent..", "error")
     end

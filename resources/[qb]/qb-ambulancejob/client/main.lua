@@ -405,7 +405,7 @@ AddEventHandler('hospital:client:SendBillEmail', function(amount)
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = "Pillbox",
             subject = "Hospital regning",
-            message = "Hej " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har hermed tilsendt dig en regning fra dit sidste ophold på Pillbox.<br />Beløbet du skal betale er: <strong>$"..amount.."</strong><br /><br />Vi ønsker dig god bedring herfra!",
+            message = "Hej " .. gender .. " " .. charinfo.lastname .. ",<br /><br />Vi har hermed tilsendt dig en regning fra dit sidste ophold på Pillbox.<br />Beløbet du skal betale er: <strong>"..amount.." DKK</strong><br /><br />Vi ønsker dig god bedring herfra!",
             button = {}
         })
     end)
