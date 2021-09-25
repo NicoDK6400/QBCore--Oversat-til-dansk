@@ -75,7 +75,7 @@ Citizen.CreateThread(function()
                     if deathTime > 0 then
                         DrawTxt(0.93, 1.44, 1.0,1.0,0.6, "Genopliv om: ~r~" .. math.ceil(deathTime) .. "~w~ sekunder", 255, 255, 255, 255)
                     else
-                        DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, "~w~ Hold ~r~[E] ("..hold..")~w~ nede for at genoplive ~r~($"..Config.BillCost..")~w~", 255, 255, 255, 255)
+                        DrawTxt(0.865, 1.44, 1.0, 1.0, 0.6, "~w~ Hold ~r~[E] ("..hold..")~w~ nede for at genoplive ~r~("..Config.BillCost.." DKK)~w~", 255, 255, 255, 255)
                     end
                 end
 

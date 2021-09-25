@@ -72,7 +72,7 @@ Citizen.CreateThread(function()
                                 sellVehData.price = tonumber(v["price"])
                             end
                         end
-                    DrawText3Ds(Config.SellVehicleBack.x, Config.SellVehicleBack.y, Config.SellVehicleBack.z, '[~g~E~w~] - Sælg køretøj til forhandler til ~g~$'..math.floor(sellVehData.price / 2))
+                    DrawText3Ds(Config.SellVehicleBack.x, Config.SellVehicleBack.y, Config.SellVehicleBack.z, '[~g~E~w~] - Sælg køretøj til forhandler til ~g~'..math.floor(sellVehData.price / 2)..' DKK')
                     if IsControlJustPressed(0, 38) then
                         QBCore.Functions.TriggerCallback('qb-garage:server:checkVehicleOwner', function(owned)
                             if owned then
@@ -95,7 +95,7 @@ Citizen.CreateThread(function()
                         if not IsPedInAnyVehicle(ped) then
                             if not isConfirming then
                                 DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.45, '[~g~E~w~] - Se køretøjs kontrakt')
-                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.25, QBCore.Shared.Vehicles[Config.OccasionSlots[i]["model"]]["name"]..', Pris: ~g~$'..Config.OccasionSlots[i]["price"])
+                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.25, QBCore.Shared.Vehicles[Config.OccasionSlots[i]["model"]]["name"]..', Pris: ~g~'..Config.OccasionSlots[i]["price"]..' DKK')
                                 if Config.OccasionSlots[i]["owner"] == QBCore.Functions.GetPlayerData().citizenid then
                                     DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.05, '[~r~G~w~] - Afbryd tilbud på køretøj')
                                     if IsControlJustPressed(0, 47) then
@@ -318,7 +318,7 @@ function sellVehicleWait(price)
     QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
     Citizen.Wait(1500)
     DoScreenFadeIn(250)
-    QBCore.Functions.Notify('Dit køretøj er sat til salg! Pris - $'..price, 'success')
+    QBCore.Functions.Notify('Dit køretøj er sat til salg! Pris - '..price..' DKK', 'success')
     PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
 end
 

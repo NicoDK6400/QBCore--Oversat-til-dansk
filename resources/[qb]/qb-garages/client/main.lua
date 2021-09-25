@@ -288,7 +288,7 @@ function DepotList()
                     v.state = "Impound"
                 end
 
-                Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutDepotVehicle", v, v.state .. " ($"..v.depotprice..",-)", " Motor: " .. enginePercent.."%", " Karosseri: " .. bodyPercent.."%", " Tank: "..currentFuel.."%")
+                Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutDepotVehicle", v, v.state .. " ("..v.depotprice..",- DKK)", " Motor: " .. enginePercent.."%", " Karosseri: " .. bodyPercent.."%", " Tank: "..currentFuel.."%")
             end
         end
 

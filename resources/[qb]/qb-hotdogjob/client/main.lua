@@ -179,7 +179,7 @@ function StartWorking()
             HotdogLoop()
             UpdateUI()
             CheckLoop()
-            QBCore.Functions.Notify('Du har betalt et depositum på $ 250!..', 'success')
+            QBCore.Functions.Notify('Du har betalt et depositum på 250 DKK!..', 'success')
         else
             QBCore.Functions.Notify('Du har ingen penge til depositum..', 'error')
         end
@@ -482,9 +482,9 @@ function SellToPed(ped)
                     end
                 end
               
-                QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '[7] Salg '..HotdogsForSale..'x for en pris af $'..(HotdogsForSale * SellingPrice)..' / [8] Reject')
+                QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '[7] Salg '..HotdogsForSale..'x for en pris af '..(HotdogsForSale * SellingPrice)..' DKK / [8] Reject')
                 if IsControlJustPressed(0, 161) or IsDisabledControlJustPressed(0, 161) then
-                    QBCore.Functions.Notify(HotdogsForSale..'x Hotdog(\'s) sælges til $'..(HotdogsForSale * SellingPrice), 'success')
+                    QBCore.Functions.Notify(HotdogsForSale..'x Hotdog(\'s) sælges til '..(HotdogsForSale * SellingPrice)..' DKK', 'success')
                     TriggerServerEvent('qb-hotdogjob:server:Sell', HotdogsForSale, SellingPrice)
                     SellingData.HasTarget = false
                     local Myped = PlayerPedId()
@@ -697,7 +697,7 @@ function StopWorking()
                 for _, v in pairs(Config.Stock) do
                     v.Current = 0
                 end
-                QBCore.Functions.Notify('Du har fået dine $250 i depositum tilbage!', 'success')
+                QBCore.Functions.Notify('Du har fået dine 250 DKK i depositum tilbage!', 'success')
             else
                 QBCore.Functions.Notify('Noget, må er min ven..', 'error')
             end

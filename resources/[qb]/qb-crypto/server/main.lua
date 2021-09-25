@@ -39,7 +39,7 @@ QBCore.Commands.Add("setcryptoworth", "Set crypto value", {{name="crypto", help=
                     NewWorth = NewWorth
                 })
 
-                TriggerClientEvent('QBCore:Notify', src, "Du har værdigen af "..Crypto.Labels[crypto].."taget fra: ($"..Crypto.Worth[crypto].." til: $"..NewWorth..") ("..ChangeLabel.." "..PercentageChange.."%)")
+                TriggerClientEvent('QBCore:Notify', src, "Du har værdigen af "..Crypto.Labels[crypto].."taget fra: ("..Crypto.Worth[crypto].." DKK til: "..NewWorth.." DKK) ("..ChangeLabel.." "..PercentageChange.."%)")
                 Crypto.Worth[crypto] = NewWorth
                 TriggerClientEvent('qb-crypto:client:UpdateCryptoWorth', -1, crypto, NewWorth)
                 exports.oxmysql:insert('INSERT INTO crypto (worth, history) VALUES (:worth, :history) ON DUPLICATE KEY UPDATE worth = :worth, history = :history', {
@@ -60,7 +60,7 @@ end, "admin")
 
 QBCore.Commands.Add("checkcryptoworth", "", {}, false, function(source, args)
     local src = source
-    TriggerClientEvent('QBCore:Notify', src, "Qbit har værdien af: $"..Crypto.Worth["qbit"])
+    TriggerClientEvent('QBCore:Notify', src, "Qbit har værdien af: "..Crypto.Worth["qbit"].." DKK")
 end, "admin")
 
 QBCore.Commands.Add("crypto", "", {}, false, function(source, args)
@@ -68,7 +68,7 @@ QBCore.Commands.Add("crypto", "", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(src)
     local MyPocket = math.ceil(Player.PlayerData.money.crypto * Crypto.Worth["qbit"])
 
-    TriggerClientEvent('QBCore:Notify', src, "Du har: "..Player.PlayerData.money.crypto.." QBit, med en værdi af: $"..MyPocket..",-")
+    TriggerClientEvent('QBCore:Notify', src, "Du har: "..Player.PlayerData.money.crypto.." QBit, med en værdi af: "..MyPocket..",-  DKK")
 end, "admin")
 
 RegisterServerEvent('qb-crypto:server:FetchWorth')

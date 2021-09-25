@@ -26,7 +26,7 @@ AddEventHandler('qb-streetraces:NewRace', function(RaceTable)
         table.insert(Races[RaceId].joined, QBCore.Functions.GetIdentifier(src, 'license'))
         TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
         TriggerClientEvent('qb-streetraces:SetRaceId', src, RaceId)
-        TriggerClientEvent('QBCore:Notify', src, "Du tilmeldte dig for $"..Races[RaceId].amount..",-", 'success')
+        TriggerClientEvent('QBCore:Notify', src, "Du tilmeldte dig for "..Races[RaceId].amount..",- DKK", 'success')
     end
 end)
 
@@ -35,7 +35,7 @@ AddEventHandler('qb-streetraces:RaceWon', function(RaceId)
     local src = source
     local xPlayer = QBCore.Functions.GetPlayer(src)
     xPlayer.Functions.AddMoney('cash', Races[RaceId].pot, "race-won")
-    TriggerClientEvent('QBCore:Notify', src, "Du vandt racet og modtog $"..Races[RaceId].pot..",-", 'success')
+    TriggerClientEvent('QBCore:Notify', src, "Du vandt racet og modtog "..Races[RaceId].pot..",- DKK", 'success')
     TriggerClientEvent('qb-streetraces:SetRace', -1, Races)
     TriggerClientEvent('qb-streetraces:RaceDone', -1, RaceId, GetPlayerName(src))
 end)
@@ -124,7 +124,7 @@ function CancelRace(source)
                     for _, iden in pairs(Races[key].joined) do
                         local xdPlayer = QBCore.Functions.GetPlayer(iden)
                             xdPlayer.Functions.AddMoney('cash', Races[key].amount, "race-cancelled")
-                            TriggerClientEvent('QBCore:Notify', xdPlayer.PlayerData.source, "Race er blevet stoppet, du fik $"..Races[key].amount.." tilbage", 'error')
+                            TriggerClientEvent('QBCore:Notify', xdPlayer.PlayerData.source, "Race er blevet stoppet, du fik "..Races[key].amount.." DKK tilbage", 'error')
                             TriggerClientEvent('qb-streetraces:StopRace', xdPlayer.PlayerData.source)
                             RemoveFromRace(iden)
                     end

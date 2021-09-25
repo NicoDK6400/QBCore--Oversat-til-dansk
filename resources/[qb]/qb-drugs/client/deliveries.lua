@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
                             end
                         elseif dealerIsHome then
                             if dealer["name"] == "Mystery man" then
-                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Hjælp din makker ($5000)')
+                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Hjælp din makker (5000 DKK)')
                             else
                                 DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Start en mission')
                             end

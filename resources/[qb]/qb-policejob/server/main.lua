@@ -122,7 +122,7 @@ AddEventHandler('police:server:BillPlayer', function(playerId, price)
         if OtherPlayer ~= nil then
             OtherPlayer.Functions.RemoveMoney("bank", price, "paid-bills")
             TriggerEvent('qb-bossmenu:server:addAccountMoney', "police", price)
-            TriggerClientEvent('QBCore:Notify', OtherPlayer.PlayerData.source, "Du modtager en bøde på $" .. price)
+            TriggerClientEvent('QBCore:Notify', OtherPlayer.PlayerData.source, "Du modtager en bøde på " .. price..' DKK')
         end
     end
 end)
@@ -280,7 +280,7 @@ AddEventHandler('police:server:SearchPlayer', function(playerId)
     local SearchedPlayer = QBCore.Functions.GetPlayer(playerId)
     if SearchedPlayer ~= nil then
         TriggerClientEvent('chatMessage', source, "SYSTEM", "warning",
-            "Personen har $" .. SearchedPlayer.PlayerData.money["cash"] .. ",- af penge på sig..")
+            "Personen har " .. SearchedPlayer.PlayerData.money["cash"] .. ",- DKK af penge på sig..")
         TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du bliver kropsvisiteret..")
     end
 end)
@@ -332,8 +332,8 @@ AddEventHandler('police:server:RobPlayer', function(playerId)
         local money = SearchedPlayer.PlayerData.money["cash"]
         Player.Functions.AddMoney("cash", money, "police-player-robbed")
         SearchedPlayer.Functions.RemoveMoney("cash", money, "police-player-robbed")
-        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du er blevet røvet for $" .. money)
-        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "Du stajl $" .. money)
+        TriggerClientEvent('QBCore:Notify', SearchedPlayer.PlayerData.source, "Du er blevet røvet for " .. money.." DKK")
+        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, "Du stajl " .. money.." DKK")
     end
 end)
 
@@ -403,7 +403,7 @@ AddEventHandler('police:server:Impound', function(plate, fullImpound, price, bod
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, depotprice = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
                 {0, price, body, engine, fuel, plate})
-            TriggerClientEvent('QBCore:Notify', src, "Køretøj sat i depot for $" .. price .. "!")
+            TriggerClientEvent('QBCore:Notify', src, "Køretøj sat i depot for " .. price .. " DKK!")
         else
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
@@ -1120,7 +1120,7 @@ QBCore.Commands.Add("paytow", "Betal vognmand (Kun Politi, EMS)", {{
             if OtherPlayer.PlayerData.job.name == "tow" then
                 OtherPlayer.Functions.AddMoney("bank", 500, "police-tow-paid")
                 TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "SYSTEM", "warning",
-                    "Du modtog $ 500 for din service!")
+                    "Du modtog 500 DKK for din service!")
                 TriggerClientEvent('QBCore:Notify', source, 'Du betalte en vognmand')
             else
                 TriggerClientEvent('QBCore:Notify', source, 'Personen er ikke en vognmand', "error")
@@ -1143,7 +1143,7 @@ QBCore.Commands.Add("paylawyer", "Betal advokat (Kun Politi, Advokat)", {{
             if OtherPlayer.PlayerData.job.name == "lawyer" then
                 OtherPlayer.Functions.AddMoney("bank", 500, "police-lawyer-paid")
                 TriggerClientEvent('chatMessage', OtherPlayer.PlayerData.source, "SYSTEM", "warning",
-                    "Du modtog $ 500 for din sag!")
+                    "Du modtog 500 DKK for din sag!")
                 TriggerClientEvent('QBCore:Notify', source, 'Du betalte en advokat')
             else
                 TriggerClientEvent('QBCore:Notify', source, 'Personen er ikke advokat', "error")

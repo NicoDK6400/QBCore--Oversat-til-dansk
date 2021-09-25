@@ -268,7 +268,7 @@ Citizen.CreateThread(function()
                     if InteractDistance < 1 then
                         if not IsKeyHolder then
                             DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z + 0.2, '~b~H~w~ - Se inventory')
-                            DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z, '~b~E~w~ - Køb for (~g~$5000~w~)')
+                            DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z, '~b~E~w~ - Køb for (~g~5000 DKK~w~)')
                             if IsControlJustPressed(0, 38) then
                                 TriggerServerEvent('qb-traphouse:server:TakeoverHouse', CurrentTraphouse)
                             end
@@ -281,7 +281,7 @@ Citizen.CreateThread(function()
                             end
                         else
                             DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z + 0.2, '~b~H~w~ - Se inventory')
-                            DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z, '~b~E~w~ - Tag penge (~g~$'..data.money..'~w~)')
+                            DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z, '~b~E~w~ - Tag penge (~g~'..data.money..' DKK~w~)')
                             if IsHouseOwner then
                                 DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z - 0.2, '~b~/multikeys~w~ [id] - for at give nøgler')
                                 DrawText3Ds(data.coords["interaction"].x, data.coords["interaction"].y, data.coords["interaction"].z - 0.4, '~b~G~w~ - Se pin kode')

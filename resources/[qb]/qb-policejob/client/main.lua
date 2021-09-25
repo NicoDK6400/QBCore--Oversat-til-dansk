@@ -112,8 +112,8 @@ AddEventHandler('police:client:sendBillingMail', function(amount)
             sender = "Gældstyrrelsen",
             subject = "Indsamling af udeastånde gæld",
             message = "Kære " .. gender .. " " .. charinfo.lastname ..
-                ",<br /><br />Gældstyrrelsen (CJCA) opkrævede de bøder, du modtog fra politiet..<br />Der er blevet trukket <strong>$" ..
-                amount .. "</strong> fra din konto.<br /><br />Med venlig hilsen,<br />Mr. I.K. Graai",
+                ",<br /><br />Gældstyrrelsen (CJCA) opkrævede de bøder, du modtog fra politiet..<br />Der er blevet trukket <strong>" ..
+                amount .. " DKK</strong> fra din konto.<br /><br />Med venlig hilsen,<br />Mr. I.K. Graai",
             button = {}
         })
     end)

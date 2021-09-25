@@ -231,13 +231,13 @@ function populateBanking(data)
             withdraw = statement.withdraw
         }
         if (statement.balance == 0) {
-            balance = '<span class="text-dark">$' + statement.balance + '</span>';
+            balance = '<span class="text-dark">' + statement.balance + ' DKK</span>';
         } else if (statement.balance > 0) {
-            balance = '<span class="text-success">$' + statement.balance + '</span>';
+            balance = '<span class="text-success">' + statement.balance + ' DKK</span>';
         } else {
-            balance = '<span class="text-danger">$' + statement.balance + '</span>';
+            balance = '<span class="text-danger">' + statement.balance + ' DKK</span>';
         }
-        $("#currentStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        $("#currentStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>' + withdraw + ' DKK</small></td><td class="text-center text-success"><small>' + deposit + ' DKK</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 

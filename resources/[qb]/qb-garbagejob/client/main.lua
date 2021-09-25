@@ -201,7 +201,7 @@ Citizen.CreateThread(function()
                                 QBCore.Functions.TriggerCallback('qb-garbagejob:server:CheckBail', function(DidBail)
                                     if DidBail then
                                         BringBackCar()
-                                        QBCore.Functions.Notify("Du har fået dine $250,- i depositum tilbage!")
+                                        QBCore.Functions.Notify("Du har fået dine 250,- DKK i depositum tilbage!")
                                     else
                                         QBCore.Functions.Notify("Du har intet depositum betalt på dette køretøj..")
                                     end
@@ -226,11 +226,11 @@ Citizen.CreateThread(function()
                                             GarbageLocation = 1
                                             IsWorking = true
                                             SetGarbageRoute()
-                                            QBCore.Functions.Notify("Du har indbetalt $ 250,-!")
+                                            QBCore.Functions.Notify("Du har indbetalt 250,- DKK!")
                                             QBCore.Functions.Notify("Du er begyndt at arbejde, placering markeret med GPS!")
                                         end, coords, true)
                                     else
-                                        QBCore.Functions.Notify("Du har ikke penge nok til depositum .. Depositum er på $ 1000,-")
+                                        QBCore.Functions.Notify("Du har ikke penge nok til depositum .. Depositum er på 1000,- DKK")
                                     end
                                 end)
                             end

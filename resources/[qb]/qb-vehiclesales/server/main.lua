@@ -88,7 +88,7 @@ AddEventHandler('qb-occasions:server:sellVehicleBack', function(vData)
     local plate = vData.plate
 
     Player.Functions.AddMoney('bank', price)
-    TriggerClientEvent('QBCore:Notify', src, 'Du har solgt dit køretøj for $' .. price, 'success', 5500)
+    TriggerClientEvent('QBCore:Notify', src, 'Du har solgt dit køretøj for ' .. price ..' DKK', 'success', 5500)
     exports.oxmysql:execute('DELETE FROM player_vehicles WHERE plate = ?', {plate})
 end)
 
@@ -139,7 +139,7 @@ AddEventHandler('qb-occasions:server:buyVehicle', function(vehicleData)
             TriggerEvent('qb-phone:server:sendNewMailToOffline', SellerCitizenId, {
                 sender = 'Larrys RV Salg',
                 subject = "Du har solgt et køretøj!",
-                message = 'Du tjente $'..NewPrice..' fra dit salg af '..QBCore.Shared.Vehicles[result[1].model].name..''
+                message = 'Du tjente '..NewPrice..' DKK fra dit salg af '..QBCore.Shared.Vehicles[result[1].model].name..''
             })
         else
             TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge', 'error', 3500)

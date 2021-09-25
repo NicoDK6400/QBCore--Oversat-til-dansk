@@ -242,7 +242,7 @@ Citizen.CreateThread(function()
                                 if not data.RepairingData.Ready then
                                     local WeaponData = QBCore.Shared.Weapons[GetHashKey(CurrentWeaponData.name)]
                                     local WeaponClass = (QBCore.Shared.SplitStr(WeaponData.ammotype, "_")[2]):lower()
-                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Repair weapon, ~g~$'..Config.WeaponRepairCotsts[WeaponClass]..'~w~')
+                                    DrawText3Ds(data.coords.x, data.coords.y, data.coords.z, '[E] Repair weapon, ~g~'..Config.WeaponRepairCotsts[WeaponClass]..' DKK~w~')
                                     if IsControlJustPressed(0, 38) then
                                         QBCore.Functions.TriggerCallback('weapons:server:RepairWeapon', function(HasMoney)
                                             if HasMoney then

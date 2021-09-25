@@ -212,7 +212,7 @@ Citizen.CreateThread(function()
                                 DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.8, '~g~G~w~ - Skift køretøj (~g~'..displayName..'~w~)')
                             end
                             if not buySure then
-                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.70, '~g~E~w~ - Køb køretøj (~g~$'..vehPrice..'~w~)')
+                                DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.70, '~g~E~w~ - Køb køretøj (~g~'..vehPrice..' DKK~w~)')
                             elseif buySure then
                                 DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.65, 'Er du sikker? | ~g~[7]~w~ Bekræft -/- ~r~[8]~w~ Afbryd')
                             end
@@ -232,7 +232,7 @@ Citizen.CreateThread(function()
                         end
 
                         if QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].buying then
-                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.6, '~g~7~w~ - Bekræft / ~r~8~w~ - Afbryd - ~g~($'..QBCore.Shared.Vehicles[QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle].price..',-)')
+                            DrawText3Ds(QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.x, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.y, QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].coords.z + 1.6, '~g~7~w~ - Bekræft / ~r~8~w~ - Afbryd - ~g~('..QBCore.Shared.Vehicles[QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle].price..',- DKK)')
                             
                             if IsDisabledControlJustPressed(0, 161) then
                                 TriggerServerEvent('qb-vehicleshop:server:buyShowroomVehicle', QB.VehicleShops[ClosestShopIndex]["ShowroomVehicles"][ClosestVehicle].chosenVehicle)
@@ -274,7 +274,7 @@ Citizen.CreateThread(function()
                                 drawMenuButton(button,QB.VehicleShops[ClosestShopIndex]["menu"]["x"],y,selected)
                                 if button.price ~= nil then
 
-                                    drawMenuRight("$"..button.price,QB.VehicleShops[ClosestShopIndex]["menu"]["x"],y,selected)
+                                    drawMenuRight(button.price.." DKK",QB.VehicleShops[ClosestShopIndex]["menu"]["x"],y,selected)
 
                                 end
                                 y = y + 0.04

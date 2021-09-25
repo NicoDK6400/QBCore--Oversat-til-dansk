@@ -32,8 +32,8 @@ AddEventHandler("qb-casino:server:sell", function()
                     Player.Functions.RemoveItem(Player.PlayerData.items[k].name, Player.PlayerData.items[k].amount, k)
                         
         Player.Functions.AddMoney("cash", price, "sold-casino-chips")
-            TriggerClientEvent('QBCore:Notify', src, "Du solgte dine chips for $"..price)
-            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "blue", "**"..GetPlayerName(src) .. "** got $"..price.." for selling the Chips")
+            TriggerClientEvent('QBCore:Notify', src, "Du solgte dine chips for "..price..' DKK')
+            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "blue", "**"..GetPlayerName(src) .. "** got "..price.." DKK for selling the Chips")
                 end
             end
         end
@@ -60,7 +60,7 @@ end)
         if Player ~= nil then
             Player.Functions.RemoveItem("casinochips", amount)
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['casinochips'], "remove")
-            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "yellow", "**"..GetPlayerName(source) .. "** put $"..amount.." in table")
+            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "yellow", "**"..GetPlayerName(source) .. "** put "..amount.." DKK in table")
         end
     end)
 
@@ -70,7 +70,7 @@ end)
         if Player ~= nil then
             Player.Functions.AddItem("casinochips", amount)
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['casinochips'], "add")
-            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "red", "**"..GetPlayerName(source) .. "** got $"..amount.." from table table and he won the double")
+            TriggerEvent("qb-log:server:CreateLog", "casino", "Chips", "red", "**"..GetPlayerName(source) .. "** got "..amount.." DKK from table table and he won the double")
         end
     end)
 end

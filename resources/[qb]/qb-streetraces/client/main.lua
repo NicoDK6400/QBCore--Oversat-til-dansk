@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
                 for k, race in pairs(Races) do
                     if Races[k] ~= nil then
                         if #(pos - vector3(Races[k].startx, Races[k].starty, Races[k].startz)) < 15.0 and not Races[k].started then
-                            DrawText3Ds(Races[k].startx, Races[k].starty, Races[k].startz, "[~g~H~w~] For at tilmelde dig (~g~$"..Races[k].amount..",-~w~)")
+                            DrawText3Ds(Races[k].startx, Races[k].starty, Races[k].startz, "[~g~H~w~] For at tilmelde dig (~g~"..Races[k].amount..",- DKK~w~)")
                             if IsControlJustReleased(0, 74) then
                                 TriggerServerEvent("qb-streetraces:JoinRace", k)
                             end
@@ -126,7 +126,7 @@ AddEventHandler('qb-streetraces:CreateRace', function(amount)
                 joined = {}
             }
             TriggerServerEvent("qb-streetraces:NewRace", race)
-            QBCore.Functions.Notify("Race for $"..amount.."", "success")
+            QBCore.Functions.Notify("Race for "..amount.." DKK", "success")
         else
             QBCore.Functions.Notify("Slutningen er for tæt på", "error")
         end

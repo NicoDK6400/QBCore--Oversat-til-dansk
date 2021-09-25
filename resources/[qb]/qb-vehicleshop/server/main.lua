@@ -46,7 +46,7 @@ AddEventHandler('qb-vehicleshop:server:buyShowroomVehicle', function(vehicle)
         TriggerClientEvent("QBCore:Notify", src, "Success! Dit køretøj holder klar udenfor", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('cash', vehiclePrice, "vehicle-bought-in-showroom")
-        TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for $" .. vehiclePrice .. " with cash")
+        TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for " .. vehiclePrice .. " DKK with cash")
     elseif (bank - vehiclePrice) >= 0 then
         exports.oxmysql:insert('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, state) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             pData.PlayerData.license,
@@ -60,11 +60,11 @@ AddEventHandler('qb-vehicleshop:server:buyShowroomVehicle', function(vehicle)
         TriggerClientEvent("QBCore:Notify", src, "Success! Dit køretøj holder klar udenfor", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('bank', vehiclePrice, "vehicle-bought-in-showroom")
-        TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for $" .. vehiclePrice .. " from the bank")
+        TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for " .. vehiclePrice .. " DKK from the bank")
     elseif (cash - vehiclePrice) < 0 then
-        TriggerClientEvent("QBCore:Notify", src, "Du har ikke nok penge, du mangler $"..format_thousand(vehiclePrice - cash).." i kontanter", "error", 5000)
+        TriggerClientEvent("QBCore:Notify", src, "Du har ikke nok penge, du mangler "..format_thousand(vehiclePrice - cash).." DKK i kontanter", "error", 5000)
     elseif (bank - vehiclePrice) < 0 then
-        TriggerClientEvent("QBCore:Notify", src, "Du har ikke nok penge, du mangler $"..format_thousand(vehiclePrice - bank).." i banken", "error", 5000)
+        TriggerClientEvent("QBCore:Notify", src, "Du har ikke nok penge, du mangler "..format_thousand(vehiclePrice - bank).." DKK i banken", "error", 5000)
     end
 end)
 
