@@ -162,9 +162,9 @@ Citizen.CreateThread(function()
                              DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                              if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                                  if IsPedInAnyVehicle(PlayerPedId(), false) then
-                                     DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem kørertøj")
+                                     DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem køretøj")
                                  else
-                                     DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Kørertøjer")
+                                     DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Køretøjer")
                                  end
                                  if IsControlJustReleased(0, 38) then
                                      if IsPedInAnyVehicle(PlayerPedId(), false) then
@@ -187,7 +187,7 @@ Citizen.CreateThread(function()
                             DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                             if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
                                 if IsPedInAnyVehicle(PlayerPedId(), false) then
-                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Impound kørertøj")
+                                    DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Impound køretøj")
                                 else
                                     DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Politi Impound")
                                 end
@@ -430,11 +430,11 @@ end
 function ImpoundVehicleList()
     QBCore.Functions.TriggerCallback("police:GetImpoundedVehicles", function(result)
         ped = PlayerPedId();
-        MenuTitle = "Impounded kørertøjer:"
+        MenuTitle = "Impounded køretøjer:"
         ClearMenu()
 
         if result == nil then
-            QBCore.Functions.Notify("Der er ingen impounded kørertøjer", "error", 5000)
+            QBCore.Functions.Notify("Der er ingen impounded køretøjer", "error", 5000)
             closeMenuFull()
         else
             for k, v in pairs(result) do
@@ -532,13 +532,13 @@ function MenuGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Kørertøjer", "VehicleList", nil)
+    Menu.addButton("Køretøjer", "VehicleList", nil)
     Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
     ped = PlayerPedId();
-    MenuTitle = "Kørertøjer:"
+    MenuTitle = "Køretøjer:"
     ClearMenu()
     local authorizedVehicles = Config.AuthorizedVehicles[QBCore.Functions.GetPlayerData().job.grade.level]
     for k, v in pairs(authorizedVehicles) do

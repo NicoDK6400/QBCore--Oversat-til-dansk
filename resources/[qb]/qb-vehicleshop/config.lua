@@ -123,7 +123,7 @@ QB.VehicleShops = {
                 }
             },
             ["vehicles"] = {
-                ["title"] = "KØRERTØJER",
+                ["title"] = "KØRETØJER",
                 ["name"] = "vehicles",
                 ["buttons"] = {}
             },
@@ -198,7 +198,7 @@ QB.VehicleShops = {
                 }
             },
             ["vehicles"] = {
-                ["title"] = "KØRERTØJER",
+                ["title"] = "KØRETØJER",
                 ["name"] = "vehicles",
                 ["buttons"] = {}
             },

@@ -142,13 +142,13 @@ function MenuGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Kørertøjer", "VehicleList", nil)
+    Menu.addButton("Køretøjer", "VehicleList", nil)
     Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
     ped = PlayerPedId();
-    MenuTitle = "Kørertøjer:"
+    MenuTitle = "Køretøjer:"
     ClearMenu()
     for k, v in pairs(Config.Vehicles) do
         Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", k, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")

@@ -160,7 +160,7 @@ function GetVehicleStatus(plate)
     return retval
 end
 
-QBCore.Commands.Add("setvehiclestatus", "Sæt kørertøjs status", {{
+QBCore.Commands.Add("setvehiclestatus", "Sæt køretøjs status", {{
     name = "part",
     help = "Skriv hvilken type du vil ændre"
 }, {

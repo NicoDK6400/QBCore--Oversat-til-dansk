@@ -408,10 +408,10 @@ if IsVehicleStopped(transport) then
 			QBCore.Functions.Notify('Hop ud af vandet!', "error")
 		end
 	else
-		QBCore.Functions.Notify('Kørertøjet skal være tømt for at kunne lægge mere i', "error")
+		QBCore.Functions.Notify('Køretøjet skal være tømt for at kunne lægge mere i', "error")
 	end
 else
-	QBCore.Functions.Notify('Du kan ikke røve et kørertøj i bevægelse.', "error")
+	QBCore.Functions.Notify('Du kan ikke røve et køretøj i bevægelse.', "error")
 end
 end
 

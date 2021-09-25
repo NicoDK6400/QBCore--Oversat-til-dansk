@@ -118,7 +118,7 @@ end)
 
 -- Withdraw
 menu_button6:On("select", function()
-    local result = LocalInput('Withdrawal Amount', 255, '')
+    local result = LocalInput('Beløb til udbetaling', 255, '')
     if result ~= nil and PlayerGang.name and PlayerGang.isboss then
         TriggerServerEvent("qb-gangmenu:server:withdrawMoney", tonumber(result))
         UpdateSociety()
@@ -129,7 +129,7 @@ end)
 
 -- Deposit
 menu_button7:On("select", function()
-    local result = LocalInput('Deposit Amount', 255, '')
+    local result = LocalInput('Beløb til indbetaling', 255, '')
     if result ~= nil then
         TriggerServerEvent("qb-gangmenu:server:depositMoney", tonumber(result))
         UpdateSociety()

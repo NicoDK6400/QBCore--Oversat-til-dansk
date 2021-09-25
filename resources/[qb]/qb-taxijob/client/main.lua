@@ -305,7 +305,7 @@ Citizen.CreateThread(function()
                                     end
                                 end
                             else
-                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Firma kørertøjer')
+                                DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Firma køretøjer')
                                 if IsControlJustReleased(0, 38) then
                                     TaxiGarage()
                                     Menu.hidden = not Menu.hidden
@@ -347,10 +347,10 @@ AddEventHandler('qb-taxi:client:toggleMeter', function()
                 meterIsOpen = false
             end
         else
-            QBCore.Functions.Notify('Dette kørertøj er ikke i besidelse af et taxameter', 'error')
+            QBCore.Functions.Notify('Dette køretøj er ikke i besidelse af et taxameter', 'error')
         end
     else
-        QBCore.Functions.Notify('Du er ikke i et kørertøj ', 'error')
+        QBCore.Functions.Notify('Du er ikke i et køretøj ', 'error')
     end
 end)
 
@@ -422,7 +422,7 @@ function TaxiGarage()
     ped = PlayerPedId();
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("Kørertøjer", "VehicleList", nil)
+    Menu.addButton("Køretøjer", "VehicleList", nil)
     Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 

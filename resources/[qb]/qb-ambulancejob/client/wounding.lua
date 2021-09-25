@@ -68,7 +68,7 @@ WeaponDamageList = {
 	["WEAPON_EXHAUSTION"] = "Døde af udmattelse",
 	["WEAPON_HIT_BY_WATER_CANNON"] = "Kvæstelser af vandkanon",
 	["WEAPON_RAMMED_BY_CAR"] = "Biluheld",
-	["WEAPON_RUN_OVER_BY_CAR"] = "Ramt af kørertøj",
+	["WEAPON_RUN_OVER_BY_CAR"] = "Ramt af køretøj",
 	["WEAPON_HELI_CRASH"] = "Helicopter uheld",
 	["WEAPON_FIRE"] = "Mange forbrændinger",
 }

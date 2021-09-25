@@ -149,12 +149,12 @@ Citizen.CreateThread(function()
                             local InVehicle = IsPedInAnyVehicle(PlayerPedId())
 
                             if InVehicle then
-                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Gem kørertøj')
+                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Gem køretøj')
                                 if IsControlJustPressed(0, 38) then
                                     DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
                                 end
                             else
-                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Hent kørertøj')
+                                DrawText3Ds(Config.Locations["vehicle"].x, Config.Locations["vehicle"].y, Config.Locations["vehicle"].z, '[E] Hent køretøj')
                                 if IsControlJustPressed(0, 38) then
                                     if IsControlJustPressed(0, 38) then
                                         VehicleList()
@@ -276,9 +276,9 @@ end
 
 function VehicleOptions()
     ClearMenu()
-    Menu.addButton("Frakobl kørertøj", "UnattachVehicle", nil)
+    Menu.addButton("Frakobl køretøj", "UnattachVehicle", nil)
     -- Menu.addButton("Check Status", "CheckStatus", nil)
-    Menu.addButton("Kørertøjs dele", "PartsMenu", nil)
+    Menu.addButton("Køretøjs dele", "PartsMenu", nil)
     Menu.addButton("Luk menu", "CloseMenu", nil)
 end
 
@@ -559,16 +559,16 @@ AddEventHandler('vehiclemod:client:getVehicleStatus', function(plate, status)
                         QBCore.Functions.Notify("Status ukendt", "error")
                     end
                 else
-                    QBCore.Functions.Notify("Ikke et gyldigt kørertøj", "error")
+                    QBCore.Functions.Notify("Ikke et gyldigt køretøj", "error")
                 end
             else
-                QBCore.Functions.Notify("Du er ikke tæt nok på kørertøjet", "error")
+                QBCore.Functions.Notify("Du er ikke tæt nok på køretøjet", "error")
             end
         else
-            QBCore.Functions.Notify("Du skal sidde i kørertøjet først", "error")
+            QBCore.Functions.Notify("Du skal sidde i køretøjet først", "error")
         end
     else
-        QBCore.Functions.Notify("Du skal være ude af kørertøjet", "error")
+        QBCore.Functions.Notify("Du skal være ude af køretøjet", "error")
     end
 end)
 
@@ -583,7 +583,7 @@ AddEventHandler('vehiclemod:client:fixEverything', function()
             QBCore.Functions.Notify("Du er ikke i bilen eller på motorcyklen", "error")
         end
     else
-        QBCore.Functions.Notify("Du er ikke i et kørertøj", "error")
+        QBCore.Functions.Notify("Du er ikke i et køretøj", "error")
     end
 end)
 
@@ -628,7 +628,7 @@ AddEventHandler('vehiclemod:client:repairPart', function(part, level, needAmount
                                 lockpickTime = lockpickTime / 10
                             end
                             ScrapAnim(lockpickTime)
-                            QBCore.Functions.Progressbar("repair_advanced", "Reparer kørertøj", lockpickTime, false, true, {
+                            QBCore.Functions.Progressbar("repair_advanced", "Reparer køretøj", lockpickTime, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
@@ -662,16 +662,16 @@ AddEventHandler('vehiclemod:client:repairPart', function(part, level, needAmount
                             QBCore.Functions.Notify("Ikke en gyldig del", "error")
                         end
                     else
-                        QBCore.Functions.Notify("Ikke et gyldigt kørertøj", "error")
+                        QBCore.Functions.Notify("Ikke et gyldigt køretøj", "error")
                     end
                 else
-                    QBCore.Functions.Notify("Du er ikke tæt nok på kørertøjet", "error")
+                    QBCore.Functions.Notify("Du er ikke tæt nok på køretøjet", "error")
                 end
             else
-                QBCore.Functions.Notify("Du skal sidde i et kørertøj først", "error")
+                QBCore.Functions.Notify("Du skal sidde i et køretøj først", "error")
             end
         else
-            QBCore.Functions.Notify("Du er ikke i et kørertøj", "error")
+            QBCore.Functions.Notify("Du er ikke i et køretøj", "error")
         end
     -- end
 end)

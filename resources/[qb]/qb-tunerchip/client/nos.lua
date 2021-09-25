@@ -54,7 +54,7 @@ AddEventHandler('smallresource:client:LoadNitrous', function()
                 QBCore.Functions.Notify("Du kan ikke gører det fra det sæde!", "error")
             end
         else
-            QBCore.Functions.Notify('Du er ikke i et kørertøj', 'error')
+            QBCore.Functions.Notify('Du er ikke i et køretøj', 'error')
         end
     else
         QBCore.Functions.Notify('Du har allerede aktiveret NOS', 'error')

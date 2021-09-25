@@ -77,7 +77,7 @@ AddEventHandler('vehiclekeys:server:GiveVehicleKeys', function(plate, target)
             TriggerClientEvent('QBCore:Notify', source,  "Spiller ikke online", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', source,  "Du ejer ikke dette kørertøj", "error")
+        TriggerClientEvent('QBCore:Notify', source,  "Du ejer ikke dette køretøj", "error")
     end
 end)
 

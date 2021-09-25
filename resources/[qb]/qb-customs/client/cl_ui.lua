@@ -503,7 +503,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     finishPopulatingMenu("PlateIndexMenu")
 
     --#[Vehicle Extras Menu]#--
-    createMenu("VehicleExtrasMenu", "Udvalg af kørertøjs tilbehør", "Slå til/fra")
+    createMenu("VehicleExtrasMenu", "Udvalg af køretøjs tilbehør", "Slå til/fra")
     if GetVehicleClass(plyVeh) ~= 18 then
         for i=1, 12 do
             if DoesExtraExist(plyVeh, i) then

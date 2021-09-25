@@ -943,7 +943,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb
         end
         cb(vehicleData)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Ingen kørertøjer i nærheden', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Ingen køretøjer i nærheden', 'error')
         cb(nil)
     end
 end)

@@ -64,14 +64,14 @@ Config.MenuItems = {
                         shouldClose = true
                     }, {
                         id = 'playerinvehicle',
-                        title = 'Sæt i kørertøj',
+                        title = 'Sæt i køretøj',
                         icon = 'car-side',
                         type = 'client',
                         event = 'police:client:PutPlayerInVehicle',
                         shouldClose = true
                     }, {
                         id = 'playeroutvehicle',
-                        title = 'Tag ud af kørertøj',
+                        title = 'Tag ud af køretøj',
                         icon = 'car-side',
                         type = 'client',
                         event = 'police:client:SetPlayerOutVehicle',
@@ -310,7 +310,7 @@ Config.MenuItems = {
     },
     [3] = {
         id = 'vehicle',
-        title = 'Kørertøj',
+        title = 'Køretøj',
         icon = 'car',
         items = {
             {
@@ -364,7 +364,7 @@ Config.MenuItems = {
                 }
             }, {
                 id = 'vehicleextras',
-                title = 'Kørertøjs tilbehør',
+                title = 'Køretøjs tilbehør',
                 icon = 'plus',
                 items = {
                     {
@@ -579,7 +579,7 @@ Config.JobInteractions = {
             shouldClose = true
         }, {
             id = 'towvehicle',
-            title = 'Tow kørertøj',
+            title = 'Tow køretøj',
             icon = 'truck-pickup',
             type = 'client',
             event = 'qb-tow:client:TowVehicle',

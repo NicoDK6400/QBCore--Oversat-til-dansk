@@ -85,11 +85,11 @@ QBCore.Commands.Add("removepermission", "Fjern spillers permissions (Kun God)", 
 	end
 end, "god")
 
-QBCore.Commands.Add("car", "Spawn kørertøj (Kun Admin)", {{name="model", help="Model navnet af kørertøjet"}}, true, function(source, args)
+QBCore.Commands.Add("car", "Spawn køretøj (Kun Admin)", {{name="model", help="Model navnet af køretøjet"}}, true, function(source, args)
 	TriggerClientEvent('QBCore:Command:SpawnVehicle', source, args[1])	
 end, "admin")
 
-QBCore.Commands.Add("dv", "Fjern kørertøj (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("dv", "Fjern køretøj (Kun Admin)", {}, false, function(source, args)
 	TriggerClientEvent('QBCore:Command:DeleteVehicle', source)
 end, "admin")
 

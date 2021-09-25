@@ -170,7 +170,7 @@ function CreatorLoop()
                 end
             else
                 local coords = GetEntityCoords(PlayerPedId())
-                DrawText3Ds(coords.x, coords.y, coords.z, 'Du skal sidde i et kørertøj')
+                DrawText3Ds(coords.x, coords.y, coords.z, 'Du skal sidde i et køretøj')
             end
 
             if IsControlJustPressed(0, 163) or IsDisabledControlJustPressed(0, 163) then

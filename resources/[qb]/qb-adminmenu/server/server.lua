@@ -103,8 +103,8 @@ RegisterNetEvent("qb-admin:server:kick")
 AddEventHandler("qb-admin:server:kick", function(player, reason)
     local src = source
     if QBCore.Functions.HasPermission(src, permissions["kick"]) then
-        TriggerEvent("qb-log:server:CreateLog", "bans", "Player Kicked", "red", string.format('%s was kicked by %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
-        DropPlayer(player.id, "You have been kicked from the server:\n" .. reason .. "\n\n🔸 Check our Discord for more information: " .. QBCore.Config.Server.discord)
+        TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller kicked", "red", string.format('%s blev kicked af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
+        DropPlayer(player.id, "Du har modtaget et server kick:\n" .. reason .. "\n\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
     end
 end)
 
@@ -128,14 +128,14 @@ AddEventHandler("qb-admin:server:ban", function(player, time, reason)
             GetPlayerName(src)
         })
         TriggerClientEvent('chat:addMessage', -1, {
-            template = '<div class="chat-message server"><strong>ANNOUNCEMENT | {0} has been banned:</strong> {1}</div>',
+            template = '<div class="chat-message server"><strong>ANNOUNCEMENT | {0} er blevet banned:</strong> {1}</div>',
             args = {GetPlayerName(player.id), reason}
         })
-        TriggerEvent("qb-log:server:CreateLog", "bans", "Player Banned", "red", string.format('%s was banned by %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
+        TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller Banned", "red", string.format('%s var banned af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
         if banTime >= 2147483647 then
-            DropPlayer(player.id, "You have been banned:\n" .. reason .. "\n\nYour ban is permanent.\n🔸 Check our Discord for more information: " .. QBCore.Config.Server.discord)
+            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nDit ban er permanent.\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
         else
-            DropPlayer(player.id, "You have been banned:\n" .. reason .. "\n\nBan expires: " .. timeTable["day"] .. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"] .. ":" .. timeTable["min"] .. "\n🔸 Check our Discord for more information: " .. QBCore.Config.Server.discord)
+            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nBan udløber: " .. timeTable["day"] .. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"] .. ":" .. timeTable["min"] .. "\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
         end
     end
 end)
@@ -263,7 +263,7 @@ AddEventHandler('qb-admin:server:SaveCar', function(mods, vehicle, hash, plate)
         })
         TriggerClientEvent('QBCore:Notify', src, 'Kørertøejet er nu dit!', 'success', 5000)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Kørertøjet ejer du allerede..', 'error', 3000)
+        TriggerClientEvent('QBCore:Notify', src, 'Køretøjet ejer du allerede..', 'error', 3000)
     end
 end)
 
@@ -281,7 +281,7 @@ QBCore.Commands.Add("coords", "Vis koords for udvikling (Kun Admin)", {}, false,
     TriggerClientEvent('qb-admin:client:ToggleCoords', source)
 end, "admin")
 
-QBCore.Commands.Add("admincar", "Sæt kørertøj i garage (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("admincar", "Sæt køretøj i garage (Kun Admin)", {}, false, function(source, args)
     local ply = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent('qb-admin:client:SaveCar', source)
 end, "admin")

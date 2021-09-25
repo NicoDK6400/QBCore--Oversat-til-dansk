@@ -82,9 +82,9 @@ Citizen.CreateThread(function()
                         DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 200, 0, 0, 222, false, false, false, true, false, false, false)
                         if dist < 1.5 then
                             if IsPedInAnyVehicle(ped, false) then
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem kørertøj")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Gem køretøj")
                             else
-                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Kørertøjer")
+                                DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Køretøjer")
                             end
                             if IsControlJustReleased(0, 38) then
                                 if IsPedInAnyVehicle(ped, false) then

@@ -28,9 +28,9 @@ local menu8 = MenuV:CreateMenu(false, 'Ban', 'topright', 220, 20, 60, 'size-125'
 local menu9 = MenuV:CreateMenu(false, 'Kick', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test8')
 local menu10 = MenuV:CreateMenu(false, 'Permissions', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test9')
 local menu11 = MenuV:CreateMenu(false, 'Udvikler funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test10')
-local menu12 = MenuV:CreateMenu(false, 'Kørertøjs handlinger', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test11')
-local menu13 = MenuV:CreateMenu(false, 'Kørertøjs kategori', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test12')
-local menu14 = MenuV:CreateMenu(false, 'Kørertøjs modeller', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test13')
+local menu12 = MenuV:CreateMenu(false, 'Køretøjs handlinger', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test11')
+local menu13 = MenuV:CreateMenu(false, 'Køretøjs kategori', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test12')
+local menu14 = MenuV:CreateMenu(false, 'Køretøjs modeller', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test13')
 
 RegisterNetEvent('qb-admin:client:openMenu')
 AddEventHandler('qb-admin:client:openMenu', function()
@@ -57,9 +57,9 @@ local menu_button3 = menu:AddButton({
 })
 local menu_button21 = menu:AddButton({
     icon = '🚗',
-    label = 'Kørertøjer',
+    label = 'Køretøjer',
     value = menu12,
-    description = 'Kørertøjs funktioner'
+    description = 'Køretøjs funktioner'
 })
 local menu_button4 = menu:AddButton({
     icon = '💊',
@@ -332,9 +332,9 @@ local heading_button = menu11:AddButton({
 
 local vehicledev_button = menu11:AddButton({
     icon = '🚘',
-    label = 'Kørertøjs funktioner (Dev)',
+    label = 'Køretøjs funktioner (Dev)',
     value = nil,
-    description = 'Vis kørertøjs informationer'
+    description = 'Vis køretøjs informationer'
 })
 local deletelazer_button = menu11:AddCheckbox({
     icon = '🔫',
@@ -363,27 +363,27 @@ local blips_button = menu11:AddCheckbox({
 
 local menu12_button1 = menu12:AddButton({
     icon = '🚗',
-    label = 'Spawn kørertøj',
+    label = 'Spawn køretøj',
     value = menu13,
-    description = 'Spawn et kørertøj'
+    description = 'Spawn et køretøj'
 })
 local menu12_button2 = menu12:AddButton({
     icon = '🔧',
-    label = 'Fix kørertøj',
+    label = 'Fix køretøj',
     value = 'fix',
-    description = 'Fix kørertøjet du sidder i'
+    description = 'Fix køretøjet du sidder i'
 })
 local menu12_button3 = menu12:AddButton({
     icon = '💲',
     label = 'Køb',
     value = 'buy',
-    description = 'Køb kørertøjet kvit og frit!'
+    description = 'Køb køretøjet kvit og frit!'
 })
 local menu12_button4 = menu12:AddButton({
     icon = '☠',
-    label = 'Fjern kørertøj',
+    label = 'Fjern køretøj',
     value = 'remove',
-    description = 'Fjern tætteste kørertøj'
+    description = 'Fjern tætteste køretøj'
 })
 
 local deleteLazer = false
@@ -595,9 +595,9 @@ function OpenPlayerMenus(player)
         },
         [7] = {
             icon = '🚗',
-            label = "Sid i kørertøj",
+            label = "Sid i køretøj",
             value = "intovehicle",
-            description = "Sæt " .. player.cid .. " i kørertøjet"
+            description = "Sæt " .. player.cid .. " i køretøjet"
         },
         [8] = {
             icon = '🎒',

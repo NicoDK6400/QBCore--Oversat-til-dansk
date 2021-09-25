@@ -169,7 +169,7 @@ end)
 
 -- Vehicle Locking
 
-RegisterKeyMapping('togglelocks', 'Vælg kørertøjs låse', 'keyboard', 'L')
+RegisterKeyMapping('togglelocks', 'Vælg køretøjs låse', 'keyboard', 'L')
 RegisterCommand('togglelocks', function()
     LockVehicle()
 end)
@@ -202,7 +202,7 @@ function LockVehicle()
                         SetVehicleLights(veh, 1)
                         Wait(200)
                         SetVehicleLights(veh, 0)
-                        QBCore.Functions.Notify("Kørertøj låst!")
+                        QBCore.Functions.Notify("Køretøj låst!")
                     else
                         QBCore.Functions.Notify("Noget gik galt med låsesystemet!")
                     end
@@ -217,13 +217,13 @@ function LockVehicle()
                         SetVehicleLights(veh, 1)
                         Wait(200)
                         SetVehicleLights(veh, 0)
-                        QBCore.Functions.Notify("Kørertøj oplåst!")
+                        QBCore.Functions.Notify("Køretøj oplåst!")
                     else
                         QBCore.Functions.Notify("Noget gik galt med låsesystemet!")
                     end
                 end
             else
-                QBCore.Functions.Notify('Du har ingen nøgler til kørertøjet..', 'error')
+                QBCore.Functions.Notify('Du har ingen nøgler til køretøjet..', 'error')
             end
         end, plate)
     end
@@ -357,7 +357,7 @@ function PoliceCall()
                         Name = "Unknown"
                     end
                     local modelPlate = GetVehicleNumberPlateText(vehicle)
-                    local msg = "Forsøg på biltyveri " .. streetLabel .. ". Kørertøj: " .. Name .. ", Registreringnummer: " .. modelPlate
+                    local msg = "Forsøg på biltyveri " .. streetLabel .. ". Køretøj: " .. Name .. ", Registreringnummer: " .. modelPlate
                     local alertTitle = "Forsøg på biltyveri"
                     TriggerServerEvent("police:server:VehicleCall", pos, msg, alertTitle, streetLabel, modelPlate, Name)
                 else
@@ -369,7 +369,7 @@ function PoliceCall()
                     else
                         Name = "Unknown"
                     end
-                    local msg = "Forsøg på biltyveri " .. streetLabel .. ". Kørertøj: " .. Name .. ", Registreringnummer: " .. modelPlate
+                    local msg = "Forsøg på biltyveri " .. streetLabel .. ". Køretøj: " .. Name .. ", Registreringnummer: " .. modelPlate
                     local alertTitle = "Forsøg på biltyveri"
                     TriggerServerEvent("police:server:VehicleCall", pos, msg, alertTitle, streetLabel, modelPlate, Name)
                 end

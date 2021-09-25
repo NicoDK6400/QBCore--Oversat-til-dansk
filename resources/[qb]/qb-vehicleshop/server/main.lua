@@ -43,7 +43,7 @@ AddEventHandler('qb-vehicleshop:server:buyShowroomVehicle', function(vehicle)
             plate,
             0
         })
-        TriggerClientEvent("QBCore:Notify", src, "Success! Dit kørertøj holder klar udenfor", "success", 5000)
+        TriggerClientEvent("QBCore:Notify", src, "Success! Dit køretøj holder klar udenfor", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('cash', vehiclePrice, "vehicle-bought-in-showroom")
         TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for $" .. vehiclePrice .. " with cash")
@@ -57,7 +57,7 @@ AddEventHandler('qb-vehicleshop:server:buyShowroomVehicle', function(vehicle)
             plate,
             0
         })
-        TriggerClientEvent("QBCore:Notify", src, "Success! Dit kørertøj holder klar udenfor", "success", 5000)
+        TriggerClientEvent("QBCore:Notify", src, "Success! Dit køretøj holder klar udenfor", "success", 5000)
         TriggerClientEvent('qb-vehicleshop:client:buyShowroomVehicle', src, vehicle, plate)
         pData.Functions.RemoveMoney('bank', vehiclePrice, "vehicle-bought-in-showroom")
         TriggerEvent("qb-log:server:CreateLog", "vehicleshop", "Vehicle purchased (showroom)", "green", "**"..GetPlayerName(src) .. "** bought a " .. QBCore.Shared.Vehicles[vehicle]["name"] .. " for $" .. vehiclePrice .. " from the bank")
@@ -137,7 +137,7 @@ function CheckOwnedJob(source, grade)
     return ownedjob
 end
 
-QBCore.Commands.Add("sell", "Sælg kørertøj (Kun Car dealer)", {{name="ID", help="ID på spilleren"}}, true, function(source, args)
+QBCore.Commands.Add("sell", "Sælg køretøj (Kun Car dealer)", {{name="ID", help="ID på spilleren"}}, true, function(source, args)
     local TargetId = tonumber(args[1])
 
     if CheckOwnedJob(source) then
@@ -155,7 +155,7 @@ QBCore.Commands.Add("sell", "Sælg kørertøj (Kun Car dealer)", {{name="ID", he
     end
 end)
 
-QBCore.Commands.Add("testdrive", "Prøvekør kørertøj (Kun Car dealer)", {}, false, function(source, args)
+QBCore.Commands.Add("testdrive", "Prøvekør køretøj (Kun Car dealer)", {}, false, function(source, args)
     if CheckOwnedJob(source) then
         TriggerClientEvent('qb-vehicleshop:client:DoTestrit', source, GeneratePlate())
     else

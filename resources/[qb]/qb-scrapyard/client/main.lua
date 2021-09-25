@@ -53,13 +53,13 @@ Citizen.CreateThread(function()
 					if vehicle ~= 0 and vehicle ~= nil then 
 						local vehpos = GetEntityCoords(vehicle)
 						if #(pos - vector3(vehpos.x, vehpos.y, vehpos.z)) < 2.5 and not isBusy then
-							DrawText3Ds(vehpos.x, vehpos.y, vehpos.z, "~g~E~w~ - Skild kørertøjet fra hinanden")
+							DrawText3Ds(vehpos.x, vehpos.y, vehpos.z, "~g~E~w~ - Skild køretøjet fra hinanden")
 							if IsControlJustReleased(0, 38) then
 								if GetPedInVehicleSeat(vehicle, -1) == PlayerPedId() then
 									if IsVehicleValid(GetEntityModel(vehicle)) then 
 										ScrapVehicle(vehicle)
 									else
-										QBCore.Functions.Notify("Dette kørertøj kan ikke skrottes.", "error")
+										QBCore.Functions.Notify("Dette køretøj kan ikke skrottes.", "error")
 									end
 								else
 									QBCore.Functions.Notify("Du er ikke føreren", "error")
@@ -71,7 +71,7 @@ Citizen.CreateThread(function()
 			end
 			if #(pos - vector3(Config.Locations[closestScrapyard]["list"].x, Config.Locations[closestScrapyard]["list"].y, Config.Locations[closestScrapyard]["list"].z)) < 1.5 then
 				if not IsPedInAnyVehicle(PlayerPedId()) and not emailSend then
-					DrawText3Ds(Config.Locations[closestScrapyard]["list"].x, Config.Locations[closestScrapyard]["list"].y, Config.Locations[closestScrapyard]["list"].z, "~g~E~w~ - E-mail kørertøjslisten")
+					DrawText3Ds(Config.Locations[closestScrapyard]["list"].x, Config.Locations[closestScrapyard]["list"].y, Config.Locations[closestScrapyard]["list"].z, "~g~E~w~ - E-mail køretøjslisten")
 					if IsControlJustReleased(0, 38) then
 						CreateListEmail()
 					end
@@ -102,8 +102,8 @@ function CreateListEmail()
 			emailSend = false
 			TriggerServerEvent('qb-phone:server:sendNewMail', {
 				sender = "Turner’s Auto skrothandler",
-				subject = "Kørertøjslist",
-				message = "Du kan kun skrotte et bestemt antal kørertøjer.<br />Du kan beholde alt selv, du står selv for det, så længe du ikke genere mig.<br /><br /><strong>Kørertøjslisten:</strong><br />".. vehicleList,
+				subject = "Køretøjslist",
+				message = "Du kan kun skrotte et bestemt antal køretøjer.<br />Du kan beholde alt selv, du står selv for det, så længe du ikke genere mig.<br /><br /><strong>Køretøjslisten:</strong><br />".. vehicleList,
 				button = {}
 			})
 		end)

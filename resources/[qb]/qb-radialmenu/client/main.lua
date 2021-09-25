@@ -225,7 +225,7 @@ AddEventHandler('qb-radialmenu:client:openDoor', function(data)
             end
         end
     else
-        QBCore.Functions.Notify('Der er intet kørertøj i nærheden...', 'error', 2500)
+        QBCore.Functions.Notify('Der er intet køretøj i nærheden...', 'error', 2500)
     end
 end)
 
@@ -260,10 +260,10 @@ AddEventHandler('qb-radialmenu:client:setExtra', function(data)
                     QBCore.Functions.Notify('Ekstra ' .. extra .. ' Aktiveret', 'success', 2500)
                 end    
             else
-                QBCore.Functions.Notify('Ekstra ' .. extra .. ' er ikke muligt på dette kørertøj ', 'error', 2500)
+                QBCore.Functions.Notify('Ekstra ' .. extra .. ' er ikke muligt på dette køretøj ', 'error', 2500)
             end
         else
-            QBCore.Functions.Notify('Du er ikke føreren af kørertøjet!', 'error', 2500)
+            QBCore.Functions.Notify('Du er ikke føreren af køretøjet!', 'error', 2500)
         end
     end
 end)
@@ -306,7 +306,7 @@ AddEventHandler('qb-radialmenu:client:ChangeSeat', function(data)
                 SetPedIntoVehicle(PlayerPedId(), Veh, data.id)
                 QBCore.Functions.Notify('Du er nu på  '..data.title..'!')
             else
-                QBCore.Functions.Notify('Dette kørertøj kører for hurtigt..')
+                QBCore.Functions.Notify('Dette køretøj kører for hurtigt..')
             end
         else
             QBCore.Functions.Notify('Dette sæde er taget..')

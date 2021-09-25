@@ -91,7 +91,7 @@ AddEventHandler('AttackTransport:graczZrobilnapad', function(moneyCalc)
 	TriggerClientEvent('inventory:client:ItemBox', _source, QBCore.Shared.Items['markedbills'], "add")
 
 	local chance = math.random(1, 100)
-	TriggerClientEvent('QBCore:Notify', _source, 'Du tog '..bags..' poser med penge fra kørertøjet')
+	TriggerClientEvent('QBCore:Notify', _source, 'Du tog '..bags..' poser med penge fra køretøjet')
 
 	if chance >= 95 then
 	xPlayer.Functions.AddItem('security_card_01', 1)

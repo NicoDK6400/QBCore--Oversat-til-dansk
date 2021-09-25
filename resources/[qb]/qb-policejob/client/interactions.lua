@@ -295,7 +295,7 @@ AddEventHandler('police:client:CuffPlayerSoft', function()
                 TriggerServerEvent("police:server:CuffPlayer", playerId, true)
                 HandCuffAnimation()
             else
-                QBCore.Functions.Notify("Du kan ikke sætte håndjern på folk der sidder i et kørertøj", "error")
+                QBCore.Functions.Notify("Du kan ikke sætte håndjern på folk der sidder i et køretøj", "error")
             end
         else
             QBCore.Functions.Notify("Ingen i nærheden!", "error")
@@ -317,7 +317,7 @@ AddEventHandler('police:client:CuffPlayer', function()
                         TriggerServerEvent("police:server:CuffPlayer", playerId, false)
                         HandCuffAnimation()
                     else
-                        QBCore.Functions.Notify("Du kan ikke sætte håndjern på folk der sidder i et kørertøj", "error")
+                        QBCore.Functions.Notify("Du kan ikke sætte håndjern på folk der sidder i et køretøj", "error")
                     end
                 else
                     QBCore.Functions.Notify("Du har ingen håndjern på dig", "error")

@@ -72,14 +72,14 @@ Citizen.CreateThread(function()
                                 sellVehData.price = tonumber(v["price"])
                             end
                         end
-                    DrawText3Ds(Config.SellVehicleBack.x, Config.SellVehicleBack.y, Config.SellVehicleBack.z, '[~g~E~w~] - Sælg kørertøj til forhandler til ~g~$'..math.floor(sellVehData.price / 2))
+                    DrawText3Ds(Config.SellVehicleBack.x, Config.SellVehicleBack.y, Config.SellVehicleBack.z, '[~g~E~w~] - Sælg køretøj til forhandler til ~g~$'..math.floor(sellVehData.price / 2))
                     if IsControlJustPressed(0, 38) then
                         QBCore.Functions.TriggerCallback('qb-garage:server:checkVehicleOwner', function(owned)
                             if owned then
                                 TriggerServerEvent('qb-occasions:server:sellVehicleBack', sellVehData)
                                 QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(ped))
                             else
-                                QBCore.Functions.Notify('Dette er ikke dit kørertøj..', 'error', 3500)
+                                QBCore.Functions.Notify('Dette er ikke dit køretøj..', 'error', 3500)
                             end
                         end, sellVehData.plate)
                     end
@@ -94,10 +94,10 @@ Citizen.CreateThread(function()
                     if dstCheck <= 2 then
                         if not IsPedInAnyVehicle(ped) then
                             if not isConfirming then
-                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.45, '[~g~E~w~] - Se kørertøjs kontrakt')
+                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.45, '[~g~E~w~] - Se køretøjs kontrakt')
                                 DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.25, QBCore.Shared.Vehicles[Config.OccasionSlots[i]["model"]]["name"]..', Pris: ~g~$'..Config.OccasionSlots[i]["price"])
                                 if Config.OccasionSlots[i]["owner"] == QBCore.Functions.GetPlayerData().citizenid then
-                                    DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.05, '[~r~G~w~] - Afbryd tilbud på kørertøj')
+                                    DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.05, '[~r~G~w~] - Afbryd tilbud på køretøj')
                                     if IsControlJustPressed(0, 47) then
                                         isConfirming = true
                                     end
@@ -122,7 +122,7 @@ Citizen.CreateThread(function()
                                     end, Config.OccasionSlots[currentVehicle]["owner"])
                                 end
                             else
-                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.45, 'Er du sikker på at du vil tage kørertøjet af markedet?')
+                                DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.45, 'Er du sikker på at du vil tage køretøjet af markedet?')
                                 DrawText3Ds(vehPos.x, vehPos.y, vehPos.z + 1.25, '[~g~7~w~] - Ja | [~r~8~w~] - Nej')
                                 if IsDisabledControlJustPressed(0, 161) then
                                     isConfirming = false
@@ -142,14 +142,14 @@ Citizen.CreateThread(function()
                 if sellDist <= 13.0 and IsPedInAnyVehicle(ped) then 
                     DrawMarker(2, Config.SellVehicle.x, Config.SellVehicle.y, Config.SellVehicle.z + 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.7, 0.7, 0.6, 255, 0, 0, 155, false, false, false, true, false, false, false)
                     if sellDist <= 3.5 and IsPedInAnyVehicle(ped) then
-                        DrawText3Ds(Config.SellVehicle.x, Config.SellVehicle.y, Config.SellVehicle.z, '[~g~E~w~] - Sæt kørertøj til salg')
+                        DrawText3Ds(Config.SellVehicle.x, Config.SellVehicle.y, Config.SellVehicle.z, '[~g~E~w~] - Sæt køretøj til salg')
                         if IsControlJustPressed(0, 38) then
                             local VehiclePlate = GetVehicleNumberPlateText(GetVehiclePedIsIn(ped))
                             QBCore.Functions.TriggerCallback('qb-garage:server:checkVehicleOwner', function(owned)
                                 if owned then
                                     openSellContract(true)
                                 else
-                                    QBCore.Functions.Notify('Dette er ikke dit kørertøj..', 'error', 3500)
+                                    QBCore.Functions.Notify('Dette er ikke dit køretøj..', 'error', 3500)
                                 end
                             end, VehiclePlate)
                         end
@@ -318,7 +318,7 @@ function sellVehicleWait(price)
     QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
     Citizen.Wait(1500)
     DoScreenFadeIn(250)
-    QBCore.Functions.Notify('Dit kørertøj er sat til salg! Pris - $'..price, 'success')
+    QBCore.Functions.Notify('Dit køretøj er sat til salg! Pris - $'..price, 'success')
     PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
 end
 

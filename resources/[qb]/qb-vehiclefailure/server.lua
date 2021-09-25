@@ -14,7 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-QBCore.Commands.Add("fix", "Reparere kørertøj (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("fix", "Reparer køretøj (Kun Admin)", {}, false, function(source, args)
     TriggerClientEvent('iens:repaira', source)
     TriggerClientEvent('vehiclemod:client:fixEverything', source)
 end, "admin")

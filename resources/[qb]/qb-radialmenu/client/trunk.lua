@@ -267,7 +267,7 @@ AddEventHandler('qb-trunk:client:GetIn', function(isKidnapped)
             QBCore.Functions.Notify('Du kan ikke komme i dette baggagerummet..', 'error', 2500)
         end
     else
-        QBCore.Functions.Notify('Der er ingen kørertøjer at se.', 'error', 2500)
+        QBCore.Functions.Notify('Der er ingen køretøjer at se.', 'error', 2500)
     end
 end)
 

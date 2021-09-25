@@ -34,7 +34,7 @@ RegisterServerEvent('police:server:TakeOutImpound')
 AddEventHandler('police:server:TakeOutImpound', function(plate)
     local src = source
     exports.oxmysql:execute('UPDATE player_vehicles SET state = ? WHERE plate  = ?', {0, plate})
-    TriggerClientEvent('QBCore:Notify', src, "Kørertøjet er blevet taget ud af impound!")
+    TriggerClientEvent('QBCore:Notify', src, "Køretøjet er blevet taget ud af impound!")
 end)
 
 RegisterServerEvent('police:server:CuffPlayer')
@@ -403,12 +403,12 @@ AddEventHandler('police:server:Impound', function(plate, fullImpound, price, bod
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, depotprice = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
                 {0, price, body, engine, fuel, plate})
-            TriggerClientEvent('QBCore:Notify', src, "Kørertøj sat i depot for $" .. price .. "!")
+            TriggerClientEvent('QBCore:Notify', src, "Køretøj sat i depot for $" .. price .. "!")
         else
             exports.oxmysql:execute(
                 'UPDATE player_vehicles SET state = ?, body = ?, engine = ?, fuel = ? WHERE plate = ?',
                 {2, body, engine, fuel, plate})
-            TriggerClientEvent('QBCore:Notify', src, "Kørertøj blev konfiskeret!")
+            TriggerClientEvent('QBCore:Notify', src, "Køretøj blev konfiskeret!")
         end
     end
 end)
@@ -1039,7 +1039,7 @@ QBCore.Commands.Add("flagplate", "Efterlys et reg.nr. (Kun Politi)", {{
             reason = table.concat(reason, " ")
         }
         TriggerClientEvent('QBCore:Notify', source,
-            "Kørertøjet (" .. args[1]:upper() .. ") er blevet efterlyst på baggrund af: " .. table.concat(reason, " "))
+            "Køretøjet (" .. args[1]:upper() .. ") er blevet efterlyst på baggrund af: " .. table.concat(reason, " "))
     else
         TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
     end
@@ -1054,12 +1054,12 @@ QBCore.Commands.Add("unflagplate", "Fjern efterlysning på reg.nr. (Kun Politi)"
         if Plates ~= nil and Plates[args[1]:upper()] ~= nil then
             if Plates[args[1]:upper()].isflagged then
                 Plates[args[1]:upper()].isflagged = false
-                TriggerClientEvent('QBCore:Notify', source, "Kørertøjet (" .. args[1]:upper() .. ") er blevet fjernet fra efterlysningen")
+                TriggerClientEvent('QBCore:Notify', source, "Køretøjet (" .. args[1]:upper() .. ") er blevet fjernet fra efterlysningen")
             else
-                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "error", "Kørertøj er ikke efterlyst!")
+                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "error", "Køretøj er ikke efterlyst!")
             end
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Køretøj er ikke efterlyst!")
         end
     else
         TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
@@ -1074,13 +1074,13 @@ QBCore.Commands.Add("plateinfo", "Slå registreringsnummer op (Kun Politi)", {{
     if Player.PlayerData.job.name == "police" then
         if Plates ~= nil and Plates[args[1]:upper()] ~= nil then
             if Plates[args[1]:upper()].isflagged then
-                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "normal", "Kørertøjet (" .. args[1]:upper() ..
+                TriggerClientEvent('chatMessage', source, "REPORTING ROOM", "normal", "Køretøjet (" .. args[1]:upper() ..
                     ") er blevet efterlyst for: " .. Plates[args[1]:upper()].reason)
             else
-                TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
+                TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Køretøj er ikke efterlyst!")
             end
         else
-            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Kørertøj er ikke efterlyst!")
+            TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Køretøj er ikke efterlyst!")
         end
     else
         TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')

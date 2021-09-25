@@ -122,7 +122,7 @@ end)
 
 -- Withdraw
 menu_button6:On("select", function()
-    local result = LocalInput('Withdrawal Amount', 255, '')
+    local result = LocalInput('Beløb til udbetaling', 255, '')
     if result ~= nil then
         TriggerServerEvent("qb-bossmenu:server:withdrawMoney", tonumber(result))
         UpdateSociety()
@@ -131,7 +131,7 @@ end)
 
 -- Deposit
 menu_button7:On("select", function()
-    local result = LocalInput('Deposit Amount', 255, '')
+    local result = LocalInput('Beløb til indbetaling', 255, '')
     if result ~= nil then
         TriggerServerEvent("qb-bossmenu:server:depositMoney", tonumber(result))
         UpdateSociety()
@@ -217,9 +217,9 @@ function ManageEmployees(employee)
         },
         [3] = {
             icon = '🔥',
-            label = "Brand",
+            label = "Afsked",
             value = "Fire",
-            description = "Brand " .. employee.name
+            description = "Fyr " .. employee.name
         }
     }
     for k, v in pairs(buttons) do

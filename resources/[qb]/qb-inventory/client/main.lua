@@ -159,7 +159,7 @@ RegisterCommand('inventory', function()
                                 curVeh = vehicle
                                 CurrentGlovebox = nil
                             else
-                                QBCore.Functions.Notify("Kørertøjet er låst..", "error")
+                                QBCore.Functions.Notify("Køretøjet er låst..", "error")
                                 return
                             end
                         else

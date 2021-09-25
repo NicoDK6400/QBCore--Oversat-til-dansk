@@ -24,7 +24,7 @@ Config.Houses = {}
 
 Config.Furniture = {
 	["sofas"] = {
-		label = "Sofas",
+		label = "Sofaer",
 		items = {
 			[1] = { ["object"] = "miss_rub_couch_01", ["price"] = 300, ["label"] = "Old couch" },
 			[2] = { ["object"] = "prop_fib_3b_bench", ["price"] = 700, ["label"] = "Threesits couch" },
@@ -57,7 +57,7 @@ Config.Furniture = {
 		},
 	},
 	["chairs"] = {
-		label = "Chair's",
+		label = "Stole",
 		items = {
 			[1] = { ["object"] = "v_res_d_highchair", ["price"] = 700, ["label"] = "High chair" },
 			[2] = { ["object"] = "apa_mp_h_stn_chairstrip_03", ["price"] = 500, ["label"] = "Sitchair 4" },
@@ -110,7 +110,7 @@ Config.Furniture = {
 		},
 	},
 	["beds"] = {
-		label = "Beds",
+		label = "Senge",
 		items = {
 			[1] = { ["object"] = "v_res_d_bed", ["price"] = 700, ["label"] = "Bed 1" },	
 			[2] = { ["object"] = "v_res_lestersbed", ["price"] = 700, ["label"] = "Bed 2" },	
@@ -125,7 +125,7 @@ Config.Furniture = {
 		},	
 	},
 	["general"] = {
-		label = "General",
+		label = "Generelt",
 		items = {
 			[1] = { ["object"] = "v_corp_facebeanbag", ["price"] = 100, ["label"] = "Bean Bag 1" },
 			[2] = { ["object"] = "v_res_cherubvase", ["price"] = 2500, ["label"] = "White Vase" },
@@ -351,7 +351,7 @@ Config.Furniture = {
 		},
 	},
 	["small"] = {
-		label = "Details",
+		label = "Detaljer",
 		items = {
 			[1] = { ["object"] = "v_res_r_figcat", ["price"] = 300, ["label"] = "Fig Cat" },
 			[2] = { ["object"] = "v_res_r_figclown", ["price"] = 300, ["label"] = "Fig Clown" },
@@ -396,7 +396,7 @@ Config.Furniture = {
 		},
 	},
 	["storage"] = {
-		label = "Storage",
+		label = "Opbevaring",
 		items = {
 			[1] = { ["object"] = "v_res_cabinet", ["price"] = 2500, ["label"] = "Cabinet Large" },
 			[2] = { ["object"] = "v_res_d_dressingtable", ["price"] = 2500, ["label"] = "Dressing Table" },
@@ -444,7 +444,7 @@ Config.Furniture = {
 		},
 	},
 	["electronics"] = {
-		label = "Electronics",
+		label = "Elektronik",
 		items = {
 			[1] = { ["object"] = "prop_trailr_fridge", ["price"] = 300, ["label"] = "Old Fridge" },
 			[2] = { ["object"] = "v_res_fh_speaker", ["price"] = 300, ["label"] = "Speaker" },
@@ -484,7 +484,7 @@ Config.Furniture = {
 		},
 	},
 	["lighting"] = {
-		label = "Lighting",
+		label = "Lys",
 		items = {
 			[1] = { ["object"] = "v_corp_cd_desklamp", ["price"] = 100, ["label"] = "Desk Corp Lamp" },
 			[2] = { ["object"] = "v_res_desklamp", ["price"] = 100, ["label"] = "Desk Lamp" },
@@ -525,7 +525,7 @@ Config.Furniture = {
 		},
 	},
 	["tables"] = {
-		label = "Tables",
+		label = "Borde",
 		items = {
 			[1] = { ["object"] = "v_res_d_coffeetable", ["price"] = 500, ["label"] = "Coffee Table 1" },
 			[2] = { ["object"] = "v_res_d_roundtable", ["price"] = 500, ["label"] = "Round Table" },
@@ -570,7 +570,7 @@ Config.Furniture = {
 		},
 	},
 	["plants"] = {
-		label = "Plants",
+		label = "Planter",
 		items = {
 			[1] = { ["object"] = "prop_fib_plant_01", ["price"] = 150, ["label"] = "Plant Fib" },
 			[2] = { ["object"] = "v_corp_bombplant", ["price"] = 170, ["label"] = "Plant Bomb" },		
@@ -596,7 +596,7 @@ Config.Furniture = {
 		},
 	},
 	["kitchen"] = {
-		label = "Kitchen",
+		label = "Køkken",
 		items = {
 			[1] = { ["object"] = "prop_washer_01", ["price"] = 150, ["label"] = "Washer 1" },
 			[2] = { ["object"] = "prop_washer_02", ["price"] = 150, ["label"] = "Washer 2" },
@@ -634,7 +634,7 @@ Config.Furniture = {
 		},
 	},
 	["bathroom"] = {
-		label = "Bathroom",
+		label = "Badeværelse",
 		items = {
 			[1] = { ["object"] = "prop_ld_toilet_01", ["price"] = 100, ["label"] = "Toilet 1" },
 			[2] = { ["object"] = "prop_toilet_01", ["price"] = 100, ["label"] = "Toilet 2" },
@@ -662,7 +662,7 @@ Config.Furniture = {
 		},
 	},
 	["medical"] = {
-		label = "Medical",
+		label = "Læge udstyr",
 		items = {
 			[1] = { ["object"] = "v_med_barrel", ["price"] = 750, ["label"] = "Barrel" },
 			[2] = { ["object"] = "v_med_apecrate", ["price"] = 750, ["label"] = "Ape Crate" },
@@ -708,7 +708,7 @@ Config.Furniture = {
 		},
 	},
 	["walldecoration"] = {
-		label = "Wall  Deco",
+		label = "Dekoration til mur",
 		items = {
 			[1] = { ["object"] = "apa_p_h_acc_artwalll_02", ["price"] = 1000, ["label"] = "Painting whit marks" },
 			[2] = { ["object"] = "v_ind_cs_toolboard", ["price"] = 500, ["label"] = "Tools" },

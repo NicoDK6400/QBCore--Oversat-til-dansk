@@ -38,17 +38,17 @@ Config.CostMultiplier = 1.0
 
 -- Configure the strings as you wish here.
 Config.Strings = {
-	ExitVehicle = "Forlad kørertøjet for at tanke",
-	EToRefuel = "Tryk ~g~E ~w~for at tanke kørertøjet",
+	ExitVehicle = "Forlad køretøjet for at tanke",
+	EToRefuel = "Tryk ~g~E ~w~for at tanke køretøjet",
 	JerryCanEmpty = "JerryCan er tom",
-	FullTank = "Tanken is fuld",
+	FullTank = "Tanken is fyldt",
 	PurchaseJerryCan = "Tryk ~g~E ~w~for at købe en JerryCan for ~g~$" .. Config.JerryCanCost,
 	CancelFuelingPump = "Tryk ~g~E ~w~for at afbryde optanknigen",
 	CancelFuelingJerryCan = "Tryk ~g~E ~w~for at afbryde optanknigen",
 	NotEnoughCash = "Du har ikke penge nok",
 	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan ",
 	NotEnoughCashJerryCan = "Du har ikke penge nok til at opfylde JerryCan",
-	JerryCanFull = "Jerry can er fuld",
+	JerryCanFull = "JerrtCan er fyldt",
 	TotalCost = "Cost",
 	PurchaseJerryCan = "Tryk ~g~E ~w~for at tage en JerryCan",
 	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan",

@@ -297,7 +297,7 @@ $(document).on('click', '.scan-search-vehicle', function(e){
             var VehicleElement = '<div class="vehicle-search-result"> <div class="vehicle-search-result-name">'+vehicle.label+'</div> <div class="vehicle-search-result-plate">Nummerplade: '+vehicle.plate+'</div> <div class="vehicle-opensplit"></div> &nbsp; <div class="vehicle-search-result-owner">Ejer: '+vehicle.owner+'</div> &nbsp; <div class="vehicle-search-result-apk">MOT: '+APK+'</div> <div class="vehicle-search-result-warrant">Eftersøgt: '+Flagged+'</div> </div>'
             $(".vehicle-search-results").append(VehicleElement);
         } else {
-            QB.Phone.Notifications.Add("politie", "MDT", "Ingen kørertøjer i nærheden!");
+            QB.Phone.Notifications.Add("politie", "MDT", "Ingen køretøjer i nærheden!");
             $(".vehicle-search-results").append("");
         }
     });

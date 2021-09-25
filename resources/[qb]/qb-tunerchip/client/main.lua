@@ -45,7 +45,7 @@ RegisterNUICallback('save', function(data)
             local ped = PlayerPedId()
             local veh = GetVehiclePedIsUsing(ped)
             setVehData(veh, data)
-            QBCore.Functions.Notify('TunerChip v1.05: Kørertøj tuned!', 'error')
+            QBCore.Functions.Notify('TunerChip v1.05: Køretøj tuned!', 'error')
 
             TriggerServerEvent('qb-tunerchip:server:TuneStatus', GetVehicleNumberPlateText(veh), true)
         end
@@ -61,13 +61,13 @@ AddEventHandler('qb-tunerchip:client:TuneStatus', function()
     if vehModel ~= 0 then
         QBCore.Functions.TriggerCallback('qb-tunerchip:server:GetStatus', function(status)
             if status then
-                QBCore.Functions.Notify('Dette kørertøj har fået tun', 'success')
+                QBCore.Functions.Notify('Dette køretøj har fået tun', 'success')
             else
-                QBCore.Functions.Notify('Dette kørertøj har intet tun', 'error')
+                QBCore.Functions.Notify('Dette køretøj har intet tun', 'error')
             end
         end, plate)
     else
-        QBCore.Functions.Notify('Ingen kørertøjer i nærheden', 'error')
+        QBCore.Functions.Notify('Ingen køretøjer i nærheden', 'error')
     end
 end)
 
@@ -85,7 +85,7 @@ RegisterNUICallback('reset', function(data)
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsUsing(ped)
     resetVeh(veh)
-    QBCore.Functions.Notify('TunerChip v1.05: Kørertøjet er blevet nulstillet!', 'error')
+    QBCore.Functions.Notify('TunerChip v1.05: Køretøjet er blevet nulstillet!', 'error')
 end)
 
 RegisterNetEvent('qb-tunerchip:client:openChip')
@@ -94,7 +94,7 @@ AddEventHandler('qb-tunerchip:client:openChip', function()
     local inVehicle = IsPedInAnyVehicle(ped)
 
     if inVehicle then
-        QBCore.Functions.Progressbar("connect_laptop", "Tunerchip v1.05: Kørertøjet er blevet nulstillet!", 2000, false, true, {
+        QBCore.Functions.Progressbar("connect_laptop", "Tunerchip v1.05: Køretøjet er blevet nulstillet!", 2000, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
@@ -111,7 +111,7 @@ AddEventHandler('qb-tunerchip:client:openChip', function()
             QBCore.Functions.Notify("Afbrudt", "error")
         end)
     else
-        QBCore.Functions.Notify("Du er ikke i et kørertøj", "error")
+        QBCore.Functions.Notify("Du er ikke i et køretøj", "error")
     end
 end)
 

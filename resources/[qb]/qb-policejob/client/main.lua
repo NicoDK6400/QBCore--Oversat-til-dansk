@@ -322,7 +322,7 @@ AddEventHandler('police:client:GunShotAlert', function(streetLabel, isAutomatic,
         local blipText = "Skud affyret"
         local MessageDetails = {}
         if fromVehicle then
-            blipText = "Skud affyret fra et kørertøj"
+            blipText = "Skud affyret fra et køretøj"
             MessageDetails = {
                 [1] = {
                     icon = '<i class="fas fa-car"></i>',

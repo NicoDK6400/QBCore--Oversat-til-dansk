@@ -83,7 +83,7 @@ QBCore.Commands.Add("npc", "NPC opgaver", {}, false, function(source, args)
 	TriggerClientEvent("jobs:client:ToggleNpc", source)
 end)
 
-QBCore.Commands.Add("tow", "Sæt et kørertøj på dit lad", {}, false, function(source, args)
+QBCore.Commands.Add("tow", "Sæt et køretøj på dit lad", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "tow" then
         TriggerClientEvent("qb-tow:client:TowVehicle", source)

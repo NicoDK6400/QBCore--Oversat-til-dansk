@@ -234,7 +234,7 @@ repairCfg = {
         "du har midlertidigt stoppet olielækagen",
         "Du sparkede på cyklen, og den virker igen",
         "Du fjernede lidt rust",
-        "Du råbte og skreg af dit kørertøj, nu virker den"
+        "Du råbte og skreg af dit køretøj, nu virker den"
     },
     fixMessageCount = 7,
 

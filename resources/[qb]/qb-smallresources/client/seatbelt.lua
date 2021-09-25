@@ -83,7 +83,7 @@ AddEventHandler('seatbelt:client:UseHarness', function(ItemData)
             end)
         end
     else
-        QBCore.Functions.Notify('Du er ikke i et kørertøj.', 'error')
+        QBCore.Functions.Notify('Du er ikke i et køretøj.', 'error')
     end
 end)
 
