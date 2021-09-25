@@ -12,8 +12,8 @@ local stealData = {}
 local availableDrugs = {}
 
 local policeMessage = {
-    "Suspicious situation",
-    "Possible drug dealing",
+    "Mistænktelig situation",
+    "Mulig narkohandel",
 }
 
 RegisterNetEvent('qb-drugs:client:cornerselling')
@@ -247,7 +247,7 @@ function SellToPed(ped)
 
             if getRobbed == 18 or getRobbed == 9 then
                 TriggerServerEvent('qb-drugs:server:robCornerDrugs', availableDrugs[drugType].item, bagAmount)
-                QBCore.Functions.Notify('Du er blevet røvet og mistede '..bagAmount..' pose(\'er) '..availableDrugs[drugType].label, 'error')
+                QBCore.Functions.Notify('Du er blevet røvet og mistede '..bagAmount..' pose(\'r) '..availableDrugs[drugType].label, 'error')
                 stealingPed = ped
                 stealData = {
                     item = availableDrugs[drugType].item,
@@ -275,7 +275,7 @@ function SellToPed(ped)
                 break
             else
                 if pedDist < 1.5 and cornerselling then
-                    QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '~g~E~w~ '..bagAmount..'x '..currentOfferDrug.label..' for $'..randomPrice..'? / ~g~G~w~ Afvise tilbud')
+                    QBCore.Functions.DrawText3D(pedCoords.x, pedCoords.y, pedCoords.z, '~g~E~w~ '..bagAmount..'x '..currentOfferDrug.label..' for $'..randomPrice..'? / ~g~G~w~ afvise tilbud')
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent('qb-drugs:server:sellCornerDrugs', availableDrugs[drugType].item, bagAmount, randomPrice)
                         hasTarget = false

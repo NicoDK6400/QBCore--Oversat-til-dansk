@@ -44,7 +44,7 @@ QBShared.StarterItems = {
 
 QBShared.Items = {
 	-- WEAPONS
-	["weapon_unarmed"] 				 = {["name"] = "weapon_unarmed", 		 	  	["label"] = "Næver", 					["weight"] = 1000, 		["type"] = "weapon",	["ammotype"] = nil, 					["image"] = "placeholder.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "Fisticuffs"},
+	["weapon_unarmed"] 				 = {["name"] = "weapon_unarmed", 		 	  	["label"] = "Næver", 					["weight"] = 1000, 		["type"] = "weapon",	["ammotype"] = nil, 					["image"] = "placeholder.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "Bare næver"},
 	["weapon_knife"] 				 = {["name"] = "weapon_knife", 			 	  	["label"] = "Kniv", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_knife.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "Et instrument sammensat af et blad fastgjort til et håndtag, der bruges til at skære eller som et våben"},
 	["weapon_nightstick"] 			 = {["name"] = "weapon_nightstick", 		 	["label"] = "Politistav", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_nightstick.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "En stav der bruges af politiet, den gør ondt"},
 	["weapon_hammer"] 				 = {["name"] = "weapon_hammer", 			 	["label"] = "Hammer", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_hammer.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "Bruges til job som at bryde ting (knogler) og slå på søm"},
@@ -309,8 +309,8 @@ QBShared.Items = {
 	["goldchain"] 				 	 = {["name"] = "goldchain", 			  	  	["label"] = "Guldkæde", 				["weight"] = 1500, 		["type"] = "item", 		["image"] = "goldchain.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A golden chain seems like the jackpot to me!"},
 	["10kgoldchain"] 				 = {["name"] = "10kgoldchain", 			  	  	["label"] = "10k Guldkæde", 			["weight"] = 2000, 		["type"] = "item", 		["image"] = "10kgoldchain.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "10 carat golden chain"},
 	["trojan_usb"] 				 	 = {["name"] = "trojan_usb", 			  	  	["label"] = "Trojan USB", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "usb_device.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Handy software to shut down some systems"},
-	["security_card_01"] 			 = {["name"] = "security_card_01", 			  	["label"] = "Security Card A", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "security_card_01.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A security card... I wonder what it goes to"},
-	["security_card_02"] 			 = {["name"] = "security_card_02", 			  	["label"] = "Security Card B", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "security_card_02.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A security card... I wonder what it goes to"},
+	["security_card_01"] 			 = {["name"] = "security_card_01", 			  	["label"] = "Sikkerhedskort A", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "security_card_01.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A security card... I wonder what it goes to"},
+	["security_card_02"] 			 = {["name"] = "security_card_02", 			  	["label"] = "Sikkerhedskort B", 		["weight"] = 0, 		["type"] = "item", 		["image"] = "security_card_02.png", 	["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A security card... I wonder what it goes to"},
 	["police_stormram"] 			 = {["name"] = "police_stormram", 			  	["label"] = "Stormram", 				["weight"] = 18000, 	["type"] = "item", 		["image"] = "police_stormram.png", 		["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "A nice tool to break into doors"},
 	["rolling_paper"] 			 	 = {["name"] = "rolling_paper", 			  	["label"] = "Rolling Paper", 			["weight"] = 0, 		["type"] = "item", 		["image"] = "rolling_paper.png", 		["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = {accept = {"weed_white-widow", "weed_skunk", "weed_purple-haze", "weed_og-kush", "weed_amnesia", "weed_ak47"}, reward = "joint", anim = {["dict"] = "anim@amb@business@weed@weed_inspecting_high_dry@", ["lib"] = "weed_inspecting_high_base_inspector", ["text"] = "Rolling joint", ["timeOut"] = 5000,}},   ["description"] = "Paper made specifically for encasing and smoking tobacco or cannabis."},
 	["radio"] 			 	 		 = {["name"] = "radio", 			  			["label"] = "Radio", 					["weight"] = 2000, 		["type"] = "item", 		["image"] = "radio.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "You can communicate with this through a signal"},
@@ -473,10 +473,10 @@ QBShared.Weapons = {
 -- Gangs
 QBShared.Gangs = {
 	["none"] = {
-		label = "No Gang",
+		label = "Ikke bandemedlem",
 		grades = {
             ['0'] = {
-                name = "Unaffiliated"
+                name = "Ikke relateret"
             },
         },
 	},
@@ -593,7 +593,7 @@ QBShared.Gangs = {
 -- Jobs
 QBShared.Jobs = {
 	["unemployed"] = {
-		label = "Civilian",
+		label = "Civil",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -603,7 +603,7 @@ QBShared.Jobs = {
         },
 	},
 	["police"] = {
-		label = "Law Enforcement",
+		label = "Politi",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -657,7 +657,7 @@ QBShared.Jobs = {
         },
 	},
 	["realestate"] = {
-		label = "Real Estate",
+		label = "Ejendomsmæglere",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -711,7 +711,7 @@ QBShared.Jobs = {
         },
 	},
 	["cardealer"] = {
-		label = "Vehicle Dealer",
+		label = "Bilforhandler",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -738,7 +738,7 @@ QBShared.Jobs = {
         },
 	},
 	["mechanic"] = {
-		label = "Mechanic",
+		label = "Mekanikere",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -765,27 +765,27 @@ QBShared.Jobs = {
         },
 	},
 	["judge"] = {
-		label = "Honorary",
+		label = "Retssal",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Judge",
+                name = "Dommer",
                 payment = 100
             },
         },
 	},
 	["lawyer"] = {
-		label = "Law Firm",
+		label = "Advokat firma",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Associate",
+                name = "Medarbejder",
                 payment = 50
             },
         },
 	},
 	["reporter"] = {
-		label = "Reporter",
+		label = "Journalist",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
@@ -795,41 +795,41 @@ QBShared.Jobs = {
         },
 	},
 	["trucker"] = {
-		label = "Trucker",
+		label = "Lastbil chauffør",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Driver",
+                name = "Fører",
                 payment = 50
             },
         },
 	},
 	["tow"] = {
-		label = "Towing",
+		label = "Bugsering",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Driver",
+                name = "Fører",
                 payment = 50
             },
         },
 	},
 	["garbage"] = {
-		label = "Garbage",
+		label = "Skraldemand",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Collector",
+                name = "Medarbejder",
                 payment = 50
             },
         },
 	},
 	["vineyard"] = {
-		label = "Vineyard",
+		label = "Vingård",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Picker",
+                name = "Medarbejder",
                 payment = 50
             },
         },
@@ -839,7 +839,7 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Sales",
+                name = "Sælger",
                 payment = 50
             },
         },

@@ -213,7 +213,7 @@ AddEventHandler('electronickit:UseElectronickit', function()
                                 QBCore.Functions.Notify("Ser ud til at banken allerede er åben ..", "error")
                             end
                         else
-                            QBCore.Functions.Notify('Minimum af '..Config.MinimumFleecaPolice..' politi er der brug for', "error")
+                            QBCore.Functions.Notify('Der er brug minimum for '..Config.MinimumFleecaPolice..' betjente', "error")
                         end
                     end
                 end

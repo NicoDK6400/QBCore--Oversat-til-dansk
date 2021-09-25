@@ -175,7 +175,7 @@ AddEventHandler('apartments:client:SpawnInApartment', function(apartmentId, apar
     if rangDoorbell ~= nil then
         local doorbelldist = #(pos - vector3(Apartments.Locations[rangDoorbell].coords.doorbell.x, Apartments.Locations[rangDoorbell].coords.doorbell.y,Apartments.Locations[rangDoorbell].coords.doorbell.z))
         if doorbelldist > 5 then
-            QBCore.Functions.Notify("You are to far away from the Doorbell")
+            QBCore.Functions.Notify("Du er for langt væk fra dørklokken")
             return
         end
     end
@@ -219,7 +219,7 @@ RegisterNetEvent('apartments:client:RingDoor')
 AddEventHandler('apartments:client:RingDoor', function(player, house)
     CurrentDoorBell = player
     TriggerServerEvent("InteractSound_SV:PlayOnSource", "doorbell", 0.1)
-    QBCore.Functions.Notify("Someone Is At The Door!")
+    QBCore.Functions.Notify("Der er nogen ved døren!")
 end)
 
 function EnterApartment(house, apartmentId, new)
@@ -362,27 +362,27 @@ end
 
 function MenuOwners()
     ped = PlayerPedId();
-    MenuTitle = "Owners"
+    MenuTitle = "Ejerne"
     ClearMenu()
-    Menu.addButton("Ring the doorbell", "OwnerList", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Ring på dørklokken", "OwnerList", nil)
+    Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function OwnerList()
     QBCore.Functions.TriggerCallback('apartments:GetAvailableApartments', function(apartments)
         ped = PlayerPedId();
-        MenuTitle = "Rang the door at: "
+        MenuTitle = "Ringede på hos: "
         ClearMenu()
 
         if apartments == nil then
-            QBCore.Functions.Notify("There is nobody home..", "error", 3500)
+            QBCore.Functions.Notify("Der er ingen hjemme..", "error", 3500)
             closeMenuFull()
         else
             for k, v in pairs(apartments) do
                 Menu.addButton(v, "RingDoor", k) 
             end
         end
-        Menu.addButton("Back", "MenuOwners",nil)
+        Menu.addButton("Tilbage", "MenuOwners",nil)
     end, ClosestHouse)
 end
 
@@ -396,8 +396,8 @@ function MenuOutfits()
     ped = PlayerPedId();
     MenuTitle = "Outfits"
     ClearMenu()
-    Menu.addButton("My Outfits", "OutfitsLijst", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Mine outfits", "OutfitsLijst", nil)
+    Menu.addButton("Luk menu", "closeMenuFull", nil) 
 end
 
 function changeOutfit()
@@ -411,41 +411,41 @@ end
 function OutfitsLijst()
     QBCore.Functions.TriggerCallback('apartments:GetOutfits', function(outfits)
         ped = PlayerPedId();
-        MenuTitle = "My Outfits :"
+        MenuTitle = "Mine outfits :"
         ClearMenu()
 
         if outfits == nil then
-            QBCore.Functions.Notify("You didnt save any outfits...", "error", 3500)
+            QBCore.Functions.Notify("Du har ikke gemt outfits...", "error", 3500)
             closeMenuFull()
         else
             for k, v in pairs(outfits) do
                 Menu.addButton(outfits[k].outfitname, "optionMenu", outfits[k]) 
             end
         end
-        Menu.addButton("Back", "MenuOutfits",nil)
+        Menu.addButton("Tilbage", "MenuOutfits",nil)
     end)
 end
 
 function optionMenu(outfitData)
     ped = PlayerPedId();
-    MenuTitle = "What now?"
+    MenuTitle = "Hvad nu?"
     ClearMenu()
 
-    Menu.addButton("Choose Outfit", "selectOutfit", outfitData) 
-    Menu.addButton("Delete Outfit", "removeOutfit", outfitData) 
-    Menu.addButton("Back", "OutfitsLijst",nil)
+    Menu.addButton("Vælg outfit", "selectOutfit", outfitData) 
+    Menu.addButton("Slet outfit", "removeOutfit", outfitData) 
+    Menu.addButton("Tilbage", "OutfitsLijst",nil)
 end
 
 function selectOutfit(oData)
     TriggerServerEvent('clothes:selectOutfit', oData.model, oData.skin)
-    QBCore.Functions.Notify(oData.outfitname.." chosen", "success", 2500)
+    QBCore.Functions.Notify(oData.outfitname.." valgt", "success", 2500)
     closeMenuFull()
     changeOutfit()
 end
 
 function removeOutfit(oData)
     TriggerServerEvent('clothes:removeOutfit', oData.outfitname)
-    QBCore.Functions.Notify(oData.outfitname.." has been deleted", "success", 2500)
+    QBCore.Functions.Notify(oData.outfitname.." blev slettet", "success", 2500)
     closeMenuFull()
 end
 

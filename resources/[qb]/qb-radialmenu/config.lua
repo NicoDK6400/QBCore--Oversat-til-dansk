@@ -135,7 +135,7 @@ Config.MenuItems = {
                         shouldClose = true
                     }, {
                         id = 'houseLocations',
-                        title = 'Point of interest',
+                        title = 'Hus interaktion',
                         icon = 'home',
                         items = {
                             {
@@ -191,14 +191,14 @@ Config.MenuItems = {
                         shouldClose = true
                     }, {
                         id = 'Top',
-                        title = 'Overkrop',
+                        title = 'T-Shirt',
                         icon = 'tshirt',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',
                         shouldClose = true
                     }, {
                         id = 'Shirt',
-                        title = 'Shirt',
+                        title = 'Trøje',
                         icon = 'tshirt',
                         type = 'client',
                         event = 'qb-radialmenu:ToggleClothing',

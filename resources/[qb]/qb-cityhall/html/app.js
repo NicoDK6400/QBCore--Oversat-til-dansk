@@ -57,7 +57,7 @@ $('.cityhall-option-block').click(function(e){
 
     if (blockPage == "identity") {
         $(".identity-page-blocks").html("");
-        $(".identity-page-blocks").html('<div class="identity-page-block" data-type="id_card"><p>ID Card</p></div>');
+        $(".identity-page-blocks").html('<div class="identity-page-block" data-type="id_card"><p>ID Kort</p></div>');
 
         $.post('https://qb-cityhall/requestLicenses', JSON.stringify({}), function(licenses){
             $.each(licenses, function(i, license){

@@ -207,7 +207,7 @@ AddEventHandler('qb-vehicletuning:server:CheckForItems', function(part)
         end
     else
         TriggerClientEvent('QBCore:Notify', src, "Du har ikke " ..
-            QBCore.Shared.Items[Config.RepairCostAmount[part].item]["label"] .. " bij je!", "error")
+            QBCore.Shared.Items[Config.RepairCostAmount[part].item]["label"] .. " på dig!", "error")
     end
 end)
 

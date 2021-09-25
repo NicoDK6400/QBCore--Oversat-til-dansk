@@ -315,7 +315,7 @@ AddEventHandler('qb-banking:doQuickDeposit', function(amount)
         local bank = xPlayer.Functions.AddMoney('bank', tonumber(amount), 'banking-quick-depo')
         if bank then
             TriggerClientEvent('qb-banking:openBankScreen', src)
-            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..' successfully.')
+            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..'.')
             TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of $"..amount.." successfully.")
         end
     end
@@ -342,7 +342,7 @@ AddEventHandler('qb-banking:doQuickWithdraw', function(amount, branch)
         local bank = xPlayer.Functions.AddMoney('cash', tonumber(amount), 'banking-quick-withdraw')
         if cash then 
             TriggerClientEvent('qb-banking:openBankScreen', src)
-            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..' successfully.')
+            TriggerClientEvent('qb-banking:successAlert', src, 'Du har lavet en udbetaling af $'..amount..'.')
             TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of $"..amount.." successfully.")
         end
     end
@@ -410,7 +410,7 @@ AddEventHandler('qb-banking:createSavingsAccount', function()
 end)
 
 
-QBCore.Commands.Add('givecash', 'Give cash to player.', {{name = 'id', help = 'Player ID'}, {name = 'amount', help = 'Amount'}}, true, function(source, args)
+QBCore.Commands.Add('givecash', 'Give cash to player.', {{name = 'id', help = 'Spiller ID'}, {name = 'amount', help = 'Amount'}}, true, function(source, args)
     local src = source
 	local id = tonumber(args[1])
 	local amount = math.ceil(tonumber(args[2]))

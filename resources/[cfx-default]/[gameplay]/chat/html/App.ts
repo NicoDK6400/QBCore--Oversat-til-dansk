@@ -172,11 +172,11 @@ export default Vue.extend({
       // TODO: localization
       switch (this.hideState) {
         case ChatHideStates.AlwaysShow:
-          return 'Visible';
+          return 'Synlig';
         case ChatHideStates.AlwaysHide:
-          return 'Hidden';
+          return 'Skjult';
         case ChatHideStates.ShowWhenActive:
-          return 'When active';
+          return 'Aktiv chat';
       }
     }
   },
