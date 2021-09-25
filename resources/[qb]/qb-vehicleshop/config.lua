@@ -175,10 +175,10 @@ QB.VehicleShops = {
             ["scale"] = 0.29,
             ["font"] = 0,
             ["main"] = {
-                ["title"] = "KATEGORIER",
+                ["title"] = "CATEGORIES",
                 ["Name"] = "main",
                 ["buttons"] = {
-                    {name = "Categories", description = ""},
+                    {name = "Kategorier", description = ""},
                 }
             },
             ["vehicles"] = {

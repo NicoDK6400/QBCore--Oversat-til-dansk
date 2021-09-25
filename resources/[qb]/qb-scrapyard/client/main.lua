@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
 					if vehicle ~= 0 and vehicle ~= nil then 
 						local vehpos = GetEntityCoords(vehicle)
 						if #(pos - vector3(vehpos.x, vehpos.y, vehpos.z)) < 2.5 and not isBusy then
-							DrawText3Ds(vehpos.x, vehpos.y, vehpos.z, "~g~E~w~ - Disassemble Vehicle")
+							DrawText3Ds(vehpos.x, vehpos.y, vehpos.z, "~g~E~w~ - Skild kørertøjet fra hinanden")
 							if IsControlJustReleased(0, 38) then
 								if GetPedInVehicleSeat(vehicle, -1) == PlayerPedId() then
 									if IsVehicleValid(GetEntityModel(vehicle)) then 

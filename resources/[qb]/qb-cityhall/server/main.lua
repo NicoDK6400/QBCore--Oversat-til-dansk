@@ -67,7 +67,7 @@ AddEventHandler('qb-cityhall:server:ApplyJob', function(job)
 
     Player.Functions.SetJob(job, 0)
 
-    TriggerClientEvent('QBCore:Notify', src, 'Tillykke med dit nye arbejde! ('..JobInfo.label..')')
+    TriggerClientEvent('QBCore:Notify', src, 'Tillykke med dit nye arbejde!')
 end)
 
 
