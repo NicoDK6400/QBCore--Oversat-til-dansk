@@ -24,16 +24,16 @@ function DebugPrint(str)
 end
 
 elevator_roof_location = {
-	["x"] = 930.0716,
-	["y"] = 33.86854,
-	["z"] = 81.09772,
-	["a"] = 69.9051208
+	["x"] = 2469.02,
+	["y"] = -287.44,
+	["z"] = -58.27,
+	["a"] = 7.06
 }
 elevator_entrance_location = {
-	["x"] = 965.0619,
-	["y"] = 58.51287,
-	["z"] = 112.553,
-	["a"] = 53.0310745
+	["x"] = 924.96,
+	["y"] = 46.52,
+	["z"] = 81.11,
+	["a"] = 55.44
 }
 
 tables = { -- Spawns Ped Only -- Setup Currently For This https://forum.cfx.re/t/cayo-perico-casino-dlc-ipl-loader/2099391
