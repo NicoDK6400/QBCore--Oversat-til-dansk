@@ -42,7 +42,7 @@ $(document).ready(function (){
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 4) {
-                        originalText = "Indlæser karaktere"
+                        originalText = "Indlæser karakterer"
                         $("#loading-text").html(originalText);
                     }
                     if (loadingProgress == 6) {
