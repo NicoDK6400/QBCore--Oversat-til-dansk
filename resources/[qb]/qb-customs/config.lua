@@ -173,13 +173,13 @@ vehicleTyreSmokeOptions = {
 -- NEONS
 
 vehicleNeonOptions = {
-    category = "Neons",
-        neonTypes = {
-            {name = "Front Neon", id = 2},
-            {name = "Rear Neon", id = 3},
-            {name = "Left Neon", id = 0},
-            {name = "Right Neon", id = 1}
-        },
+    category = "Neon",
+    neonTypes = {
+        {name = "Front Neon", id = 2},
+        {name = "Rear Neon", id = 3},
+        {name = "Left Neon", id = 0},
+        {name = "Right Neon", id = 1}
+    },
     neonColours = {
         {
             name = "White",
