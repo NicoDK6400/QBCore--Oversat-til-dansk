@@ -543,7 +543,7 @@ Config.Outfits = {
     ["police"] = {
         ["male"] = {
             [1] = {
-                outfitLabel = "kort ærme ",
+                outfitLabel = "kort ærme",
                 outfitData = {
                     ["pants"]       = { item = 95, texture = 0},  -- PANTS
                     ["arms"]        = { item = 0, texture = 0},  -- ArmS
@@ -857,7 +857,7 @@ Config.Outfits = {
         },
         ["female"] = {
             [1] = {
-                outfitLabel = "kortærmet hvid polo ",
+                outfitLabel = "kortærmet hvid polo",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -875,7 +875,7 @@ Config.Outfits = {
                 },
             },
             [2] = {
-                outfitLabel = "kortærmet blå polo ",
+                outfitLabel = "kortærmet blå polo",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -893,7 +893,7 @@ Config.Outfits = {
                 },
             },
             [3] = {
-                outfitLabel = "hvid ærme med korte ærmer ",
+                outfitLabel = "hvid ærme med korte ærmer",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
@@ -911,7 +911,7 @@ Config.Outfits = {
                 },
             },
             [4] = {
-                outfitLabel = "kortærmet blå knap op ",
+                outfitLabel = "kortærmet blå knap op",
                 outfitData = {
                     ["pants"]       = { item = 34, texture = 0},  -- PANTS
                     ["arms"]        = { item = 98, texture = 0},  -- ArmS
