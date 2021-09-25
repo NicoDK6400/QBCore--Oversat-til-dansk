@@ -1062,7 +1062,7 @@ end
 function GetOwnedVehicleItems(plate)
 	local items = {}
 	local result = exports.oxmysql:fetchSync('SELECT items FROM trunkitems WHERE plate = ?', {plate})
-	if result[1] ~= nil then
+	if result and result[1] ~= nil then
 		if result[1].items ~= nil then
 			result[1].items = json.decode(result[1].items)
 			if result[1].items ~= nil then 
@@ -1183,7 +1183,7 @@ end
 function GetOwnedVehicleGloveboxItems(plate)
 	local items = {}
 	local result = exports.oxmysql:fetchSync('SELECT items FROM gloveboxitems WHERE plate = ?', {plate})
-	if result[1] ~= nil then 
+	if result and result[1] ~= nil then 
 		if result[1].items ~= nil then
 			result[1].items = json.decode(result[1].items)
 			if result[1].items ~= nil then 

@@ -241,8 +241,9 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
         local repairCost = math.ceil(1000 - vehicleHealth)
 
         TriggerServerEvent("qb-customs:updateRepairCost", repairCost)
-        createMenu("repairMenu", "Velkommen til Benny's Original Motorworks", "Repair Vehicle")
+        createMenu("repairMenu", "Velkommen til Benny's Original Motorworks", "Reparer Køretøj")
         populateMenu("repairMenu", -1, "Reparer", "$" .. repairCost)
+        populateMenu("repairMenu", -2, "Annuller", "")
         finishPopulatingMenu("repairMenu")
     end
 
@@ -687,19 +688,23 @@ function MenuManager(state)
                 end 
             else
                 if currentMenu == "repairMenu" then
-                    if AttemptPurchase("repair") then
-                        currentMenu = "mainMenu"
+                    if currentMenuItemID == -1 then
+                        if AttemptPurchase("repair") then
+                            currentMenu = "mainMenu"
 
-                        RepairVehicle()
+                            RepairVehicle()
 
-                        toggleMenu(false, "repairMenu")
-                        toggleMenu(true, currentMenu)
-                        updateMenuHeading(currentMenu)
-                        updateMenuSubheading(currentMenu)
-                        playSoundEffect("wrench", 0.4)
-                        updateMenuStatus("")
+                            toggleMenu(false, "repairMenu")
+                            toggleMenu(true, currentMenu)
+                            updateMenuHeading(currentMenu)
+                            updateMenuSubheading(currentMenu)
+                            playSoundEffect("wrench", 0.4)
+                            updateMenuStatus("")
+                        else
+                            updateMenuStatus("Not Enough Money")
+                        end
                     else
-                        updateMenuStatus("Not Enough Money")
+                        ExitBennys()
                     end
                 elseif currentMenu == "mainMenu" then
                     currentMenu = currentMenuItem:gsub("%s+", "") .. "Menu"
