@@ -10,7 +10,7 @@ Hilsen FiveM.dk
 Har du brug for et sted at hoste din nye QBCore server?  
 Vi har partnered op med DybHosting, DybHosting er en god og pålidelig host, som har været så søde at give os en rabatkode du kan bruge!  
 
-https://dybhosting.eu/ - Rabatkode: dkfivem
+https://dybhosting.eu/ - Rabatkode: DKFiveM10
 
 ## Installation
 1. Download filerne, og placer dem hvor du vil have din server til at ligge.
