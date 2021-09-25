@@ -336,7 +336,7 @@ function RepairPart(part)
         end
         if hasitem and countitem >= PartData.costs then
             TriggerEvent('animations:client:EmoteCommandStart', {"mechanic"})
-            QBCore.Functions.Progressbar("repair_part", "Reparere " ..Config.ValuesLabels[part], math.random(5000, 10000), false, true, {
+            QBCore.Functions.Progressbar("repair_part", "Reparerer " ..Config.ValuesLabels[part], math.random(5000, 10000), false, true, {
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
