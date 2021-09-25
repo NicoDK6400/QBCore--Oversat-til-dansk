@@ -426,7 +426,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
                 createMenu(v.category .. "Menu", v.category .. " Dæk", "Vælg dæk")
 
                 for m, n in pairs(validMods) do
-                    populateMenu(v.category .. "Menu", n.id, n.name, ehicleCustomisationPrices.wheels.price.." DKK")
+                    populateMenu(v.category .. "Menu", n.id, n.name, vehicleCustomisationPrices.wheels.price.." DKK")
                 end
 
                 finishPopulatingMenu(v.category .. "Menu")
