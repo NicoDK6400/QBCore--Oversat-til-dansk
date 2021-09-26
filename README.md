@@ -1,4 +1,4 @@
-# qBus---Oversat-til-dansk
+# QB Core---Oversat-til-dansk
 Dette er QB Core, oversat og fixet fra os til jer! &lt;3
 
 Har ud nogen problemer med disse scripts, fejl, problemer med opsætning eller andet?  
