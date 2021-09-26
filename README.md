@@ -24,6 +24,7 @@ https://dybhosting.eu/ - Rabatkode: DKFiveM10
 2. Importer qbcore.sql filen til en database navngivet efter dit valg.
 3. Rediger server.cfg filen, du skal indsætte din egen license key ved sv_licenseKey (Den får du fra https://keymaster.fivem.net/), og du skal indsætte dine database oplysningner ved set mysql_connection_string. Her kan du også ændre dit server navn & beskrivelse ved sv_projectName og sv_projectDesc.
 4. Start serveren ved at køre StartServer.bat
+5. Efter serveren er startet op (kun første gang), skal den genstartes. 
 
 ## Opdatering
 1. Download den seneste artifact fra https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/

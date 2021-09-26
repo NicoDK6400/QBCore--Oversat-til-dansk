@@ -522,6 +522,7 @@ end)
 function FormatWeaponAttachments(itemdata)
     local attachments = {}
     itemdata.name = itemdata.name:upper()
+    print(json.encode(itemdata))
     if itemdata.info.attachments ~= nil and next(itemdata.info.attachments) ~= nil then
         for k, v in pairs(itemdata.info.attachments) do
             if WeaponAttachments[itemdata.name] ~= nil then

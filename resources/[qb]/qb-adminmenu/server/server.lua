@@ -104,7 +104,7 @@ AddEventHandler("qb-admin:server:kick", function(player, reason)
     local src = source
     if QBCore.Functions.HasPermission(src, permissions["kick"]) then
         TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller kicked", "red", string.format('%s blev kicked af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
-        DropPlayer(player.id, "Du har modtaget et server kick:\n" .. reason .. "\n\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
+        DropPlayer(player.id, "Du har modtaget et server kick:\n" .. reason .. "\n\nFor mere information se Discord: " .. QBCore.Config.Server.discord)
     end
 end)
 
@@ -133,9 +133,9 @@ AddEventHandler("qb-admin:server:ban", function(player, time, reason)
         })
         TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller Banned", "red", string.format('%s var banned af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
         if banTime >= 2147483647 then
-            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nDit ban er permanent.\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
+            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nDit ban er permanent.\nFor mere information se Discord: " .. QBCore.Config.Server.discord)
         else
-            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nBan udløber: " .. timeTable["day"] .. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"] .. ":" .. timeTable["min"] .. "\nFor mere information se Discord (INVITE HER): " .. QBCore.Config.Server.discord)
+            DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nBan udløber: " .. timeTable["day"] .. "/" .. timeTable["month"] .. "/" .. timeTable["year"] .. " " .. timeTable["hour"] .. ":" .. timeTable["min"] .. "\nFor mere information se Discord : " .. QBCore.Config.Server.discord)
         end
     end
 end)
@@ -185,9 +185,9 @@ AddEventHandler('qb-admin:server:intovehicle', function(player)
         end
         if seat ~= -1 then
             SetPedIntoVehicle(admin,vehicle,seat)
-            TriggerClientEvent('QBCore:Notify', src, 'Entered vehicle', 'success', 5000)
+            TriggerClientEvent('QBCore:Notify', src, 'Steg ind', 'success', 5000)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'The vehicle has no free seats!', 'danger', 5000)
+            TriggerClientEvent('QBCore:Notify', src, 'Dette køretøj har ikke flere ledige pladser!', 'danger', 5000)
         end
     end
 end)
@@ -326,7 +326,7 @@ QBCore.Commands.Add("warn", "Giv en advarsel (Kun Admin)", {{name="ID", help="Sp
     local warnId = "WARN-"..math.random(1111, 9999)
     if targetPlayer ~= nil then
         TriggerClientEvent('chatMessage', targetPlayer.PlayerData.source, "SYSTEM", "error", "Du har modtaget et warn af: "..GetPlayerName(source)..", Begundelse: "..msg)
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "You have warned "..GetPlayerName(targetPlayer.PlayerData.source).." for: "..msg)
+        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Du gav et warn "..GetPlayerName(targetPlayer.PlayerData.source).." for: "..msg)
         exports.oxmysql:insert('INSERT INTO player_warns (senderIdentifier, targetIdentifier, reason, warnId) VALUES (?, ?, ?, ?)', {
             senderPlayer.PlayerData.license,
             targetPlayer.PlayerData.license,
@@ -334,11 +334,11 @@ QBCore.Commands.Add("warn", "Giv en advarsel (Kun Admin)", {{name="ID", help="Sp
             warnId
         })
     else
-        TriggerClientEvent('QBCore:Notify', source, 'This player is not online', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'Spiller ikke online', 'error')
     end
 end, "admin")
 
-QBCore.Commands.Add("checkwarns", "Tjek spiller for warns (Kun Admin)", {{name="ID", help="Spiller"}, {name="Warning", help="Numre af warns, (1, 2 or 3 eks..)"}}, false, function(source, args)
+QBCore.Commands.Add("checkwarns", "Tjek spiller for warns (Kun Admin)", {{name="ID", help="Spiller"}, {name="Warning", help="Antal warns, (1, 2 or 3 eks..)"}}, false, function(source, args)
     if args[2] == nil then
         local targetPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
         local result = exports.oxmysql:fetchSync('SELECT * FROM player_warns WHERE targetIdentifier = ?', { targetPlayer.PlayerData.license })
@@ -354,7 +354,7 @@ QBCore.Commands.Add("checkwarns", "Tjek spiller for warns (Kun Admin)", {{name="
     end
 end, "admin")
 
-QBCore.Commands.Add("delwarn", "Delete Players Warnings (Kun Admin)", {{name="ID", help="Spiller"}, {name="Warning", help="Numre af warns, (1, 2 or 3 eks..)"}}, true, function(source, args)
+QBCore.Commands.Add("delwarn", "Delete Players Warnings (Kun Admin)", {{name="ID", help="Spiller"}, {name="Warning", help="Antal warns, (1, 2 or 3 eks..)"}}, true, function(source, args)
     local targetPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local warnings = exports.oxmysql:fetchSync('SELECT * FROM player_warns WHERE targetIdentifier = ?', { targetPlayer.PlayerData.license })
     local selectedWarning = tonumber(args[2])
@@ -378,16 +378,16 @@ QBCore.Commands.Add("reportr", "Svar på en report (Kun Admin)", {}, false, func
             if QBCore.Functions.HasPermission(v, "admin") then
                 if QBCore.Functions.IsOptin(v) then
                     TriggerClientEvent('chatMessage', v, "REPORT REPLY ("..source..") - "..GetPlayerName(source), "warning", msg)
-                    TriggerEvent("qb-log:server:CreateLog", "report", "Report Reply", "red", "**"..GetPlayerName(source).."** replied on: **"..OtherPlayer.PlayerData.name.. " **(ID: "..OtherPlayer.PlayerData.source..") **Message:** " ..msg, false)
+                    TriggerEvent("qb-log:server:CreateLog", "report", "Svar på report", "red", "**"..GetPlayerName(source).."** svarede på: **"..OtherPlayer.PlayerData.name.. " **(ID: "..OtherPlayer.PlayerData.source..") **Besked:** " ..msg, false)
                 end
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "Player is not online", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Spiller ikke online", "error")
     end
 end, "admin")
 
-QBCore.Commands.Add("setmodel", "Change Ped Model (Kun Admin)", {{name="model", help="Name of the model"}, {name="id", help="Id of the Player (empty for yourself)"}}, false, function(source, args)
+QBCore.Commands.Add("setmodel", "Ændre Ped model (Kun Admin)", {{name="model", help="Navn på Ped"}, {name="id", help="ID på spilleren (tom for dig selv)"}}, false, function(source, args)
     local model = args[1]
     local target = tonumber(args[2])
     if model ~= nil or model ~= "" then
@@ -398,29 +398,29 @@ QBCore.Commands.Add("setmodel", "Change Ped Model (Kun Admin)", {{name="model", 
             if Trgt ~= nil then
                 TriggerClientEvent('qb-admin:client:SetModel', target, tostring(model))
             else
-                TriggerClientEvent('QBCore:Notify', source, "This person is not online..", "error")
+                TriggerClientEvent('QBCore:Notify', source, "Spiller ikke online..", "error")
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, "You did not set a model..", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du angav ikke en model..", "error")
     end
 end, "admin")
 
-QBCore.Commands.Add("setspeed", "Set Player Foot Speed (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("setspeed", "Sæt gang hastighed (Kun Admin)", {}, false, function(source, args)
     local speed = args[1]
     if speed ~= nil then
         TriggerClientEvent('qb-admin:client:SetSpeed', source, tostring(speed))
     else
-        TriggerClientEvent('QBCore:Notify', source, "You did not set a speed.. (`fast` for super-run, `normal` for normal)", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du angav ikke hastighed.. (`fast` for super-run, `normal` for normal)", "error")
     end
 end, "admin")
 
-QBCore.Commands.Add("reporttoggle", "Toggle Incoming Reports (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("reporttoggle", "Slå report til/fra (Kun Admin)", {}, false, function(source, args)
     QBCore.Functions.ToggleOptin(source)
     if QBCore.Functions.IsOptin(source) then
-        TriggerClientEvent('QBCore:Notify', source, "You are receiving reports", "success")
+        TriggerClientEvent('QBCore:Notify', source, "Du modtager reports", "success")
     else
-        TriggerClientEvent('QBCore:Notify', source, "You are not receiving reports", "error")
+        TriggerClientEvent('QBCore:Notify', source, "Du modtager ikke reports", "error")
     end
 end, "admin")
 
@@ -439,22 +439,22 @@ RegisterCommand("kickall", function(source, args, rawCommand)
                     end
                 end
             else
-                TriggerClientEvent('chatMessage', src, 'SYSTEM', 'error', 'Mention a reason..')
+                TriggerClientEvent('chatMessage', src, 'SYSTEM', 'error', 'Angiv en beggrundelse..')
             end
         else
-            TriggerClientEvent('chatMessage', src, 'SYSTEM', 'error', 'You can\'t do this..')
+            TriggerClientEvent('chatMessage', src, 'SYSTEM', 'error', 'Du kan ikke gøre dette..')
         end
     else
         for k, v in pairs(QBCore.Functions.GetPlayers()) do
             local Player = QBCore.Functions.GetPlayer(v)
             if Player ~= nil then
-                DropPlayer(Player.PlayerData.source, "Server restart, check our Discord for more information: " .. QBCore.Config.Server.discord)
+                DropPlayer(Player.PlayerData.source, "Server restart, se vores Discord for mere information: " .. QBCore.Config.Server.discord)
             end
         end
     end
 end, false)
 
-QBCore.Commands.Add("setammo", "Set Your Ammo Amount (Kun Admin)", {{name="amount", help="Amount of bullets, for example: 20"}, {name="weapon", help="Name of the weapen, for example: WEAPON_VINTAGEPISTOL"}}, false, function(source, args)
+QBCore.Commands.Add("setammo", "Angiv mændge af skud (Kun Admin)", {{name="amount", help="Antal skud, for eksempel: 20"}, {name="weapon", help="Navnet på våbnet, for eksempel: WEAPON_VINTAGEPISTOL"}}, false, function(source, args)
     local src = source
     local weapon = args[2]
     local amount = tonumber(args[1])

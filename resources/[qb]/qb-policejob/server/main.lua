@@ -261,7 +261,7 @@ AddEventHandler('police:server:SendEmergencyMessage', function(coords, message)
     local src = source
     local MainPlayer = QBCore.Functions.GetPlayer(src)
     local alertData = {
-        title = "911 opkald - " .. MainPlayer.PlayerData.charinfo.firstname .. " " ..
+        title = "112 opkald - " .. MainPlayer.PlayerData.charinfo.firstname .. " " ..
             MainPlayer.PlayerData.charinfo.lastname .. " (" .. src .. ")",
         coords = {
             x = coords.x,
@@ -1170,7 +1170,7 @@ QBCore.Functions.CreateUseableItem("handcuffs", function(source, item)
     end
 end)
 
-QBCore.Commands.Add("911", "Send en besked til beredskabstjenester", {{
+QBCore.Commands.Add("112", "Send en besked til beredskabstjenester", {{
     name = "message",
     help = "Beskeden du ønsker at sende"
 }}, true, function(source, args)
@@ -1187,7 +1187,7 @@ QBCore.Commands.Add("911", "Send en besked til beredskabstjenester", {{
     end
 end)
 
-QBCore.Commands.Add("911a", "Send en anonym besked til beredskabstjenester (giver ingen lokation)", {{
+QBCore.Commands.Add("112a", "Send en anonym besked til beredskabstjenester (giver ingen lokation)", {{
     name = "message",
     help = "Beskeden du ønsker at sende"
 }}, true, function(source, args)
@@ -1202,7 +1202,7 @@ QBCore.Commands.Add("911a", "Send en anonym besked til beredskabstjenester (give
     end
 end)
 
-QBCore.Commands.Add("911r", "Send en besked tilbage til afsender", {{
+QBCore.Commands.Add("112r", "Send en besked tilbage til afsender", {{
     name = "id",
     help = "ID af opkaldet"
 }, {

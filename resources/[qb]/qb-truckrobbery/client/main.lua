@@ -202,7 +202,7 @@ end)
 RegisterNetEvent('qb-armoredtruckheist:client:robberyCall')
 AddEventHandler('qb-armoredtruckheist:client:robberyCall', function(streetLabel, coords)
     if PlayerJob.name == "police" then 
-        local store = "Armored Truck"
+        local store = "Pengetransporter"
 
             PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
             TriggerEvent('qb-policealerts:client:AddPoliceAlert', {

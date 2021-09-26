@@ -560,7 +560,7 @@ AddEventHandler('police:client:PoliceAlertMessage', function(title, streetLabel,
         SetBlipAlpha(blip, transG)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("911 - " .. title)
+        AddTextComponentString("112 - " .. title)
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -581,7 +581,7 @@ AddEventHandler('police:server:SendEmergencyMessageCheck', function(MainPlayer, 
     if ((PlayerData.job.name == "police" or PlayerData.job.name == "ambulance" or PlayerData.job.name == "doctor") and
         onDuty) then
         TriggerEvent('chatMessage',
-            "911 ALARM - " .. MainPlayer.PlayerData.charinfo.firstname .. " " .. MainPlayer.PlayerData.charinfo.lastname ..
+            "112 ALARM - " .. MainPlayer.PlayerData.charinfo.firstname .. " " .. MainPlayer.PlayerData.charinfo.lastname ..
                 " (" .. MainPlayer.PlayerData.source .. ")", "warning", message)
         TriggerEvent("police:client:EmergencySound")
         local transG = 250
@@ -593,7 +593,7 @@ AddEventHandler('police:server:SendEmergencyMessageCheck', function(MainPlayer, 
         SetBlipScale(blip, 0.9)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("911 alarm")
+        AddTextComponentString("112 alarm")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)

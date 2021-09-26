@@ -400,7 +400,7 @@ end
 RegisterNetEvent('qb-drugs:client:robberyCall')
 AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
-    TriggerEvent("chatMessage", "911-ALERT", "error", msg)
+    TriggerEvent("chatMessage", "112-ALARM", "error", msg)
     local transG = 250
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
     SetBlipSprite(blip, 458)
@@ -409,7 +409,7 @@ AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords
     SetBlipAlpha(blip, transG)
     SetBlipScale(blip, 1.0)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentString("911: Drug Dealing")
+    AddTextComponentString("112: Narkosalg")
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(180 * 4)
@@ -428,19 +428,19 @@ AddEventHandler('qb-drugs:client:sendDeliveryMail', function(type, deliveryData)
     if type == 'perfect' then
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
-            subject = "Delivery",
-            message = "Godt arbejde, jeg håber vi snart ses igen ;)<br><br>Groeten, "..Config.Dealers[deliveryData["dealer"]]["name"]
+            subject = "Levering",
+            message = "Godt arbejde, jeg håber vi snart ses igen ;)<br><br>, "..Config.Dealers[deliveryData["dealer"]]["name"]
         })
     elseif type == 'bad' then
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
-            subject = "Delivery",
+            subject = "Levering",
             message = "Jeg har modtaget klager over din levering, håber ikke det gentager sig..."
         })
     elseif type == 'late' then
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[deliveryData["dealer"]]["name"],
-            subject = "Delivery",
+            subject = "Levering",
             message = "Du ankom ikke til tiden. Hvad er vigtigere end dit arbejde?"
         })
     end

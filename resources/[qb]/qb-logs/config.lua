@@ -17,7 +17,7 @@ Vores sider:
 Config = {}
 
 Config.Webhooks = {
-    ["default"] = "",
+    ["default"] = "", --Sæt dine webhooks mellem "" her, ikke brug det samme eller til den samme kanal!--
     ["playermoney"] = "",
     ["playerinventory"] = "",
     ["robbing"] = "",

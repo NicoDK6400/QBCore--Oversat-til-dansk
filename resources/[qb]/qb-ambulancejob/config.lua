@@ -308,7 +308,7 @@ Config.BleedingStates = {
     [1] = {label = 'bløde en smule..', damage = 10, chance = 50},
     [2] = {label = 'bløder..', damage = 15, chance = 65},
     [3] = {label = 'bløder en del..', damage = 20, chance = 65},
-    [4] = {label = 'blæder meget..', damage = 25, chance = 75},
+    [4] = {label = 'bløder meget..', damage = 25, chance = 75},
 }
 
 Config.MovementRate = {

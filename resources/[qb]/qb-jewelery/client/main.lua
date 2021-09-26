@@ -228,7 +228,7 @@ AddEventHandler('qb-jewellery:client:PoliceAlertMessage', function(title, coords
         SetBlipAlpha(blip, transG)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("911 - Mistænkelig aktivitet ved Jewelry Store")
+        AddTextComponentString("112 - Mistænkelig aktivitet ved Jewelry Store")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)

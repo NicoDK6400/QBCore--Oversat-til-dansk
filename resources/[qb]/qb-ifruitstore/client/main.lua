@@ -334,7 +334,7 @@ RegisterNUICallback('thermitefailed', function()
 end)
 
 RegisterNUICallback('thermitesuccess', function()
-    QBCore.Functions.Notify("The fuses are broken", "success")
+    QBCore.Functions.Notify("Sikringerne er gået i stykker", "success")
     TriggerServerEvent("QBCore:Server:RemoveItem", "thermite", 1)
     local pos = GetEntityCoords(PlayerPedId())
     if #(pos - vector3(Config.Locations["thermite"].x, Config.Locations["thermite"].y,Config.Locations["thermite"].z)) < 1.0 then

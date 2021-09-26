@@ -158,7 +158,7 @@ end
 RegisterNetEvent('qb-diving:server:CallCops')
 AddEventHandler('qb-diving:server:CallCops', function(Coords, msg)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
-    TriggerEvent("chatMessage", "911 MESSAGE", "error", msg)
+    TriggerEvent("chatMessage", "112 MESSAGE", "error", msg)
     local transG = 100
     local blip = AddBlipForRadius(Coords.x, Coords.y, Coords.z, 100.0)
     SetBlipSprite(blip, 9)
@@ -166,7 +166,7 @@ AddEventHandler('qb-diving:server:CallCops', function(Coords, msg)
     SetBlipAlpha(blip, transG)
     SetBlipAsShortRange(blip, false)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentString("911 - Dive site")
+    AddTextComponentString("112 - Dive site")
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(180 * 4)
@@ -238,7 +238,7 @@ AddEventHandler('qb-diving:client:UseGear', function(bool)
     else
         if currentGear.enabled then
             GearAnim()
-            QBCore.Functions.Progressbar("remove_gear", "Tager dykkerudstyret frem ..", 5000, false, true, {}, {}, {}, {}, function() -- Done
+            QBCore.Functions.Progressbar("remove_gear", "Tager dykkerudstyret af...", 5000, false, true, {}, {}, {}, {}, function() -- Done
                 DeleteGear()
 
                 SetEnableScuba(PlayerPedId(), false)
