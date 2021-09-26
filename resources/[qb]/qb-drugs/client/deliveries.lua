@@ -476,5 +476,5 @@ AddEventHandler('qb-drugs:client:GotoDealer', function(DealerData)
     local ped = PlayerPedId()
 
     SetEntityCoords(ped, DealerData["coords"]["x"], DealerData["coords"]["y"], DealerData["coords"]["z"])
-    QBCore.Functions.Notify('Du er blevet teleporteret : '.. DealerData["name"] .. ' Held og lykke!', 'success')
+    QBCore.Functions.Notify('Du er blevet teleporteret til: '.. DealerData["name"] .. ' Held og lykke!', 'success')
 end)

@@ -261,7 +261,7 @@ AddEventHandler('qb-admin:server:SaveCar', function(mods, vehicle, hash, plate)
             plate,
             0
         })
-        TriggerClientEvent('QBCore:Notify', src, 'Kørertøejet er nu dit!', 'success', 5000)
+        TriggerClientEvent('QBCore:Notify', src, 'Køretøjet er nu dit!', 'success', 5000)
     else
         TriggerClientEvent('QBCore:Notify', src, 'Køretøjet ejer du allerede..', 'error', 3000)
     end

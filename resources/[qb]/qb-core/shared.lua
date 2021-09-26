@@ -97,11 +97,11 @@ QBShared.Items = {
 	["weapon_smokegrenade"] 		 = {["name"] = "weapon_smokegrenade", 	      	["label"] = "Røg Granat",	 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_c4.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "En eksplosiv ladning, der kan fjernbetjenes"},
 	["weapon_bzgas"] 				 = {["name"] = "weapon_bzgas", 			      	["label"] = "BZ Gas", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_bzgas.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En gasbeholder, der forårsager ekstrem smerte"},
 	["weapon_molotov"] 				 = {["name"] = "weapon_molotov", 		      	["label"] = "Molotov", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_molotov.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En led bombe lavet af en flaske fyldt med en brandfarlig væske og udstyret med en klud som lunte"},
-	["weapon_fireextinguisher"] 	 = {["name"] = "weapon_fireextinguisher",      	["label"] = "Fire Extinguisher", 		["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_fireextinguisher.png", 	["unique"] = true, 	["useable"] = false, 	["description"] = "En transportabel enhed, der udleder en vandstråle, skum, gas eller andet materiale for at slukke en brand"},
-	["weapon_petrolcan"] 			 = {["name"] = "weapon_petrolcan", 		 	  	["label"] = "Petrol Can", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_PETROLCAN",		["image"] = "weapon_petrolcan.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "En robust væskebeholder fremstillet af presset stål"},
-	["weapon_briefcase"] 			 = {["name"] = "weapon_briefcase", 		 	  	["label"] = "Dokumentmappe", 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_briefcase.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "En dokumentmappe til opbevaring af vigtige dokumenter"},
-	["weapon_briefcase_02"] 		 = {["name"] = "weapon_briefcase_02", 	 	  	["label"] = "Suitcase", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_briefcase2.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "Vidunderligt for en dejlig ferie til Liberty City"},
-	["weapon_ball"] 				 = {["name"] = "weapon_ball", 			 	  	["label"] = "Ball", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_BALL",				["image"] = "weapon_ball.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "En hård, blød, hul, let kugle. Bruges til sport?"},
+	["weapon_fireextinguisher"] 	 = {["name"] = "weapon_fireextinguisher",      	["label"] = "Brand slukker", 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_fireextinguisher.png", 	["unique"] = true, 	["useable"] = false, 	["description"] = "En transportabel enhed, der udleder en vandstråle, skum, gas eller andet materiale for at slukke en brand"},
+	["weapon_petrolcan"] 			 = {["name"] = "weapon_petrolcan", 		 	  	["label"] = "JerryCan", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_PETROLCAN",		["image"] = "weapon_petrolcan.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "En robust væskebeholder fremstillet af presset stål"},
+	["weapon_briefcase"] 			 = {["name"] = "weapon_briefcase", 		 	  	["label"] = "Taske", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_briefcase.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "En dokumentmappe til opbevaring af vigtige dokumenter"},
+	["weapon_briefcase_02"] 		 = {["name"] = "weapon_briefcase_02", 	 	  	["label"] = "Taske", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_briefcase2.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "Vidunderligt for en dejlig ferie til Liberty City"},
+	["weapon_ball"] 				 = {["name"] = "weapon_ball", 			 	  	["label"] = "Bold", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_BALL",				["image"] = "weapon_ball.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "En hård, blød, hul, let kugle. Bruges til sport?"},
 	["weapon_flare"] 				 = {["name"] = "weapon_flare", 			 	  	["label"] = "Flare pistol", 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_FLARE",			["image"] = "weapon_flare.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En lille pyroteknisk enhed, der bruges til belysning og signalering"},
 	["weapon_snspistol"] 			 = {["name"] = "weapon_snspistol", 		 	  	["label"] = "SNS Pistol", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_PISTOL",			["image"] = "weapon_snspistol.png", 	["unique"] = true, 		["useable"] = false, 	["description"] = "Et meget lille skydevåben designet til let at blive skjult"},
 	["weapon_bottle"] 				 = {["name"] = "weapon_bottle", 			 	["label"] = "Flækket flaske", 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_bottle.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En flaske der er i stykker, hvad mere vil du vide?"},
@@ -137,7 +137,7 @@ QBShared.Items = {
 	["weapon_compactlauncher"] 		 = {["name"] = "weapon_compactlauncher",  	  	["label"] = "Compact Launcher", 		["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_compactlauncher.png", 	["unique"] = true, 	["useable"] = false, 	["description"] = "En kompakt granatkaster"},
 	["weapon_minismg"] 				 = {["name"] = "weapon_minismg", 		 	  	["label"] = "Mini SMG", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = "AMMO_SMG",				["image"] = "weapon_minismg.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En lille håndholdt letvægtsmaskingevær"},
 	["weapon_pipebomb"] 			 = {["name"] = "weapon_pipebomb", 		 	  	["label"] = "Rør bombe", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_pipebomb.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En hjemmelavet bombe, hvis komponenter er i et rør"},
-	["weapon_poolcue"] 				 = {["name"] = "weapon_poolcue", 		 	  	["label"] = "Poolcue", 					["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_poolcue.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En pind, der bruges til at skyde til en bold, normalt til billiard (eller andre ting)"},
+	["weapon_poolcue"] 				 = {["name"] = "weapon_poolcue", 		 	  	["label"] = "billiard køl", 			["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_poolcue.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "En pind, der bruges til at skyde til en bold, normalt til billiard (eller andre ting)"},
 	["weapon_wrench"] 				 = {["name"] = "weapon_wrench", 			 	["label"] = "Skrunøgle", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "weapon_wrench.png", 		["unique"] = true, 		["useable"] = false, 	["description"] = "Et værktøj, der bruges til at gribe og dreje møtrikker, bolte, rør osv."},
 	["weapon_bread"] 				 = {["name"] = "weapon_bread", 				 	["label"] = "Baquette", 				["weight"] = 1000, 		["type"] = "weapon", 	["ammotype"] = nil,						["image"] = "baquette.png", 			["unique"] = true, 		["useable"] = false, 	["description"] = "Brød...?"},
 	["weapon_flashlight"]			 = {["name"] = "weapon_flashlight",				["label"] = "Lommelygte",				["weight"] = 1000,		["type"] = "weapon",	["ammotype"] = nil,						["image"] = "weapon_flashlight.png",	["unique"] = true,		["useable"] = false,	["description"] = "Bærbart lys, formet som en stav, i den ene ende komemr der lys og den anden er typisk batterierne"},
@@ -361,7 +361,7 @@ QBShared.Items = {
 	["tablet"] 				 		 = {["name"] = "tablet", 			  	  		["label"] = "Tablet", 					["weight"] = 2000, 		["type"] = "item", 		["image"] = "tablet.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Expensive tablet"},
 	["lighter"] 				 	 = {["name"] = "lighter", 			  	  		["label"] = "Lighter", 					["weight"] = 0, 		["type"] = "item", 		["image"] = "lighter.png", 				["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "On new years eve a nice fire to stand next to"},
 	["certificate"] 				 = {["name"] = "certificate", 			  	  	["label"] = "Certifikat", 				["weight"] = 0, 		["type"] = "item", 		["image"] = "certificate.png", 			["unique"] = false, 	["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Certificate that proves you own certain stuff"},
-	["nitrous"] 				 	 = {["name"] = "nitrous", 			  	  		["label"] = "Nitrous", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "nitrous.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Speed up, gas pedal! :D"},
+	["nitrous"] 				 	 = {["name"] = "nitrous", 			  	  		["label"] = "Nitro", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "nitrous.png", 				["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Speed up, gas pedal! :D"},
 	["walkstick"] 				 	 = {["name"] = "walkstick", 			  	  	["label"] = "Stok", 					["weight"] = 1000, 		["type"] = "item", 		["image"] = "walkstick.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Walking stick for ya'll grannies out there.. HAHA"},
 	["harness"] 				 	 = {["name"] = "harness", 			  	  		["label"] = "Race Harness", 			["weight"] = 1000, 		["type"] = "item", 		["image"] = "harness.png", 				["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Racing Harness so no matter what you stay in the car"},
 	["markedbills"] 				 = {["name"] = "markedbills", 			  	  	["label"] = "Markeds penge", 			["weight"] = 1000, 		["type"] = "item", 		["image"] = "markedbills.png", 			["unique"] = true, 		["useable"] = false, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Money?"},
@@ -500,7 +500,7 @@ QBShared.Gangs = {
 		label = "The Lost MC",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -518,7 +518,7 @@ QBShared.Gangs = {
 		label = "Ballas",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -536,7 +536,7 @@ QBShared.Gangs = {
 		label = "Vagos",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -554,7 +554,7 @@ QBShared.Gangs = {
 		label = "Cartel",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -569,10 +569,10 @@ QBShared.Gangs = {
         },
 	},
 	["families"] = {
-		label = "Families",
+		label = "Familier",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -590,7 +590,7 @@ QBShared.Gangs = {
 		label = "Triads",
 		grades = {
             ['0'] = {
-                name = "Recruit"
+                name = "Rekrut"
             },
 			['1'] = {
                 name = "Enforcer"
@@ -623,7 +623,7 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
@@ -650,19 +650,19 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
-                name = "Paramedic",
+                name = "Raramediciner",
                 payment = 75
             },
 			['2'] = {
-                name = "Doctor",
+                name = "Læge",
                 payment = 100
             },
 			['3'] = {
-                name = "Surgeon",
+                name = "Kirug",
                 payment = 125
             },
 			['4'] = {
@@ -677,19 +677,19 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
-                name = "House Sales",
+                name = "Bolig salg",
                 payment = 75
             },
 			['2'] = {
-                name = "Business Sales",
+                name = "Erhvervs salg",
                 payment = 100
             },
 			['3'] = {
-                name = "Broker",
+                name = "Mægler",
                 payment = 125
             },
 			['4'] = {
@@ -704,19 +704,19 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
-                name = "Driver",
+                name = "Fører",
                 payment = 75
             },
 			['2'] = {
-                name = "Event Driver",
+                name = "Event fører",
                 payment = 100
             },
 			['3'] = {
-                name = "Sales",
+                name = "Salg",
                 payment = 125
             },
 			['4'] = {
@@ -731,19 +731,19 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
-                name = "Showroom Sales",
+                name = "Showroom Salg",
                 payment = 75
             },
 			['2'] = {
-                name = "Business Sales",
+                name = "Erhvervs salg",
                 payment = 100
             },
 			['3'] = {
-                name = "Finance",
+                name = "Finans",
                 payment = 125
             },
 			['4'] = {
@@ -758,7 +758,7 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Recruit",
+                name = "Rekrut",
                 payment = 50
             },
 			['1'] = {
