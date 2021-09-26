@@ -35,7 +35,7 @@ AddEventHandler('qb-tow:server:DoBail', function(bool, vehInfo)
             TriggerClientEvent('QBCore:Notify', src, 'Du har betalt et depositum på '..Config.BailPrice..' DKK', 'success')
             TriggerClientEvent('qb-tow:client:SpawnVehicle', src, vehInfo)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge til et depositum på '..Config.BailPrice..'' DKK, 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge til et depositum på '..Config.BailPrice..' DKK', 'error')
         end
     else
         if Bail[Player.PlayerData.citizenid] ~= nil then
