@@ -518,7 +518,7 @@ end
 
 function DoBleedAlert()
     if not isDead and tonumber(isBleeding) > 0 then
-        QBCore.Functions.Notify("Du er "..Config.BleedingStates[tonumber(isBleeding)].label, "error", 5000)
+        QBCore.Functions.Notify("Du "..Config.BleedingStates[tonumber(isBleeding)].label, "error", 5000)
     end
 end
 

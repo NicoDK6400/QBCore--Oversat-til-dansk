@@ -36,10 +36,10 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
 end)
 
 -- MENU
-local menu = MenuV:CreateMenu(false, 'Boss Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'main')
-local menu2 = MenuV:CreateMenu(false, 'Society money', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
-local menu3 = MenuV:CreateMenu(false, 'Employee Management', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
-local menu4 = MenuV:CreateMenu(false, 'Recruit Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
+local menu = MenuV:CreateMenu(false, 'Boss menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'main')
+local menu2 = MenuV:CreateMenu(false, 'Society penge', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
+local menu3 = MenuV:CreateMenu(false, 'Ansættelses funktioner', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
+local menu4 = MenuV:CreateMenu(false, 'Ansæt menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
 
 RegisterNetEvent('qb-bossmenu:client:openMenu')
 AddEventHandler('qb-bossmenu:client:openMenu', function()

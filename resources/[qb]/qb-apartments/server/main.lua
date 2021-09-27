@@ -29,7 +29,7 @@ AddEventHandler('apartments:server:CreateApartment', function(type, label)
         label,
         Player.PlayerData.citizenid
     })
-    TriggerClientEvent('QBCore:Notify', src, "Du har lejlighed ("..label..")")
+    TriggerClientEvent('QBCore:Notify', src, "Du har boligen ("..label..")")
     TriggerClientEvent("apartments:client:SpawnInApartment", src, apartmentId, type)
     TriggerClientEvent("apartments:client:SetHomeBlip", src, type)
 end)
@@ -39,7 +39,7 @@ AddEventHandler('apartments:server:UpdateApartment', function(type, label)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     exports.oxmysql:execute('UPDATE apartments SET type = ?, label = ? WHERE citizenid = ?', { type, label, Player.PlayerData.citizenid })
-    TriggerClientEvent('QBCore:Notify', src, "Du har skiftet lejlighed")
+    TriggerClientEvent('QBCore:Notify', src, "Du har skiftet bolig")
     TriggerClientEvent("apartments:client:SetHomeBlip", src, type)
 end)
 

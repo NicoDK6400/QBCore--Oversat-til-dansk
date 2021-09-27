@@ -37,9 +37,9 @@ end)
 
 -- MENU
 local menu = MenuV:CreateMenu(false, 'Boss Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'main')
-local menu2 = MenuV:CreateMenu(false, 'Society money', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
-local menu3 = MenuV:CreateMenu(false, 'Employee Management', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
-local menu4 = MenuV:CreateMenu(false, 'Recruit Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
+local menu2 = MenuV:CreateMenu(false, 'Society penge', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
+local menu3 = MenuV:CreateMenu(false, 'Ansættelses funktioner', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
+local menu4 = MenuV:CreateMenu(false, 'Ansæt menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
 
 RegisterNetEvent('qb-gangmenu:client:openMenu')
 AddEventHandler('qb-gangmenu:client:openMenu', function()
@@ -203,7 +203,7 @@ function UpdateSociety()
 end
 
 function ManageEmployees(employee)
-    local manageroptions = MenuV:CreateMenu(false, employee.name .. ' Options', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv')
+    local manageroptions = MenuV:CreateMenu(false, employee.name .. ' Handlinger', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv')
     manageroptions:ClearItems()
     MenuV:OpenMenu(manageroptions)
     buttons = {

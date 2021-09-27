@@ -14,7 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-QBCore.Commands.Add("setcryptoworth", "Set crypto value", {{name="crypto", help="Name of the crypto currency"}, {name="Value", help="New value of the crypto currency"}}, false, function(source, args)
+QBCore.Commands.Add("setcryptoworth", "Set crypto værdi", {{name="crypto", help="Navnet på crypto valuta"}, {name="Value", help="New værdi af crypto valutaen"}}, false, function(source, args)
     local src = source
     local crypto = tostring(args[1])
 
@@ -39,7 +39,7 @@ QBCore.Commands.Add("setcryptoworth", "Set crypto value", {{name="crypto", help=
                     NewWorth = NewWorth
                 })
 
-                TriggerClientEvent('QBCore:Notify', src, "Du har værdigen af "..Crypto.Labels[crypto].."taget fra: ("..Crypto.Worth[crypto].." DKK til: "..NewWorth.." DKK) ("..ChangeLabel.." "..PercentageChange.."%)")
+                TriggerClientEvent('QBCore:Notify', src, "Du har værdien af "..Crypto.Labels[crypto].."taget fra: ("..Crypto.Worth[crypto].." DKK til: "..NewWorth.." DKK) ("..ChangeLabel.." "..PercentageChange.."%)")
                 Crypto.Worth[crypto] = NewWorth
                 TriggerClientEvent('qb-crypto:client:UpdateCryptoWorth', -1, crypto, NewWorth)
                 exports.oxmysql:insert('INSERT INTO crypto (worth, history) VALUES (:worth, :history) ON DUPLICATE KEY UPDATE worth = :worth, history = :history', {

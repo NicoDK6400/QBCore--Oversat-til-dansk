@@ -48,7 +48,7 @@ AddEventHandler('qb-diving:server:BuyBoat', function(boatModel, BerthId)
         bank = Player.PlayerData.money.bank
     }
     local missingMoney = 0
-    local plate = "QB" .. math.random(1000, 9999)
+    local plate = "DK" .. math.random(1000, 9999)
 
     if PlayerMoney.cash >= BoatPrice then
         Player.Functions.RemoveMoney('cash', BoatPrice, "bought-boat")

@@ -33,7 +33,7 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function(JobInfo)
         SetBlipColour(PoliceBlip, 29)
 
         BeginTextCommandSetBlipName("STRING")
-        AddTextComponentSubstringPlayerName("Police Boats")
+        AddTextComponentSubstringPlayerName("Politi både")
         EndTextCommandSetBlipName(PoliceBlip)
     end
 end)

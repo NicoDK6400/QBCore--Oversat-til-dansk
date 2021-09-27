@@ -18,40 +18,47 @@ Config = {}
 
 Config.Webhooks = {
     ["default"] = "", --Sæt dine webhooks mellem "" her, ikke brug det samme eller til den samme kanal!--
+
     ["playermoney"] = "",
     ["playerinventory"] = "",
-    ["robbing"] = "",
-    ["cuffing"] = "",
-    ["drop"] = "",
-    ["trunk"] = "",
     ["stash"] = "",
     ["glovebox"] = "",
-    ["banking"] = "",
+
     ["vehicleshop"] = "",
     ["vehicleupgrades"] = "",
+    ["trunk"] = "",
+    ["bennys"] = "",
+
     ["shops"] = "",
     ["dealers"] = "",
+
     ["storerobbery"] = "",
     ["bankrobbery"] = "",
+    ["robbery"] = "",
+    ["robbing"] = "",
     ["powerplants"] = "",
+
+    ["bans"] = "",
     ["death"] = "",
     ["joinleave"] = "",
     ["ooc"] = "",
     ["report"] = "",
+    ["palert"] = "", 
     ["me"] = "",
     ["pmelding"] = "",
-    ["112"] = "",
-    ["bans"] = "",
     ["anticheat"] = "",
     ["weather"] = "",
-    ["moneysafes"] = "",
-    ["bennys"] = "",
-    ["bossmenu"] = "",
-    ["robbery"] = "",
-    ["casino"] = "",
-    ["traphouse"] = "",
+    ["cuffing"] = "",
+    ["drop"] = "",
+
+    ["112"] = "",
     ["911"] = "",
-    ["palert"] = "",    
+
+    ["bossmenu"] = "",
+    ["casino"] = "",
+    ["moneysafes"] = "",
+    ["banking"] = "",
+    ["traphouse"] = "",
 }
 
 Config.Colors = {

@@ -58,9 +58,9 @@ Citizen.CreateThread(function()
                         currentGate = k
                         inRange = true
                         if securityLockdown then
-                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "~r~SYSTEM LOCKDOWN")
+                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "~r~NEDLUKNING")
                         elseif Gates[k].hit then
-                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "SYSTEM BRUD")
+                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "SYSTEMBRUD")
                         elseif not requiredItemsShowed then
                             requiredItemsShowed = true
                             TriggerEvent('inventory:client:requiredItems', requiredItems, true)

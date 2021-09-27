@@ -324,7 +324,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
                 finishPopulatingMenu(v.category:gsub("%s+", "") .. "Menu")
             elseif v.id == 18 then
                 local currentTurboState = GetCurrentTurboState()
-                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Slå nitro til/fra")
+                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Tilpasning", "Slå nitro til/fra")
 
                 populateMenu(v.category:gsub("%s+", "") .. "Menu", 0, "Slå fra", "0 DKK")
                 populateMenu(v.category:gsub("%s+", "") .. "Menu", 1, "Slå til", vehicleCustomisationPrices.turbo.price.." DKK")
@@ -333,7 +333,7 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
                 finishPopulatingMenu(v.category:gsub("%s+", "") .. "Menu")
             else
-                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Customisation", "Vælg en mod")
+                createMenu(v.category:gsub("%s+", "") .. "Menu", v.category .. " Tilpasning", "Vælg en mod")
 
                 for m, n in pairs(validMods) do
                     populateMenu(v.category:gsub("%s+", "") .. "Menu", n.id, n.name, vehicleCustomisationPrices.cosmetics.price.." DKK")
