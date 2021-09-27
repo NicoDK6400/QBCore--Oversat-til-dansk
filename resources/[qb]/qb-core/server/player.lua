@@ -240,7 +240,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 		reason = reason ~= nil and reason or "unkown"
 		local moneytype = moneytype:lower()
 		local amount = tonumber(amount)
-		if amount < 0 then return end
+		if amount and amount < 0 then return end
 		if self.PlayerData.money[moneytype] ~= nil then
 			self.PlayerData.money[moneytype] = self.PlayerData.money[moneytype]+amount
 			self.Functions.UpdatePlayerData()
