@@ -1451,7 +1451,7 @@ QBCore.Commands.Add("giveitem", "Giv ting (Kun Admin)", {{name="id", help="Playe
 	local amount = tonumber(args[3])
 	local itemData = QBCore.Shared.Items[tostring(args[2]):lower()]
 	if Player ~= nil then
-		if amount > 0 then
+		if amount and amount > 0 then
 			if itemData ~= nil then
 				-- check iteminfo
 				local info = {}
