@@ -205,11 +205,11 @@ function populateBanking(data)
         if (data.cardInformation.cardLocked == true) {
             $("#debitCardStatus").removeClass('bg-success');
             $("#debitCardStatus").addClass('bg-danger');
-            $("#debitCardStatus").html('<div class="card-header">Card Locked</div><div class="card-body">Your card is currently LOCKED.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Unlock/Unblock Card</button></div>');
+            $("#debitCardStatus").html('<div class="card-header">Kort spærret</div><div class="card-body">Dit kort er i øjeblikket spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Lås/Lås op for kort</button></div>');
         } else {
             $("#debitCardStatus").removeClass('bg-danger');
         $("#debitCardStatus").addClass('bg-success');
-        $("#debitCardStatus").html('<div class="card-header">Card Unlocked</div><div class="card-body">Your card is currently active.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lock/Block Card</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort er aktivt</div><div class="card-body">Dit kort er i øjeblikket aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/Lås op for kort</button></div>');
         }
         $("#cardDetails").css({"display":"block"});
     } else {

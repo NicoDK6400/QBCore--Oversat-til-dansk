@@ -295,7 +295,7 @@ function Hotwire()
         SetVehicleAlarm(vehicle, true)
         SetVehicleAlarmTimeLeft(vehicle, hotwireTime)
         PoliceCall()
-        QBCore.Functions.Progressbar("hotwire_vehicle", "Aktivering af tændingskontakten", hotwireTime, false, true, {
+        QBCore.Functions.Progressbar("hotwire_vehicle", "Kortslutter tænding...", hotwireTime, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,

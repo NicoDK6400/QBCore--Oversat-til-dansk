@@ -85,7 +85,7 @@ RegisterNUICallback('reset', function(data)
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsUsing(ped)
     resetVeh(veh)
-    QBCore.Functions.Notify('TunerChip v1.05: Køretøjet er blevet nulstillet!', 'error')
+    QBCore.Functions.Notify('Tilslutter: TunerChip v1.05....', 'error')
 end)
 
 RegisterNetEvent('qb-tunerchip:client:openChip')
@@ -94,7 +94,7 @@ AddEventHandler('qb-tunerchip:client:openChip', function()
     local inVehicle = IsPedInAnyVehicle(ped)
 
     if inVehicle then
-        QBCore.Functions.Progressbar("connect_laptop", "Tunerchip v1.05: Køretøjet er blevet nulstillet!", 2000, false, true, {
+        QBCore.Functions.Progressbar("connect_laptop", "Tilslutter: TunerChip v1.05....", 2000, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,

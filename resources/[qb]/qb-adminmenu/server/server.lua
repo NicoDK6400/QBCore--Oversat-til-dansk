@@ -131,7 +131,7 @@ AddEventHandler("qb-admin:server:ban", function(player, time, reason)
             template = '<div class="chat-message server"><strong>ANNOUNCEMENT | {0} er blevet banned:</strong> {1}</div>',
             args = {GetPlayerName(player.id), reason}
         })
-        TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller Banned", "red", string.format('%s var banned af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
+        TriggerEvent("qb-log:server:CreateLog", "bans", "Spiller banned", "red", string.format('%s var banned af %s for %s', GetPlayerName(player.id), GetPlayerName(src), reason), true)
         if banTime >= 2147483647 then
             DropPlayer(player.id, "Du er blevet banned:\n" .. reason .. "\n\nDit ban er permanent.\nFor mere information se Discord: " .. QBCore.Config.Server.discord)
         else
@@ -218,7 +218,7 @@ AddEventHandler('qb-admin:server:setPermissions', function(targetId, group)
     local src = source
     if QBCore.Functions.HasPermission(src, "god") then
         QBCore.Functions.AddPermission(targetId, group[1].rank)
-        TriggerClientEvent('QBCore:Notify', targetId, 'Your Permission Level Is Now '..group[1].label)
+        TriggerClientEvent('QBCore:Notify', targetId, 'Dit permission level er nu '..group[1].label)
     end
 end)
 
@@ -277,7 +277,7 @@ QBCore.Commands.Add("names", "Vis spillernes navn over hovedet (Kun Admin)", {},
     TriggerClientEvent('qb-admin:client:toggleNames', source)
 end, "admin")
 
-QBCore.Commands.Add("coords", "Vis koords for udvikling (Kun Admin)", {}, false, function(source, args)
+QBCore.Commands.Add("coords", "Vis koords til udvikling (Kun Admin)", {}, false, function(source, args)
     TriggerClientEvent('qb-admin:client:ToggleCoords', source)
 end, "admin")
 
@@ -310,7 +310,7 @@ QBCore.Commands.Add("staffchat", "Send en besked til staff (Kun Admin)", {{name=
     TriggerClientEvent('qb-admin:client:SendStaffChat', -1, GetPlayerName(source), msg)
 end, "admin")
 
-QBCore.Commands.Add("givenuifocus", "Giv en spiller NUI focus (Kun Admin)", {{name="id", help="Spiller id"}, {name="focus", help="Sæt focus til/fra"}, {name="mouse", help="Set mouse on/off"}}, true, function(source, args)
+QBCore.Commands.Add("givenuifocus", "Giv en spiller NUI focus (Kun Admin)", {{name="id", help="Spiller id"}, {name="focus", help="Sæt focus til/fra"}, {name="mouse", help="Sæt mus til/fra"}}, true, function(source, args)
     local playerid = tonumber(args[1])
     local focus = args[2]
     local mouse = args[3]
@@ -326,7 +326,7 @@ QBCore.Commands.Add("warn", "Giv en advarsel (Kun Admin)", {{name="ID", help="Sp
     local warnId = "WARN-"..math.random(1111, 9999)
     if targetPlayer ~= nil then
         TriggerClientEvent('chatMessage', targetPlayer.PlayerData.source, "SYSTEM", "error", "Du har modtaget et warn af: "..GetPlayerName(source)..", Begundelse: "..msg)
-        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Du gav et warn "..GetPlayerName(targetPlayer.PlayerData.source).." for: "..msg)
+        TriggerClientEvent('chatMessage', source, "SYSTEM", "error", "Du gav et warn til "..GetPlayerName(targetPlayer.PlayerData.source)..", for: "..msg)
         exports.oxmysql:insert('INSERT INTO player_warns (senderIdentifier, targetIdentifier, reason, warnId) VALUES (?, ?, ?, ?)', {
             senderPlayer.PlayerData.license,
             targetPlayer.PlayerData.license,

@@ -159,46 +159,46 @@ Config.PhoneApplications = {
         slot = 12,
         Alerts = 0,
     },
-   --[[ ["store"] = {
-        app = "store",
-        color = "#27ae60",
-        icon = "fas fa-cart-arrow-down",
-        tooltipText = "App Store",
-        tooltipPos = "right",
-        style = "padding-right: .3vh; font-size: 2.2vh";
-        job = false,
-        blockedjobs = {},
-        slot = 14,
-        Alerts = 0,
-    },]]
-    -- ["trucker"] = {
-    --     app = "trucker",
-    --     color = "#cccc33",
-    --     icon = "fas fa-truck-moving",
-    --     tooltipText = "Dumbo",
+    -- ["store"] = {
+    --     app = "store",
+    --     color = "#27ae60",
+    --     icon = "fas fa-cart-arrow-down",
+    --     tooltipText = "App Store",
     --     tooltipPos = "right",
+    --     style = "padding-right: .3vh; font-size: 2.2vh";
     --     job = false,
     --     blockedjobs = {},
-    --     slot = 17,
+    --     slot = 14,
     --     Alerts = 0,
     -- },
+     ["trucker"] = {
+         app = "trucker",
+         color = "#cccc33",
+         icon = "fas fa-truck-moving",
+         tooltipText = "Dumbo",
+         tooltipPos = "right",
+         job = false,
+         blockedjobs = {},
+         slot = 17,
+         Alerts = 0,
+     },
 }
 Config.MaxSlots = 20
 
 Config.StoreApps = {
-    ["territory"] = {
-        app = "territory",
-        color = "#353b48",
-        icon = "fas fa-globe-europe",
-        tooltipText = "Territorium",
-        tooltipPos = "right",
-        style = "";
-        job = false,
-        blockedjobs = {},
-        slot = 15,
-        Alerts = 0,
-        password = true,
-        creator = "QBCore",
-        title = "Territory",
-    },
+    -- ["territory"] = {
+    --     app = "territory",
+    --     color = "#353b48",
+    --     icon = "fas fa-globe-europe",
+    --     tooltipText = "Territorium",
+    --     tooltipPos = "right",
+    --     style = "";
+    --     job = false,
+    --     blockedjobs = {},
+    --     slot = 15,
+    --     Alerts = 0,
+    --     password = true,
+    --     creator = "QBCore",
+    --     title = "Territory",
+    -- },
 }

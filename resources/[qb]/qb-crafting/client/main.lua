@@ -47,7 +47,7 @@ Citizen.CreateThread(function()
 					local crafting = {}
 					crafting.label = "Crafting"
 					crafting.items = GetThresholdItems()
-					TriggerServerEvent("inventory:server:OpenInventory", "crafting", math.random(1, 99), crafting)
+					TriggerServerEvent("inventory:server:OpenInventory", "crafting...", math.random(1, 99), crafting)
 				end
 			end
 		end
