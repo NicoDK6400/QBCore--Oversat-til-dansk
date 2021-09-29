@@ -390,7 +390,7 @@ function openLocker(bankId, lockerId)
                     end
                 end)
             else
-                QBCore.Functions.Notify("Looks like the safe lock is too strong ..", "error")
+                QBCore.Functions.Notify("Ser ud til at safelåsen er for kraftig...", "error")
                 TriggerServerEvent('qb-bankrobbery:server:setLockerState', bankId, lockerId, 'isBusy', false)
             end
         end, "drill")
@@ -433,7 +433,7 @@ function openLocker(bankId, lockerId)
                     end
                 end)
             else
-                QBCore.Functions.Notify("Looks like the safe lock is too strong ..", "error")
+                QBCore.Functions.Notify("Ser ud til at safelåsen er for kraftig...", "error")
                 TriggerServerEvent('qb-bankrobbery:server:setLockerState', bankId, lockerId, 'isBusy', false)
             end
         end, "drill")
