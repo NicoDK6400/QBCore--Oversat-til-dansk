@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
 						DrawText3D(Config.PawnLocation.x, Config.PawnLocation.y, Config.PawnLocation.z, "~g~E~w~ - Sælg ure/ halskæder / ringe ("..sellPrice.." DKK)")
 						if IsControlJustReleased(0, 38) then
 							TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
-                            QBCore.Functions.Progressbar("sell_pawn_items", "Selling Items", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
+                            QBCore.Functions.Progressbar("sell_pawn_items", "Sælger ting...", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
                                 ClearPedTasks(PlayerPedId())
 								TriggerServerEvent("qb-pawnshop:server:sellPawnItems")
 								sellItemsSet = false
@@ -87,7 +87,7 @@ Citizen.CreateThread(function()
 						DrawText3D(Config.PawnHardwareLocation.x, Config.PawnHardwareLocation.y, Config.PawnHardwareLocation.z, "~g~E~w~ - Sælg iPhones/Samsung S10s/Tablets/Bærbare ("..sellHardwarePrice.." DKK)")
 						if IsControlJustReleased(0, 38) then
 							TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
-                            QBCore.Functions.Progressbar("sell_pawn_items", "Sell things", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
+                            QBCore.Functions.Progressbar("sell_pawn_items", "Sælger ting...", math.random(15000, 25000), false, true, {}, {}, {}, {}, function() -- Done
                                 ClearPedTasks(PlayerPedId())
 								TriggerServerEvent("qb-pawnshop:server:sellHardwarePawnItems")
 								sellHardwareItemsSet = false

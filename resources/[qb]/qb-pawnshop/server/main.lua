@@ -125,7 +125,7 @@ AddEventHandler("qb-pawnshop:server:meltItems", function()
                 if MeltItems[Player.PlayerData.items[k].name] ~= nil then 
                     local amount = (Player.PlayerData.items[k].amount / MeltItems[Player.PlayerData.items[k].name])
                     if amount < 1 then
-                        TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok " .. Player.PlayerData.items[k].label, "error")
+                        TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok. (" .. Player.PlayerData.items[k].label .. ")", "error")
                     else
                         amount = math.ceil(Player.PlayerData.items[k].amount / MeltItems[Player.PlayerData.items[k].name])
                         if amount > 0 then

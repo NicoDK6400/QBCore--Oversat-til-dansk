@@ -70,7 +70,7 @@ Citizen.CreateThread(function()
                         if IsControlJustReleased(0, 38) then 
                             local waitTime = math.random(10000, 15000)
                             ScrapAnim(1000)
-                            QBCore.Functions.Progressbar("drop_golden_stuff", "Tager ting", 1000, false, true, {
+                            QBCore.Functions.Progressbar("drop_golden_stuff", "Forbereder...", 1000, false, true, {
                                 disableMovement = true,
                                 disableCarMovement = true,
                                 disableMouse = false,
