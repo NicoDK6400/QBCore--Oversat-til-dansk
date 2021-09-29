@@ -214,7 +214,7 @@ function MenuDepot()
     ped = PlayerPedId();
     MenuTitle = "Impound"
     ClearMenu()
-    Menu.addButton("Depot Vehicles", "DepotList", nil)
+    Menu.addButton("Depot køretøjer", "DepotList", nil)
     Menu.addButton("Luk menu", "close", nil)
 end
 
@@ -292,7 +292,7 @@ function DepotList()
             end
         end
 
-        Menu.addButton("Back", "MenuDepot",nil)
+        Menu.addButton("Tilbage", "MenuDepot",nil)
     end)
 end
 
@@ -327,7 +327,7 @@ function VehicleList()
             end
         end
 
-        Menu.addButton("Back", "MenuGarage",nil)
+        Menu.addButton("Tilbage", "MenuGarage",nil)
     end, currentGarage)
 end
 
@@ -695,7 +695,7 @@ Citizen.CreateThread(function()
                                     CheckPlayers(curVeh)
                                     Wait(500)
                                     if DoesEntityExist(curVeh) then
-                                        QBCore.Functions.Notify("The wasn't deleted, please check if is someone inside the car.", "error", 4500)
+                                        QBCore.Functions.Notify("Blev ikke fjernet. Vær sikker på at ingen sidder i køretøjet", "error", 4500)
                                     else
                                     TriggerServerEvent('qb-garage:server:updateVehicleStatus', totalFuel, engineDamage, bodyDamage, plate, Name)
                                     TriggerServerEvent('qb-garage:server:updateVehicleState', 1, plate, Name)                                    
@@ -757,7 +757,7 @@ Citizen.CreateThread(function()
                                         local totalFuel = exports['LegacyFuel']:GetFuel(curVeh)
                                             CheckPlayers(curVeh)
                                         if DoesEntityExist(curVeh) then
-                                                QBCore.Functions.Notify("Køretøjet blev ikke fjernet, tjek om der er nogle er i.", "error", 4500)
+                                                QBCore.Functions.Notify("Blev ikke fjernet. Vær sikker på at ingen sidder i køretøjet.", "error", 4500)
                                         else
                                         TriggerServerEvent('qb-garage:server:updateVehicleStatus', totalFuel, engineDamage, bodyDamage, plate, currentHouseGarage)
                                         TriggerServerEvent('qb-garage:server:updateVehicleState', 1, plate, currentHouseGarage)

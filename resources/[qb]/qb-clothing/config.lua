@@ -577,21 +577,21 @@ Config.Outfits = {
                 },
             },
             [2] = {
-                outfitLabel = "Langærmet",
+                outfitLabel = "Sweater",
                 outfitData = {
-                    ["pants"]       = { item = 95, texture = 0},  -- Broek
-                    ["arms"]        = { item = 1, texture = 0},  -- Armen
-                    ["t-shirt"]     = { item = 55, texture = 0},  -- T Shirt
-                    ["vest"]        = { item = 27, texture = 0},  -- Body Vest
-                    ["torso2"]      = { item = 243, texture = 0},  -- Jas / Vesten
-                    ["shoes"]       = { item = 51, texture = 0},  -- Schoenen
+                    ["pants"]       = { item = 130, texture = 0},  -- Broek
+                    ["arms"]        = { item = 6, texture = 0},  -- Armen
+                    ["t-shirt"]     = { item = 15, texture = 0},  -- T Shirt
+                    ["vest"]        = { item = 21, texture = 0},  -- Body Vest
+                    ["torso2"]      = { item = 50, texture = 0},  -- Jas / Vesten
+                    ["shoes"]       = { item = 24, texture = 0},  -- Schoenen
                     -- ["decals"]      = { item = 7, texture = 0},  -- Decals
-                    ["accessory"]   = { item = 1, texture = 0},  -- Nek / Das
-                    ["bag"]         = { item = 73, texture = 0},  -- Tas
-                    ["hat"]         = { item = -1, texture = -1},  -- Pet
+                    ["accessory"]   = { item = 0, texture = 0},  -- Nek / Das
+                    ["bag"]         = { item = 0, texture = 0},  -- Tas
+                    ["hat"]         = { item = 10, texture = -1},  -- Pet
                     ["glass"]       = { item = 0, texture = 0},  -- Bril
             --      ["ear"]         = { item = 0, texture = 0},  -- Oor accessoires
-                    ["mask"]         = { item = 141, texture = 0},  -- Masker
+                    ["mask"]         = { item = 11, texture = 0},  -- Masker
                 },
             },
             [3] = {
@@ -631,21 +631,21 @@ Config.Outfits = {
                 },
             },
             [5] = {
-                outfitLabel = "Jacket",
+                outfitLabel = "Langærmet",
                 outfitData = {
-                    ["pants"]       = { item = 95, texture = 0},  -- Broek
-                    ["arms"]        = { item = 1, texture = 0},  -- Armen
-                    ["t-shirt"]     = { item = 107, texture = 0},  -- T Shirt
-                    ["vest"]        = { item = 0, texture = 0},  -- Body Vest
-                    ["torso2"]      = { item = 244, texture = 0},  -- Jas / Vesten
+                    ["pants"]       = { item = 46, texture = 0},  -- Broek
+                    ["arms"]        = { item = 6, texture = 0},  -- Armen
+                    ["t-shirt"]     = { item = 15, texture = 0},  -- T Shirt
+                    ["vest"]        = { item = 19, texture = 0},  -- Body Vest
+                    ["torso2"]      = { item = 53, texture = 0},  -- Jas / Vesten
                     ["shoes"]       = { item = 51, texture = 0},  -- Schoenen
                     -- ["decals"]      = { item = 7, texture = 0},  -- Decals
-                    ["accessory"]   = { item = 1, texture = 0},  -- Nek / Das
+                    ["accessory"]   = { item = 0, texture = 0},  -- Nek / Das
                     ["bag"]         = { item = 0, texture = 0},  -- Tas
-                    ["hat"]         = { item = 9, texture = 0},  -- Pet
+                    ["hat"]         = { item = 10, texture = 0},  -- Pet
                     ["glass"]       = { item = 0, texture = 0},  -- Bril
             --      ["ear"]         = { item = 0, texture = 0},  -- Oor accessoires
-                    ["mask"]         = { item = 127, texture = 0},  -- Masker
+                    ["mask"]         = { item = 11, texture = 0},  -- Masker
                 },
             },
             [6] = {
