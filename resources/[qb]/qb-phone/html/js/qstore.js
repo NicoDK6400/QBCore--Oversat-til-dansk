@@ -86,7 +86,7 @@ $(document).on('click', '.download-password-accept', function(e){
 
     if (FilledInPassword == TemplatePassword) {
         $(".download-password-buttons").fadeOut(150);
-        IsDownloading = false;
+        IsDownloading = true;
         
         $(".download-password-input").attr('readonly', true);
 

@@ -1911,7 +1911,7 @@ RegisterNUICallback('InstallApplication', function(data, cb)
     local NewSlot = GetFirstAvailableSlot()
 
     if not CanDownloadApps then
-        return
+        return(false)
     end
     
     if NewSlot <= Config.MaxSlots then

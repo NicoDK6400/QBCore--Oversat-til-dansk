@@ -186,19 +186,19 @@ Config.PhoneApplications = {
 Config.MaxSlots = 20
 
 Config.StoreApps = {
-    -- ["territory"] = {
-    --     app = "territory",
-    --     color = "#353b48",
-    --     icon = "fas fa-globe-europe",
-    --     tooltipText = "Territorium",
-    --     tooltipPos = "right",
-    --     style = "";
-    --     job = false,
-    --     blockedjobs = {},
-    --     slot = 15,
-    --     Alerts = 0,
-    --     password = true,
-    --     creator = "QBCore",
-    --     title = "Territory",
-    -- },
+    ["territory"] = {
+         app = "territory",
+         color = "#353b48",
+         icon = "fas fa-globe-europe",
+         tooltipText = "Territorium",
+         tooltipPos = "right",
+         style = "";
+         job = false,
+         blockedjobs = {},
+         slot = 15,
+         Alerts = 0,
+         password = true,
+         creator = "QBCore",
+         title = "Territory",
+    },
 }
