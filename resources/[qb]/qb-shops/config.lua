@@ -431,14 +431,14 @@ Config.Products = {
             type = "item",
             slot = 1,
         },
-        [2] = {
-            name = "lighter",
-            price = 2,
-            amount = 50,
-            info = {},
-            type = "item",
-            slot = 2,
-        },
+        -- [2] = {
+        --     name = "lighter",
+        --     price = 2,
+        --     amount = 50,
+        --     info = {},
+        --     type = "item",
+        --     slot = 2,
+        -- },
     },
     ["casino"] = {
         [1] = {
@@ -454,13 +454,19 @@ Config.Products = {
 
 Config.Locations = {
     ["beancoffee"] = {
-        ["label"] = "Starbuks",
+        ["label"] = "Kaffemaskine",
         ["type"] = "normal",
         ["coords"] = {
-            [1] = vector3(-633.72, 236.15, 81.88)
+            [1] = vector3(435.97, -985.82, 30.69),
+            [2] = vector3(1730.18, 6419.55, 35.04),
+            [3] = vector3(1957.68, 3744.28, 32.34),
+            [4] = vector3(374.0, 331.05, 103.57),
+            [5] = vector3(-3043.69, 583.03, 7.91),
+            [6] = vector3(-3247.09, 1000.49, 12.83),
+            [7] = vector3(2673.82, 3281.74, 55.24)
         },
         ["products"] = Config.Products["coffeeplace"],
-        ["showblip"] = true,
+        ["showblip"] = false,
     },
     ["casino"] = {
         ["label"] = "Diamond Casino",
@@ -713,7 +719,7 @@ Config.Locations = {
         ["showblip"] = true,
     },   
     ["coffeeshop"] = {
-        ["label"] = "Coffeeshop",
+        ["label"] = "Head shop",
         ["type"] = "hardware",
         ["coords"] = {
             [1] = vector3(-1172.43, -1572.24, 4.66)
@@ -815,13 +821,13 @@ Config.Locations = {
         ["label"] = "Fritids butik",
         ["type"] = "leisure",
         ["coords"] = {
-            [1] = vector3(-1508.774, 1509.015, 115.2903)
+            [1] = vector3(-1504.92, 1511.75, 115.29))
         },
         ["products"] = Config.Products["leisureshop"],
         ["showblip"] = true,
     },   
     ["mustapha"] = {
-        ["label"] = "AVIIS",
+        ["label"] = "AVIIS", ---- Aner ikke hvad det skulle bruges til?? (Fritids butik??)
         ["type"] = "leisure",
         ["coords"] = {
             [1] = vector3(-31.18, -1397.537, 29.50)
