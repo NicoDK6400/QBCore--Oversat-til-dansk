@@ -173,7 +173,7 @@ AddEventHandler('qb-houses:client:addGarage', function()
         }
         TriggerServerEvent('qb-houses:server:addGarage', closesthouse, coords)
     else
-        QBCore.Functions.Notify("No house around..", "error")
+        QBCore.Functions.Notify("Ingen boliger i nærheden..", "error")
     end
 end)
 
@@ -185,10 +185,10 @@ AddEventHandler('qb-houses:client:toggleDoorlock', function()
         if hasKey then
             if Config.Houses[closesthouse].locked then
                 TriggerServerEvent('qb-houses:server:lockHouse', false, closesthouse)
-                QBCore.Functions.Notify("House is unlocked!", "success", 2500)
+                QBCore.Functions.Notify("Boligen er oplåst", "success", 2500)
             else
                 TriggerServerEvent('qb-houses:server:lockHouse', true, closesthouse)
-                QBCore.Functions.Notify("House is locked!", "error", 2500)
+                QBCore.Functions.Notify("Boligen er låst", "error", 2500)
             end
         else
             QBCore.Functions.Notify("Du har ikke husets nøgler...", "error", 3500)
@@ -520,10 +520,10 @@ end
 
 function optionMenu(citizenData)
     ped = PlayerPedId();
-    MenuTitle = "What now?"
+    MenuTitle = "Hvad nu?"
     ClearMenu()
-    Menu.addButton("Remove key", "removeHouseKey", citizenData) 
-    Menu.addButton("Back", "HouseKeysMenu",nil)
+    Menu.addButton("Fjern nøgle", "removeHouseKey", citizenData) 
+    Menu.addButton("Tilbage", "HouseKeysMenu",nil)
 end
 
 function removeHouseKey(citizenData)

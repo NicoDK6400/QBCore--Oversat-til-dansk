@@ -277,7 +277,7 @@ AddEventHandler('qb-traphouse:server:RobNpc', function(Traphouse)
     
     if Chance == odd then
         local info = {
-            label = "Traphouse Pincode: "..Config.TrapHouses[Traphouse].pincode
+            label = "Traphouse pinkode: "..Config.TrapHouses[Traphouse].pincode
         }
         Player.Functions.AddItem("stickynote", 1, false, info)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items["stickynote"], "add")

@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
         SetDiscordRichPresenceAssetSmallText('This is a lsmall icon with text')
 
         QBCore.Functions.TriggerCallback('smallresources:server:GetCurrentPlayers', function(result)
-            SetRichPresence('Players: '..result..'/64')
+            SetRichPresence('Spillere: '..result..'/8')
         end)
 
         -- (26-02-2021) New Native:
@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and 
             last is the url (this has to start with "fivem://connect/" or "https://") 
         ]]--
-        SetDiscordRichPresenceAction(0, "Join serveren!", "https://fivem.dk")
+        SetDiscordRichPresenceAction(0, "Join serveren!", "connect cfx.re/join/ax4y39")
         SetDiscordRichPresenceAction(1, "Join vores discord!", "https://discord.gg/dkfivem")
 
         -- It updates every minute just in case.

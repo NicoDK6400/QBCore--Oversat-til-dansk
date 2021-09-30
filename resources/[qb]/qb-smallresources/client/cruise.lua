@@ -46,7 +46,7 @@ CreateThread(function()
       Wait(0)
       local veh = GetVehiclePedIsIn(PlayerPedId())
       local vehClass = GetVehicleClass(veh)
-      if IsControlJustPressed(1, 246) and IsDriver() then
+      if IsControlJustPressed(1, 246) and IsDriver() then -- Keybinden er Y "246" (https://docs.fivem.net/docs/game-references/controls/)
           if vehicleClasses[vehClass] then
               Player = PlayerPedId()
               TriggerCruiseControl()

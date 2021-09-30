@@ -245,18 +245,18 @@ function HouseGarage(house)
                 curGarage = HouseGarages[house].label
 
                 if v.state == 0 then
-                    v.state = "Out"
+                    v.state = "Ude"
                 elseif v.state == 1 then
-                    v.state = "Garaged"
+                    v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impound"
+                    v.state = "Impounded"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutGarageVehicle", v, v.state, " Motor: " .. enginePercent.."%", " Karosseri: " .. bodyPercent.."%", " Tank: "..currentFuel.."%")
             end
         end
 
-        Menu.addButton("Back", "MenuHouseGarage", house)
+        Menu.addButton("Tilbage", "MenuHouseGarage", house)
     end, house)
 end
 
@@ -316,11 +316,11 @@ function VehicleList()
 
 
                 if v.state == 0 then
-                    v.state = "Out"
+                    v.state = "Ude"
                 elseif v.state == 1 then
-                    v.state = "Garaged"
+                    v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impound"
+                    v.state = "Impounded"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutVehicle", v, v.state, " Motor: " .. enginePercent .. "%", " Karosseri: " .. bodyPercent.. "%", " Tank: "..currentFuel.. "%")
@@ -352,11 +352,11 @@ function GangVehicleList()
 
 
                 if v.state == 0 then
-                    v.state = "Out"
+                    v.state = "Ude"
                 elseif v.state == 1 then
-                    v.state = "Garaged"
+                    v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impound"
+                    v.state = "Impounded"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutGangVehicle", v, v.state, " Motor: " .. enginePercent .. "%", " Karosseri: " .. bodyPercent.. "%", " Tank: "..currentFuel.. "%")
@@ -368,7 +368,7 @@ function GangVehicleList()
 end
 
 function TakeOutVehicle(vehicle)
-    if vehicle.state == "Garaged" then
+    if vehicle.state == "I garage" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -396,15 +396,15 @@ function TakeOutVehicle(vehicle)
             end, vehicle.plate)
 
         end, Garages[currentGarage].spawnPoint, true)
-    elseif vehicle.state == "Out" then
+    elseif vehicle.state == "Ude" then
         QBCore.Functions.Notify("Er din bil gemt?", "error", 2500)
-    elseif vehicle.state == "Impound" then
+    elseif vehicle.state == "Impounded" then
         QBCore.Functions.Notify("Dette køretøj blev impounded af politiet", "error", 4000)
     end
 end
 
 function TakeOutGangVehicle(vehicle)
-    if vehicle.state == "Garaged" then
+    if vehicle.state == "I garage" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -432,22 +432,22 @@ function TakeOutGangVehicle(vehicle)
             end, vehicle.plate)
 
         end, GangGarages[currentGarage].spawnPoint, true)
-    elseif vehicle.state == "Out" then
+    elseif vehicle.state == "Ude" then
         QBCore.Functions.Notify("Er køretøjet gemt?", "error", 2500)
-    elseif vehicle.state == "Impound" then
+    elseif vehicle.state == "Impounded" then
         QBCore.Functions.Notify("Dette køretøj blev impounded af politiet", "error", 4000)
     end
 end
 
 function TakeOutDepotVehicle(vehicle)
-    if vehicle.state == "Impound" then
+    if vehicle.state == "Impounded" then
         TriggerServerEvent("qb-garage:server:PayDepotPrice", vehicle)
         Citizen.Wait(1000)
     end
 end
 
 function TakeOutGarageVehicle(vehicle)
-    if vehicle.state == "Garaged" then
+    if vehicle.state == "I garage" then
         QBCore.Functions.SpawnVehicle(vehicle.vehicle, function(veh)
             QBCore.Functions.TriggerCallback('qb-garage:server:GetVehicleProperties', function(properties)
                 QBCore.Functions.SetVehicleProperties(veh, properties)

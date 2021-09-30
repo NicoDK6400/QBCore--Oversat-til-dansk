@@ -65,7 +65,7 @@ $(document).on('keydown', function() {
             var v = $("#PINbox").val();
             if (v == "") {
                 $.post('https://qb-traphouse/ErrorMessage', JSON.stringify({
-                    message: "Vul een code in!"
+                    message: "Indtast en kode!"
                 }))
             } else {
                 data = {
@@ -134,7 +134,7 @@ function clearForm(e){
 function submitForm(e) {
 	if (e.value == "") {
 		$.post('https://qb-traphouse/ErrorMessage', JSON.stringify({
-            message: "Vul een code in!"
+            message: "Indtast en kode!"
         }))
 	} else {
         $.post('https://qb-traphouse/EnterPincode', JSON.stringify({

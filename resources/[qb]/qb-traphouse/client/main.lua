@@ -255,7 +255,7 @@ Citizen.CreateThread(function()
                 if ExitDistance < 20 then
                     inRange = true
                     if ExitDistance < 1 then
-                        DrawText3Ds(data.coords["enter"].x + POIOffsets.exit.x, data.coords["enter"].y + POIOffsets.exit.y, data.coords["enter"].z - Config.MinZOffset + POIOffsets.exit.z, '~b~E~w~ - Leave')
+                        DrawText3Ds(data.coords["enter"].x + POIOffsets.exit.x, data.coords["enter"].y + POIOffsets.exit.y, data.coords["enter"].z - Config.MinZOffset + POIOffsets.exit.z, '~b~E~w~ - Forlad')
                         if IsControlJustPressed(0, 38) then
                             LeaveTraphouse(data)
                         end
@@ -399,9 +399,9 @@ function AddKeyHolder(CitizenId, Traphouse)
                     owner = false,
                 })
             end
-            QBCore.Functions.Notify(CitizenId..' Er blevet tilføjet til Traphouse!')
+            QBCore.Functions.Notify(CitizenId..' er blevet tilføjet til Traphouse!')
         else
-            QBCore.Functions.Notify(CitizenId..' Denne person har allerede nøgler')
+            QBCore.Functions.Notify(CitizenId..' har allerede nøgler')
         end
     else
         QBCore.Functions.Notify('Du kan give folk adgang til Traphouse, helt op til 6 personer!')
