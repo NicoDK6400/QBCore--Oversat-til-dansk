@@ -35,8 +35,6 @@ elevator_entrance_location = {
 	["z"] = 75.43,
 	["a"] = 230.92
 }
-vector3(981.73, 54.45, 116.16)
-
 
 tables = { -- Spawns Ped Only -- Setup Currently For This https://forum.cfx.re/t/cayo-perico-casino-dlc-ipl-loader/2099391
 	{
