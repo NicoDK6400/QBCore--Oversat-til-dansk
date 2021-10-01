@@ -1271,7 +1271,7 @@ Citizen.CreateThread(function()
 			sleep = 7
 			DrawMarker(2, tploc_enter.x, tploc_enter.y, tploc_enter.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 255, 255, 155, 0, 0, 0, 1, 0, 0, 0)
 			if dist < 1 then
-				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Tilgå casinoet')
+				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Tilgå bolig')
 				if IsControlJustPressed(1, 51) then
 					SetEntityCoords(ped, tploc_exit.x, tploc_exit.y, tploc_exit.z - 0.8)
 					SetEntityHeading(ped, tploc_exit.a)
@@ -1286,7 +1286,7 @@ Citizen.CreateThread(function()
 			sleep = 7
 			DrawMarker(2, tploc_enter.x, tploc_enter.y, tploc_enter.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.2, 0.1, 255, 255, 255, 155, 0, 0, 0, 1, 0, 0, 0)
 			if dist < 1 then
-				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Forlad casinoet')
+				DrawText3Ds(tploc_enter.x, tploc_enter.y, tploc_enter.z + 0.15, '~g~E~w~ - Forlad bolig')
 				if IsControlJustPressed(1, 51) then
 					SetEntityCoords(ped, tploc_exit.x, tploc_exit.y, tploc_exit.z - 0.8)
 					SetEntityHeading(ped, tploc_exit.a)
