@@ -305,7 +305,7 @@ Config.WoundStates = {
 }
 
 Config.BleedingStates = {
-    [1] = {label = 'bløde en smule..', damage = 10, chance = 50},
+    [1] = {label = 'bløder en smule..', damage = 10, chance = 50},
     [2] = {label = 'bløder..', damage = 15, chance = 65},
     [3] = {label = 'bløder en del..', damage = 20, chance = 65},
     [4] = {label = 'bløder meget..', damage = 25, chance = 75},
