@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(3600000)
         dailyWithdraws = {}
-        TriggerClientEvent('QBCore:Notify', -1, "Daglig udbetalingsgrænsen er nulstillet", "success")
+        TriggerClientEvent('QBCore:Notify', -1, "Daglig udbetalingsgrænse er nulstillet", "success")
     end
 end)
 
