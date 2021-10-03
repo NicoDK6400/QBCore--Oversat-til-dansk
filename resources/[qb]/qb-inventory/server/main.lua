@@ -1527,7 +1527,7 @@ QBCore.Functions.CreateUseableItem("driver_license", function(source, item)
 		local dist = #(GetEntityCoords(PlayerPed) - GetEntityCoords(TargetPed))
 		if dist < 3.0 then
 			TriggerClientEvent('chat:addMessage', v,  {
-				template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Fornavn:</strong> {1} <br><strong>Efternavn:</strong> {2} <br><strong>Fødselsdato:</strong> {3} <br><strong>License:</strong> {4}</div></div>',
+				template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Fornavn:</strong> {1} <br><strong>Efternavn:</strong> {2} <br><strong>Fødselsdato:</strong> {3} <br><strong>Licens:</strong> {4}</div></div>',
 				args = {'Førerret', item.info.firstname, item.info.lastname, item.info.birthdate, item.info.type}
 			})
 		end
@@ -1545,7 +1545,7 @@ QBCore.Functions.CreateUseableItem("id_card", function(source, item)
 				gender = "Dame"
 			end
 			TriggerClientEvent('chat:addMessage', v,  {
-				template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Civ ID:</strong> {1} <br><strong>Fornavn:</strong> {2} <br><strong>Efternavn:</strong> {3} <br><strong>Fødselsdato:</strong> {4} <br><strong>Køn:</strong> {5} <br><strong>Nationalitet:</strong> {6}</div></div>',
+				template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Pers. ID:</strong> {1} <br><strong>Fornavn:</strong> {2} <br><strong>Efternavn:</strong> {3} <br><strong>Fødselsdato:</strong> {4} <br><strong>Køn:</strong> {5} <br><strong>Nationalitet:</strong> {6}</div></div>',
 				args = {'ID Kort', item.info.citizenid, item.info.firstname, item.info.lastname,item.info.birthdate, gender, item.info.nationality}
 			})
 		end

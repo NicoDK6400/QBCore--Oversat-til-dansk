@@ -438,7 +438,7 @@ function FormatItemInfo(itemData) {
                 itemData.info.lastname +
                 "</span></p><p><strong>Fødselsdato </strong><span>" +
                 itemData.info.birthdate +
-                "</span></p><p><strong>Licenses: </strong><span>" +
+                "</span></p><p><strong>Licenser: </strong><span>" +
                 itemData.info.type +
                 "</span></p>"
             );

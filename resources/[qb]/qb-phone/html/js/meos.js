@@ -43,7 +43,7 @@ OpenMeosPage = function(page) {
 }
 
 SetupMeosHome = function() {
-    $("#meos-app-name").html("Welcome " + QB.Phone.Data.PlayerData.charinfo.firstname + " " + QB.Phone.Data.PlayerData.charinfo.lastname);
+    $("#meos-app-name").html("Velkommen " + QB.Phone.Data.PlayerData.charinfo.firstname + " " + QB.Phone.Data.PlayerData.charinfo.lastname);
 }
 
 MeosHomePage = function() {
@@ -80,17 +80,17 @@ $(document).on('click', '.person-search-result', function(e){
     var ClickedPersonId = $(this).attr('id');
     var ClickedPersonData = $("#"+ClickedPersonId).data('PersonData');
 
-    var Gender = "Male";
+    var Gender = "Mand";
     if (ClickedPersonData.gender == 1) {
-        Gender = "Female";
+        Gender = "Kvinde";
     }
-    var HasLicense = "Yes";
+    var HasLicense = "Ja";
     if (!ClickedPersonData.driverlicense) {
-        HasLicense = "No";
+        HasLicense = "Nej";
     }
-    var IsWarrant = "No";
+    var IsWarrant = "Nej";
     if (ClickedPersonData.warrant) {
-        IsWarrant = "Yes";
+        IsWarrant = "Ja";
     }
     var appartementData = {};
     if (ClickedPersonData.appartmentdata) {
