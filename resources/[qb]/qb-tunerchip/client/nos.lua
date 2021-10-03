@@ -51,7 +51,7 @@ AddEventHandler('smallresource:client:LoadNitrous', function()
                     TriggerServerEvent('nitrous:server:LoadNitrous', Plate)
                 end)
             else
-                QBCore.Functions.Notify("Du kan ikke gører det fra det sæde!", "error")
+                QBCore.Functions.Notify("Du kan ikke gøre det fra det sæde!", "error")
             end
         else
             QBCore.Functions.Notify('Du er ikke i et køretøj', 'error')
