@@ -63,17 +63,17 @@ end)
 -----------------------------------------------------------------------------------------------------
 
 Citizen.CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
-    TriggerEvent('chat:addSuggestion', '/e', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
-    TriggerEvent('chat:addSuggestion', '/emote', 'Play an emote', {{ name="emotename", help="dance, camera, sit or any valid emote."}})
+    TriggerEvent('chat:addSuggestion', '/e', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
+    TriggerEvent('chat:addSuggestion', '/e', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
+    TriggerEvent('chat:addSuggestion', '/emote', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
     if Config.SqlKeybinding then
-      TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind an emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dance, camera, sit or any valid emote."}})
-      TriggerEvent('chat:addSuggestion', '/emotebinds', 'Check your currently bound emotes.')
+      TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind en emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
+      TriggerEvent('chat:addSuggestion', '/emotebinds', 'Se dine nurværende binds på emotes.')
     end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Open dpemotes menu (F3) by default.')
-    TriggerEvent('chat:addSuggestion', '/emotes', 'List available emotes.')
-    TriggerEvent('chat:addSuggestion', '/walk', 'Set your walkingstyle.', {{ name="style", help="/walks for a list of valid styles"}})
-    TriggerEvent('chat:addSuggestion', '/walks', 'List available walking styles.')
+    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Åbner dpemotes menu (F3).')
+    TriggerEvent('chat:addSuggestion', '/emotes', 'Listen over mulige emotes.')
+    TriggerEvent('chat:addSuggestion', '/walk', 'Sætter din gågang.', {{ name="style", help="/walks for a listen over gågange"}})
+    TriggerEvent('chat:addSuggestion', '/walks', 'Listen over gågange.')
 end)
 
 RegisterCommand('e', function(source, args, raw)
@@ -182,7 +182,7 @@ AddEventHandler('animations:client:EmoteCommandStart', function(args)
   if CanDoEmote then
     EmoteCommandStart(source, args)
   else
-    QBCore.Functions.Notify("Cannot Be Done Right Now", "error")
+    QBCore.Functions.Notify("Er ikke muligt lige nu", "error")
   end
 end)
 
@@ -321,7 +321,7 @@ function EmoteCommandStart(source, args, raw)
         if IsInAnimation then
             EmoteCancel()
         else
-          QBCore.Functions.Notify('No Emote To Cancel', 'error')
+          QBCore.Functions.Notify('Ingen emote at afbryde', 'error')
         end
       return
     elseif name == "help" then
@@ -335,7 +335,7 @@ function EmoteCommandStart(source, args, raw)
     elseif DP.PropEmotes[name] ~= nil then
       if OnEmotePlay(DP.PropEmotes[name]) then end return
     else
-      QBCore.Functions.Notify('That Is Not A Valid Command', 'error')
+      QBCore.Functions.Notify('Dette er ikke en gyldig command', 'error')
     end
   end
 end
