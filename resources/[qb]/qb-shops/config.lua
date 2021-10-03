@@ -422,6 +422,56 @@ Config.Products = {
             requiresLicense = true
         },
     },
+    ["bar"] = {
+        [1] = {
+            name = "coffee",
+            price = 5,
+            amount = 500,
+            info = {},
+            type = "item",
+            slot = 1,
+        },
+        [2] = {
+            name = "beer",
+            price = 7,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 2,
+        },
+        [3] = {
+            name = "whiskey",
+            price = 10,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 3,
+        },
+        [4] = {
+            name = "vodka",
+            price = 12,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 4,
+        },
+        [5] = {
+            name = "water_bottle",
+            price = 2,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 5,
+        },
+        [6] = {
+            name = "kurkakola",
+            price = 2,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 6,
+        },
+    },
     ["coffeeplace"] = {
         [1] = {
             name = "coffee",
@@ -501,15 +551,15 @@ Config.Locations = {
         ["products"] = Config.Products["normal"],
         ["showblip"] = true,
     },
-    ["robsliquor6"] = {
-        ["label"] = "Casino Bar",
-        ["type"] = "normal",
-        ["coords"] = {
-            [1] = vector3(936.1185, 28.61719, 71.833)
-        },
-        ["products"] = Config.Products["normal"],
-        ["showblip"] = true,
-    },
+    -- ["robsliquor6"] = {
+    --     ["label"] = "Casino Bar",
+    --     ["type"] = "normal",
+    --     ["coords"] = {
+    --         [1] = vector3(936.1185, 28.61719, 71.833)
+    --     },
+    --     ["products"] = Config.Products["normal"],
+    --     ["showblip"] = true,
+    -- },
     ["robsliquor"] = {
         ["label"] = "Rob's alkohol",
         ["type"] = "normal",
@@ -729,6 +779,20 @@ Config.Locations = {
             [1] = vector3(-1172.43, -1572.24, 4.66)
         },
         ["products"] = Config.Products["coffeeshop"],
+        ["showblip"] = true,
+    },
+    ["bar"] = {
+        ["label"] = "Bar",
+        ["type"] = "normal",
+        ["coords"] = {
+            [1] = vector3(945.62, 16.74, 116.16), -- Casino Lejlighed
+            [2] = vector3(962.57, 58.91, 75.43), -- Casino Kontor
+            [3] = vector3(1985.29, 3053.03, 47.22), -- Yellow Jack bar
+            [4] = vector3(-560.15, 286.88, 82.18), -- Tequila bar
+            [5] = vector3(128.09, -1284.95, 29.28), -- Strip Club bar
+            [6] = vector3(936.17, 28.3, 71.83) -- Casino bar
+        },
+        ["products"] = Config.Products["bar"],
         ["showblip"] = true,
     },
     ["ammunation1"] = {
