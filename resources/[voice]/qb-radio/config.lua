@@ -32,11 +32,11 @@ Config.RestrictedChannels = {
 Config.MaxFrequency = 500
 
 Config.messages = {
-  ['not_on_radio'] = 'You\'re not connected to a signal',
-  ['on_radio'] = 'You\'re already connected to this signal',
-  ['joined_to_radio'] = 'You\'re connected to: ',
-  ['restricted_channel_error'] = 'You can not connect to this signal!',
-  ['invalid_radio'] = 'This frequency is not available.',
-  ['you_on_radio'] = 'You\'re already connected to this channel',
-  ['you_leave'] = 'You left the channel.'
+  ['not_on_radio'] = 'Du er ikke forbundet til en kanal',
+  ['on_radio'] = 'Du er allerede forbundet til kanalen',
+  ['joined_to_radio'] = 'Du er forbundet til: ',
+  ['restricted_channel_error'] = 'Du kan ikke forbindes til frekvensen!',
+  ['invalid_radio'] = 'Denne frekvens er ikke ledig',
+  ['you_on_radio'] = 'Du er allerede forbundet til kanalen',
+  ['you_leave'] = 'Du forlod kanalen.'
 }
