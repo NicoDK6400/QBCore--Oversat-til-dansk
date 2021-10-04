@@ -413,18 +413,18 @@ end)
 function MenuGarage(isDown)
     MenuTitle = "Garage"
     ClearMenu()
-    Menu.addButton("My vehicles", "VehicleList", isDown)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Mine køretøjer", "VehicleList", isDown)
+    Menu.addButton("Luk menuen", "closeMenuFull", nil) 
 end
 
 function VehicleList(isDown)
-    MenuTitle = "Vehicles:"
+    MenuTitle = "Køretøjer:"
     ClearMenu()
     for k, v in pairs(Config.Vehicles) do
-        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", {k, isDown}, "Garage", " Engine: 100%", " Body: 100%", " Fuel: 100%")
+        Menu.addButton(Config.Vehicles[k], "TakeOutVehicle", {k, isDown}, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")
     end
         
-    Menu.addButton("Back", "MenuGarage",nil)
+    Menu.addButton("Tilbage", "MenuGarage",nil)
 end
 
 function TakeOutVehicle(vehicleInfo)
