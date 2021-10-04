@@ -574,14 +574,14 @@ function FormatItemInfo(itemData) {
         } else if (itemData.name == "moneybag") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
-                "<p><strong>Penge beløb: </strong><span>$" +
+                "<p><strong>Penge beløb: </strong><span>DKK" +
                 itemData.info.cash +
                 "</span></p>"
             );
         } else if (itemData.name == "markedbills") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
-                "<p><strong>Værd: </strong><span>$" +
+                "<p><strong>Værd: </strong><span>DKK" +
                 itemData.info.worth +
                 "</span></p>"
             );
@@ -624,7 +624,7 @@ function handleDragDrop() {
                     $(this).find(".item-slot-amount p").html("0 (0.0)");
                     $(".ui-draggable-dragging")
                         .find(".item-slot-amount p")
-                        .html("(" + itemData.amount + ") $" + itemData.price);
+                        .html("(" + itemData.amount + ") DKK" + itemData.price);
                     $(".ui-draggable-dragging").find(".item-slot-key").remove();
                     if ($(this).parent().attr("data-inventory") == "hotbar") {
                         // $(".ui-draggable-dragging").find(".item-slot-key").remove();
@@ -648,7 +648,7 @@ function handleDragDrop() {
                 if (itemData.price != null) {
                     $(this)
                         .find(".item-slot-amount p")
-                        .html("(" + itemData.amount + ") $" + itemData.price);
+                        .html("(" + itemData.amount + ") DKK" + itemData.price);
                     if ($(this).parent().attr("data-inventory") == "hotbar") {
                         // $(".ui-draggable-dragging").find(".item-slot-key").remove();
                     }
@@ -670,10 +670,10 @@ function handleDragDrop() {
                 if (itemData.price != null) {
                     $(this)
                         .find(".item-slot-amount p")
-                        .html("(" + itemData.amount + ") $" + itemData.price);
+                        .html("(" + itemData.amount + ") DKK" + itemData.price);
                     $(".ui-draggable-dragging")
                         .find(".item-slot-amount p")
-                        .html("(" + itemData.amount + ") $" + itemData.price);
+                        .html("(" + itemData.amount + ") DKK" + itemData.price);
                     $(".ui-draggable-dragging").find(".item-slot-key").remove();
                     if ($(this).parent().attr("data-inventory") == "hotbar") {
                         // $(".ui-draggable-dragging").find(".item-slot-key").remove();
@@ -843,7 +843,7 @@ function updateweights($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                     itemData.name +
                     '" /></div><div class="item-slot-amount"><p>(' +
                     itemData.amount +
-                    ") $" +
+                    ") DKK" +
                     itemData.price +
                     '</p></div><div class="item-slot-label"><p>' +
                     itemData.label +
@@ -887,7 +887,7 @@ function updateweights($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                     itemData.name +
                     '" /></div><div class="item-slot-amount"><p>(' +
                     itemData.amount +
-                    ") $" +
+                    ") DKK" +
                     itemData.price +
                     '</p></div><div class="item-slot-label"><p>' +
                     itemData.label +
@@ -930,7 +930,7 @@ function updateweights($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                     itemData.name +
                     '" /></div><div class="item-slot-amount"><p>(' +
                     itemData.amount +
-                    ") $" +
+                    ") DKK" +
                     itemData.price +
                     '</p></div><div class="item-slot-label"><p>' +
                     itemData.label +
@@ -1470,7 +1470,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             newDataFrom.name +
                             '" /></div><div class="item-slot-amount"><p>(' +
                             newDataFrom.amount +
-                            ") $" +
+                            ") DKK" +
                             newDataFrom.price +
                             '</p></div><div class="item-slot-label"><p>' +
                             newDataFrom.label +
@@ -2044,7 +2044,7 @@ function swap($fromSlot, $toSlot, $fromInv, $toInv, $toAmount) {
                             newDataFrom.name +
                             '" /></div><div class="item-slot-amount"><p>(' +
                             newDataFrom.amount +
-                            ") $" +
+                            ") DKK" +
                             newDataFrom.price +
                             '</p></div><div class="item-slot-label"><p>' +
                             newDataFrom.label +
