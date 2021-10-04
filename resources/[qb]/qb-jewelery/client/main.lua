@@ -81,7 +81,7 @@ Citizen.CreateThread(function()
                             if storeDist < 2 then
                                 if not firstAlarm then
                                     if validWeapon() then
-                                        local data = {displayCode = '112', description = 'Mistænkelig aktivitet', isImportant = 0, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry røveri'}
+                                        local data = {displayCode = '112', description = 'Mistænkelig aktivitet', isImportant = 0, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico juvel røveri'}
                                         local dispatchData = {dispatchData = data, caller = 'Alarm', coords = vector3(-633.9, -241.7, 38.1)}
                                         TriggerServerEvent('wf-alerts:svNotify', dispatchData)
                                         firstAlarm = true
@@ -159,7 +159,7 @@ function smashVitrine(k)
         TriggerServerEvent('qb-jewellery:server:setVitrineState', "isBusy", false, k)
         TriggerServerEvent('qb-jewellery:server:vitrineReward')
         TriggerServerEvent('qb-jewellery:server:setTimeout')
-        local data = {displayCode = '211A', description = 'Røveri', isImportant = 1, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico Jewelry røveri'}
+        local data = {displayCode = '211A', description = 'Røveri', isImportant = 1, recipientList = {'police'}, length = '10000', infoM = 'fa-info-circle', info = 'Vangelico juvel røveri'}
         local dispatchData = {dispatchData = data, caller = 'Alarm', coords = vector3(-633.9, -241.7, 38.1)}
         TriggerServerEvent('wf-alerts:svNotify', dispatchData)
         smashing = false
@@ -228,7 +228,7 @@ AddEventHandler('qb-jewellery:client:PoliceAlertMessage', function(title, coords
         SetBlipAlpha(blip, transG)
         SetBlipAsShortRange(blip, false)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("112 - Mistænkelig aktivitet ved Jewelry Store")
+        AddTextComponentString("112 - Mistænkelig aktivitet ved Juvel forretningen")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
@@ -249,7 +249,7 @@ AddEventHandler('qb-jewellery:client:PoliceAlertMessage', function(title, coords
                 details = {
                     [1] = {
                         icon = '<i class="fas fa-gem"></i>',
-                        detail = "Vangelico Jewelry",
+                        detail = "Vangelico juvel forretning",
                     },
                     [2] = {
                         icon = '<i class="fas fa-video"></i>',
@@ -293,6 +293,6 @@ Citizen.CreateThread(function()
     SetBlipColour(Dealer, 3)
 
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("Vangelico Jewelry")
+    AddTextComponentSubstringPlayerName("Vangelico juvel forretning")
     EndTextCommandSetBlipName(Dealer)
 end)

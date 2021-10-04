@@ -75,7 +75,7 @@ AddEventHandler('qb-jewellery:server:PoliceAlertMessage', function(title, coords
     local alertData = {
         title = title,
         coords = {x = coords.x, y = coords.y, z = coords.z},
-        description = "Muligt røveri igang hos Vangelico Jewelry<br>Ledige kamera: 31, 32, 33, 34",
+        description = "Muligt røveri igang hos Vangelico juvel forretning<br>Ledige kamera: 31, 32, 33, 34",
     }
 
     for k, v in pairs(QBCore.Functions.GetPlayers()) do
