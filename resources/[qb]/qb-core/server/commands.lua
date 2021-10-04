@@ -97,7 +97,7 @@ QBCore.Commands.Add("tpm", "TP til markør (Kun Admin)", {}, false, function(sou
 	TriggerClientEvent('QBCore:Command:GoToMarker', source)
 end, "admin")
 
-QBCore.Commands.Add("givemoney", "Giv spiller penge (Kun Admin)", {{name="id", help="Player ID"},{name="moneytype", help="Type af penge (cash, bank, crypto)"}, {name="amount", help="Mængde af penge"}}, true, function(source, args)
+QBCore.Commands.Add("givemoney", "Giv spiller penge (Kun Admin)", {{name="id", help="Spiller ID"},{name="moneytype", help="Type af penge (cash, bank, crypto)"}, {name="amount", help="Mængde af penge"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		Player.Functions.AddMoney(tostring(args[2]), tonumber(args[3]))
@@ -106,7 +106,7 @@ QBCore.Commands.Add("givemoney", "Giv spiller penge (Kun Admin)", {{name="id", h
 	end
 end, "admin")
 
-QBCore.Commands.Add("setmoney", "Angiv spillerens pengebeløb (Kun Admin)", {{name="id", help="Player ID"},{name="moneytype", help="Type af penge (cash, bank, crypto)"}, {name="amount", help="Mængde af penge"}}, true, function(source, args)
+QBCore.Commands.Add("setmoney", "Angiv spillerens pengebeløb (Kun Admin)", {{name="id", help="Spiller ID"},{name="moneytype", help="Type af penge (cash, bank, crypto)"}, {name="amount", help="Mængde af penge"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	if Player ~= nil then
 		Player.Functions.SetMoney(tostring(args[2]), tonumber(args[3]))
@@ -115,7 +115,7 @@ QBCore.Commands.Add("setmoney", "Angiv spillerens pengebeløb (Kun Admin)", {{na
 	end
 end, "admin")
 
-QBCore.Commands.Add("setjob", "Sæt en spillers job (Kun Admin)", {{name="id", help="Player ID"}, {name="job", help="Job name"}, {name="grade", help="Grade"}}, true, function(source, args)
+QBCore.Commands.Add("setjob", "Sæt en spillers job (Kun Admin)", {{name="id", help="Spiller ID"}, {name="job", help="Job navn"}, {name="grade", help="Grad"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	if Player == nil then
 		TriggerClientEvent('QBCore:Notify', source, "Spiller ikke online", "error")
@@ -126,10 +126,10 @@ end, "admin")
 
 QBCore.Commands.Add("job", "Tjeck dit arbejde", {}, false, function(source, args)
 	local PlayerJob = QBCore.Functions.GetPlayer(source).PlayerData.job
-	TriggerClientEvent('QBCore:Notify', source, string.format("[Job]: %s [Grade]: %s [On Duty]: %s", PlayerJob.label, PlayerJob.grade.name, PlayerJob.onduty))
+	TriggerClientEvent('QBCore:Notify', source, string.format("[Job]: %s [Grad]: %s [På job]: %s", PlayerJob.label, PlayerJob.grade.name, PlayerJob.onduty))
 end)
 
-QBCore.Commands.Add("setgang", "Sæt en spillers bande (Kun Admin)", {{name="id", help="Player ID"}, {name="gang", help="Navn på bande"}, {name="grade", help="Grade"}}, true, function(source, args)
+QBCore.Commands.Add("setgang", "Sæt en spillers bande (Kun Admin)", {{name="id", help="Spiller ID"}, {name="gang", help="Navn på bande"}, {name="grade", help="Grad"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	if Player == nil then
 		TriggerClientEvent('QBCore:Notify', source, "Spiller ikke online", "error")
@@ -143,7 +143,7 @@ QBCore.Commands.Add("gang", "Tjeck din bande", {}, false, function(source, args)
 	TriggerClientEvent('QBCore:Notify', source, string.format("[Gang]: %s [Grade]: %s", PlayerGang.label, PlayerGang.grade.name))
 end)
 
-QBCore.Commands.Add("clearinv", "Ryd spilleren inventory (Kun Admin)", {{name="id", help="Player ID"}}, false, function(source, args)
+QBCore.Commands.Add("clearinv", "Ryd spilleren inventory (Kun Admin)", {{name="id", help="Spiller ID"}}, false, function(source, args)
 	local playerId = args[1] ~= nil and args[1] or source
 	local Player = QBCore.Functions.GetPlayer(tonumber(playerId))
 	if Player ~= nil then
