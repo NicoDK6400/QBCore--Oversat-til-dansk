@@ -18,7 +18,7 @@ Config = {}
 
 Config.MinZOffset = 45
 
-Config.MinimumHouseRobberyPolice = 0
+Config.MinimumHouseRobberyPolice = 2
 
 Config.MinimumTime = 22
 Config.MaximumTime = 5
@@ -72,7 +72,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -83,7 +83,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -94,7 +94,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -105,7 +105,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -116,7 +116,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -139,7 +139,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -150,7 +150,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -161,7 +161,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -172,7 +172,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -183,7 +183,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -206,7 +206,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -217,7 +217,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -228,7 +228,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -239,7 +239,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -250,7 +250,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -273,7 +273,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -284,7 +284,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -295,7 +295,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -306,7 +306,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -317,7 +317,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -340,7 +340,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -351,7 +351,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -362,7 +362,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -373,7 +373,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -384,7 +384,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -407,7 +407,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -418,7 +418,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -429,7 +429,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -440,7 +440,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -451,7 +451,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -474,7 +474,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -485,7 +485,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -496,7 +496,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -507,7 +507,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -518,7 +518,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -541,7 +541,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -552,7 +552,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -563,7 +563,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -574,7 +574,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -585,7 +585,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -608,7 +608,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -619,7 +619,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -630,7 +630,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -641,7 +641,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -652,7 +652,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -675,7 +675,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -686,7 +686,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -697,7 +697,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -708,7 +708,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -719,7 +719,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -742,7 +742,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -753,7 +753,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -764,7 +764,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -775,7 +775,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -786,7 +786,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -809,7 +809,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -820,7 +820,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -831,7 +831,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -842,7 +842,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -853,7 +853,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -876,7 +876,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -887,7 +887,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -898,7 +898,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -909,7 +909,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -920,7 +920,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -943,7 +943,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -954,7 +954,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -965,7 +965,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -976,7 +976,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -987,7 +987,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1010,7 +1010,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1021,7 +1021,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1032,7 +1032,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1043,7 +1043,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1054,7 +1054,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1077,7 +1077,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1088,7 +1088,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1099,7 +1099,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1110,7 +1110,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1121,7 +1121,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1144,7 +1144,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1155,7 +1155,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1166,7 +1166,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1177,7 +1177,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1188,7 +1188,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1211,7 +1211,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1222,7 +1222,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1233,7 +1233,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1244,7 +1244,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1255,7 +1255,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },    
@@ -1278,7 +1278,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1289,7 +1289,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1300,7 +1300,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1311,7 +1311,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1322,7 +1322,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1345,7 +1345,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1356,7 +1356,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1367,7 +1367,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1378,7 +1378,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1389,7 +1389,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1412,7 +1412,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1423,7 +1423,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1434,7 +1434,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1445,7 +1445,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1456,7 +1456,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1479,7 +1479,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1490,7 +1490,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1501,7 +1501,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1512,7 +1512,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1523,7 +1523,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     }, 
@@ -1546,7 +1546,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1557,7 +1557,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1568,7 +1568,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1579,7 +1579,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1590,7 +1590,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1613,7 +1613,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1624,7 +1624,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1635,7 +1635,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1646,7 +1646,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1657,7 +1657,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1680,7 +1680,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1691,7 +1691,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1702,7 +1702,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1713,7 +1713,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1724,7 +1724,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1747,7 +1747,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1758,7 +1758,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1769,7 +1769,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1780,7 +1780,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1791,7 +1791,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },
@@ -1814,7 +1814,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [2] = {
                 ["type"] = "cabin",
@@ -1825,7 +1825,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Cabinet"
+                ["text"] = "Søg i skufferne"
             },
             [3] = {
                 ["type"] = "kitchen",
@@ -1836,7 +1836,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search through the kitchen cabinets"
+                ["text"] = "Søg i køkkenskabene"
             },
             [4] = {
                 ["type"] = "chest",
@@ -1847,7 +1847,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Search Chest"
+                ["text"] = "Søg i kisten"
             },
             [5] = {
                 ["type"] = "cabin",
@@ -1858,7 +1858,7 @@ Config.Houses = {
                 },
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Night Stand Cabinet"
+                ["text"] = "Natbord"
             },
         }
     },                                                                                                                                      
