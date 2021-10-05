@@ -30,7 +30,7 @@ function setupSubItems()
                 Config.MenuItems[4].items = {
                     [1] = {
                         id = 'emergencybutton2',
-                        title = 'Emergencybutton',
+                        title = 'Nødknap',
                         icon = '#general',
                         type = 'client',
                         event = 'police:client:SendPoliceEmergencyAlert',
@@ -56,7 +56,7 @@ function setupSubItems()
             Config.MenuItems[3].items[3].items = {
                 [1] = {
                     id    = -1,
-                    title = 'Driver',
+                    title = 'Fører',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -64,7 +64,7 @@ function setupSubItems()
                 },
                 [2] = {
                     id    = 0,
-                    title = 'Passenger',
+                    title = 'Passager',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -75,7 +75,7 @@ function setupSubItems()
             Config.MenuItems[3].items[3].items = {
                 [4] = {
                     id    = -1,
-                    title = 'Driver',
+                    title = 'Fører',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -83,7 +83,7 @@ function setupSubItems()
                 },
                 [1] = {
                     id    = 0,
-                    title = 'Passenger',
+                    title = 'Passager',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -91,7 +91,7 @@ function setupSubItems()
                 },
                 [3] = {
                     id    = 1,
-                    title = 'Other',
+                    title = 'Andet',
                     icon = 'caret-down',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -102,7 +102,7 @@ function setupSubItems()
             Config.MenuItems[3].items[3].items = {
                 [4] = {
                     id    = -1,
-                    title = 'Driver',
+                    title = 'Fører',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -110,7 +110,7 @@ function setupSubItems()
                 },
                 [1] = {
                     id    = 0,
-                    title = 'Passenger',
+                    title = 'Passager',
                     icon = 'caret-up',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -118,7 +118,7 @@ function setupSubItems()
                 },
                 [3] = {
                     id    = 1,
-                    title = 'Rear Left',
+                    title = 'Venstre bag',
                     icon = 'caret-down',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',
@@ -126,7 +126,7 @@ function setupSubItems()
                 },
                 [2] = {
                     id    = 2,
-                    title = 'Rear Right',
+                    title = 'Højre bag',
                     icon = 'caret-down',
                     type = 'client',
                     event = 'qb-radialmenu:client:ChangeSeat',

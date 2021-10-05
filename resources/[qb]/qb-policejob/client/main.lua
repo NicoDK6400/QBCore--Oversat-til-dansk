@@ -110,10 +110,10 @@ AddEventHandler('police:client:sendBillingMail', function(amount)
         local charinfo = QBCore.Functions.GetPlayerData().charinfo
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = "Gældstyrrelsen",
-            subject = "Indsamling af udeastånde gæld",
+            subject = "Indsamling af udestånde gæld",
             message = "Kære " .. gender .. " " .. charinfo.lastname ..
-                ",<br /><br />Gældstyrrelsen (CJCA) opkrævede de bøder, du modtog fra politiet..<br />Der er blevet trukket <strong>" ..
-                amount .. " DKK</strong> fra din konto.<br /><br />Med venlig hilsen,<br />Mr. I.K. Graai",
+                ",<br /><br />Gældstyrrelsen opkrævede de bøder, du modtog fra politiet..<br />Der er blevet trukket <strong>" ..
+                amount .. " DKK</strong> fra din konto.<br /><br />Med venlig hilsen,<br />Hr. Olsen, Pep",
             button = {}
         })
     end)
