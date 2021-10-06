@@ -187,7 +187,7 @@ function knockDoorAnim(home)
         Citizen.Wait(1000)
         dealerIsHome = true
         if Config.Dealers[currentDealer]["name"] == "Mystery man" then
-            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hej mit barn, hvad kan jeg gøre for dig')
+            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hej, hvad kan jeg gøre for dig?')
         elseif Config.Dealers[currentDealer]["name"] == "Fred" then
             dealerIsHome = false
             TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Desværre, jeg laver ikke handler med dig længere ... Du skulle have behandlet mig bedre')

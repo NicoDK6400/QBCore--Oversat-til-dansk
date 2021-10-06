@@ -161,13 +161,13 @@ end
 
 QBCore.Commands.Add("newdealer", "Placer en dealer (Kun Admin)", {{
     name = "name",
-    help = "Dealer name"
+    help = "Dealer navn"
 }, {
     name = "min",
-    help = "Minimum time"
+    help = "Minimum tid"
 }, {
     name = "max",
-    help = "Maximum time"
+    help = "Maks. tid"
 }}, true, function(source, args)
     local dealerName = args[1]
     local mintime = tonumber(args[2])
@@ -178,7 +178,7 @@ end, "admin")
 
 QBCore.Commands.Add("deletedealer", "Fjern dealer (Kun Admin)", {{
     name = "name",
-    help = "Name of the dealer"
+    help = "Navnet på Dealer"
 }}, true, function(source, args)
     local dealerName = args[1]
     local result = exports.oxmysql:fetchSync('SELECT * FROM dealers WHERE name = ?', {dealerName})
