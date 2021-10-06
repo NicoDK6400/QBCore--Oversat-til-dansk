@@ -160,13 +160,13 @@ function setupSavingsMenu(data, name)
             withdraw = statement.withdraw
         }
         if (statement.balance == 0) {
-            balance = '<span class="text-dark">$' + statement.balance + '</span>';
+            balance = '<span class="text-dark">DKK' + statement.balance + '</span>';
         } else if(statement.balance > 0) {
-            balance = '<span class="text-success">$' + statement.balance + '</span>';
+            balance = '<span class="text-success">DKK' + statement.balance + '</span>';
         } else {
-            balance = '<span class="text-danger">$' + statement.balance + '</span>';
+            balance = '<span class="text-danger">DKK' + statement.balance + '</span>';
         }
-        $("#savingsStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        $("#savingsStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>DKK' + withdraw + '</small></td><td class="text-center text-success"><small>DKK' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
@@ -271,14 +271,14 @@ $(function() {
     $(document).on('click','#lockCard',function(){
         $("#debitCardStatus").removeClass('bg-success');
         $("#debitCardStatus").addClass('bg-danger');
-        $("#debitCardStatus").html('<div class="card-header">Card Locked</div><div class="card-body">Your card is currently LOCKED.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Unlock/Unblock Card</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort spærret</div><div class="card-body">Dit kort er spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Oplås/Frigør kort</button></div>');
         $.post('https://qb-banking/lockCard', JSON.stringify({ }));
     });
 
     $(document).on('click','#unLockCard',function(){
         $("#debitCardStatus").removeClass('bg-danger');
         $("#debitCardStatus").addClass('bg-success');
-        $("#debitCardStatus").html('<div class="card-header">Card Unlocked</div><div class="card-body">Your card is currently active.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lock/Block Card</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort frigjort</div><div class="card-body">Dit kort er aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/Spær kort</button></div>');
         $.post('https://qb-banking/unLockCard', JSON.stringify({ }));
     });
 
@@ -302,7 +302,7 @@ $(function() {
              $('#newPinNumber').val('');
         } else {
             $("#newPinReqMsgDiv").css({"display":"block"});
-            $("#newPinReqMsg").html('You need to specify a 4 digit random number to update your pin.')
+            $("#newPinReqMsg").html('Du skal opgive et 4 cifret tal for at kunne opdatere.')
         }
 
     });
@@ -320,7 +320,7 @@ $(function() {
         } else {
             // Error doing withdraw
             $("#withdrawError").css({"display":"block"});
-            $("#withdrawErrorMsg").html('There was an error processing your withdraw, either the amount has not been entered, or is not a positive number');
+            $("#withdrawErrorMsg").html('Der er sket en fejl under din udbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
         }
     });
 
@@ -336,18 +336,18 @@ $(function() {
                 $('#withdrawAmountATM').val('');
                 $("#withdrawATMErrorMsg").removeClass('alert-danger').addClass('alert-success');
                 $("#withdrawATMError").css({"display":"none"});
-                $("#withdrawATMErrorMsg").html('You have successfully withdrew $' + amount + ' from your account.');
+                $("#withdrawATMErrorMsg").html('Der er blevet lavet en udbetaling på DKK' + amount + ' fra din konto.');
                 currentLimit = currentLimit + parseInt(amount);
             } else {
                 // Error doing withdraw
                 $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
                 $("#withdrawATMError").css({"display":"block"});
-                $("#withdrawATMErrorMsg").html('There was an error processing your withdraw, either the amount has not been entered, or is not a positive number');
+                $("#withdrawATMErrorMsg").html('Der er sket en fejl under din udbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
             }
         } else {
             $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
             $("#withdrawATMError").css({"display":"block"});
-            $("#withdrawATMErrorMsg").html('Sorry you have reached the Daily Withdraw limit of $' + Config.ATMTransLimit + ' for the day, please use a branch if you need money sooner.');
+            $("#withdrawATMErrorMsg").html('Beklager, dit daglige loft på udbetalinger (' + Config.ATMTransLimit + ') er nu nået. Besøg en bank for at kunne lave en større udbetaling.');
         }
     });
 
@@ -364,7 +364,7 @@ $(function() {
         } else {
             // Error doing withdraw
             $("#depositError").css({"display":"block"});
-            $("#depositErrorMsg").html('There was an error processing your deposit, either the amount has not been entered, or is not a positive number');
+            $("#depositErrorMsg").html('Der er sket en fejl under din indbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
         }
     });
 
@@ -393,7 +393,7 @@ $(function() {
             }));
         } else {
             $("#pinCreatorError").css({"display":"block"});
-            $("#pinCreatorErrorMsg").html('There was an error with the pin you tried to create, please make up a random number which is 4 digits in length.');
+            $("#pinCreatorErrorMsg").html('Der er sket en fejl med den kode du har forsøgt med, vær sikker på at det er 4 cifre!.');
         }
 
     });
@@ -416,7 +416,7 @@ $(function() {
             $('#transferAcctNo').val('');
         } else {
             $("#transferError").css({"display":"block"});
-            $("#transferErrorMsg").html('There was an error with the information you have entered, please ensure the account number, sort code and amount is correctly filled out.');
+            $("#transferErrorMsg").html('Der er en fejl med de informationer du oplyser, vær sikker på at det er et kontonummer.');
         }
         
     });
@@ -446,7 +446,7 @@ $(function() {
             // Error Daily Limit Hit.
             $("#successMessageATM").removeClass('alert-success').addClass('alert-danger');
             $("#successRowATM").css({"display":"block"});
-            $("#successMessageATM").html('Sorry you have reached the Daily Withdraw limit of $' + Config.ATMTransLimit + ' for the day, please use a branch if you need money sooner.');
+            $("#successMessageATM").html('Beklager, dit daglige loft på udbetalinger (' + Config.ATMTransLimit + ') er nu nået. Besøg en bank for at kunne lave en større udbetaling.');
         }
     });
 
@@ -516,11 +516,11 @@ $(function() {
                         $('#pinEntered').val('');
                         loadAtmScreen();
                     } else {
-                        $("#pinErrorMsg").html('You have entered a incorrect pin number.');
+                        $("#pinErrorMsg").html('Ukorrekt pinkode.');
                         $("#pinErrorDiv").css({"display":"block"});
                     }
             } else {
-                $("#pinErrorMsg").html('You need to enter a Pin which is 4 Digits in length.');
+                $("#pinErrorMsg").html('Du skal angive en pinkode på 4 cifre.');
                 $("#pinErrorDiv").css({"display":"block"});
             }
             
