@@ -472,6 +472,48 @@ Config.Products = {
             slot = 6,
         },
     },
+    ["stripclub"] = {
+        [1] = {
+            name = "beer",
+            price = 7,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 2,
+        },
+        [2] = {
+            name = "whiskey",
+            price = 10,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 3,
+        },
+        [3] = {
+            name = "vodka",
+            price = 12,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 4,
+        },
+        [4] = {
+            name = "water_bottle",
+            price = 2,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 5,
+        },
+        [5] = {
+            name = "kurkakola",
+            price = 2,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 6,
+        },
+    },
     ["coffeeplace"] = {
         [1] = {
             name = "coffee",
@@ -789,10 +831,18 @@ Config.Locations = {
             [2] = vector3(962.57, 58.91, 75.43), -- Casino Kontor
             [3] = vector3(1985.29, 3053.03, 47.22), -- Yellow Jack bar
             [4] = vector3(-560.15, 286.88, 82.18), -- Tequila bar
-            [5] = vector3(128.09, -1284.95, 29.28), -- Strip Club bar
-            [6] = vector3(936.17, 28.3, 71.83) -- Casino bar
+            [5] = vector3(936.17, 28.3, 71.83) -- Casino bar
         },
         ["products"] = Config.Products["bar"],
+        ["showblip"] = true,
+    },
+    ["stripclub"] = {
+        ["label"] = "Vanilla Unicorn",
+        ["type"] = "normal",
+        ["coords"] = {
+            [1] = vector3(128.09, -1284.95, 29.28) -- Vanilla Unicorn
+        },
+        ["products"] = Config.Products["stripclub"],
         ["showblip"] = true,
     },
     ["ammunation1"] = {
