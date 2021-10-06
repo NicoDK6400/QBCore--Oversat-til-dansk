@@ -29,15 +29,15 @@ Config.Locations = {
         ["label"] = "Vaskehal",
         ["coords"] = vector3(-74.5693, 6427.8715, 29.4400),
     },
+    --[4] = {
+    --    ["label"] = "Vaskehal",
+    --    ["coords"] = vector3(-1200.4, -1720.46, 3.40),
+    --},
     [4] = {
-        ["label"] = "Vaskehal",
-        ["coords"] = vector3(-1200.4, -1720.46, 3.40),
-    },
-    [5] = {
         ["label"] = "Vaskehal",
         ["coords"] = vector3(1363.22, 3592.7, 34.41),
     },
-    [6] = {
+    [5] = {
         ["label"] = "Vaskehal",
         ["coords"] = vector3(-699.6325, -932.7043, 17.0139),
     }
