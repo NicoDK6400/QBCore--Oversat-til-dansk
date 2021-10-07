@@ -479,7 +479,7 @@ Config.Products = {
             amount = 50,
             info = {},
             type = "item",
-            slot = 2,
+            slot = 1,
         },
         [2] = {
             name = "whiskey",
@@ -487,7 +487,7 @@ Config.Products = {
             amount = 50,
             info = {},
             type = "item",
-            slot = 3,
+            slot = 2,
         },
         [3] = {
             name = "vodka",
@@ -495,7 +495,7 @@ Config.Products = {
             amount = 50,
             info = {},
             type = "item",
-            slot = 4,
+            slot = 3,
         },
         [4] = {
             name = "water_bottle",
@@ -503,7 +503,7 @@ Config.Products = {
             amount = 50,
             info = {},
             type = "item",
-            slot = 5,
+            slot = 4,
         },
         [5] = {
             name = "kurkakola",
@@ -511,7 +511,7 @@ Config.Products = {
             amount = 50,
             info = {},
             type = "item",
-            slot = 6,
+            slot = 5,
         },
     },
     ["coffeeplace"] = {
