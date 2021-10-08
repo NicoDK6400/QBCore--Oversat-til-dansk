@@ -499,7 +499,7 @@ AfterHoursNightclubs = {
         -- Interior setup
         AfterHoursNightclubs.Ipl.Interior.Load()
         
-        AfterHoursNightclubs.Interior.Name.Set(AfterHoursNightclubs.Interior.Name.paradise)
+        AfterHoursNightclubs.Interior.Name.Set(AfterHoursNightclubs.Interior.Name.maisonette)
         AfterHoursNightclubs.Interior.Style.Set(AfterHoursNightclubs.Interior.Style.trad)
 
         AfterHoursNightclubs.Interior.Podium.Set(AfterHoursNightclubs.Interior.Podium.glam)
@@ -508,7 +508,7 @@ AfterHoursNightclubs = {
         AfterHoursNightclubs.Interior.Security.Set(AfterHoursNightclubs.Interior.Security.on)
         
         AfterHoursNightclubs.Interior.Turntables.Set(AfterHoursNightclubs.Interior.Turntables.style03)
-        AfterHoursNightclubs.Interior.Lights.Bands.Set(AfterHoursNightclubs.Interior.Lights.Bands.cyan)
+        AfterHoursNightclubs.Interior.Lights.Bands.Set(AfterHoursNightclubs.Interior.Lights.Neons.cyan)
 
         AfterHoursNightclubs.Interior.Bar.Enable(true)
 
