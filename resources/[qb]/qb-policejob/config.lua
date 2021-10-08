@@ -163,7 +163,6 @@ Config.AuthorizedVehicles = {
 	-- Grade 2
 	[2] = {
 		["police3"] = "VW Passat",
-		["yf2009pb"] = "BMW MC",
         ["BB2018U"] = "Buffalo Civil",
 		["KSRS2018U"] = "Sultan Civil",
 		["vxc902017p"] = "Volvo XC90",
@@ -173,7 +172,6 @@ Config.AuthorizedVehicles = {
 	-- Grade 3
 	[3] = {
 		["police3"] = "VW Passat",
-		["yf2009pb"] = "BMW MC",
         ["BB2018U"] = "Buffalo Civil",
 		["KSRS2018U"] = "Sultan Civil",
 		["vxc902017p"] = "Volvo XC90",
@@ -188,7 +186,6 @@ Config.AuthorizedVehicles = {
 		["LB2018AKS"] = "AKS Vogn",
 		["police3"] = "VW Passat",
 		["NGTR2017U"] = "Nissan GT R",
-		["yf2009pb"] = "BMW MC",
 		["vxc902017p"] = "Volvo XC90",
         ["BB2018U"] = "Buffalo Civil",
 	}
