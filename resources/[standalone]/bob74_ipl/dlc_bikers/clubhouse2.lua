@@ -229,17 +229,17 @@ BikerClubhouse2 = {
 
         BikerClubhouse2.Furnitures.Set(BikerClubhouse2.Furnitures.B, BikerClubhouse2.Furnitures.Color.black)
         BikerClubhouse2.Decoration.Set(BikerClubhouse2.Decoration.B)
-        BikerClubhouse2.Mural.Set(BikerClubhouse2.Mural.death3)
+        BikerClubhouse2.Mural.Set(BikerClubhouse2.Mural.graffitis)
 
-        BikerClubhouse2.ModBooth.Set(BikerClubhouse2.ModBooth.off)
-        BikerClubhouse2.GunLocker.Set(BikerClubhouse2.GunLocker.off)
+        BikerClubhouse2.ModBooth.Set(BikerClubhouse2.ModBooth.on)
+        BikerClubhouse2.GunLocker.Set(BikerClubhouse2.GunLocker.on)
 
         BikerClubhouse2.Meth.Set(BikerClubhouse2.Meth.none)
         BikerClubhouse2.Cash.Set(BikerClubhouse2.Cash.none)
-        BikerClubhouse2.Coke.Set(BikerClubhouse2.Coke.none)
-        BikerClubhouse2.Weed.Set(BikerClubhouse2.Weed.none)
-        BikerClubhouse2.Counterfeit.Set(BikerClubhouse2.Counterfeit.none)
-        BikerClubhouse2.Documents.Set(BikerClubhouse2.Documents.none)
+        BikerClubhouse2.Coke.Set(BikerClubhouse2.Coke.stage1)
+        BikerClubhouse2.Weed.Set(BikerClubhouse2.Weed.stage1)
+        BikerClubhouse2.Counterfeit.Set(BikerClubhouse2.Counterfeit.stage1)
+        BikerClubhouse2.Documents.Set(BikerClubhouse2.Documents.stage1)
         
         RefreshInterior(BikerClubhouse2.interiorId)
     end

@@ -37,7 +37,7 @@ TrevorsTrailer = {
     },
 
     LoadDefault = function()
-        TrevorsTrailer.Interior.Set(TrevorsTrailer.Interior.trash)
+        TrevorsTrailer.Interior.Set(TrevorsTrailer.Interior.tidy)
         TrevorsTrailer.Details.Enable(TrevorsTrailer.Details.copHelmet, false, false)
         TrevorsTrailer.Details.Enable(TrevorsTrailer.Details.briefcase, false, false)
         TrevorsTrailer.Details.Enable(TrevorsTrailer.Details.michaelStuff, false, false)

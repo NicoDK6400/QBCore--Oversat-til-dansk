@@ -127,17 +127,17 @@ GunrunningBunker = {
         GunrunningBunker.Ipl.Interior.Load()
         GunrunningBunker.Ipl.Exterior.Load()
 
-        GunrunningBunker.Style.Set(GunrunningBunker.Style.default)
-        GunrunningBunker.Tier.Set(GunrunningBunker.Tier.default)
-        GunrunningBunker.Security.Set(GunrunningBunker.Security.default)
+        GunrunningBunker.Style.Set(GunrunningBunker.Style.yellow)
+        GunrunningBunker.Tier.Set(GunrunningBunker.Tier.upgrade)
+        GunrunningBunker.Security.Set(GunrunningBunker.Security.upgrade)
     
         GunrunningBunker.Details.Enable(GunrunningBunker.Details.office, true)
         GunrunningBunker.Details.Enable(GunrunningBunker.Details.officeLocked, false)
         GunrunningBunker.Details.Enable(GunrunningBunker.Details.locker, true)
         GunrunningBunker.Details.Enable(GunrunningBunker.Details.rangeLights, true)
-        GunrunningBunker.Details.Enable(GunrunningBunker.Details.rangeWall, false)
+        GunrunningBunker.Details.Enable(GunrunningBunker.Details.rangeWall, true)
         GunrunningBunker.Details.Enable(GunrunningBunker.Details.rangeLocked, false)
-        GunrunningBunker.Details.Enable(GunrunningBunker.Details.schematics, false)
+        GunrunningBunker.Details.Enable(GunrunningBunker.Details.schematics, true)
 
         -- Must be called in order to spawn or remove the props
         RefreshInterior(GunrunningBunker.interiorId)

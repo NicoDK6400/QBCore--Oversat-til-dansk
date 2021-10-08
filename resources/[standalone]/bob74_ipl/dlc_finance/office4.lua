@@ -180,7 +180,7 @@ FinanceOffice4 = {
     },
 
     LoadDefault = function()
-        FinanceOffice4.Style.Set(FinanceOffice4.Style.Theme.cool)
+        FinanceOffice4.Style.Set(FinanceOffice4.Style.Theme.contrast)
         FinanceOffice4.Chairs.Set(FinanceOffice4.Chairs.on, true)
     end
 }

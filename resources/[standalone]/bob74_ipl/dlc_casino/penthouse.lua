@@ -265,7 +265,7 @@ DiamondPenthouse = {
     LoadDefault = function()
         DiamondPenthouse.Ipl.Interior.Load()
 
-        DiamondPenthouse.Interior.Walls.SetColor(DiamondPenthouse.Colors.default)
+        DiamondPenthouse.Interior.Walls.SetColor(DiamondPenthouse.Colors.timeless)
         DiamondPenthouse.Interior.SpaBar.Set(DiamondPenthouse.Interior.SpaBar.open)
         DiamondPenthouse.Interior.MediaBar.Set(DiamondPenthouse.Interior.MediaBar.open)
         DiamondPenthouse.Interior.Dealer.Set(DiamondPenthouse.Interior.Dealer.open)

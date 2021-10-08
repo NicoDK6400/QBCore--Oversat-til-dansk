@@ -72,7 +72,7 @@ ImportVehicleWarehouse = {
 
     LoadDefault = function()
         ImportVehicleWarehouse.Upper.Ipl.Interior.Load()
-        ImportVehicleWarehouse.Upper.Style.Set(ImportVehicleWarehouse.Upper.Style.branded)
+        ImportVehicleWarehouse.Upper.Style.Set(ImportVehicleWarehouse.Upper.Style.urban)
         ImportVehicleWarehouse.Upper.Details.Enable(ImportVehicleWarehouse.Upper.Details.floorHatch, true)
         ImportVehicleWarehouse.Upper.Details.Enable(ImportVehicleWarehouse.Upper.Details.doorBlocker, false)
         RefreshInterior(ImportVehicleWarehouse.Upper.interiorId)

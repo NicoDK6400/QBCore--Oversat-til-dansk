@@ -289,12 +289,12 @@ DoomsdayFacility = {
         DoomsdayFacility.Ipl.Exterior.Load()
         DoomsdayFacility.Ipl.Interior.Load()
         
-        DoomsdayFacility.Walls.SetColor(DoomsdayFacility.Colors.utility)
-        DoomsdayFacility.Decals.Set(DoomsdayFacility.Decals.style01)
-        DoomsdayFacility.Lounge.Set(DoomsdayFacility.Lounge.premier, DoomsdayFacility.Colors.utility)
-        DoomsdayFacility.Sleeping.Set(DoomsdayFacility.Sleeping.premier, DoomsdayFacility.Colors.utility)
-        DoomsdayFacility.Security.Set(DoomsdayFacility.Security.on, DoomsdayFacility.Colors.utility)
-        DoomsdayFacility.Cannon.Set(DoomsdayFacility.Cannon.on, DoomsdayFacility.Colors.utility)
+        DoomsdayFacility.Walls.SetColor(DoomsdayFacility.Colors.power)
+        DoomsdayFacility.Decals.Set(DoomsdayFacility.Decals.style03)
+        DoomsdayFacility.Lounge.Set(DoomsdayFacility.Lounge.premier, DoomsdayFacility.Colors.power)
+        DoomsdayFacility.Sleeping.Set(DoomsdayFacility.Sleeping.premier, DoomsdayFacility.Colors.power)
+        DoomsdayFacility.Security.Set(DoomsdayFacility.Security.off, DoomsdayFacility.Colors.power)
+        DoomsdayFacility.Cannon.Set(DoomsdayFacility.Cannon.on, DoomsdayFacility.Colors.power)
 
         -- Privacy glass remote
         DoomsdayFacility.PrivacyGlass.Bedroom.Control.Enable(true)
@@ -307,7 +307,7 @@ DoomsdayFacility = {
         DoomsdayFacility.Details.Enable(DoomsdayFacility.Details.Outfits, true)
         
         DoomsdayFacility.Details.Enable(DoomsdayFacility.Details.Trophies, true)
-        DoomsdayFacility.Details.Trophies.SetColor(DoomsdayFacility.Colors.utility)
+        DoomsdayFacility.Details.Trophies.SetColor(DoomsdayFacility.Colors.power)
 
         DoomsdayFacility.Details.Enable({DoomsdayFacility.Details.Clutter.A, DoomsdayFacility.Details.Clutter.B}, true)
 

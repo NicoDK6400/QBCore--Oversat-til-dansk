@@ -210,14 +210,14 @@ SmugglerHangar = {
     LoadDefault = function()
         SmugglerHangar.Ipl.Interior.Load()
         
-        SmugglerHangar.Walls.SetColor(SmugglerHangar.Colors.colorSet1)
-        SmugglerHangar.Cranes.Set(SmugglerHangar.Cranes.on, SmugglerHangar.Colors.colorSet1)
+        SmugglerHangar.Walls.SetColor(SmugglerHangar.Colors.colorSet2)
+        SmugglerHangar.Cranes.Set(SmugglerHangar.Cranes.on, SmugglerHangar.Colors.colorSet8)
         SmugglerHangar.Floor.Style.Set(SmugglerHangar.Floor.Style.plain)
         SmugglerHangar.Floor.Decals.Set(SmugglerHangar.Floor.Decals.decal1, SmugglerHangar.Colors.colorSet1)
 
-        SmugglerHangar.Lighting.Ceiling.Set(SmugglerHangar.Lighting.Ceiling.yellow)
+        SmugglerHangar.Lighting.Ceiling.Set(SmugglerHangar.Lighting.Ceiling.blue)
         SmugglerHangar.Lighting.Walls.Set(SmugglerHangar.Lighting.Walls.neutral)
-        SmugglerHangar.Lighting.FakeLights.Set(SmugglerHangar.Lighting.FakeLights.yellow)
+        SmugglerHangar.Lighting.FakeLights.Set(SmugglerHangar.Lighting.FakeLights.blue)
 
         SmugglerHangar.ModArea.Set(SmugglerHangar.ModArea.on, SmugglerHangar.Colors.colorSet1)
 

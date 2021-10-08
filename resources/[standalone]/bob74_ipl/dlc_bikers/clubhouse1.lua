@@ -209,21 +209,21 @@ BikerClubhouse1 = {
     LoadDefault = function()
         BikerClubhouse1.Ipl.Interior.Load()
         
-        BikerClubhouse1.Walls.Set(BikerClubhouse1.Walls.plain, BikerClubhouse1.Walls.Color.brown)
+        BikerClubhouse1.Walls.Set(BikerClubhouse1.Walls.brick, BikerClubhouse1.Walls.Color.brown)
 
-        BikerClubhouse1.Furnitures.Set(BikerClubhouse1.Furnitures.A, 3)
-        BikerClubhouse1.Decoration.Set(BikerClubhouse1.Decoration.A)
-        BikerClubhouse1.Mural.Set(BikerClubhouse1.Mural.rideFree)
+        BikerClubhouse1.Furnitures.Set(BikerClubhouse1.Furnitures.B, 2)
+        BikerClubhouse1.Decoration.Set(BikerClubhouse1.Decoration.B)
+        BikerClubhouse1.Mural.Set(BikerClubhouse1.Mural.brave)
 
-        BikerClubhouse1.ModBooth.Set(BikerClubhouse1.ModBooth.none)
-        BikerClubhouse1.GunLocker.Set(BikerClubhouse1.GunLocker.none)
+        BikerClubhouse1.ModBooth.Set(BikerClubhouse1.ModBooth.on)
+        BikerClubhouse1.GunLocker.Set(BikerClubhouse1.GunLocker.on)
 
         BikerClubhouse1.Meth.Set(BikerClubhouse1.Meth.none)
         BikerClubhouse1.Cash.Set(BikerClubhouse1.Cash.none)
-        BikerClubhouse1.Coke.Set(BikerClubhouse1.Coke.none)
-        BikerClubhouse1.Weed.Set(BikerClubhouse1.Weed.none)
-        BikerClubhouse1.Counterfeit.Set(BikerClubhouse1.Counterfeit.none)
-        BikerClubhouse1.Documents.Set(BikerClubhouse1.Documents.none)
+        BikerClubhouse1.Coke.Set(BikerClubhouse1.Coke.stage1)
+        BikerClubhouse1.Weed.Set(BikerClubhouse1.Weed.stage1)
+        BikerClubhouse1.Counterfeit.Set(BikerClubhouse1.Counterfeit.stage1)
+        BikerClubhouse1.Documents.Set(BikerClubhouse1.Documents.stage1)
 
         RefreshInterior(BikerClubhouse1.interiorId)
     end
