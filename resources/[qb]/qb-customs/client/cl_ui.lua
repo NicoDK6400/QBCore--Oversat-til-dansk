@@ -198,7 +198,7 @@ local function updateCurrentMenuItemID(id, item, item2)
         end
     elseif isMenuActive("NeonsSideMenu") then
         PreviewNeon(currentNeonSide, currentMenuItemID)
-    elseif currentMenu == "TonedeVinduerMenu" then
+    elseif currentMenu == "WindowTintMenu" then
         PreviewWindowTint(currentMenuItemID)
     elseif currentMenu == "NeonColoursMenu" then
         local r = vehicleNeonOptions.neonColours[currentMenuItemID].r
@@ -208,9 +208,9 @@ local function updateCurrentMenuItemID(id, item, item2)
         PreviewNeonColour(r, g, b)
     elseif currentMenu == "XenonColoursMenu" then
         PreviewXenonColour(currentMenuItemID)
-    elseif currentMenu == "GammelLiveryMenu" then
+    elseif currentMenu == "OldLiveryMenu" then
         PreviewOldLivery(currentMenuItemID)
-    elseif currentMenu == "NummerpladeMenu" then
+    elseif currentMenu == "PlateIndexMenu" then
         PreviewPlateIndex(currentMenuItemID)
     end
 end
@@ -274,19 +274,19 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
         end
     end
 
-    populateMenu("mainMenu", -1, "Respray", "none")
+    populateMenu("mainMenu", -1, "Omlakering", "none")
 
     if not isMotorcycle then
-        populateMenu("mainMenu", -2, "TonedeVinduer", "none")
+        populateMenu("mainMenu", -2, "Tonede Vinduer", "none")
         --populateMenu("mainMenu", -3, "Neon", "none") Uncomment to reenable Neon in Bennys (Colors doesn't work)
     end
 
     --populateMenu("mainMenu", 22, "Xenons", "none") Uncomment to reenable Xenons in Bennys (Nothing works)
     populateMenu("mainMenu", 23, "Dæk", "none")
 
-    populateMenu("mainMenu", 24, "GammelLivery", "none")
+    populateMenu("mainMenu", 24, "Livery", "none")
     populateMenu("mainMenu", 25, "Nummerplade", "none")
-    populateMenu("mainMenu", 26, "KøretøjsTilbehør", "none")
+    populateMenu("mainMenu", 26, "Køretøjs Tilbehør", "none")
 
     finishPopulatingMenu("mainMenu")
 
@@ -450,70 +450,70 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
 
     --#[Window Tint Menu]#--
     local currentWindowTint = GetCurrentWindowTint()
-    createMenu("TonedeVinduerMenu", "Udvalg af tonede ruder", "Vælg dine ruder")
+    createMenu("WindowTintMenu", "Udvalg af tonede ruder", "Vælg dine ruder")
 
     for k, v in ipairs(vehicleWindowTintOptions) do
-        populateMenu("TonedeVinduerMenu", v.id, v.name, vehicleCustomisationPrices.windowtint.price.." DKK")
+        populateMenu("WindowTintMenu", v.id, v.name, vehicleCustomisationPrices.windowtint.price.." DKK")
 
         if currentWindowTint == v.id then
-            updateItem2Text("TonedeVinduerMenu", v.id, "Installeret")
+            updateItem2Text("WindowTintMenu", v.id, "Installeret")
         end
     end
 
-    finishPopulatingMenu("TonedeVinduerMenu")
+    finishPopulatingMenu("WindowTintMenu")
 
     --#[Old Livery Menu]#--
     local livCount = GetVehicleLiveryCount(plyVeh)
     if livCount > 0 then
         local tempOldLivery = GetVehicleLivery(plyVeh)
-        createMenu("GammelLiveryMenu", "Udvalg af gammel paintjobs", "Vælg ey paintjob")
+        createMenu("OldLiveryMenu", "Udvalg af gammel paintjobs", "Vælg ey paintjob")
         if GetVehicleClass(plyVeh) ~= 18 then
             for i=0, GetVehicleLiveryCount(plyVeh)-1 do
-                populateMenu("GammelLiveryMenu", i, "Livery", "100 DKK")
+                populateMenu("OldLiveryMenu", i, "Livery", "100 DKK")
                 if tempOldLivery == i then
-                    updateItem2Text("GammelLiveryMenu", i, "Installeret")
+                    updateItem2Text("OldLiveryMenu", i, "Installeret")
                 end
             end
         end
-        finishPopulatingMenu("GammelLiveryMenu")
+        finishPopulatingMenu("OldLiveryMenu")
     end
 
     --#[Plate Colour Index Menu]#--
 
     local tempPlateIndex = GetVehicleNumberPlateTextIndex(plyVeh)
-    createMenu("NummerpladeMenu", "Udvalg af pladefarver", "Vælg dine plader")
+    createMenu("PlateIndexMenu", "Udvalg af pladefarver", "Vælg dine plader")
     local plateTypes = {
-        "Blue on White #1",
-        "Yellow on Black",
-        "Yellow on Blue",
-        "Blue on White #2",
-        "Blue on White #3",
-        "North Yankton",
+        "Blå på hvid #1",
+        "Gul på sort",
+        "Gul på blå",
+        "Blå på hvid #2",
+        "Blå på hvid #3",
+        "Nord Yankton",
     }
     if GetVehicleClass(plyVeh) ~= 18 then
         for i=0, #plateTypes-1 do
             if i ~= 4 then
-                populateMenu("NummerpladeMenu", i, plateTypes[i+1], "1000 DKK")
+                populateMenu("PlateIndexMenu", i, plateTypes[i+1], "1000 DKK")
                 if tempPlateIndex == i then
-                    updateItem2Text("NummerpladeMenu", i, "Installeret")
+                    updateItem2Text("PlateIndexMenu", i, "Installeret")
                 end
             end
         end
     end
-    finishPopulatingMenu("NummerpladeMenu")
+    finishPopulatingMenu("PlateIndexMenu")
 
     --#[Vehicle Extras Menu]#--
-    createMenu("KøretøjsTilbehørMenu", "Udvalg af køretøjs tilbehør", "Slå til/fra")
+    createMenu("VehicleExtrasMenu", "Udvalg af køretøjs tilbehør", "Slå til/fra")
     if GetVehicleClass(plyVeh) ~= 18 then
         for i=1, 12 do
             if DoesExtraExist(plyVeh, i) then
-                populateMenu("KøretøjsTilbehørMenu", i, "Ekstra "..tostring(i), "Toggle")
+                populateMenu("VehicleExtrasMenu", i, "Ekstra "..tostring(i), "Toggle")
             else
-                populateMenu("KøretøjsTilbehørMenu", i, "Intet tilbehør", "NONE")
+                populateMenu("VehicleExtrasMenu", i, "Intet tilbehør", "NONE")
             end
         end
     end
-    finishPopulatingMenu("KøretøjsTilbehørMenu")
+    finishPopulatingMenu("VehicleExtrasMenu")
 
     --#[Neons Menu]#--
     createMenu("NeonMenu", "Udvalg af neon", "Vælg en kategori")
@@ -775,7 +775,7 @@ function MenuManager(state)
                     toggleMenu(true, currentMenu)
                     updateMenuHeading(currentMenu)
                     updateMenuSubheading(currentMenu)
-                elseif currentMenu == "TonedeVinduerMenu" then
+                elseif currentMenu == "WindowTintMenu" then
                     if AttemptPurchase("windowtint") then
                         ApplyWindowTint(currentMenuItemID)
                         playSoundEffect("respray", 1.0)
@@ -815,7 +815,7 @@ function MenuManager(state)
                     else
                         updateMenuStatus("Not Enough Money")
                     end
-                elseif currentMenu == "GammelLiveryMenu" then
+                elseif currentMenu == "OldLiveryMenu" then
                     local plyPed = PlayerPedId()
                     local plyVeh = GetVehiclePedIsIn(plyPed, false)
                     if GetVehicleClass(plyVeh) ~= 18 then
@@ -828,7 +828,7 @@ function MenuManager(state)
                             updateMenuStatus("Not Enough Money")   
                         end
                     end
-                elseif currentMenu == "NummerpladeMenu" then
+                elseif currentMenu == "PlateIndexMenu" then
                     local plyPed = PlayerPedId()
                     local plyVeh = GetVehiclePedIsIn(plyPed, false)
                     if GetVehicleClass(plyVeh) ~= 18 then
@@ -841,7 +841,7 @@ function MenuManager(state)
                             updateMenuStatus("Not Enough Money")   
                         end
                     end
-                elseif currentMenu == "KøretøjsTilbehørMenu" then
+                elseif currentMenu == "VehicleExtrasMenu" then
                     ApplyExtra(currentMenuItemID)
                     playSoundEffect("wrench", 0.4)
                     updateItem2TextOnly(currentMenu, currentMenuItemID, "Toggle")
@@ -849,7 +849,7 @@ function MenuManager(state)
                 end
             end
         else
-            if currentMenu == "KøretøjsTilbehørMenu" then
+            if currentMenu == "VehicleExtrasMenu" then
                 ApplyExtra(currentMenuItemID)
                 playSoundEffect("wrench", 0.4)
                 updateItem2TextOnly(currentMenu, currentMenuItemID, "Toggle")
@@ -911,19 +911,19 @@ function MenuManager(state)
         else
             if currentMenu == "mainMenu" or currentMenu == "repairMenu" then
                 ExitBennys()
-            elseif currentMenu == "ResprayMenu" or currentMenu == "TonedeVinduerMenu" or currentMenu == "DækMenu" or currentMenu == "NeonMenu" or currentMenu == "XenonsMenu" or currentMenu == "GammelLiveryMenu" or currentMenu == "NummerpladeMenu" or currentMenu == "KøretøjsTilbehørMenu" then
+            elseif currentMenu == "ResprayMenu" or currentMenu == "WindowTintMenu" or currentMenu == "DækMenu" or currentMenu == "NeonMenu" or currentMenu == "XenonsMenu" or currentMenu == "OldLiveryMenu" or currentMenu == "PlateIndexMenu" or currentMenu == "VehicleExtrasMenu" then
                 toggleMenu(false, currentMenu)
 
-                if currentMenu == "TonedeVinduerMenu" then
+                if currentMenu == "WindowTintMenu" then
                     RestoreOriginalWindowTint()
                 end
 
                 local plyPed = PlayerPedId()
                 local plyVeh = GetVehiclePedIsIn(plyPed, false)
-                if currentMenu == "GammelLiveryMenu" and GetVehicleClass(plyVeh) ~= 18 then
+                if currentMenu == "OldLiveryMenu" and GetVehicleClass(plyVeh) ~= 18 then
                     RestoreOldLivery()
                 end
-                if currentMenu == "NummerpladeMenu" and GetVehicleClass(plyVeh) ~= 18 then
+                if currentMenu == "PlateIndexMenu" and GetVehicleClass(plyVeh) ~= 18 then
                     RestorePlateIndex()
                 end
 
