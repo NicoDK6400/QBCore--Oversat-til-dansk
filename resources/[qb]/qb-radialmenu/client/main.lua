@@ -31,7 +31,7 @@ function setupSubItems()
                     [1] = {
                         id = 'emergencybutton2',
                         title = 'Nødknap',
-                        icon = '#general',
+                        icon = 'general',
                         type = 'client',
                         event = 'police:client:SendPoliceEmergencyAlert',
                         shouldClose = true,
@@ -179,7 +179,7 @@ end)
 
 RegisterNetEvent('qb-radialmenu:client:noPlayers')
 AddEventHandler('qb-radialmenu:client:noPlayers', function(data)
-    QBCore.Functions.Notify('There arent any people close', 'error', 2500)
+    QBCore.Functions.Notify('Der er ingen i nærheden', 'error', 2500)
 end)
 
 RegisterNetEvent('qb-radialmenu:client:giveidkaart')
