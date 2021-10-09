@@ -174,7 +174,7 @@ export default Vue.extend({
 
     modePrefix(): string {
       if (this.modes.length === 2) {
-        return `➤`;
+        return `💬`;
       }
 
       return this.modes[this.modeIdxGet].displayName;
