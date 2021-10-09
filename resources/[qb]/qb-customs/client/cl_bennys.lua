@@ -880,7 +880,7 @@ RegisterNetEvent("qb-customs:purchaseSuccessful")
 AddEventHandler("qb-customs:purchaseSuccessful", function()
     isPurchaseSuccessful = true
     attemptingPurchase = false
-    QBCore.Functions.Notify("Purchase Successful")
+    QBCore.Functions.Notify("Købet blev gennemført")
 end)
 
 RegisterNetEvent("qb-customs:purchaseFailed")

@@ -50,6 +50,7 @@ AddEventHandler('evidence:client:SetStatus', function(statusId, time)
                 time = time
             }
             TriggerEvent("chatMessage", "STATUS", "warning", CurrentStatusList[statusId].text)
+            --QBcore.Functions.Notify("STATUS" ..CurrentStatusList[statusId].text.."", error, 6000) --TESTER
         end
     elseif StatusList[statusId] ~= nil then
         CurrentStatusList[statusId] = nil

@@ -56,6 +56,7 @@ RegisterNetEvent('police:client:TrackerMessage')
 AddEventHandler('police:client:TrackerMessage', function(msg, coords)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
     TriggerEvent("chatMessage", "112-ALARM", "error", msg)
+    --QBcore.Functions.Notify("112-ALARM", error, 6000) --TESTER
     local transG = 250
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
     SetBlipSprite(blip, 458)

@@ -94,12 +94,14 @@ Citizen.CreateThread(function()
                                     end
                                 else
                                     if waitingDelivery == nil then
-                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail")
+                                        --TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail") --TESTER
+                                        QBcore.Functions.Notify("Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail", success, 5000)
                                         requestDelivery()
                                         interacting = false
                                         dealerIsHome = false
                                     else
-                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'Du mangler at fuldfører en mission, hvad venter du på knægt?!')
+                                        --TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'Du mangler at fuldfører en mission, hvad venter du på knægt?!') --TESTER
+                                        QBCore.Functions.Notify("Dealer "..Config.Dealers[currentDealer]["name"].." Du mangler at fuldfører en mission, hvad venter du på knægt?!", error, 5000)
                                     end
                                 end
                             end
@@ -401,6 +403,7 @@ RegisterNetEvent('qb-drugs:client:robberyCall')
 AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
     TriggerEvent("chatMessage", "112-ALARM", "error", msg)
+    --QBcore.Functions.Notify("112-ALARM" ..msg.. "", error, 5000) --TESTER
     local transG = 250
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
     SetBlipSprite(blip, 458)

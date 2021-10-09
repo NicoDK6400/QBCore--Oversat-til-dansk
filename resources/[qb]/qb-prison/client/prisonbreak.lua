@@ -152,7 +152,7 @@ AddEventHandler('prison:client:PrisonBreakAlert', function()
         details = {
             [1] = {
                 icon = '<i class="fas fa-lock"></i>',
-                detail = "Boilingbroke Penitentiary",
+                detail = "Boilingbroke Fængsel",
             },
             [2] = {
                 icon = '<i class="fas fa-globe-europe"></i>',

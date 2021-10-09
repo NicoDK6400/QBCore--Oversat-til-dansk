@@ -409,6 +409,7 @@ AddEventHandler('police:client:CheckStatus', function()
                     if result ~= nil then
                         for k, v in pairs(result) do
                             TriggerEvent("chatMessage", "STATUS", "warning", v)
+                            --QBcore.Functions.Notify("STATUS" ..CurrentStatusList[statusId].text.."", error, v, 6000) --TESTER
                         end
                     end
                 end, playerId)

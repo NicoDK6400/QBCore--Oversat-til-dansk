@@ -213,6 +213,7 @@ RegisterNetEvent('hospital:client:SendAlert')
 AddEventHandler('hospital:client:SendAlert', function(msg)
     PlaySound(-1, "Menu_Accept", "Phone_SoundSet_Default", 0, 0, 1)
     TriggerEvent("chatMessage", "PAGER", "error", msg)
+    --QBcore.Functions.Notify("PAGER" ..msg.. "", error, 5000) --TESTER
 end)
 
 RegisterNetEvent('112:client:SendAlert')
@@ -325,6 +326,7 @@ AddEventHandler('hospital:client:CheckStatus', function()
                         end
                     elseif result["BLEED"] > 0 then
                         TriggerEvent("chatMessage", "STATUS CHECK", "error", "Er "..Config.BleedingStates[v].label)
+                        --QBcore.Functions.Notify("STATUS: Er "..Config.BleedingStates[v].label, error, 5000) --TESTER
                     else
                         QBCore.Functions.Notify('Spilleren er rask', 'success')
                     end
