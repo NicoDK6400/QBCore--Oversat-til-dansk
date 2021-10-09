@@ -162,7 +162,7 @@ Citizen.CreateThread(function()
 	        SetBlipSprite(StoreBlip, 140)
 	        SetBlipScale(StoreBlip, 0.55)
 	    elseif Config.Locations[store]["products"] == Config.Products["casino"] then
-	        SetBlipSprite(StoreBlip, 617)
+	        SetBlipSprite(StoreBlip, 680)
 	        SetBlipScale(StoreBlip, 0.70)
 	    elseif Config.Locations[store]["products"] == Config.Products["stripclub"] then
 	        SetBlipSprite(StoreBlip, 121)
