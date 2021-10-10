@@ -134,7 +134,7 @@ Citizen.CreateThread(function()
                                             if CurrentCops >= Config.MinimumFleecaPolice then
                                                 openLocker(closestBank, k)
                                             else
-                                                QBCore.Functions.Notify('Minimum Of '..Config.MinimumFleecaPolice..' Police Needed', "error") 
+                                                QBCore.Functions.Notify('Minimun er: '..Config.MinimumFleecaPolice..' betjente', "error") 
                                             end
                                         end
                                     end
@@ -185,7 +185,7 @@ AddEventHandler('electronickit:UseElectronickit', function()
                                 QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
                                     if result then 
                                         TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                                        QBCore.Functions.Progressbar("hack_gate", "Connecting the hacking device ..", math.random(5000, 10000), false, true, {
+                                        QBCore.Functions.Progressbar("hack_gate", "Forbinder hacking enhed ..", math.random(5000, 10000), false, true, {
                                             disableMovement = true,
                                             disableCarMovement = true,
                                             disableMouse = false,
@@ -219,7 +219,7 @@ AddEventHandler('electronickit:UseElectronickit', function()
                                             end
                                         end, function() -- Cancel
                                             StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                                            QBCore.Functions.Notify("Canceled..", "error")
+                                            QBCore.Functions.Notify("Afbrudt..", "error")
                                         end)
                                     else
                                         QBCore.Functions.Notify("Du mangler en ting...", "error")
@@ -373,7 +373,7 @@ function openLocker(bankId, lockerId)
                     TriggerServerEvent('qb-bankrobbery:server:setLockerState', bankId, lockerId, 'isOpened', true)
                     TriggerServerEvent('qb-bankrobbery:server:setLockerState', bankId, lockerId, 'isBusy', false)
                     TriggerServerEvent('qb-bankrobbery:server:recieveItem', 'paleto')
-                    QBCore.Functions.Notify("Successful!", "success")
+                    QBCore.Functions.Notify("Succes!", "success")
                     IsDrilling = false
                 end, function() -- Cancel
                     StopAnimTask(PlayerPedId(), "anim@heists@fleeca_bank@drilling", "drill_straight_idle", 1.0)

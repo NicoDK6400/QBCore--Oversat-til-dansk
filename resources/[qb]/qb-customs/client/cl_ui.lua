@@ -156,7 +156,7 @@ local function isMenuActive(menu)
                 menuActive = false
             end
         end
-    elseif menu == "DækMenu" then
+    elseif menu == "WheelsMenu" then
         for k, v in pairs(vehicleWheelOptions) do
             if (v.category:gsub("%s+", "") .. "Menu") == currentMenu then
                 menuActive = true
@@ -192,7 +192,7 @@ local function updateCurrentMenuItemID(id, item, item2)
         end
     elseif isMenuActive("ResprayMenu") then
         PreviewColour(currentResprayCategory, currentResprayType, currentMenuItemID)
-    elseif isMenuActive("DækMenu") then
+    elseif isMenuActive("WheelsMenu") then
         if currentWheelCategory ~= -1 and currentWheelCategory ~= 20 then
             PreviewWheel(currentCategory, currentMenuItemID, currentWheelCategory)
         end
@@ -381,19 +381,19 @@ function InitiateMenus(isMotorcycle, vehicleHealth)
     end
 
     --#[Wheel Categories Menu]#--
-    createMenu("DækMenu", "Udvalg af dæk", "Vælg en kategori")
+    createMenu("WheelsMenu", "Udvalg af dæk", "Vælg en kategori")
 
     for k, v in ipairs(vehicleWheelOptions) do 
         if isMotorcycle then
             if v.id == -1 or v.id == 20 or v.id == 6 then --Motorcycle Wheels
-                populateMenu("DækMenu", v.id, v.category, "none")
+                populateMenu("WheelsMenu", v.id, v.category, "none")
             end
         else
-            populateMenu("DækMenu", v.id, v.category, "none")
+            populateMenu("WheelsMenu", v.id, v.category, "none")
         end
     end
 
-    finishPopulatingMenu("DækMenu")
+    finishPopulatingMenu("WheelsMenu")
 
     --#[Wheels Menu]#--
     for k, v in ipairs(vehicleWheelOptions) do 
@@ -645,7 +645,7 @@ function MenuManager(state)
                 else
                     updateMenuStatus("Not Enough Money")
                 end
-            elseif isMenuActive("DækMenu") then
+            elseif isMenuActive("WheelsMenu") then
                 if currentWheelCategory == 20 then
                     if AttemptPurchase("wheelsmoke") then
                         local r = vehicleTyreSmokeOptions[currentMenuItemID].r
@@ -746,7 +746,7 @@ function MenuManager(state)
                     toggleMenu(true, currentMenu)
                     updateMenuHeading(currentMenu)
                     updateMenuSubheading(currentMenu)
-                elseif currentMenu == "DækMenu" then
+                elseif currentMenu == "WheelsMenu" then
                     local currentWheel, currentWheelName, currentWheelType = GetCurrentWheel()
 
                     currentMenu = currentMenuItem:gsub("%s+", "") .. "Menu"
@@ -756,7 +756,7 @@ function MenuManager(state)
                         updateItem2Text(currentMenu, currentWheel, "Installeret")
                     end
 
-                    toggleMenu(false, "DækMenu")
+                    toggleMenu(false, "WheelsMenu")
                     toggleMenu(true, currentMenu)
                     updateMenuHeading(currentMenu)
                     updateMenuSubheading(currentMenu)
@@ -881,7 +881,7 @@ function MenuManager(state)
             toggleMenu(true, currentMenu)
             updateMenuHeading(currentMenu)
             updateMenuSubheading(currentMenu)
-        elseif isMenuActive("DækMenu") then            
+        elseif isMenuActive("WheelsMenu") then            
             if currentWheelCategory ~= 20 and currentWheelCategory ~= -1 then
                 local currentWheel = GetOriginalWheel()
 
@@ -892,7 +892,7 @@ function MenuManager(state)
 
             toggleMenu(false, currentMenu)
 
-            currentMenu = "DækMenu"
+            currentMenu = "WheelsMenu"
 
 
             toggleMenu(true, currentMenu)
@@ -911,7 +911,7 @@ function MenuManager(state)
         else
             if currentMenu == "mainMenu" or currentMenu == "repairMenu" then
                 ExitBennys()
-            elseif currentMenu == "ResprayMenu" or currentMenu == "WindowTintMenu" or currentMenu == "DækMenu" or currentMenu == "NeonMenu" or currentMenu == "XenonsMenu" or currentMenu == "OldLiveryMenu" or currentMenu == "PlateIndexMenu" or currentMenu == "VehicleExtrasMenu" then
+            elseif currentMenu == "ResprayMenu" or currentMenu == "WindowTintMenu" or currentMenu == "WheelsMenu" or currentMenu == "NeonMenu" or currentMenu == "XenonsMenu" or currentMenu == "OldLiveryMenu" or currentMenu == "PlateIndexMenu" or currentMenu == "VehicleExtrasMenu" then
                 toggleMenu(false, currentMenu)
 
                 if currentMenu == "WindowTintMenu" then

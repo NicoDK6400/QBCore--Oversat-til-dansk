@@ -38,11 +38,11 @@ window.addEventListener("message", function (event) {
         $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
         $("#withdrawATMError").css({"display":"none"});
         $("#withdrawATMErrorMsg").html('');
-        $("#currentBalanceATM1").html('$' + event.data.information.bankbalance);
+        $("#currentBalanceATM1").html('DKK' + event.data.information.bankbalance);
         $("#customerNameATM").html(event.data.information.name);
-        $("#currentBalanceATM").html('$' + event.data.information.bankbalance);
-        $("#currentCashBalanceATM").html('$' + event.data.information.cash);
-        $("#currentCashBalance1ATM").html('$' + event.data.information.cash);
+        $("#currentBalanceATM").html('DKK' + event.data.information.bankbalance);
+        $("#currentCashBalanceATM").html('DKK' + event.data.information.cash);
+        $("#currentCashBalance1ATM").html('DKK' + event.data.information.cash);
         $('#pinContainer').css({"display":"none"});
         $("#ATMContainer").css({"display":"block"});
     } else if(event.data.status == "closeATM") {
@@ -66,7 +66,7 @@ function populateCurrentCards(data) {
         var res = str.slice(12);
         var cardNumber = "************" + res;
         if(card.cardActive !== undefined && card.cardActive !== null && card.cardActive === true) {
-            cardStatus = '<span class="text-success">(Active)</span> ';
+            cardStatus = '<span class="text-success">(Aktivt)</span> ';
             $('#cardsDisplay').append('<div class="card mb-3 mx-auto" style="width:100%; background:#505050; box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); color: #dcdcdc"><div class="row no-gutters"><div class="col-2 my-auto text-center"><img src="images/' + image + '" class="img-fluid" width="100" alt=""></div><div class="col-8"><div class="card-body p-0"><h5 class="card-title pb-0 pt-1 pl-2 mb-0" style="color: #fff" id="cardOwner-' + index + '">' + card.name + '</h5><p class="card-text pl-2"><small class="text-muted"><span style="color: #fff" id="cardType-' + index + '">' + cardStatus + '' + card.cardType + '</span><br><span style="color: #a8a8a8; font-size: 12px;" id="cardNumber-' + index + '">' + cardNumber + '</span></small></p></div></div><div class="col-2 my-auto pr-1"><button class="btn btn-primary btn-sm btn-block" style="font-size: 12px;" id="cardBtn-' + index + '" data-action="useCard">Use</button></div></div></div>');
         } else {
             cardStatus = '';
@@ -105,13 +105,13 @@ function ATMStatement(data) {
             withdraw = statement.withdraw
         }
         if (statement.balance == 0) {
-            balance = '<span class="text-dark">$' + statement.balance + '</span>';
+            balance = '<span class="text-dark">DKK' + statement.balance + '</span>';
         } else if (statement.balance > 0) {
-            balance = '<span class="text-success">$' + statement.balance + '</span>';
+            balance = '<span class="text-success">DKK' + statement.balance + '</span>';
         } else {
-            balance = '<span class="text-danger">$' + statement.balance + '</span>';
+            balance = '<span class="text-danger">DKK' + statement.balance + '</span>';
         }
-        $("#currentStatementContentsATM").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        $("#currentStatementContentsATM").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>DKK' + withdraw + '</small></td><td class="text-center text-success"><small>DKK' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
@@ -153,7 +153,7 @@ $( function() {
                 var currentVal = $('#pinCode').val();
                 if (currentVal == clientPin) {
                     $('#errorMsg').addClass('alert-info').removeClass('alert-danger');
-                    $('#errorMsg').html('Please enter your debit card pin, to access the ATM.');
+                    $('#errorMsg').html('Indtast din pin, for at tilgå hæveautomaten.');
                     $('#pinCode').val('');
                     $.post("https://qb-atms/loadBankingAccount", JSON.stringify({
                         cid: clientCid,
@@ -162,10 +162,10 @@ $( function() {
                 } else {
                     $('#pinCode').val('');
                     $('#errorMsg').removeClass('alert-info').addClass('alert-danger');
-                    $('#errorMsg').html('You have entered an incorrect pin, please try again.')
+                    $('#errorMsg').html('Du har indtastet en forkert pin, prøv igen.')
                     setTimeout(function () {
                         $('#errorMsg').addClass('alert-info').removeClass('alert-danger');
-                        $('#errorMsg').html('Please enter your debit card pin, to access the ATM.');
+                        $('#errorMsg').html('Indtast din pin, for at tilgå hæveautomaten.');
                     }, 5000);
                 }
             }
@@ -223,7 +223,7 @@ $( function() {
                 var currentVal = $('#pinCode').val();
                 if (currentVal == clientPin) {
                     $('#errorMsg').addClass('alert-info').removeClass('alert-danger');
-                    $('#errorMsg').html('Please enter your debit card pin, to access the ATM.');
+                    $('#errorMsg').html('Indtast din pin, for at tilgå hæveautomaten.');
                     $('#pinCode').val('');
                     $.post("https://qb-atms/loadBankingAccount", JSON.stringify({
                         cid: clientCid,
@@ -232,10 +232,10 @@ $( function() {
                 } else {
                     $('#pinCode').val('');
                     $('#errorMsg').removeClass('alert-info').addClass('alert-danger');
-                    $('#errorMsg').html('You have entered an incorrect pin, please try again.')
+                    $('#errorMsg').html('Du har indtastet en forkert pin, prøv igen.')
                     setTimeout(function(){ 
                         $('#errorMsg').addClass('alert-info').removeClass('alert-danger');
-                        $('#errorMsg').html('Please enter your debit card pin, to access the ATM.');
+                        $('#errorMsg').html('Indtast din pin, for at tilgå hæveautomaten.');
                     }, 5000);
                 }
             } else if (number == "CLEAR") {

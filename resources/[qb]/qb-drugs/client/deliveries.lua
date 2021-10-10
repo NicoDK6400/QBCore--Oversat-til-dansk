@@ -87,7 +87,7 @@ Citizen.CreateThread(function()
                                         end, function() -- Cancel
                                             isHealingPerson = false
                                             StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                                            QBCore.Functions.Notify("Failed!", "error")
+                                            QBCore.Functions.Notify("Fejlede!", "error")
                                         end)
                                     else
                                         QBCore.Functions.Notify("Der er ingen spiller i nærheden..", "error")

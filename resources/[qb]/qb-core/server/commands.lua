@@ -140,10 +140,10 @@ end, "admin")
 
 QBCore.Commands.Add("gang", "Tjeck din bande", {}, false, function(source, args)
 	local PlayerGang = QBCore.Functions.GetPlayer(source).PlayerData.gang
-	TriggerClientEvent('QBCore:Notify', source, string.format("[Gang]: %s [Grade]: %s", PlayerGang.label, PlayerGang.grade.name))
+	TriggerClientEvent('QBCore:Notify', source, string.format("[Gang]: %s [Grad]: %s", PlayerGang.label, PlayerGang.grade.name))
 end)
 
-QBCore.Commands.Add("clearinv", "Ryd spilleren inventory (Kun Admin)", {{name="id", help="Spiller ID"}}, false, function(source, args)
+QBCore.Commands.Add("clearinv", "Ryd spillerens inventory (Kun Admin)", {{name="id", help="Spiller ID"}}, false, function(source, args)
 	local playerId = args[1] ~= nil and args[1] or source
 	local Player = QBCore.Functions.GetPlayer(tonumber(playerId))
 	if Player ~= nil then

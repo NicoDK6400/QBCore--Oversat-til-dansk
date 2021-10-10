@@ -55,12 +55,12 @@ Citizen.CreateThread(function()
                                 if lockerDist < 5 then
                                     DrawMarker(2, Config.BigBanks["paleto"]["lockers"][k]["coords"].x, Config.BigBanks["paleto"]["lockers"][k]["coords"].y, Config.BigBanks["paleto"]["lockers"][k]["coords"].z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, false, false, false, 1, false, false, false)
                                     if lockerDist < 0.5 then
-                                        DrawText3Ds(Config.BigBanks["paleto"]["lockers"][k]["coords"].x, Config.BigBanks["paleto"]["lockers"][k]["coords"].y, Config.BigBanks["paleto"]["lockers"][k]["coords"].z + 0.3, '[E] Crack the vault')
+                                        DrawText3Ds(Config.BigBanks["paleto"]["lockers"][k]["coords"].x, Config.BigBanks["paleto"]["lockers"][k]["coords"].y, Config.BigBanks["paleto"]["lockers"][k]["coords"].z + 0.3, '[E] Bryd safen')
                                         if IsControlJustPressed(0, 38) then
                                             if CurrentCops >= Config.MinimumPaletoPolice then
                                                 openLocker("paleto", k)
                                             else
-                                                QBCore.Functions.Notify('Minimum Of '..Config.MinimumPaletoPolice..' Police Needed', "error")
+                                                QBCore.Functions.Notify('Minimum er: '..Config.MinimumPaletoPolice..' betjente på job', "error")
                                             end
                                         end
                                     end
