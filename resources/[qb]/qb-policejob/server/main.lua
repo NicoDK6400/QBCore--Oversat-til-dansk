@@ -603,16 +603,16 @@ RegisterServerEvent('police:server:SendPoliceEmergencyAlert')
 AddEventHandler('police:server:SendPoliceEmergencyAlert', function(streetLabel, coords, callsign)
     local data = {
         displayCode = 10-99,
-        description = "Emergency button pressed by ".. callsign .. " at "..streetLabel,
+        description = "Nødknappen er blevet trykket: ".. callsign .. " ved "..streetLabel,
         isImportant = 1,
         recipientList = {'police'},
         length = '10000',
         infoM = 'fa-info-circle',
-        info = 'All Units Respond',
+        info = 'Kalder alle enheder!',
     }
     local dispatchData = {
-        title = 'All Units Respond',
-        description = "Emergency button pressed by ".. callsign .. " at "..streetLabel,
+        title = 'Kalder alle enheder!',
+        description = "Nødknappen er blevet trykket: ".. callsign .. " ved "..streetLabel,
         dispatchData = data,
         caller = callsign,
         coords = coords
