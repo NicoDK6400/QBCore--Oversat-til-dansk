@@ -599,26 +599,27 @@ AddEventHandler('police:server:SendTrackerLocation', function(coords, requestId)
     TriggerClientEvent("qb-phone:client:addPoliceAlert", requestId, alertData)
 end)
 
--- RegisterServerEvent('police:server:SendPoliceEmergencyAlert')
--- AddEventHandler('police:server:SendPoliceEmergencyAlert', function(streetLabel, coords, callsign)
---     local data = {
---         displayCode = 10-99,
---         description = "Emergency button pressed by ".. callsign .. " at "..streetLabel,
---         isImportant = 1,
---         recipientList = {'police'},
---         length = '10000',
---         infoM = 'fa-info-circle',
---         info = 'All Units Respond',
---     }
-
---     local dispatchData = {
---         dispatchData = data,
---         caller = callsign,
---         coords = coords
---     }
---     TriggerEvent('wf-alerts:svNotify', dispatchData)
---     TriggerClientEvent("qb-phone:client:addPoliceAlert", -1, alertData)
--- end)
+RegisterServerEvent('police:server:SendPoliceEmergencyAlert')
+AddEventHandler('police:server:SendPoliceEmergencyAlert', function(streetLabel, coords, callsign)
+    local data = {
+        displayCode = 10-99,
+        description = "Emergency button pressed by ".. callsign .. " at "..streetLabel,
+        isImportant = 1,
+        recipientList = {'police'},
+        length = '10000',
+        infoM = 'fa-info-circle',
+        info = 'All Units Respond',
+    }
+    local dispatchData = {
+        title = 'All Units Respond',
+        description = "Emergency button pressed by ".. callsign .. " at "..streetLabel,
+        dispatchData = data,
+        caller = callsign,
+        coords = coords
+    }
+    TriggerEvent('wf-alerts:svNotify', dispatchData)
+    TriggerClientEvent("qb-phone:client:addPoliceAlert", -1, dispatchData)
+end)
 
 QBCore.Functions.CreateCallback('police:server:isPlayerDead', function(source, cb, playerId)
     local Player = QBCore.Functions.GetPlayer(playerId)
