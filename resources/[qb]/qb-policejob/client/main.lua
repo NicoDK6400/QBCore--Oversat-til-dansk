@@ -338,7 +338,7 @@ AddEventHandler('police:client:GunShotAlert', function(streetLabel, isAutomatic,
                 }
             }
         else
-            blipText = "Shots fired"
+            blipText = "Skud affyret"
             MessageDetails = {
                 [1] = {
                     icon = '<i class="fas fa-globe-europe"></i>',

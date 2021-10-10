@@ -215,9 +215,9 @@ function ManageEmployees(employee)
         },
         [3] = {
             icon = '🔥',
-            label = "Brand",
+            label = "Fyr",
             value = "Fire",
-            description = "Brand " .. employee.name
+            description = "Afsked " .. employee.name
         }
     }
     for k, v in pairs(buttons) do

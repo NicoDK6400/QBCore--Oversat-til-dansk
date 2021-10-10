@@ -56,11 +56,11 @@ AddEventHandler("qb-bossmenu:server:withdrawMoney", function(amount)
         Accounts[job] = Accounts[job] - amount
         Player.Functions.AddMoney("cash", amount)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Not Enough Money', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Ikke nok penge', 'error')
         return
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
-    TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Withdraw Money', "Successfully withdrawn " .. amount .. ' DKK (' .. job .. ')', src)
+    TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Udbetal penge', "Der blev udbetalt " .. amount .. ' DKK (' .. job .. ')', src)
 end)
 
 -- Deposit Money
@@ -77,11 +77,11 @@ AddEventHandler("qb-bossmenu:server:depositMoney", function(amount)
     if Player.Functions.RemoveMoney("cash", amount) then
         Accounts[job] = Accounts[job] + amount
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Not Enough Money', "error")
+        TriggerClientEvent('QBCore:Notify', src, 'Ikke nok penge', "error")
         return
     end
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
-    TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Deposit Money', "Successfully deposited " .. amount .. ' DKK (' .. job .. ')', src)
+    TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Indsæt penge', "Der blev indsat " .. amount .. ' DKK (' .. job .. ')', src)
 end)
 
 RegisterServerEvent("qb-bossmenu:server:addAccountMoney")
@@ -148,10 +148,10 @@ AddEventHandler('qb-bossmenu:server:updateGrade', function(target, grade)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
     if Employee then
         if Employee.Functions.SetJob(Player.PlayerData.job.name, grade) then
-            TriggerClientEvent('QBCore:Notify', src, "Grade Changed Successfully!", "success")
-            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "Your Job Grade Is Now [" ..grade.."].", "success")
+            TriggerClientEvent('QBCore:Notify', src, "Grad blev ændret!", "success")
+            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source, "Graden på dit job er nu [" ..grade.."].", "success")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Grade Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Grad eksistere ikke", "error")
         end
     else
         local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', { target })
@@ -161,9 +161,9 @@ AddEventHandler('qb-bossmenu:server:updateGrade', function(target, grade)
             local employeejob = json.decode(Employee.job)
             employeejob.grade = job.grades[data.grade]
             exports.oxmysql:execute('UPDATE players SET job = ? WHERE citizenid = ?', { json.encode(employeejob), target })
-            TriggerClientEvent('QBCore:Notify', src, "Grade Changed Successfully!", "success")
+            TriggerClientEvent('QBCore:Notify', src, "Grad blev ændret!", "success")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Player Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Spilleren eksistere ikke", "error")
         end
     end
 end)
@@ -176,11 +176,11 @@ AddEventHandler('qb-bossmenu:server:fireEmployee', function(target)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
     if Employee then
         if Employee.Functions.SetJob("unemployed", '0') then
-            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Job Fire', "Successfully fired " .. GetPlayerName(Employee.PlayerData.source) .. ' (' .. Player.PlayerData.job.name .. ')', src)
-            TriggerClientEvent('QBCore:Notify', src, "Fired successfully!", "success")
-            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source , "You Were Fired", "error")
+            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Fyr ansat', "Afskedigt blev " .. GetPlayerName(Employee.PlayerData.source) .. ' (' .. Player.PlayerData.job.name .. ')', src)
+            TriggerClientEvent('QBCore:Notify', src, "Ansat afskedigt!", "success")
+            TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source , "Du blev afskedigt", "error")
         else
-            TriggerClientEvent('QBCore:Notify', src, "Contact Server Developer", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Kontakt server udvikleren", "error")
         end
     else
         local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', { target })
@@ -196,10 +196,10 @@ AddEventHandler('qb-bossmenu:server:fireEmployee', function(target)
             job.grade.name = nil
             job.grade.level = 0
             exports.oxmysql:execute('UPDATE players SET job = ? WHERE citizenid = ?', { json.encode(job), target })
-            TriggerClientEvent('QBCore:Notify', src, "Fired successfully!", "success")
-            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Fire', "Successfully fired " .. data.source .. ' (' .. Player.PlayerData.job.name .. ')', src)
+            TriggerClientEvent('QBCore:Notify', src, "Ansat afskedigt!", "success")
+            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Fyr ansat', "Afskedigt blev " .. data.source .. ' (' .. Player.PlayerData.job.name .. ')', src)
         else
-            TriggerClientEvent('QBCore:Notify', src, "Player Does Not Exist", "error")
+            TriggerClientEvent('QBCore:Notify', src, "Spiller eksistere ikke", "error")
         end
     end
 end)
@@ -212,9 +212,9 @@ AddEventHandler('qb-bossmenu:server:giveJob', function(recruit)
     local Target = QBCore.Functions.GetPlayer(recruit)
     if Player.PlayerData.job.isboss == true then
         if Target and Target.Functions.SetJob(Player.PlayerData.job.name, 0) then
-            TriggerClientEvent('QBCore:Notify', src, "You Recruited " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) .. " To " .. Player.PlayerData.job.label .. "", "success")
-            TriggerClientEvent('QBCore:Notify', Target.PlayerData.source , "You've Been Recruited To " .. Player.PlayerData.job.label .. "", "success")
-            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Recruit', "Successfully recruited " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) .. ' (' .. Player.PlayerData.job.name .. ')', src)
+            TriggerClientEvent('QBCore:Notify', src, "Du har ansat " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) .. " til " .. Player.PlayerData.job.label .. "", "success")
+            TriggerClientEvent('QBCore:Notify', Target.PlayerData.source , "Du blev ansat hos " .. Player.PlayerData.job.label .. "", "success")
+            TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Recruit', "Ansat blev " .. (Target.PlayerData.charinfo.firstname .. ' ' .. Target.PlayerData.charinfo.lastname) .. ' (' .. Player.PlayerData.job.name .. ')', src)
         end
     end
 end)
