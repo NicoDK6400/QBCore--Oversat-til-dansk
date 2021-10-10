@@ -177,9 +177,36 @@ Config.AuthorizedVehicles = {
 		["vxc902017p"] = "Volvo XC90",
 		["LB2018AKS"] = "AKS Vogn",
 		-- ["sheriff2"] = "Sheriff Car 2",
-	},
+    },
 	-- Grade 4
 	[4] = {
+		["police3"] = "VW Passat",
+        ["BB2018U"] = "Buffalo Civil",
+		["KSRS2018U"] = "Sultan Civil",
+		["vxc902017p"] = "Volvo XC90",
+		-- ["sheriff"] = "Sheriff Car 1",
+		-- ["sheriff2"] = "Sheriff Car 2",
+	},
+	-- Grade 5
+	[5] = {
+		["police3"] = "VW Passat",
+        ["BB2018U"] = "Buffalo Civil",
+		["KSRS2018U"] = "Sultan Civil",
+		["vxc902017p"] = "Volvo XC90",
+		["LB2018AKS"] = "AKS Vogn",
+		-- ["sheriff2"] = "Sheriff Car 2",
+	},
+    	-- Grade 6
+	[6] = {
+		["police3"] = "VW Passat",
+        ["BB2018U"] = "Buffalo Civil",
+		["KSRS2018U"] = "Sultan Civil",
+		["vxc902017p"] = "Volvo XC90",
+		["LB2018AKS"] = "AKS Vogn",
+		-- ["sheriff2"] = "Sheriff Car 2",
+	},
+	-- Grade 7
+	[7] = {
 		["KSRS2018U"] = "Sultan Civil",
 		["UO2018U"] = "Übermacht Civil",
 		["UOXS2018U"] = "Oracle XS Civil",

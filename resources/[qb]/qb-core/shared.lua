@@ -623,26 +623,39 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Rekrut",
+                name = "Politi kadet",
                 payment = 50
             },
 			['1'] = {
-                name = "Officer",
+                name = "Politibetjent",
                 payment = 75
             },
 			['2'] = {
-                name = "Sergeant",
+                name = "Politiassistent",
                 payment = 100
             },
 			['3'] = {
-                name = "Lieutenant",
+                name = "Politiassistent 1. Grad",
                 payment = 125
             },
 			['4'] = {
                 name = "Chief",
+                payment = 150
+            },
+			['5'] = {
+                name = "Politikommissær",
+                payment = 125
+            },
+			['6'] = {
+                name = "Vicepolitiinspektør",
 				isboss = true,
                 payment = 150
             },
+			['7'] = {
+				name = "Politiinspektør",
+				isboss = true,
+				payment = 150
+			},
         },
 	},
 	["ambulance"] = {
@@ -666,7 +679,7 @@ QBShared.Jobs = {
                 payment = 125
             },
 			['4'] = {
-                name = "Chief",
+                name = "Overlæge",
 				isboss = true,
                 payment = 150
             },
@@ -758,19 +771,19 @@ QBShared.Jobs = {
 		defaultDuty = true,
 		grades = {
             ['0'] = {
-                name = "Rekrut",
+                name = "Ufaglært",
                 payment = 50
             },
 			['1'] = {
-                name = "Novice",
+                name = "Lærling",
                 payment = 75
             },
 			['2'] = {
-                name = "Experienced",
+                name = "Udlært",
                 payment = 100
             },
 			['3'] = {
-                name = "Advanced",
+                name = "Senior",
                 payment = 125
             },
 			['4'] = {
