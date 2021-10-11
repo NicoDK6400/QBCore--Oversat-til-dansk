@@ -327,7 +327,7 @@ Config.Furniture = {
 			[27] = { ["object"] = "prop_j_disptray_05b", ["price"] = 100, ["label"] = "Display Tray" },
 			[28] = { ["object"] = "prop_ld_greenscreen_01", ["price"] = 100, ["label"] = "Green Screen" },
 			[29] = { ["object"] = "prop_ld_handbag", ["price"] = 100, ["label"] = "Handbag" },
-			[30] = { ["object"] = "prop_ld_jerrycan_01", ["price"] = 100, ["label"] = "Jerry Can" },
+			[30] = { ["object"] = "prop_ld_jerrycan_01", ["price"] = 100, ["label"] = "Benzindunken" },
 			[31] = { ["object"] = "prop_ld_keypad_01", ["price"] = 100, ["label"] = "Keypad 1" },
 			[32] = { ["object"] = "prop_ld_keypad_01b", ["price"] = 100, ["label"] = "Keypad 2" },
 			[33] = { ["object"] = "prop_ld_suitcase_01", ["price"] = 100, ["label"] = "Suitcase 1" },

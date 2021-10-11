@@ -91,7 +91,7 @@ AddEventHandler('qb-diving:client:UseJerrycan', function()
             TriggerServerEvent('qb-diving:server:RemoveItem', 'jerry_can', 1)
             TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items['jerry_can'], "remove")
         end, function() -- Cancel
-            QBCore.Functions.Notify('Opfyldning af fuel blev afbrudt!', 'error')
+            QBCore.Functions.Notify('Opfyldning af brændstof blev afbrudt!', 'error')
         end)
     else
         QBCore.Functions.Notify('Du er ikke i en båd', 'error')

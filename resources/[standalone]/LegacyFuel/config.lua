@@ -40,18 +40,18 @@ Config.CostMultiplier = 1.0
 Config.Strings = {
 	ExitVehicle = "Forlad køretøjet for at tanke",
 	EToRefuel = "Tryk ~g~E ~w~for at tanke køretøjet",
-	JerryCanEmpty = "JerryCan er tom",
+	JerryCanEmpty = "Benzindunken er tom",
 	FullTank = "Tanken er fyldt",
-	PurchaseJerryCan = "Tryk ~g~E ~w~for at købe en JerryCan for DKK ~g~" .. Config.JerryCanCost,
+	PurchaseJerryCan = "Tryk ~g~E ~w~for at købe en benzindunken for DKK ~g~" .. Config.JerryCanCost,
 	CancelFuelingPump = "Tryk ~g~E ~w~for at afbryde optanknigen",
 	CancelFuelingJerryCan = "Tryk ~g~E ~w~for at afbryde optanknigen",
 	NotEnoughCash = "Du har ikke penge nok",
-	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan ",
-	NotEnoughCashJerryCan = "Du har ikke penge nok til at opfylde JerryCan",
+	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde benzindunken ",
+	NotEnoughCashJerryCan = "Du har ikke penge nok til at opfylde benzindunken",
 	JerryCanFull = "JerrtCan er fyldt",
 	TotalCost = "Pris",
-	PurchaseJerryCan = "Tryk ~g~E ~w~for at tage en JerryCan",
-	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde JerryCan",
+	PurchaseJerryCan = "Tryk ~g~E ~w~for at tage en benzindunken",
+	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde benzindunken",
 }
 
 Config.PumpModels = {
