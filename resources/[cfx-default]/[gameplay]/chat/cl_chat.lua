@@ -246,7 +246,7 @@ local isFirstHide = true
 
 if not isRDR then
   if RegisterKeyMapping then
-    RegisterKeyMapping('toggleChat', 'Toggle chat', 'keyboard', 'l')
+    RegisterKeyMapping('toggleChat', 'Toggle chat', 'keyboard', 'h') --Keybind til Vis/Skjul og aktiv chat "h"
   end
 
   RegisterCommand('toggleChat', function()
@@ -275,7 +275,7 @@ Citizen.CreateThread(function()
     Wait(0)
 
     if not chatInputActive then
-      if IsControlPressed(0, isRDR and `INPUT_MP_TEXT_CHAT_ALL` or 245) --[[ INPUT_MP_TEXT_CHAT_ALL ]] then
+      if IsControlPressed(0, isRDR and `INPUT_MP_TEXT_CHAT_ALL` or 245) --[[ INPUT_MP_TEXT_CHAT_ALL ]] then --Keybind til Chat "T"
         chatInputActive = true
         chatInputActivating = true
 
@@ -286,7 +286,7 @@ Citizen.CreateThread(function()
     end
 
     if chatInputActivating then
-      if not IsControlPressed(0, isRDR and `INPUT_MP_TEXT_CHAT_ALL` or 245) then
+      if not IsControlPressed(0, isRDR and `INPUT_MP_TEXT_CHAT_ALL` or 245) then --Keybind til Chat "T"
         SetNuiFocus(true)
 
         chatInputActivating = false
