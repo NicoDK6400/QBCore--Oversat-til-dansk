@@ -257,6 +257,8 @@ AddEventHandler('police:client:SendPoliceEmergencyAlert', function()
 
     local MyId = GetPlayerServerId(PlayerId())
 
+    PlaySound(-1, "TIMER_STOP", "HUD_MINI_GAME_SOUNDSET", 0, 0, 1)
+    QBCore.Functions.Notify('NØDKNAP: Kollega i nød, se MDT for mere information!', 'error')
     TriggerServerEvent("police:server:SendPoliceEmergencyAlert", streetLabel, pos,
         QBCore.Functions.GetPlayerData().metadata["callsign"])
     TriggerServerEvent('qb-policealerts:server:AddPoliceAlert', {
@@ -299,7 +301,7 @@ AddEventHandler('police:client:PoliceEmergencyAlert', function(callsign, streetL
         SetBlipScale(blip, 1.2)
         SetBlipFlashes(blip, true)
         BeginTextCommandSetBlipName('STRING')
-        AddTextComponentString("Assistance Colleague")
+        AddTextComponentString("Kollega i nød")
         EndTextCommandSetBlipName(blip)
         while transG ~= 0 do
             Wait(180 * 4)
