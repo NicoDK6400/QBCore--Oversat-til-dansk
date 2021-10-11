@@ -37,7 +37,7 @@ end)
 
 -- MENU
 local menu = MenuV:CreateMenu(false, 'Boss Menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'main')
-local menu2 = MenuV:CreateMenu(false, 'Society penge', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
+local menu2 = MenuV:CreateMenu(false, 'Firma konto', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'society')
 local menu3 = MenuV:CreateMenu(false, 'Ansættelses funktioner', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'employees')
 local menu4 = MenuV:CreateMenu(false, 'Ansæt menu', 'topright', 155, 0, 0, 'size-125', 'none', 'menuv', 'recruit')
 
@@ -72,27 +72,27 @@ local menu_button3 = menu:AddButton({
 })
 local menu_button4 = menu:AddButton({
     icon = '💰',
-    label = 'Society Money',
+    label = 'Firma konto',
     value = menu2,
-    description = 'Se/brug Society Money'
+    description = 'Se/brug Firma konto'
 })
 local menu_button5 = menu2:AddButton({
     icon = '💲',
     label = '',
     value = nil,
-    description = 'Aktuel Society mængde'
+    description = 'Firma konto'
 })
 local menu_button6 = menu2:AddButton({
     icon = '🤑',
     label = 'Udbetal',
     value = menu2,
-    description = 'Udbetal penge fra Society'
+    description = 'Udbetal penge fra firma konto'
 })
 local menu_button7 = menu2:AddButton({
     icon = '🏦',
     label = 'Indbetal',
     value = menu2,
-    description = 'Indbetal penge til Society'
+    description = 'Indbetal penge til firma konto'
 })
 
 -- Storage
@@ -198,7 +198,7 @@ end)
 -- FUNCTIONS
 function UpdateSociety()
     QBCore.Functions.TriggerCallback('qb-gangmenu:server:GetAccount', function(cb)
-        menu_button5.Label = 'Society mængde: ' ..comma_value(cb).." DKK"
+        menu_button5.Label = 'Firma konto: ' ..comma_value(cb).." DKK"
     end, PlayerGang.name)
 end
 
