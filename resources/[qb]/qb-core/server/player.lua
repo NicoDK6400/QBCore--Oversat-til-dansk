@@ -95,7 +95,7 @@ QBCore.Player.CheckPlayerData = function(source, PlayerData)
 		["taxi"] = 0,
 		["hotdog"] = 0,
 	}
-	PlayerData.metadata["callsign"] = PlayerData.metadata["callsign"] ~= nil and PlayerData.metadata["callsign"] or "NO CALLSIGN"
+	PlayerData.metadata["callsign"] = PlayerData.metadata["callsign"] ~= nil and PlayerData.metadata["callsign"] or "INGEN INFO"
 	PlayerData.metadata["fingerprint"] = PlayerData.metadata["fingerprint"] ~= nil and PlayerData.metadata["fingerprint"] or QBCore.Player.CreateFingerId()
 	PlayerData.metadata["walletid"] = PlayerData.metadata["walletid"] ~= nil and PlayerData.metadata["walletid"] or QBCore.Player.CreateWalletId()
 	PlayerData.metadata["criminalrecord"] = PlayerData.metadata["criminalrecord"] ~= nil and PlayerData.metadata["criminalrecord"] or {
@@ -120,8 +120,8 @@ QBCore.Player.CheckPlayerData = function(source, PlayerData)
     }
 
 	PlayerData.job = PlayerData.job ~= nil and PlayerData.job or {}
-	PlayerData.job.name = PlayerData.job.name ~= nil and PlayerData.job.name or "unemployed"
-	PlayerData.job.label = PlayerData.job.label ~= nil and PlayerData.job.label or "Civilian"
+	PlayerData.job.name = PlayerData.job.name ~= nil and PlayerData.job.name or "arbejdsløs"
+	PlayerData.job.label = PlayerData.job.label ~= nil and PlayerData.job.label or "Borger"
 	PlayerData.job.payment = PlayerData.job.payment ~= nil and PlayerData.job.payment or 10
 	PlayerData.job.onduty = PlayerData.job.onduty ~= nil and PlayerData.job.onduty or true 
 	-- Added for grade system
@@ -131,12 +131,12 @@ QBCore.Player.CheckPlayerData = function(source, PlayerData)
 	PlayerData.job.grade.level = PlayerData.job.grade.level ~= nil and PlayerData.job.grade.level or 0
 
 	PlayerData.gang = PlayerData.gang ~= nil and PlayerData.gang or {}
-	PlayerData.gang.name = PlayerData.gang.name ~= nil and PlayerData.gang.name or "none"
-	PlayerData.gang.label = PlayerData.gang.label ~= nil and PlayerData.gang.label or "No Gang Affiliaton"
+	PlayerData.gang.name = PlayerData.gang.name ~= nil and PlayerData.gang.name or "ingen"
+	PlayerData.gang.label = PlayerData.gang.label ~= nil and PlayerData.gang.label or "Ingen bande relationer"
 	-- Added for grade system
 	PlayerData.gang.isboss = PlayerData.gang.isboss ~= nil and PlayerData.gang.isboss or false
 	PlayerData.gang.grade = PlayerData.gang.grade ~= nil and PlayerData.gang.grade or {}
-	PlayerData.gang.grade.name = PlayerData.gang.grade.name ~= nil and PlayerData.gang.grade.name or "none"
+	PlayerData.gang.grade.name = PlayerData.gang.grade.name ~= nil and PlayerData.gang.grade.name or "ingen"
 	PlayerData.gang.grade.level = PlayerData.gang.grade.level ~= nil and PlayerData.gang.grade.level or 0
 
 	PlayerData.position = PlayerData.position ~= nil and PlayerData.position or QBConfig.DefaultSpawn
@@ -176,7 +176,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 				self.PlayerData.job.isboss = jobgrade.isboss ~= nil and jobgrade.isboss or false
 			else
 				self.PlayerData.job.grade = {}
-				self.PlayerData.job.grade.name = 'No Grades'
+				self.PlayerData.job.grade.name = 'Ingen grad'
 				self.PlayerData.job.grade.level = 0
 				self.PlayerData.job.payment = 30
 				self.PlayerData.job.isboss = false
@@ -205,7 +205,7 @@ QBCore.Player.CreatePlayer = function(PlayerData)
 				self.PlayerData.gang.isboss = ganggrade.isboss ~= nil and ganggrade.isboss or false
 			else
 				self.PlayerData.gang.grade = {}
-				self.PlayerData.gang.grade.name = 'No Grades'
+				self.PlayerData.gang.grade.name = 'Ingen grad'
 				self.PlayerData.gang.grade.level = 0
 				self.PlayerData.gang.isboss = false
 			end
