@@ -98,11 +98,24 @@ Config.Teleports = {
     [2] = {
         [1] = {
             coords = vector4(909.49, -1589.22, 30.51, 92.24),
-            ["AllowVehicle"] = false, 
-            drawText = '[E] For at gå ind til coke fremstilling'
+            ["AllowVehicle"] = false,
+            drawText = '[E] For at tilgå coke fremstilling'
         },
         [2] = {
             coords = vector4(1088.81, -3187.57, -38.99, 181.7),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Forlad'
+        },
+    },
+    --Nightclub
+    [3] = {
+        [1] = {
+            coords = vector3(-676.72, -2458.33, 13.94, 154.19),
+            ["AllowVehicle"] = false,
+            drawText = '[E] For at tilgå Diskotek'
+        },
+        [2] = {
+            coords = vector3(-1569.41, -3017.3, -74.41, 2.55),
             ["AllowVehicle"] = false,
             drawText = '[E] Forlad'
         },
