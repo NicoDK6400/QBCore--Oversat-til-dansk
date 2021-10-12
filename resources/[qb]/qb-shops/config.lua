@@ -829,9 +829,11 @@ Config.Locations = {
         ["coords"] = {
             [1] = vector3(945.62, 16.74, 116.16), -- Casino Lejlighed
             [2] = vector3(962.57, 58.91, 75.43), -- Casino Kontor
-            [3] = vector3(1985.29, 3053.03, 47.22), -- Yellow Jack bar
-            [4] = vector3(-560.15, 286.88, 82.18), -- Tequila bar
-            [5] = vector3(936.17, 28.3, 71.83) -- Casino bar
+            [3] = vector3(1985.29, 3053.03, 47.22), -- Yellow Jack
+            [4] = vector3(-560.15, 286.88, 82.18), -- Tequila
+            [5] = vector3(936.17, 28.3, 71.83), -- Casino
+            [6] = vector3(-1586.72, -3012.67, -76.01), -- Nightclub
+            [7] = vector3(-2092.95, -1015.67, 8.98)
         },
         ["products"] = Config.Products["bar"],
         ["showblip"] = true,
