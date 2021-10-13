@@ -110,12 +110,12 @@ Config.Teleports = {
     --Nightclub
     [3] = {
         [1] = {
-            coords = vector3(-676.72, -2458.33, 13.94, 154.19),
+            coords = vector4(-676.72, -2458.33, 13.94, 154.19),
             ["AllowVehicle"] = false,
             drawText = '[E] For at tilgå Diskotek'
         },
         [2] = {
-            coords = vector3(-1569.41, -3017.3, -74.41, 2.55),
+            coords = vector4(-1569.41, -3017.3, -74.41, 2.55),
             ["AllowVehicle"] = false,
             drawText = '[E] Forlad'
         },
