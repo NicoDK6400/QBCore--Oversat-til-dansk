@@ -18,7 +18,7 @@ Config = {
 -- Change the language of the menu here!.
 -- Note fr and de are google translated, if you would like to help out with translation / just fix it for your server check below and change translations yourself
 -- try en, fr, de or sv.
-	MenuLanguage = 'en',	
+	MenuLanguage = 'dk',	
 -- Set this to true to enable some extra prints
 	DebugDisplay = false,
 -- Set this to false if you have something else on X, and then just use /e c to cancel emotes.
@@ -133,7 +133,7 @@ Config.Languages = {
         ['infoupdateavtext'] = "Une mise à jour est disponible ~y~https://github.com/andristum/dpemotes~w~",
         ['suggestions'] = "Suggestions?",
         ['suggestionsinfo'] = "'dullpear_dev' sur les forums FiveM pour toutes les suggestions de fonction / emote! ✉️",
-		['notvaliddance'] = "n'est pas une danse valide",
+	  ['notvaliddance'] = "n'est pas une danse valide",
         ['notvalidemote'] = "n'est pas un emote valide",
         ['nocancel'] = "Pas d'emote à annuler",
         ['maleonly'] = "Cet emote est réservé aux hommes, désolé!",
