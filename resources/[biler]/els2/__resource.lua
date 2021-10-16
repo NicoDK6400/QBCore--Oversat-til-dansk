@@ -1,3 +1,5 @@
+fx_version 'cerulean'
+
 description "ELS FiveM" -- Resource Descrption
 
 client_script {
