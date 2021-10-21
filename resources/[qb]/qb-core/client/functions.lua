@@ -329,8 +329,8 @@ QBCore.Functions.GetVehicleProperties = function(vehicle)
 			color2            = colorSecondary,
 
 			pearlescentColor  = pearlescentColor,
-            		interiorColor     = GetVehicleInteriorColor(vehicle),
-            		dashboardColor    = GetVehicleDashboardColour(vehicle),
+            interiorColor     = GetVehicleInteriorColor(vehicle),
+            dashboardColor    = GetVehicleDashboardColour(vehicle),
 			wheelColor        = wheelColor,
 
 			wheels            = GetVehicleWheelType(vehicle),
@@ -373,8 +373,8 @@ QBCore.Functions.GetVehicleProperties = function(vehicle)
 
 			modFrontWheels    = GetVehicleMod(vehicle, 23),
 			modBackWheels     = GetVehicleMod(vehicle, 24),
-            		modCustomTiresF   = GetVehicleModVariation(vehicle, 23),
-            		modCustomTiresR   = GetVehicleModVariation(vehicle, 24),
+            modCustomTiresF   = GetVehicleModVariation(vehicle, 23),
+            modCustomTiresR   = GetVehicleModVariation(vehicle, 24),
 
 			modPlateHolder    = GetVehicleMod(vehicle, 25),
 			modVanityPlate    = GetVehicleMod(vehicle, 26),
@@ -398,7 +398,7 @@ QBCore.Functions.GetVehicleProperties = function(vehicle)
 			modTrimB          = GetVehicleMod(vehicle, 44),
 			modTank           = GetVehicleMod(vehicle, 45),
 			modWindows        = GetVehicleMod(vehicle, 46),
-			modLivery         = GetVehicleMod(vehicle, 48),
+			modLivery 		  = GetVehicleMod(vehicle, 48),
 		}
 	else
 		return
@@ -681,7 +681,7 @@ QBCore.Functions.SetVehicleProperties = function(vehicle, props)
 		end
 
 		if props.modLivery ~= nil then
-			SetVehicleMod(vehicle, 48, props.modLivery, false)
+			--SetVehicleMod(vehicle, 48, props.modLivery, false)
 			SetVehicleLivery(vehicle, props.modLivery)
 		end
 	end
