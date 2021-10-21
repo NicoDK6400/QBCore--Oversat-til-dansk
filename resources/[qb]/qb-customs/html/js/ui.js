@@ -269,7 +269,9 @@ window.onload = function(e)
                     }
 
                     menuStructure[menu].itemsArray[menuStructure[menu].selectedItem].classList.add("item_selected");
-                    menuStructure[menu].itemsArray[Object.keys(menuStructure[menu].itemsArray).length - 1].classList.remove("item_selected");
+                    if (Object.keys(menuStructure[menu].itemsArray).length - 1 != 0) {
+                        menuStructure[menu].itemsArray[Object.keys(menuStructure[menu].itemsArray).length - 1].classList.remove("item_selected");
+                    }
                     var currentHTML = $("." + menu + " .item_selected").html();
                     $("." + menu + " .item_selected").html("<i class='fas fa-angle-double-right'></i> " + currentHTML);
 
@@ -301,7 +303,9 @@ window.onload = function(e)
                     }
 
                     menuStructure[menu].itemsArray[menuStructure[menu].selectedItem].classList.add("item_selected");
-                    menuStructure[menu].itemsArray[0].classList.remove("item_selected");
+                    if (Object.keys(menuStructure[menu].itemsArray).length - 1 != 0) {
+                        menuStructure[menu].itemsArray[0].classList.remove("item_selected");
+                    }
                     var currentHTML = $("." + menu + " .item_selected").html();
                     $("." + menu + " .item_selected").html("<i class='fas fa-angle-double-right'></i> " + currentHTML);
 
