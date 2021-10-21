@@ -21,7 +21,7 @@ RegisterCommand('phone', function()
     PlayerData = QBCore.Functions.GetPlayerData()
     if not PhoneData.isOpen and isLoggedIn then
         local IsHandcuffed = exports['qb-policejob']:IsHandcuffed()
-        if not IsHandcuffed and not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+        if not IsHandcuffed and not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] and not IsPauseMenuActive() then
             OpenPhone()
         else
             QBCore.Functions.Notify("Handlingen er ikke muligt i øjeblikket..", "error")
@@ -1675,6 +1675,7 @@ end)
 RegisterNetEvent('qb-phone:client:RemoveBankMoney')
 AddEventHandler('qb-phone:client:RemoveBankMoney', function(amount)
     --if PhoneData.isOpen then
+    if amount > 0 then
         SendNUIMessage({
             action = "PhoneNotification",
             PhoneNotify = {
@@ -1685,6 +1686,7 @@ AddEventHandler('qb-phone:client:RemoveBankMoney', function(amount)
                 timeout = 3500,
             },
         })
+    end
 end)
 
 RegisterNetEvent('qb-phone:client:AddTransaction')
