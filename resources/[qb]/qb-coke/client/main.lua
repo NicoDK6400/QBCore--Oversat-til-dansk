@@ -43,13 +43,13 @@ Citizen.CreateThread(function()
         local PlayerPed = PlayerPedId()
         local PlayerPos = GetEntityCoords(PlayerPed)
 
-        local distance = #(PlayerPos - vector3(-331.77, -2444.70, 7.36))
+        local distance = #(PlayerPos - vector3(1100.29, -3194.08, -38.99))
         
         if distance < 6 then
             inRange = true
 
             if distance < 2 then
-                DrawText3Ds(-331.77, -2444.70, 7.36, "[G] Hak kokainblade")
+                DrawText3Ds(1100.29, -3194.08, -38.99, "[G] Hak kokainblade")
                 if IsControlJustPressed(0, 47) then
                     TriggerServerEvent("qb-coke:server:grindleaves")
 
@@ -125,7 +125,7 @@ Citizen.CreateThread(function()
             inRange = true
 
             if distance < 2 then
-                DrawText3Ds(-1078.21, -1678.42, 4.57, "[G] Process Crack")
+                DrawText3Ds(-1078.21, -1678.42, 4.57, "[G] Producér Crack")
                 if IsControlJustPressed(0, 47) then
                     TriggerServerEvent("qb-coke:server:processCrack")
                 end
