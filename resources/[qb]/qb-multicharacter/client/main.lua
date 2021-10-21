@@ -29,7 +29,7 @@ end)
 Config = {
     PedCoords = vector4(-813.97, 176.22, 76.74, -7.5), 
     HiddenCoords = vector4(-812.23, 182.54, 76.74, 156.5), 
-    CamCoords = vector4(-814.02, 179.56, 76.74, 198.5), 
+    CamCoords = vector4(-813.46, 178.95, 76.85, 174.5) 
 }
 
 --- CODE
