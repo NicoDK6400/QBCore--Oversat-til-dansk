@@ -559,7 +559,8 @@ Config.Locations = {
             [8] = vector3(-149.98, -634.92, 168.82),
             [9] = vector3(-1823.67, 796.14, 138.13),
             [10] = vector3(24.48, -1342.36, 29.5),
-            [11] = vector3(6.07, -1101.6, 29.8)
+            [11] = vector3(6.07, -1101.6, 29.8),
+            [12] = vector3(164.09, 6645.08, 31.71)
         },
         ["products"] = Config.Products["coffeeplace"],
         ["showblip"] = false,
