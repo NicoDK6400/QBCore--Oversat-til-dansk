@@ -283,7 +283,7 @@ RegisterNUICallback('success', function()
         TriggerServerEvent('qb-storerobbery:server:setRegisterStatus', currentRegister)
         local lockpickTime = 25000
         LockpickDoorAnim(lockpickTime)
-        QBCore.Functions.Progressbar("search_register", "Emptying The Register..", lockpickTime, false, true, {
+        QBCore.Functions.Progressbar("search_register", "Tømmer kasseapparatet..", lockpickTime, false, true, {
             disableMovement = true,
             disableCarMovement = true,
             disableMouse = false,
