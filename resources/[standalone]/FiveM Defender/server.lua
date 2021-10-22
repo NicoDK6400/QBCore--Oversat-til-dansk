@@ -46,7 +46,7 @@ Citizen.CreateThread(function()
         end
     end, 'GET', '')
 
-    PerformHttpRequest("https://fivem.dk/defender/all", function(statusCode, text, headers)
+    PerformHttpRequest("http://fivem.dk/defender/all", function(statusCode, text, headers)
         if statusCode == 200 or statusCode == 304 then
             if text ~= nil and text ~= "" then
                 for i,k in pairs(json.decode(text)) do

@@ -110,7 +110,7 @@ function SLAXML:parse(xml,options)
 	end
 
 	local function nsForPrefix(prefix)
-		if prefix=='xml' then return 'https://www.w3.org/XML/1998/namespace' end -- http://www.w3.org/TR/xml-names/#ns-decl
+		if prefix=='xml' then return 'http://www.w3.org/XML/1998/namespace' end -- http://www.w3.org/TR/xml-names/#ns-decl
 		for i=#nsStack,1,-1 do if nsStack[i][prefix] then return nsStack[i][prefix] end end
 		error(("Cannot find namespace for prefix %s"):format(prefix))
 	end
