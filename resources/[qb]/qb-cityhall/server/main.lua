@@ -75,14 +75,36 @@ AddEventHandler('qb-cityhall:server:sendDriverTest', function()
     TriggerClientEvent('QBCore:Notify', src, 'En email er blevet sendt ud til kørerskolerne, og vil blive kontaktet automatisk', "success", 5000)
 end)
 
+local AvailableJobs = {
+    "trucker",
+    "taxi",
+    "tow",
+    "reporter",
+    "garbage",
+}
+
+function IsAvailableJob(job)
+    local retval = false
+    for k, v in pairs(AvailableJobs) do
+        if v == job then
+            retval = true
+        end
+    end
+    return retval
+end
+
 RegisterServerEvent('qb-cityhall:server:ApplyJob')
 AddEventHandler('qb-cityhall:server:ApplyJob', function(job)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
+    local Ped = GetPlayerPed(src)
+    local PedCoords = GetEntityCoords(Ped)
     local JobInfo = QBCore.Shared.Jobs[job]
 
+    if (#(PedCoords - Config.Cityhall.coords) >= 20.0) or (not IsAvailableJob(job)) then
+        return DropPlayer(source, "Attempted exploit abuse")
+    end
     Player.Functions.SetJob(job, 0)
-
     TriggerClientEvent('QBCore:Notify', src, 'Tillykke med dit nye arbejde!')
 end)
 
