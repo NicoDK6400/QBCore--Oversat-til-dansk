@@ -125,6 +125,7 @@ end)
 
 RegisterNetEvent("consumables:client:UseArmor")
 AddEventHandler("consumables:client:UseArmor", function()
+    if GetPedArmour(PlayerPedId()) >= 75 then QBCore.Functions.Notify('Du har allerede en veste på!', 'error') return end
     QBCore.Functions.Progressbar("use_armor", "Tager skudsikker veste på..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -141,6 +142,7 @@ local currentVest = nil
 local currentVestTexture = nil
 RegisterNetEvent("consumables:client:UseHeavyArmor")
 AddEventHandler("consumables:client:UseHeavyArmor", function()
+    if GetPedArmour(PlayerPedId()) == 100 then QBCore.Functions.Notify('Du har allerede en veste på!', 'error') return end
     local ped = PlayerPedId()
     local PlayerData = QBCore.Functions.GetPlayerData()
     QBCore.Functions.Progressbar("use_heavyarmor", "Tager tung skudsikker veste på..", 5000, false, true, {
