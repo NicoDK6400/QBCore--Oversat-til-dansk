@@ -959,6 +959,7 @@ RegisterNUICallback('PostNewTweet', function(data, cb)
         firstName = PhoneData.PlayerData.charinfo.firstname,
         lastName = PhoneData.PlayerData.charinfo.lastname,
         message = escape_str(data.Message),
+        url = test or "",
         time = data.Date,
         tweetId = GenerateTweetId(),
         picture = data.Picture
@@ -1002,6 +1003,40 @@ RegisterNUICallback('PostNewTweet', function(data, cb)
     TriggerServerEvent('qb-phone:server:UpdateTweets', PhoneData.Tweets, TweetMessage)
 end)
 
+local takePhoto = false
+RegisterNUICallback('PostNewImage', function(data, cb)
+
+    SetNuiFocus(false, false)
+	CreateMobilePhone(1)
+    CellCamActivate(true, true)
+    takePhoto = true
+
+
+
+while takePhoto do
+    Citizen.Wait(0)
+
+    if IsControlJustPressed(1, 27) then -- Toogle Mode
+        frontCam = not frontCam
+        CellFrontCamActivate(frontCam)
+
+    else if IsControlJustPressed(1, 176) then
+        exports['screenshot-basic']:requestScreenshotUpload(Config.Webhook, 'files[]', function(data2)
+        DestroyMobilePhone()
+        CellCamActivate(false, false)
+        local resp = json.decode(data2)
+        test = resp.attachments[1].proxy_url
+        cb(resp.attachments[1].proxy_url)
+    end)
+     DestroyMobilePhone()
+     takePhoto = false
+    end
+    end
+    end
+    OpenPhone()
+
+end)
+
 RegisterNetEvent('qb-phone:client:TransferMoney')
 AddEventHandler('qb-phone:client:TransferMoney', function(amount, newmoney)
     PhoneData.PlayerData.money.bank = newmoney
@@ -1016,27 +1051,41 @@ AddEventHandler('qb-phone:client:UpdateTweets', function(src, Tweets, NewTweetDa
     local MyPlayerId = PhoneData.PlayerData.source
 
     if src ~= MyPlayerId then
-            SendNUIMessage({
-                action = "PhoneNotification",
-                PhoneNotify = {
-                    title = "Ny Tweet (@"..NewTweetData.firstName.." "..NewTweetData.lastName..")", 
-                    text = NewTweetData.message, 
-                    icon = "fab fa-twitter",
-                    color = "#1DA1F2",
-                },
-            })
-    else
-        SendNUIMessage({
-            action = "PhoneNotification",
-            PhoneNotify = {
-                title = "Twitter", 
-                text = "Nyt Tweet er blevet lagt op!", 
-                icon = "fab fa-twitter",
-                color = "#1DA1F2",
-                timeout = 1000,
-            },
-        })
-    end
+        if not PhoneData.isOpen then
+           SendNUIMessage({
+              action = "Notification",
+               action = "Notification",
+               NotifyData = {
+                   title = "New Tweet (@"..NewTweetData.firstName.." "..NewTweetData.lastName..")", 
+                   content = NewTweetData.message, 
+                   icon = "fab fa-twitter", 
+                   timeout = 3500, 
+                   color = nil,
+               },
+           })
+       else
+           SendNUIMessage({
+               action = "PhoneNotification",
+               PhoneNotify = {
+                   title = "New Tweet (@"..NewTweetData.firstName.." "..NewTweetData.lastName..")", 
+                   text = NewTweetData.message, 
+                   icon = "fab fa-twitter",
+                   color = "#1DA1F2",
+               },
+           })
+       end
+   else
+       SendNUIMessage({
+           action = "PhoneNotification",
+           PhoneNotify = {
+               title = "Twitter", 
+               text = "The tweet has been posted!", 
+               icon = "fab fa-twitter",
+               color = "#1DA1F2",
+               timeout = 1000,
+           },
+       })
+   end
 end)
 
 RegisterNUICallback('GetMentionedTweets', function(data, cb)

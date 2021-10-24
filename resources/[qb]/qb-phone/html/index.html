@@ -58,7 +58,7 @@ Vores sider:
                 <div class="phone-header">
                     <div id="phone-time">08:05</div>
                     <div id="phone-icons">
-                        <i class="fas fa-signal" id="phone-signal" data-toggle="tooltip" data-placement="left" title="Fivem.dk 5G"></i>
+                        <i class="fas fa-signal" id="phone-signal" data-toggle="tooltip" data-placement="left" title="FiveM.dk 5G"></i>
                         <i class="fas fa-battery-three-quarters" id="phone-battery"></i>
                     </div>
                 </div>
@@ -1019,10 +1019,12 @@ Vores sider:
                         <div class="twitter-new-tweet-tab">
                             <div class="twitter-new-tweet-header"><p>Ny Tweet</p></div>
 
-                            <textarea id="tweet-new-message" placeholder="Twitter besked" cols="30" rows="10" spellcheck="false" required></textarea>
+                            <textarea id="tweet-new-message" style="text-align:left; padding-top:10px; padding-left:15px;" placeholder="Message" cols="30" rows="10" spellcheck="false" required></textarea>
+                            <textarea id="tweet-new-url" style="text-align:left; padding-left:15px;" placeholder="Billede URL" cols="30" rows="10" spellcheck="false"></textarea>
                         
                             <div class="twitter-new-tweet-buttons">
                                 <div class="twitter-new-tweet-button" id="send-tweet"><p>Send</p></div>
+                                <div class="twitter-new-tweet-button send-photo" id="send-photo"><p>Tag billede</p></div>
                                 <div class="twitter-new-tweet-button" id="cancel-tweet"><p>Afbryd</p></div>
                             </div>
                         </div>
@@ -1031,6 +1033,7 @@ Vores sider:
                             <div id="twitter-home" data-twittertab="twitter-home" class="twitter-header-tab selected-twitter-header-tab"><i class="fas fa-home"></i></div>
                             <div id="twitter-mentions" data-twittertab="twitter-mentions" class="twitter-header-tab"><i class="fas fa-at"></i></div>
                             <div id="twitter-hashtags" data-twittertab="twitter-hashtags" class="twitter-header-tab"><i class="fas fa-hashtag"></i></div>
+                            <div id="twitter-self" data-twittertab="twitter-self" class="twitter-header-tab"><i class="fas fa-user"></i></div>
                         </div>
                     </div>
 

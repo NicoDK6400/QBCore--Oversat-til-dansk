@@ -19,6 +19,7 @@ Config.BillingCommissions = { -- This is a percentage (0.10) == 10%
     mechanic = 0.10
 }
 Config.RepeatTimeout = 2000
+Config.Webhook = 'https://discord.com/api/webhooks/901766539710193735/WohHYQ6RWRrm_jm2114C_MXbVDL6U7hOiqfFQa21SDh_9f_eBIjYbhqB_OWUbRAaiCjV'
 Config.CallRepeats = 10
 Config.OpenPhone = 244
 Config.PhoneApplications = {
