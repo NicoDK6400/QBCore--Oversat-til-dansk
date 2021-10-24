@@ -144,7 +144,7 @@ AddEventHandler('hospital:server:RevivePlayer', function(playerId, isOldMan)
 				TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['firstaid'], "remove")
 				TriggerClientEvent('hospital:client:Revive', Patient.PlayerData.source)
 			else
-				TriggerClientEvent('QBCore:Notify', src, "You don\'t have enough money on you..", "error")
+				TriggerClientEvent('QBCore:Notify', src, "Du er ikke penge nok på dig..", "error")
 			end
 		else
 			Player.Functions.RemoveItem('firstaid', 1)

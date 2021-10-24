@@ -1,6 +1,6 @@
 --[[ COMMANDS ]]--
 
-RegisterCommand('clear', function(source, args, rawCommand)
+RegisterCommand('ryd', function(source, args, rawCommand)
     TriggerClientEvent('chat:client:ClearChat', source)
 end, false)
 

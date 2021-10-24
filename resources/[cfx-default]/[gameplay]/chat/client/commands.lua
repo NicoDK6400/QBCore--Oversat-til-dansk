@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
 end)
 
 
-RegisterCommand('911', function(source, args, rawCommand)
+RegisterCommand('112', function(source, args, rawCommand)
     local source = GetPlayerServerId(PlayerId())
     local name = GetPlayerName(PlayerId())
     local caller = GetPlayerServerId(PlayerId())
@@ -32,7 +32,7 @@ RegisterCommand('911', function(source, args, rawCommand)
     TriggerServerEvent('911', source, caller, msg)
 end, false)
 
-RegisterCommand('311', function(source, args, rawCommand)
+RegisterCommand('114', function(source, args, rawCommand)
     local source = GetPlayerServerId(PlayerId())
     local name = GetPlayerName(PlayerId())
     local caller = GetPlayerServerId(PlayerId())
@@ -82,7 +82,7 @@ AddEventHandler('chat:EmergencySend311', function(fal, caller, msg)
     end
 end)
 
-RegisterCommand('911r', function(target, args, rawCommand)
+RegisterCommand('112s', function(target, args, rawCommand)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         local source = GetPlayerServerId(PlayerId())
         local target = tonumber(args[1])
@@ -92,7 +92,7 @@ RegisterCommand('911r', function(target, args, rawCommand)
     end
 end, false)
 
-RegisterCommand('311r', function(target, args, rawCommand)
+RegisterCommand('114s', function(target, args, rawCommand)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then 
         local source = GetPlayerServerId(PlayerId())
         local target = tonumber(args[1])

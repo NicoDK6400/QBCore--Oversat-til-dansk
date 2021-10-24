@@ -14,7 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-QBCore.Commands.Add("setcryptoworth", "Set crypto værdi", {{name="crypto", help="Navnet på crypto valuta"}, {name="Value", help="Ny værdi af crypto valutaen"}}, false, function(source, args)
+QBCore.Commands.Add("setcryptoworth", "Sæt crypto værdi", {{name="crypto", help="Navnet på crypto valuta"}, {name="Value", help="Ny værdi af crypto valutaen"}}, false, function(source, args)
     local src = source
     local crypto = tostring(args[1])
 

@@ -17,7 +17,7 @@ Vores sider:
 local PlayerJob = {}
 local isLoggedIn = false
 
-RegisterCommand('phone', function()
+RegisterCommand('mobil', function()
     PlayerData = QBCore.Functions.GetPlayerData()
     if not PhoneData.isOpen and isLoggedIn then
         local IsHandcuffed = exports['qb-policejob']:IsHandcuffed()

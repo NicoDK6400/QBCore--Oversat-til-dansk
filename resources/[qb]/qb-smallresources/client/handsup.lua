@@ -20,7 +20,7 @@ local handsup = false
 
 RegisterKeyMapping('hu', 'Put your hands up', 'KEYBOARD', 'X')
 
-RegisterCommand('hu', function()
+RegisterCommand('ho', function()
     local ped = PlayerPedId()
 	RequestAnimDict(animDict)
 	while not HasAnimDictLoaded(animDict) do

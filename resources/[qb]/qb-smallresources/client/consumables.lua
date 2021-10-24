@@ -174,7 +174,7 @@ RegisterNetEvent("consumables:client:ResetArmor")
 AddEventHandler("consumables:client:ResetArmor", function()
     local ped = PlayerPedId()
     if currentVest ~= nil and currentVestTexture ~= nil then 
-        QBCore.Functions.Progressbar("remove_armor", "Removing the body armour..", 2500, false, true, {
+        QBCore.Functions.Progressbar("remove_armor", "Fjerner skudsikker vest..", 2500, false, true, {
             disableMovement = false,
             disableCarMovement = false,
             disableMouse = false,

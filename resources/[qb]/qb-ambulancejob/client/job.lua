@@ -384,7 +384,7 @@ AddEventHandler('hospital:client:TreatWounds', function()
             if player ~= -1 and distance < 5.0 then
                 local playerId = GetPlayerServerId(player)
                 isHealingPerson = true
-                QBCore.Functions.Progressbar("hospital_healwounds", "Healing wounds..", 5000, false, true, {
+                QBCore.Functions.Progressbar("hospital_healwounds", "Hjælper personen..", 5000, false, true, {
                     disableMovement = false,
                     disableCarMovement = false,
                     disableMouse = false,

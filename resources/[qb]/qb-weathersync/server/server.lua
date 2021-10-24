@@ -89,7 +89,7 @@ AddEventHandler('qb-weathersync:server:toggleBlackout', function()
     TriggerEvent('qb-weathersync:server:RequestStateSync')
 end)
 
-RegisterCommand('freezetime', function(source, args)
+RegisterCommand('frystid', function(source, args)
     if source ~= 0 then
         if isAllowedToChange(source) then
             freezeTime = not freezeTime
@@ -111,7 +111,7 @@ RegisterCommand('freezetime', function(source, args)
     end
 end)
 
-RegisterCommand('freezeweather', function(source, args)
+RegisterCommand('frysvejr', function(source, args)
     if source ~= 0 then
         if isAllowedToChange(source) then
             Config.DynamicWeather = not Config.DynamicWeather
@@ -133,7 +133,7 @@ RegisterCommand('freezeweather', function(source, args)
     end
 end)
 
-RegisterCommand('weather', function(source, args)
+RegisterCommand('vejr', function(source, args)
     if source == 0 then
         local validWeatherType = false
         if args[1] == nil then
@@ -202,7 +202,7 @@ RegisterCommand('blackout', function(source)
     end
 end)
 
-RegisterCommand('morning', function(source)
+RegisterCommand('morgen', function(source)
     if source == 0 then
         print(_U('time_console'))
         return
@@ -215,7 +215,7 @@ RegisterCommand('morning', function(source)
     end
 end)
 
-RegisterCommand('noon', function(source)
+RegisterCommand('eftermiddag', function(source)
     if source == 0 then
         print(_U('time_console'))
         return
@@ -228,7 +228,7 @@ RegisterCommand('noon', function(source)
     end
 end)
 
-RegisterCommand('evening', function(source)
+RegisterCommand('aften', function(source)
     if source == 0 then
         print(_U('time_console'))
         return
@@ -241,7 +241,7 @@ RegisterCommand('evening', function(source)
     end
 end)
 
-RegisterCommand('night', function(source)
+RegisterCommand('nat', function(source)
     if source == 0 then
         print(_U('time_console'))
         return
@@ -262,7 +262,7 @@ function ShiftToHour(hour)
     timeOffset = timeOffset - ( ( ((baseTime+timeOffset)/60) % 24 ) - hour ) * 60
 end
 
-RegisterCommand('time', function(source, args, rawCommand)
+RegisterCommand('tid', function(source, args, rawCommand)
     if source == 0 then
         if tonumber(args[1]) ~= nil and tonumber(args[2]) ~= nil then
             local argh = tonumber(args[1])

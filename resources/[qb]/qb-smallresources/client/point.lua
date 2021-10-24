@@ -41,7 +41,7 @@ stopPointing = function()
     ClearPedSecondaryTask(PlayerPedId())
 end
 
-RegisterCommand('point', function()
+RegisterCommand('peg', function()
     if not IsPedInAnyVehicle(PlayerPedId(), false) then
         if mp_pointing then
             stopPointing()
