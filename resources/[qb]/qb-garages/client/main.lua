@@ -249,7 +249,7 @@ function HouseGarage(house)
                 elseif v.state == 1 then
                     v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impounded"
+                    v.state = "Impound"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutGarageVehicle", v, v.state, " Motor: " .. enginePercent.."%", " Karosseri: " .. bodyPercent.."%", " Tank: "..currentFuel.."%")
@@ -320,7 +320,7 @@ function VehicleList()
                 elseif v.state == 1 then
                     v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impounded"
+                    v.state = "Impound"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutVehicle", v, v.state, " Motor: " .. enginePercent .. "%", " Karosseri: " .. bodyPercent.. "%", " Tank: "..currentFuel.. "%")
@@ -356,7 +356,7 @@ function GangVehicleList()
                 elseif v.state == 1 then
                     v.state = "I garage"
                 elseif v.state == 2 then
-                    v.state = "Impounded"
+                    v.state = "Impound"
                 end
 
                 Menu.addButton(QBCore.Shared.Vehicles[v.vehicle]["name"], "TakeOutGangVehicle", v, v.state, " Motor: " .. enginePercent .. "%", " Karosseri: " .. bodyPercent.. "%", " Tank: "..currentFuel.. "%")
@@ -398,7 +398,7 @@ function TakeOutVehicle(vehicle)
         end, Garages[currentGarage].spawnPoint, true)
     elseif vehicle.state == "Ude" then
         QBCore.Functions.Notify("Er din bil gemt?", "error", 2500)
-    elseif vehicle.state == "Impounded" then
+    elseif vehicle.state == "Impound" then
         QBCore.Functions.Notify("Dette køretøj blev impounded af politiet", "error", 4000)
     end
 end
@@ -434,13 +434,13 @@ function TakeOutGangVehicle(vehicle)
         end, GangGarages[currentGarage].spawnPoint, true)
     elseif vehicle.state == "Ude" then
         QBCore.Functions.Notify("Er køretøjet gemt?", "error", 2500)
-    elseif vehicle.state == "Impounded" then
+    elseif vehicle.state == "Impound" then
         QBCore.Functions.Notify("Dette køretøj blev impounded af politiet", "error", 4000)
     end
 end
 
 function TakeOutDepotVehicle(vehicle)
-    if vehicle.state == "Impounded" then
+    if vehicle.state == "Impound" then
         TriggerServerEvent("qb-garage:server:PayDepotPrice", vehicle)
         Citizen.Wait(1000)
     end
