@@ -531,7 +531,7 @@ SetupCall = function(cData) {
                         QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du er allerede i et opkald!");
                     }
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "This person is in a call!");
+                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er i et opkald!");
                 }
             } else {
                 QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke tilgængelig!");
