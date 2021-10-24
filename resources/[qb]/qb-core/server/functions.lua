@@ -70,7 +70,8 @@ end
 QBCore.Functions.GetPlayerByPhone = function(number)
 	for src, player in pairs(QBCore.Players) do
 		local cid = citizenid
-		if QBCore.Players[src].PlayerData.charinfo.phone == number then
+		
+		if tostring(QBCore.Players[src].PlayerData.charinfo.phone) == tostring(number) then
 			return QBCore.Players[src]
 		end
 	end
