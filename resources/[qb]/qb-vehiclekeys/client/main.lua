@@ -133,7 +133,7 @@ CreateThread(function()
                 local vehpos = GetEntityCoords(veh)
                 SetVehicleEngineOn(veh, false, false, true)
                 if GetPedInVehicleSeat(veh, -1) == PlayerPedId() then
-                    DrawText3D(vehpos.x, vehpos.y, vehpos.z, "~g~H~w~ - Hotwire")
+                    DrawText3D(vehpos.x, vehpos.y, vehpos.z, "~g~H~w~ - Kortslut")
                     if IsControlJustPressed(0, 74) then
                         Hotwire()
                     end
