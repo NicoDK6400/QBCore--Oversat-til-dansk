@@ -218,10 +218,16 @@ Vores sider:
     font-size: 1.1vh;
 }
 
-.garage-cardetails-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+
+.return-track {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.return-track > div {
+    margin: 2px;
+    width: 50%;
     height: 5vh;
     background-color: rgb(233, 233, 233);
     border-radius: .3vh;
@@ -232,6 +238,6 @@ Vores sider:
     font-size: 1.4vh;
 }
 
-.garage-cardetails-footer:hover {
+.return-track > div:hover {
     background-color: rgb(212, 212, 212);
 }

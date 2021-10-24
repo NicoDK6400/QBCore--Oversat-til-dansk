@@ -1642,6 +1642,7 @@ AddEventHandler('qb-phone:client:GiveContactDetails', function()
     if player ~= -1 and distance < 2.5 then
         local PlayerId = GetPlayerServerId(player)
         TriggerServerEvent('qb-phone:server:GiveContactDetails', PlayerId)
+        QBCore.Functions.Notify("Nummeret er blevet modtaget", "success")
     else
         QBCore.Functions.Notify("Ingen i nærheden!", "error")
     end
@@ -2022,9 +2023,36 @@ function DisableDisplayControlActions()
     DisableControlAction(0, 202, true) -- disable escape
     DisableControlAction(0, 322, true) -- disable escape
 
-    DisableControlAction(0, 245, true) -- disable chat  
+    DisableControlAction(0, 245, true) -- disable chat
 end
 
 function InPhone()
     return PhoneData.isOpen
+end
+
+RegisterNUICallback('track-vehicle', function(data, cb)
+    local veh = data.veh
+
+    if findVehFromPlateAndLocate(veh.plate) then
+        QBCore.Functions.Notify("Dit køretøj er markeret", "success")
+    else
+        QBCore.Functions.Notify("Køretøjet kunne ikke findes", "error")
+    end
+end)
+
+function findVehFromPlateAndLocate(plate)
+
+    local gameVehicles = QBCore.Functions.GetVehicles()
+
+    for i = 1, #gameVehicles do
+        local vehicle = gameVehicles[i]
+
+        if DoesEntityExist(vehicle) then
+            if GetVehicleNumberPlateText(vehicle) == plate then
+                local vehCoords = GetEntityCoords(vehicle)
+                SetNewWaypoint(vehCoords.x, vehCoords.y)
+                return true
+            end
+        end
+    end
 end
