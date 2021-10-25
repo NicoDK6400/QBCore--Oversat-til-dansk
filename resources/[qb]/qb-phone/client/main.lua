@@ -29,7 +29,7 @@ RegisterCommand('mobil', function()
     end
 end)
 
-RegisterKeyMapping('phone', 'Open Phone', 'keyboard', 'M')
+RegisterKeyMapping('mobil', 'Åben Mobil', 'keyboard', 'M')
 
 phoneProp = 0
 local phoneModel = `prop_npc_phone_02`
