@@ -208,7 +208,7 @@ QBCore.Functions.HasPermission = function(source, permission)
 end
 
 QBCore.Functions.GetPermission = function(source)
-	local retval = "user"
+	local retval = 'user'
 	Player = QBCore.Functions.GetPlayer(source)
 	local license = QBCore.Functions.GetIdentifier(source, 'license')
 	if Player ~= nil then
@@ -224,16 +224,14 @@ end
 QBCore.Functions.IsOptin = function(source)
 	local retval = false
 	local license = QBCore.Functions.GetIdentifier(source, 'license')
-	if QBCore.Functions.HasPermission(source, "admin") then
-		retval = QBCore.Config.Server.PermissionList[license].optin
-		return retval
+	if QBCore.Functions.HasPermission(source, 'admin') then
+		return QBCore.Config.Server.PermissionList[license].optin
     end
-    return false
 end
 
 QBCore.Functions.ToggleOptin = function(source)
 	local license = QBCore.Functions.GetIdentifier(source, 'license')
-	if QBCore.Functions.HasPermission(source, "admin") then
+	if QBCore.Functions.HasPermission(source, 'admin') then
 		QBCore.Config.Server.PermissionList[license].optin = not QBCore.Config.Server.PermissionList[license].optin
 	end
 end

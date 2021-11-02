@@ -212,11 +212,11 @@ QB.GarageLabel = {
 }
 
 QB.Classes = {
-    [0] = 'compacts',  
-    [1] = 'sedans',  
-    [2] = 'suvs',  
-    [3] = 'coupes',  
-    [4] = 'muscle',  
+    [0] = 'compacts',
+    [1] = 'sedans',
+    [2] = 'suvs',
+    [3] = 'coupes',
+    [4] = 'muscle',
     [5] = 'sportsclassics ', 
     [6] = 'sports',  
     [7] = 'super',  

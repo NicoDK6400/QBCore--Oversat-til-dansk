@@ -30,7 +30,7 @@ AddEventHandler('qb-scoreboard:client:SetActivityBusy', function(activity, busy)
     Config.IllegalActions[activity].busy = busy
 end)
 
-RegisterCommand('scoreboard', function()
+RegisterCommand('spillerliste', function()
     if not scoreboardOpen then
         QBCore.Functions.TriggerCallback('qb-scoreboard:server:GetPlayersArrays', function(playerList)
             QBCore.Functions.TriggerCallback('qb-scoreboard:server:GetActivity', function(cops, ambulance)
@@ -64,7 +64,7 @@ RegisterCommand('scoreboard', function()
             local PlayerName = GetPlayerName(player)
             local PlayerCoords = GetEntityCoords(PlayerPed)
 
-            if not PlayerOptin[PlayerId].permission then
+            if Config.ShowIDforALL or PlayerOptin[PlayerId].permission then
                 DrawText3D(PlayerCoords.x, PlayerCoords.y, PlayerCoords.z + 1.0, '['..PlayerId..']')
             end
         end
