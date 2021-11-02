@@ -46,7 +46,7 @@ function SetupCryptoData(Crypto) {
             var Element =   '<div class="cryptotab-course-block">' +
                                 '<i class="fas fa-exchange-alt"></i>' +
                                 '<span class="cryptotab-course-block-title">Kurs ændringer</span>' +
-                                '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">$'+change.PreviousWorth+'</span> til <span style="font-size: 1.3vh;">$'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
+                                '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">DKK'+change.PreviousWorth+'</span> til <span style="font-size: 1.3vh;">DKK'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
                             '</div>';
     
             $(".cryptotab-course-list").append(Element);                
@@ -54,8 +54,8 @@ function SetupCryptoData(Crypto) {
     }
 
     $(".crypto-portofolio").find('p').html(CryptoData.Portfolio);
-    $(".crypto-course").find('p').html("$"+CryptoData.Worth);
-    $(".crypto-volume").find('p').html("$"+Math.ceil(CryptoData.Portfolio * CryptoData.Worth));
+    $(".crypto-course").find('p').html("DKK"+CryptoData.Worth);
+    $(".crypto-volume").find('p').html("DKK"+Math.ceil(CryptoData.Portfolio * CryptoData.Worth));
 }
 
 function UpdateCryptoData(Crypto) {
@@ -79,7 +79,7 @@ function UpdateCryptoData(Crypto) {
             var Element =   '<div class="cryptotab-course-block">' +
                                 '<i class="fas fa-exchange-alt"></i>' +
                                 '<span class="cryptotab-course-block-title">Kurs ændringer</span>' +
-                                '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">$'+change.PreviousWorth+'</span> til <span style="font-size: 1.3vh;">$'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
+                                '<span class="cryptotab-course-block-happening"><span style="font-size: 1.3vh;">DKK'+change.PreviousWorth+'</span> til <span style="font-size: 1.3vh;">DKK'+change.NewWorth+'</span>'+PercentageElement+'</span>' +
                             '</div>';
     
             $(".cryptotab-course-list").append(Element);                
@@ -87,8 +87,8 @@ function UpdateCryptoData(Crypto) {
     }
 
     $(".crypto-portofolio").find('p').html(CryptoData.Portfolio);
-    $(".crypto-course").find('p').html("$"+CryptoData.Worth);
-    $(".crypto-volume").find('p').html("$"+Math.ceil(CryptoData.Portfolio * CryptoData.Worth));
+    $(".crypto-course").find('p').html("DKK"+CryptoData.Worth);
+    $(".crypto-volume").find('p').html("DKK"+Math.ceil(CryptoData.Portfolio * CryptoData.Worth));
 }
 
 function RefreshCryptoTransactions(data) {
