@@ -177,7 +177,7 @@ $(document).on('click', '#buy-crypto', function(e){
                     UpdateCryptoData(CryptoData)
                     CloseCryptoPage()
                     QB.Phone.Data.PlayerData.money.bank = parseInt(QB.Phone.Data.PlayerData.money.bank) - parseInt(Price);
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- er blevet udbetalt fra din konto!", "#badc58", 2500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", " "+Price+" DKK er blevet udbetalt fra din konto!", "#badc58", 2500);
                 } else {
                     QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok penge..", "#badc58", 1500);
                 }
@@ -208,7 +208,7 @@ $(document).on('click', '#sell-crypto', function(e){
                     UpdateCryptoData(CryptoData)
                     CloseCryptoPage()
                     QB.Phone.Data.PlayerData.money.bank = parseInt(QB.Phone.Data.PlayerData.money.bank) + parseInt(Price);
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "&#36; "+Price+",- er blevet tilføjet til din konto!", "#badc58", 2500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", " "+Price+" DKK er blevet tilføjet til din konto!", "#badc58", 2500);
                 } else {
                     QB.Phone.Notifications.Add("fas fa-chart-pie", "Crypto", "Du har ikke nok Qbits..", "#badc58", 1500);
                 }

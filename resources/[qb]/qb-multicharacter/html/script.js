@@ -116,8 +116,8 @@ function setupCharInfo(cData) {
         '<div class="character-info-box"><span id="info-label">Køn: </span><span class="char-info-js">'+gender+'</span></div>' +
         '<div class="character-info-box"><span id="info-label">Nationalitet: </span><span class="char-info-js">'+cData.charinfo.nationality+'</span></div>' +
         '<div class="character-info-box"><span id="info-label">Arbejde: </span><span class="char-info-js">'+cData.job.label+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Kontant: </span><span class="char-info-js">&#36; '+cData.money.cash+'</span></div>' +
-        '<div class="character-info-box"><span id="info-label">Bank: </span><span class="char-info-js">&#36; '+cData.money.bank+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Kontant: </span><span class="char-info-js">&#187; '+cData.money.cash+'</span></div>' +
+        '<div class="character-info-box"><span id="info-label">Bank: </span><span class="char-info-js">&#187; '+cData.money.bank+'</span></div>' +
         '<div class="character-info-box"><span id="info-label">Telefonnummer: </span><span class="char-info-js">'+cData.charinfo.phone+'</span></div>' +
         '<div class="character-info-box"><span id="info-label">Kontonummer: </span><span class="char-info-js">'+cData.charinfo.account+'</span></div>');
     }

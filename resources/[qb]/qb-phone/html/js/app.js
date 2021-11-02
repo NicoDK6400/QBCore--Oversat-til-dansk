@@ -546,7 +546,7 @@ $(document).ready(function(){
                 QB.Phone.Notifications.LoadMentionedTweets(event.data.Tweets);                
                 break;
             case "UpdateBank":
-                $(".bank-app-account-balance").html("&#36; "+event.data.NewBalance);
+                $(".bank-app-account-balance").html("&#187; "+event.data.NewBalance);
                 $(".bank-app-account-balance").data('balance', event.data.NewBalance);
                 break;
             case "UpdateChat":
