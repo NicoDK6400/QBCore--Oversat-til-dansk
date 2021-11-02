@@ -153,21 +153,50 @@ QBCore.Commands.Add("clearinv", "Ryd spillerens inventory (Kun Admin)", {{name="
 	end
 end, "admin")
 
-QBCore.Commands.Add("ooc", "OOC chat besked", {}, false, function(source, args)
-	local message = table.concat(args, " ")
-	local Players = QBCore.Functions.GetPlayers()
-	local Player = QBCore.Functions.GetPlayer(source)
+QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
+    local src = source
+    local message = table.concat(args, ' ')
+    local Players = QBCore.Functions.GetPlayers()
+    local Player = QBCore.Functions.GetPlayer(src)
+    for k, v in pairs(Players) do
+        if v == src then
+			TriggerClientEvent('chat:addMessage', v, {
+                color = { 0, 0, 255},
+                multiline = true,
+                args = {'OOC | '.. GetPlayerName(src), message}
+            })
+        elseif #(GetEntityCoords(GetPlayerPed(src)) - GetEntityCoords(GetPlayerPed(v))) < 20.0 then
+            TriggerClientEvent('chat:addMessage', v, {
+                color = { 0, 0, 255},
+                multiline = true,
+                args = {'OOC | '.. GetPlayerName(src), message}
+            })
+		elseif QBCore.Functions.HasPermission(v, 'admin') then
+            if QBCore.Functions.IsOptin(v) then
+				TriggerClientEvent('chat:addMessage', v, {
+                    color = { 0, 0, 255},
+                    multiline = true,
+                    args = {'OOC | '.. GetPlayerName(src), message}
+                })
+                TriggerEvent('qb-log:server:CreateLog', 'ooc', 'OOC', 'white', '**' .. GetPlayerName(src) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. src .. ') **Besked:** ' .. message, false)
+            end
+        end
+    end
+end, 'user')
 
-	for k, v in pairs(QBCore.Functions.GetPlayers()) do
-		if v == source then
-			TriggerClientEvent('chatMessage', v, "OOC " .. GetPlayerName(source), "normal", message)
-		elseif #(GetEntityCoords(GetPlayerPed(source)) - GetEntityCoords(GetPlayerPed(v))) < 20.0 then
-			TriggerClientEvent('chatMessage', v, "OOC " .. GetPlayerName(source), "normal", message)
-		elseif QBCore.Functions.HasPermission(v, "admin") then
-			if QBCore.Functions.IsOptin(v) then
-				TriggerClientEvent('chatMessage', v, "Proximity OOC " .. GetPlayerName(source), "normal", message)
-				TriggerEvent("qb-log:server:CreateLog", "ooc", "OOC", "white", "**"..GetPlayerName(source).."** (CitizenID: "..Player.PlayerData.citizenid.." | ID: "..source..") **Message:** " ..message, false)
-			end
-		end
-	end
-end)
+-- Me command
+
+QBCore.Commands.Add('me', 'Skriv lokale beskeder', {name = 'message', help = 'meddelelse'}, false, function(source, args)
+    local src = source
+    local ped = GetPlayerPed(src)
+    local pCoords = GetEntityCoords(ped)
+    local msg = table.concat(args, ' ')
+    if msg == '' then return end
+    for k,v in pairs(QBCore.Functions.GetPlayers()) do
+        local target = GetPlayerPed(v)
+        local tCoords = GetEntityCoords(target)
+        if #(pCoords - tCoords) < 20 then
+            TriggerClientEvent('QBCore:Command:ShowMe3D', v, src, msg)
+        end
+    end
+end, 'user')
