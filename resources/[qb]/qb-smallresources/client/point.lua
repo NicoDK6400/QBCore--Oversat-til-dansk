@@ -85,4 +85,4 @@ RegisterCommand('peg', function()
         end
     end
 end)
-RegisterKeyMapping('point', 'Toggles Point', 'keyboard', 'b')
+RegisterKeyMapping('peg', 'Peg på ting/folk', 'keyboard', 'b')

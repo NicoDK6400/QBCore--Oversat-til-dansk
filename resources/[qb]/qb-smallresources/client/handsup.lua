@@ -18,7 +18,7 @@ local animDict = "missminuteman_1ig_2"
 local anim = "handsup_enter"
 local handsup = false
 
-RegisterKeyMapping('hu', 'Put your hands up', 'KEYBOARD', 'X')
+RegisterKeyMapping('ho', 'Overgiv dig', 'KEYBOARD', 'X')
 
 RegisterCommand('ho', function()
     local ped = PlayerPedId()
@@ -27,6 +27,7 @@ RegisterCommand('ho', function()
 		Citizen.Wait(100)
 	end
     handsup = not handsup
+    if exports['qb-policejob']:IsHandcuffed() then return end
     if handsup then
         TaskPlayAnim(ped, animDict, anim, 8.0, 8.0, -1, 50, 0, false, false, false)
         if IsPedInAnyVehicle(ped, false) then
