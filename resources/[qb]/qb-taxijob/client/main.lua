@@ -259,16 +259,12 @@ end)
 function calculateFareAmount()
     if meterIsOpen and meterActive then
         start = lastLocation
-  
         if start then
             current = GetEntityCoords(PlayerPedId())
-            distance = #(start - current) --Not the best result but work
+            distance = CalculateTravelDistanceBetweenPoints(start, current)
             meterData['distanceTraveled'] = distance
-    
             fareAmount = (meterData['distanceTraveled'] / 400.00) * meterData['fareAmount']
-    
             meterData['currentFare'] = math.ceil(fareAmount)
-
             SendNUIMessage({
                 action = "updateMeter",
                 meterData = meterData
@@ -284,18 +280,13 @@ Citizen.CreateThread(function()
 
         if QBCore ~= nil then
             if isLoggedIn then
-
                 if PlayerData.job.name == "taxi" then
                     local ped = PlayerPedId()
                     local pos = GetEntityCoords(ped)
-
                     local vehDist = #(pos - vector3(Config.Location.x, Config.Location.y, Config.Location.z))
-
                     if vehDist < 30 then
                         inRange = true
-
                         DrawMarker(2, Config.Location.x, Config.Location.y, Config.Location.z, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.3, 0.5, 0.2, 200, 0, 0, 222, false, false, false, true, false, false, false)
-
                         if vehDist < 1.5 then
                             if whitelistedVehicle() then
                                 DrawText3D(Config.Location.x, Config.Location.y, Config.Location.z + 0.3, '[E] Parking')
@@ -317,11 +308,9 @@ Citizen.CreateThread(function()
                 end
             end
         end
-
         if not inRange then
             Citizen.Wait(3000)
         end
-
         Citizen.Wait(3)
     end
 end)
@@ -329,7 +318,6 @@ end)
 RegisterNetEvent('qb-taxi:client:toggleMeter')
 AddEventHandler('qb-taxi:client:toggleMeter', function()
     local ped = PlayerPedId()
-    
     if IsPedInAnyVehicle(ped, false) then
         if whitelistedVehicle() then 
             if not meterIsOpen and IsDriver() then
@@ -410,7 +398,6 @@ function whitelistedVehicle()
     if veh == GetHashKey("dynasty") then
         retval = true
     end
-    
     return retval
 end
 
@@ -433,7 +420,6 @@ function VehicleList()
     for k, v in pairs(Config.AllowedVehicles) do
         Menu.addButton(Config.AllowedVehicles[k].label, "TakeVehicle", k, "Garage", " Motor: 100%", " Karosseri: 100%", " Tank: 100%")
     end
-        
     Menu.addButton("Tilbage", "TaxiGarage",nil)
 end
 
@@ -473,13 +459,11 @@ end
 
 Citizen.CreateThread(function()
     TaxiBlip = AddBlipForCoord(Config.Location)
-
     SetBlipSprite (TaxiBlip, 198)
     SetBlipDisplay(TaxiBlip, 4)
     SetBlipScale  (TaxiBlip, 0.6)
     SetBlipAsShortRange(TaxiBlip, true)
     SetBlipColour(TaxiBlip, 5)
-
     BeginTextCommandSetBlipName("STRING")
     AddTextComponentSubstringPlayerName("Downtown Taxa")
     EndTextCommandSetBlipName(TaxiBlip)
