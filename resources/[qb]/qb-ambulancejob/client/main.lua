@@ -388,9 +388,11 @@ AddEventHandler('hospital:client:SetBed', function(id, isTaken)
 end)
 
 
-RegisterNetEvent('hospital:client:RespawnAtHospital')
-AddEventHandler('hospital:client:RespawnAtHospital', function()
+RegisterNetEvent('hospital:client:RespawnAtHospital', function()
     TriggerServerEvent("hospital:server:RespawnAtHospital")
+    if exports["qb-policejob"]:IsHandcuffed() then
+        TriggerEvent("police:client:GetCuffed", -1)
+    end
     TriggerEvent("police:client:DeEscort")
 end)
 
@@ -700,8 +702,8 @@ end
 function MenuOutfits()
     MenuTitle = "Outfits"
     ClearMenu()
-    Menu.addButton("My Outfits", "OutfitsLijst", nil)
-    Menu.addButton("Close Menu", "closeMenuFull", nil) 
+    Menu.addButton("Mine Outfits", "OutfitsLijst", nil)
+    Menu.addButton("Luk", "closeMenuFull", nil) 
 end
 
 function changeOutfit()
@@ -733,9 +735,9 @@ function optionMenu(outfitData)
     MenuTitle = "Hvad nu?"
     ClearMenu()
 
-    Menu.addButton("Choose Outfit", "selectOutfit", outfitData) 
-    Menu.addButton("Delete Outfit", "removeOutfit", outfitData) 
-    Menu.addButton("Back", "OutfitsLijst",nil)
+    Menu.addButton("Vælg Outfit", "selectOutfit", outfitData) 
+    Menu.addButton("Slet Outfit", "removeOutfit", outfitData) 
+    Menu.addButton("Tilbage", "OutfitsLijst",nil)
 end
 
 function selectOutfit(oData)
