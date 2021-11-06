@@ -2837,7 +2837,7 @@ var requiredItemOpen = false;
         if (itemBoxtimer !== null) {
             clearTimeout(itemBoxtimer);
         }
-        var type = "Used";
+        var type = "Brugt";
         if (data.type == "add") {
             type = "Modtaget";
         } else if (data.type == "remove") {
