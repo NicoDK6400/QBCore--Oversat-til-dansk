@@ -844,7 +844,7 @@ QBShared.Jobs = {
         },
 	},
 	["tow"] = {
-		label = "Bugsering",
+		label = "Bugseringsfirma",
 		defaultDuty = true,
 		grades = {
             ['0'] = {
