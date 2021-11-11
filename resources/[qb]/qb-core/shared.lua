@@ -24,42 +24,37 @@ for i = 65,  90 do table.insert(StringCharset, string.char(i)) end
 for i = 97, 122 do table.insert(StringCharset, string.char(i)) end
 
 QBShared.RandomStr = function(length) -- QBShared.RandomStr falls under GPL License here: [esxlicense]/LICENSE
-	if length > 0 then
-		return QBShared.RandomStr(length-1) .. StringCharset[math.random(1, #StringCharset)]
-	else
-		return ''
-	end
+	if length <= 0 then return '' end
+    return QBShared.RandomStr(length - 1) .. StringCharset[math.random(1, #StringCharset)]
 end
 
 QBShared.RandomInt = function(length)
-	if length > 0 then
-		return QBShared.RandomInt(length-1) .. NumberCharset[math.random(1, #NumberCharset)]
-	else
-		return ''
-	end
+    if length <= 0 then return '' end
+    return QBShared.RandomInt(length - 1) .. NumberCharset[math.random(1, #NumberCharset)]
 end
 
 QBShared.SplitStr = function(str, delimiter)
-	local result = { }
-	local from  = 1
-	local delim_from, delim_to = string.find( str, delimiter, from  )
-	while delim_from do
-		table.insert( result, string.sub( str, from , delim_from-1 ) )
-		from  = delim_to + 1
-		delim_from, delim_to = string.find( str, delimiter, from  )
-	end
-	table.insert( result, string.sub( str, from  ) )
-	return result
+    local result = { }
+    local from = 1
+    local delim_from, delim_to = string.find(str, delimiter, from)
+    while delim_from do
+		result[#result+1] = string.sub(str, from, delim_from - 1)
+        from = delim_to + 1
+        delim_from, delim_to = string.find(str, delimiter, from)
+    end
+	result[#result+1] = string.sub(str, from)
+    return result
 end
 
--- Math Rounding Credits: http://lua-users.org/wiki/SimpleRound
-QBShared.Sign = function(v)
-	return (v >= 0 and 1) or -1
+QBShared.Trim = function(value)
+	if not value then return nil end
+    return (string.gsub(value, '^%s*(.-)%s*$', '%1'))
 end
 
-QBShared.Round = function(v, bracket)
-	bracket = bracket or 1
-	return QBShared.Sign(v/bracket + QBShared.Sign(v) * 0.5) * bracket
+QBShared.Round = function(value, numDecimalPlaces)
+    if not numDecimalPlaces then return math.floor(value + 0.5) end
+    local power = 10 ^ numDecimalPlaces
+    return math.floor((value * power) + 0.5) / (power)
 end
 
 QBShared.StarterItems = {
