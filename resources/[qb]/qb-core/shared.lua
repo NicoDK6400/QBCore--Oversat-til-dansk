@@ -407,6 +407,8 @@ QBShared.Items = {
 	["stripedbass"] 			     = {["name"] = "stripedbass", 			        ["label"] = "Striped Bass",             ["weight"] = 1111,      ["type"] = "item",      ["image"] = "stripedbass.png",          ["unique"] = false,     ["useable"] = true,     ["shouldClose"] = true,    ["combinable"] = nil,   ["description"] = "En stribet bas"},
 	["fishingrod"] 			 		 = {["name"] = "fishingrod", 					["label"] = "Fiskestang", 				["weight"] = 5000, 		["type"] = "item", 		["image"] = "fishingrod.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "En fiske stang, føler du dig hedlig?"},	
 	["fishingbait"] 			     = {["name"] = "fishingbait", 					["label"] = "Fiske madding", 			["weight"] = 400, 		["type"] = "item", 		["image"] = "fishbait.png", 			["unique"] = false, 	["useable"] = true, 	["shouldClose"] = true,	   ["combinable"] = nil,   ["description"] = "Fiske madding"},
+	["member"]						 = {["name"] = "member",						["label"] = "Casino Membership",		["weight"] = 500,		["type"] = "item",		["image"] = "member.png",				["unique"] = false,		["useable"] = false,	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino Member Card"},
+	["vip"]							 = {["name"] = "vip", 							["label"] = "V.I.P Membership",			["weight"] = 500,		["type"] = "item",		["image"] = "vip.png",					["unique"] = false,		["useable"] = false,	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "Diamond Casino V.I.P Card"},
 }
 
 -- // HASH WEAPON ITEMS, NEED SOMETIMES TO GET INFO FOR CLIENT
