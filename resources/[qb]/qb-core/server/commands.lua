@@ -185,8 +185,8 @@ QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
 end, 'user')
 
 -- Me command
---[[
-QBCore.Commands.Add("me", "Skriv lokale beskeder", {name = "message", help = "meddelelse"}, false, function(source, args)
+
+QBCore.Commands.Add('me', 'Skriv dine me handlinger', {}, false, function(source, args)
     local src = source
     local ped = GetPlayerPed(src)
     local pCoords = GetEntityCoords(ped)
@@ -200,4 +200,3 @@ QBCore.Commands.Add("me", "Skriv lokale beskeder", {name = "message", help = "me
         end
     end
 end, "user")
---]]

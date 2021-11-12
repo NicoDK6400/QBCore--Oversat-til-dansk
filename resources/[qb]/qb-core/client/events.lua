@@ -150,7 +150,7 @@ AddEventHandler('QBCore:Client:UseItem', function(item)
 	TriggerServerEvent("QBCore:Server:UseItem", item)
 end)
 
---[[
+
 -- Me command
 
 local function Draw3DText(coords, str)
@@ -183,4 +183,3 @@ RegisterNetEvent('QBCore:Command:ShowMe3D', function(senderId, msg)
         end
     end)
 end)
---]]
