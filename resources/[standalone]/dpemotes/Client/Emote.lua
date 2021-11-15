@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+QBCore = exports['qb-core']:GetCoreObject()
+
 -- You probably shouldnt touch these.
 local AnimationDuration = -1
 local ChosenAnimation = ""
