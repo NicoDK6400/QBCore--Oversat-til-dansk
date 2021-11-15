@@ -24,7 +24,6 @@ ui_page 'html/index.html'
 
 shared_scripts {
     'config.lua',
-	'@qb-core/import.lua',
     '@qb-apartments/config.lua',
     '@qb-garages/config.lua',
 }

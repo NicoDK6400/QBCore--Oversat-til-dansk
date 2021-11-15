@@ -13,7 +13,7 @@ Vores sider:
   • Discord: https://discord.gg/dkfivem
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
-
+local QBCore = exports['qb-core']:GetCoreObject()
 local PlayerJob = {}
 local isLoggedIn = false
 
