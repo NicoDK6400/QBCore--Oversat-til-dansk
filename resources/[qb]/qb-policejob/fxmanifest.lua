@@ -20,10 +20,7 @@ game 'gta5'
 description 'QB-PoliceJob'
 version '1.0.0'
 
-shared_script { 
-	'config.lua',
-	'@qb-core/import.lua'
-}
+shared_script 'config.lua'
 
 client_scripts {
 	'client/main.lua',

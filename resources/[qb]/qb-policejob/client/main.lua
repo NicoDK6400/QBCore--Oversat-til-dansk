@@ -13,7 +13,7 @@ Vores sider:
   • Discord: https://discord.gg/dkfivem
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
-
+QBCore = exports['qb-core']:GetCoreObject()
 isLoggedIn = true
 isHandcuffed = false
 cuffType = 1

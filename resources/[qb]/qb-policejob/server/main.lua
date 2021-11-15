@@ -21,6 +21,7 @@ local Casings = {}
 local BloodDrops = {}
 local FingerDrops = {}
 local Objects = {}
+local QBCore = exports['qb-core']:GetCoreObject()
 
 Citizen.CreateThread(function()
     while true do
