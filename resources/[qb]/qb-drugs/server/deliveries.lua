@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterServerEvent('qb-drugs:server:updateDealerItems')
 AddEventHandler('qb-drugs:server:updateDealerItems', function(itemData, amount, dealer)
     local src = source
