@@ -14,12 +14,13 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local creatingCharacter = false
 local cam = -1
 local heading = 332.219879
 local zoom = "character"
 local customCamLocation = nil
-local isLoggedIn = false
 local PlayerData = {}
 local previousSkinData = {}
 
@@ -368,7 +369,7 @@ end)
 Citizen.CreateThread(function()
     while true do
 
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
 
             local ped = PlayerPedId()
             local pos = GetEntityCoords(ped)
@@ -424,7 +425,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
             local ped = PlayerPedId()
             local pos = GetEntityCoords(ped)
             local inRange = false
