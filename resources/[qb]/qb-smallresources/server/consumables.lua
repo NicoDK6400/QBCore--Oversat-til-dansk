@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+QBCore = exports['qb-core']:GetCoreObject()
+
 QBCore.Functions.CreateUseableItem("joint", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
 	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
