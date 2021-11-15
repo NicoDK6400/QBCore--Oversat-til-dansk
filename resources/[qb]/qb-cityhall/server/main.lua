@@ -14,8 +14,9 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local DrivingSchools = {
-    
 }
 
 RegisterServerEvent('qb-cityhall:server:requestId')
@@ -58,9 +59,9 @@ RegisterServerEvent('qb-cityhall:server:sendDriverTest')
 AddEventHandler('qb-cityhall:server:sendDriverTest', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    for k, v in pairs(DrivingSchools) do 
+    for k, v in pairs(DrivingSchools) do
         local SchoolPlayer = QBCore.Functions.GetPlayerByCitizenId(v)
-        if SchoolPlayer ~= nil then 
+        if SchoolPlayer ~= nil then
             TriggerClientEvent("qb-cityhall:client:sendDriverEmail", SchoolPlayer.PlayerData.source, Player.PlayerData.charinfo)
         else
             local mailData = {
@@ -154,7 +155,7 @@ end
 
 function IsWhitelistedSchool(citizenid)
     local retval = false
-    for k, v in pairs(DrivingSchools) do 
+    for k, v in pairs(DrivingSchools) do
         if v == citizenid then
             retval = true
         end
