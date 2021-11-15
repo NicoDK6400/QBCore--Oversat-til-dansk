@@ -14,6 +14,10 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+-- Variables
+
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local isLoggedIn = false
 local PlayerData = {}
 
