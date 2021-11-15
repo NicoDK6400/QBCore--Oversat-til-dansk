@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+
+local QBCore = exports['qb-core']:GetCoreObject()
 ---======================---
 -----
 ---======================---
@@ -47,7 +49,6 @@ if ActiveMission == 0 then
 	if copsOnDuty >= ActivePolice then
 		TriggerClientEvent("AttackTransport:Pozwolwykonac", _source)
 		xPlayer.Functions.RemoveMoney('bank', ActivationCost, "armored-truck")
-		
 		OdpalTimer()
     else
 		TriggerClientEvent('QBCore:Notify', _source, 'Der mangler mindst '..ActivePolice.. ' SASP for at aktivere missionen.')
@@ -62,9 +63,7 @@ RegisterServerEvent('qb-armoredtruckheist:server:callCops')
 AddEventHandler('qb-armoredtruckheist:server:callCops', function(streetLabel, coords)
     local place = "Pengetransport"
     local msg = "Alarmen er blevet aktiveret fra "..place.. " ved " ..streetLabel
-
     TriggerClientEvent("qb-armoredtruckheist:client:robberyCall", -1, streetLabel, coords)
-
 end)
 
 function OdpalTimer()
@@ -89,14 +88,11 @@ AddEventHandler('AttackTransport:graczZrobilnapad', function(moneyCalc)
 	}
 	xPlayer.Functions.AddItem('markedbills', bags, false, info)
 	TriggerClientEvent('inventory:client:ItemBox', _source, QBCore.Shared.Items['markedbills'], "add")
-
 	local chance = math.random(1, 100)
 	TriggerClientEvent('QBCore:Notify', _source, 'Du tog '..bags..' poser med penge fra køretøjet')
-
 	if chance >= 95 then
 	xPlayer.Functions.AddItem('security_card_01', 1)
 	TriggerClientEvent('inventory:client:ItemBox', _source, QBCore.Shared.Items['security_card_01'], "add")
 	end
-
 Wait(2500)
 end)

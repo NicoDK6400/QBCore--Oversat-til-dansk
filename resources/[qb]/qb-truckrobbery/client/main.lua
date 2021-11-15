@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+
+local QBCore = exports['qb-core']:GetCoreObject()
 ---======================---
 ------
 ---======================---
@@ -88,7 +90,6 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
             local plyCoords = GetEntityCoords(PlayerPedId(), false) 
             local dist = #(plyCoords - vector3(MissionMarker.x, MissionMarker.y, MissionMarker.z))
-
 			if dist <= 25.0  then
 				if not DoesEntityExist(dealer) then
 				RequestModel("s_m_y_dealer_01")
@@ -99,12 +100,11 @@ Citizen.CreateThread(function()
 				SetEntityHeading(dealer, 1.8)
 				SetBlockingOfNonTemporaryEvents(dealer, true)
 				TaskStartScenarioInPlace(dealer, "WORLD_HUMAN_AA_SMOKE", 0, false)
-				end	
+				end
 				DrawMarker(25, MissionMarker.x, MissionMarker.y, MissionMarker.z-0.90, 0, 0, 0, 0, 0, 0, 1.301, 1.3001, 1.3001, 0, 205, 250, 200, 0, 0, 0, 0)
 			else
 			Citizen.Wait(1500)
 			end
-
             if dist <= 1.0 then
 				DrawText3D(MissionMarker.x, MissionMarker.y, MissionMarker.z, "~g~[E]~b~ For at acceptere")
 				if IsControlJustPressed(0, 38) then
@@ -112,11 +112,8 @@ Citizen.CreateThread(function()
 				Citizen.Wait(500)
 				end
             end
-
 	end
 end)
----
-
 
 function CheckGuards()
 	if IsPedDeadOrDying(pilot) == 1 or IsPedDeadOrDying(navigator) == 1 then
@@ -138,7 +135,6 @@ end
 RegisterNetEvent('AttackTransport:InfoForLspd')
 AddEventHandler('AttackTransport:InfoForLspd', function(x, y, z)
 	if PlayerJob ~= nil and PlayerJob.name == 'police' then
-		
 		if PoliceBlip == 0 then
 			PoliceBlip = 1
 			local blip = AddBlipForCoord(x, y, z)
@@ -153,12 +149,10 @@ AddEventHandler('AttackTransport:InfoForLspd', function(x, y, z)
 			RemoveBlip(blip)
 			PoliceBlip = 0
 		end
-		
 		local PoliceCoords = GetEntityCoords(PlayerPedId(), false)
 		local PoliceDist = #(PoliceCoords - vector3(x, y, z))
 		if PoliceDist <= 4.5 then
 			local dict = "anim@mp_player_intmenu@key_fob@"
-			
 			RequestAnimDict(dict)
 			while not HasAnimDictLoaded(dict) do
 				Citizen.Wait(100)
@@ -167,23 +161,20 @@ AddEventHandler('AttackTransport:InfoForLspd', function(x, y, z)
 				hintToDisplay('Tryk ~INPUT_DETONATE~ for at dæmme alarmen')
 				SilenceAlarm = 1
 			end
-			if IsControlPressed(0, 47) and GuardsDead == 1 then 
-				
+			if IsControlPressed(0, 47) and GuardsDead == 1 then
 				TaskPlayAnim(PlayerPedId(), dict, "fob_click_fp", 8.0, 8.0, -1, 48, 1, false, false, false)
 				TriggerEvent('AttackTransport:CleanUp')
 				RemoveBlip(TruckBlip)
 				Citizen.Wait(500)
 			end
 		end
-		
 	end
 end)
 
 RegisterNetEvent('qb-armoredtruckheist:client:911alert')
 AddEventHandler('qb-armoredtruckheist:client:911alert', function()
 	if PoliceAlert == 0 then
-		local transCoords = GetEntityCoords(transport) 
-	
+		local transCoords = GetEntityCoords(transport)
 		local s1, s2 = Citizen.InvokeNative(0x2EB41072B4C1E4C0, transCoords.x, transCoords.y, transCoords.z, Citizen.PointerValueInt(), Citizen.PointerValueInt())
 		local street1 = GetStreetNameFromHashKey(s1)
 		local street2 = GetStreetNameFromHashKey(s2)
@@ -191,9 +182,7 @@ AddEventHandler('qb-armoredtruckheist:client:911alert', function()
 		if street2 ~= nil then 
 			streetLabel = streetLabel .. " " .. street2
 		end
-	   
 			TriggerServerEvent("qb-armoredtruckheist:server:callCops", streetLabel, transCoords)
-			
 		PlaySoundFrontend(-1, "Mission_Pass_Notify", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
 		PoliceAlert = 1
 	end
@@ -225,7 +214,6 @@ AddEventHandler('qb-armoredtruckheist:client:robberyCall', function(streetLabel,
                 },
                 callSign = QBCore.Functions.GetPlayerData().metadata["callsign"],
             })
-        
         local transG = 250
         local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
         SetBlipSprite(blip, 487)
@@ -259,8 +247,7 @@ function MissionNotification()
 	})
 	Citizen.Wait(3000)
 end
----
---
+
 RegisterNetEvent('AttackTransport:Pozwolwykonac')
 AddEventHandler('AttackTransport:Pozwolwykonac', function()
 MissionNotification()
@@ -295,7 +282,6 @@ SetBlipFlashes(TruckBlip, true)
 BeginTextCommandSetBlipName("STRING")
 AddTextComponentString('Vogn med penge')
 EndTextCommandSetBlipName(TruckBlip)
---
 RequestModel("s_m_m_security_01")
 while not HasModelLoaded("s_m_m_security_01") do
 	Wait(10)
@@ -312,7 +298,6 @@ SetPedCombatRange(pilot, 2)
 SetPedKeepTask(pilot, true)
 GiveWeaponToPed(pilot, GetHashKey(DriverWep),250,false,true)
 SetPedAsCop(pilot, true)
---
 SetPedFleeAttributes(navigator, 0, 0)
 SetPedCombatAttributes(navigator, 46, 1)
 SetPedCombatAbility(navigator, 100)
@@ -322,7 +307,6 @@ SetPedKeepTask(navigator, true)
 TaskEnterVehicle(navigator,transport,-1,0,1.0,1)
 GiveWeaponToPed(navigator, GetHashKey(NavWep),250,false,true)
 SetPedAsCop(navigator, true)
---
 TaskVehicleDriveWander(pilot, transport, 80.0, 443)
 MissionStart = 1
 end)
@@ -331,29 +315,24 @@ end)
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(5)
-		
 		if MissionStart == 1 then
 			local plyCoords = GetEntityCoords(PlayerPedId(), false)
 			local transCoords = GetEntityCoords(transport) 
 			local dist = #(plyCoords - transCoords)
-			
 			if dist <= 55.0  then
 				DrawMarker(0, transCoords.x, transCoords.y, transCoords.z+4.5, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 135, 31, 35, 100, 1, 0, 0, 0)
 				if warning == 0 then
 				warning = 1
 				QBCore.Functions.Notify("Skaf dig af med svagterne inden du smider bomben på.", "error")
 				end
-				
 				if GuardsDead == 0 then
 					CheckGuards()
 				elseif GuardsDead == 1 and BlownUp == 0 then
 					AlertPolice()
 				end
-				
 			else
 			Citizen.Wait(500)
 			end
-			
 			if dist <= 7 and BlownUp == 0 and PlayerJob.name ~= 'police' then
 				if BlowBackdoor == 0 then
 					hintToDisplay('Tryk [G] for at sprænge dørene op')
@@ -365,9 +344,6 @@ Citizen.CreateThread(function()
 					Citizen.Wait(500)
 				end
 			end
-
-			
-			
 		else
 		Citizen.Wait(1500)
 		end
@@ -419,16 +395,13 @@ end
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(5)
-		
 		if lootable == 1 then
 			local plyCoords = GetEntityCoords(PlayerPedId(), false)
-			local transCoords = GetEntityCoords(transport) 
+			local transCoords = GetEntityCoords(transport)
             local dist = #(plyCoords - transCoords)
-
 			if dist > 45.0 then
 			Citizen.Wait(500)
 			end
-			
 			if dist <= 4.5 then
 				if PickupMoney == 0 then
 					hintToDisplay('Tryk [E] for at tage pengene ud')
@@ -469,7 +442,6 @@ function TakingMoney()
 	while not HasAnimDictLoaded('anim@heists@ornate_bank@grab_cash_heels') do
 		Citizen.Wait(50)
 	end
-	
 	local PedCoords = GetEntityCoords(PlayerPedId())
 	bag = CreateObject(GetHashKey('prop_cs_heist_bag_02'),PedCoords.x, PedCoords.y,PedCoords.z, true, true, true)
 	AttachEntityToEntity(bag, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 57005), 0.0, 0.0, -0.16, 250.0, -30.0, 0.0, false, false, false, false, 2, true)
