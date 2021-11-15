@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 Citizen.CreateThread(function()
     local HouseGarages = {}
     local result = exports.oxmysql:fetchSync('SELECT * FROM houselocations', {})

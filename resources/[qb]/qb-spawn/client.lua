@@ -14,6 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
 local camZPlus1 = 1500
 local camZPlus2 = 50
 local pointCamCoords = 75

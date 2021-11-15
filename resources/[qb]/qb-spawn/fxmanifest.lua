@@ -22,7 +22,6 @@ version '1.0.0'
 
 shared_scripts {
 	'config.lua',
-	'@qb-core/import.lua',
 	'@qb-houses/config.lua',
 	'@qb-apartments/config.lua'
 }
