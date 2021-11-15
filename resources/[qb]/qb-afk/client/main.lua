@@ -15,17 +15,16 @@ Vores sider:
 ]]
 
 -- AFK Kick Time Limit (in seconds)
-secondsUntilKick = 1800
-
-local group = "user"
-local isLoggedIn = false
+local group = 'user'
+local secondsUntilKick = 1800
+local QBCore = exports['qb-core']:GetCoreObject()
+local isLoggedIn = LocalPlayer.state['isLoggedIn']
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.TriggerCallback('qb-afkkick:server:GetPermissions', function(UserGroup)
         group = UserGroup
     end)
-    isLoggedIn = true
 end)
 
 RegisterNetEvent('QBCore:Client:OnPermissionUpdate')
@@ -39,7 +38,7 @@ Citizen.CreateThread(function()
 		Wait(1000)
         playerPed = PlayerPedId()
         if isLoggedIn then
-            if group == "user" then
+            if group == 'user' then
                 currentPos = GetEntityCoords(playerPed, true)
                 if prevPos ~= nil then
                     if currentPos == prevPos then
@@ -64,7 +63,7 @@ Citizen.CreateThread(function()
                                 end
                                 time = time - 1
                             else
-                                TriggerServerEvent("KickForAFK")
+                                TriggerServerEvent('KickForAFK')
                             end
                         else
                             time = secondsUntilKick
