@@ -14,8 +14,9 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-local timeOut = false
+local QBCore = exports['qb-core']:GetCoreObject()
 
+local timeOut = false
 local alarmTriggered = false
 
 RegisterServerEvent('qb-jewellery:server:setVitrineState')
