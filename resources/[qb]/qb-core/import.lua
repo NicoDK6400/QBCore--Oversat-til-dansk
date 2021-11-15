@@ -14,7 +14,9 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-if GetCurrentResourceName() == 'qb-core' then 
+-- This might eventually be deprecated for the export system
+
+if GetCurrentResourceName() == 'qb-core' then
     function GetSharedObject()
         return QBCore
     end

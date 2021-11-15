@@ -17,26 +17,41 @@ Vores sider:
 QBCore.Commands = {}
 QBCore.Commands.List = {}
 
-QBCore.Commands.Add = function(name, help, arguments, argsrequired, callback, permission) -- [name] = command name (ex. /givemoney), [help] = help text, [arguments] = arguments that need to be passed (ex. {{name="id", help="ID of a player"}, {name="amount", help="Mængde af penge"}}), [argsrequired] = set arguments required (true or false), [callback] = function(source, args) callback, [permission] = rank or job of a player
-	QBCore.Commands.List[name:lower()] = {
-		name = name:lower(),
-		permission = permission ~= nil and permission:lower() or "user",
-		help = help,
-		arguments = arguments,
-		argsrequired = argsrequired,
-		callback = callback,
-	}
+function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, permission)
+    if type(permission) == 'string' then
+        permission = permission:lower()
+    else
+        permission = 'user'
+    end
+    QBCore.Commands.List[name:lower()] = {
+        name = name:lower(),
+        permission = permission,
+        help = help,
+        arguments = arguments,
+        argsrequired = argsrequired,
+        callback = callback
+    }
 end
 
-QBCore.Commands.Refresh = function(source)
-	local Player = QBCore.Functions.GetPlayer(tonumber(source))
-	if Player ~= nil then
-		for command, info in pairs(QBCore.Commands.List) do
-			if QBCore.Functions.HasPermission(source, "god") or QBCore.Functions.HasPermission(source, QBCore.Commands.List[command].permission) then
-				TriggerClientEvent('chat:addSuggestion', source, "/"..command, info.help, info.arguments)
-			end
-		end
-	end
+function QBCore.Commands.Refresh(source)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    local suggestions = {}
+    if Player then
+        for command, info in pairs(QBCore.Commands.List) do
+            local isGod = QBCore.Functions.HasPermission(src, 'god')
+            local hasPerm = QBCore.Functions.HasPermission(src, QBCore.Commands.List[command].permission)
+            local isPrincipal = IsPlayerAceAllowed(src, 'command')
+            if isGod or hasPerm or isPrincipal then
+                suggestions[#suggestions+1] = {
+                    name = '/' .. command,
+                    help = info.help,
+                    params = info.arguments
+                }
+            end
+        end
+        TriggerClientEvent('chat:addSuggestions', tonumber(source), suggestions)
+    end
 end
 
 QBCore.Commands.Add("tp", "TP til spiller eller koords (Kun Admin)", {{name="id/x", help="ID af spiller eller X position"}, {name="y", help="Y position"}, {name="z", help="Z position"}}, false, function(source, args)
