@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterNetEvent("hidemenu")
 AddEventHandler("hidemenu", function()
     SetNuiFocus(false, false)

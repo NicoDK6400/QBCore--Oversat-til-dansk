@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local dailyWithdraws = {}
 
 QBCore.Functions.CreateCallback('qb-debitcard:server:requestCards', function(source, cb)
