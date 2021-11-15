@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 QBCore.Commands.Add("fix", "Reparer køretøj (Kun Admin)", {}, false, function(source, args)
     TriggerClientEvent('iens:repaira', source)
     TriggerClientEvent('vehiclemod:client:fixEverything', source)
@@ -54,4 +56,3 @@ AddEventHandler('qb-vehiclefailure:server:removewashingkit', function(veh)
     ply.Functions.RemoveItem("cleaningkit", 1)
     TriggerClientEvent('qb-vehiclefailure:client:SyncWash', -1, veh)
 end)
-

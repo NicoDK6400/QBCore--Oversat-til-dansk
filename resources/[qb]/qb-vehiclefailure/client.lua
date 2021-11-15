@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local pedInSameVehicleLast=false
 local vehicle
 local lastVehicle
@@ -40,54 +42,29 @@ local healthPetrolTankNew = 1000.0
 local healthPetrolTankDelta = 0.0
 local healthPetrolTankDeltaScaled = 0.0
 local tireBurstLuckyNumber
-local showPro = false
-
-math.randomseed(GetGameTimer());
-
-local tireBurstMaxNumber = cfg.randomTireBurstInterval * 1200; 												-- the tire burst lottery runs roughly 1200 times per minute
-if cfg.randomTireBurstInterval ~= 0 then tireBurstLuckyNumber = math.random(tireBurstMaxNumber) end			-- If we hit this number again randomly, a tire will burst.
-
 local fixMessagePos = math.random(repairCfg.fixMessageCount)
 local noFixMessagePos = math.random(repairCfg.noFixMessageCount)
+local tireBurstMaxNumber = cfg.randomTireBurstInterval * 1200;
+if cfg.randomTireBurstInterval ~= 0 then tireBurstLuckyNumber = math.random(tireBurstMaxNumber) end
 
--- Display blips on map
-Citizen.CreateThread(function()
-	if (cfg.displayBlips == true) then
-		for _, item in pairs(repairCfg.mechanics) do
-			item.blip = AddBlipForCoord(item.x, item.y, item.z)
-			SetBlipSprite(item.blip, item.id)
-			SetBlipScale(item.blip, 0.8)
-			SetBlipAsShortRange(item.blip, true)
-			BeginTextCommandSetBlipName("STRING")
-			AddTextComponentString(item.name)
-			EndTextCommandSetBlipName(item.blip)
-		end
-	end
-end)
+local DamageComponents = {
+    "radiator",
+    "axle",
+    "clutch",
+	"fuel",
+	"brakes",
+}
 
-RegisterNetEvent('qb-vehiclefailure:client:RepairVehicle')
-AddEventHandler('qb-vehiclefailure:client:RepairVehicle', function()
-	local vehicle = QBCore.Functions.GetClosestVehicle()
-	local engineHealth = GetVehicleEngineHealth(vehicle) --This is to prevent people from "repairing" a vehicle and setting engine health lower than what the vehicles engine health was before repairing.
-	if vehicle ~= nil and vehicle ~= 0 and engineHealth < 500 then
-		local ped = PlayerPedId()
-		local pos = GetEntityCoords(ped)
-		local vehpos = GetEntityCoords(vehicle)
-		if #(pos - vehpos) < 5.0 and not IsPedInAnyVehicle(ped) then
-			local drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, 2.5, 0)
-			if (IsBackEngine(GetEntityModel(vehicle))) then
-				drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, -2.5, 0)
-			end
-			if #(pos - drawpos) < 2.0 and not IsPedInAnyVehicle(ped) then
-				RepairVehicle(vehicle)
-			else
-				ShowEnginePos = true
-			end
-		end
-	end
-end)
+-- Functions
 
-function CleanVehicle(vehicle)
+local function DamageRandomComponent()
+	local dmgFctr = math.random() + math.random(0, 2)
+	local randomComponent = DamageComponents[math.random(1, #DamageComponents)]
+	local randomDamage = (math.random() + math.random(0, 1)) * dmgFctr
+	--exports['qb-vehicletuning']:SetVehicleStatus(QBCore.Functions.GetPlate(vehicle), randomComponent, exports['qb-vehicletuning']:GetVehicleStatus(QBCore.Functions.GetPlate(vehicle), randomComponent) - randomDamage)
+end
+
+local function CleanVehicle(vehicle)
 	local ped = PlayerPedId()
 	local pos = GetEntityCoords(ped)
 	TaskStartScenarioInPlace(ped, "WORLD_HUMAN_MAID_CLEAN", 0, true)
@@ -112,48 +89,7 @@ function CleanVehicle(vehicle)
 	end)
 end
 
-RegisterNetEvent('qb-vehiclefailure:client:SyncWash')
-AddEventHandler('qb-vehiclefailure:client:SyncWash', function(veh)
-	SetVehicleDirtLevel(veh, 0.1)
-	SetVehicleUndriveable(veh, false)
-	WashDecalsFromVehicle(veh, 1.0)
-end)
-
-RegisterNetEvent('qb-vehiclefailure:client:CleanVehicle')
-AddEventHandler('qb-vehiclefailure:client:CleanVehicle', function()
-	local vehicle = QBCore.Functions.GetClosestVehicle()
-	if vehicle ~= nil and vehicle ~= 0 then
-		local ped = PlayerPedId()
-		local pos = GetEntityCoords(ped)
-		local vehpos = GetEntityCoords(vehicle)
-		if #(pos - vehpos) < 3.0 and not IsPedInAnyVehicle(ped) then
-			CleanVehicle(vehicle)	
-		end
-	end
-end)
-
-RegisterNetEvent('qb-vehiclefailure:client:RepairVehicleFull')
-AddEventHandler('qb-vehiclefailure:client:RepairVehicleFull', function()
-	local vehicle = QBCore.Functions.GetClosestVehicle()
-	if vehicle ~= nil and vehicle ~= 0 then
-		local ped = PlayerPedId()
-		local pos = GetEntityCoords(ped)
-		local vehpos = GetEntityCoords(vehicle)
-		if #(pos - vehpos) < 5.0 and not IsPedInAnyVehicle(ped) then
-			local drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, 2.5, 0)
-			if (IsBackEngine(GetEntityModel(vehicle))) then
-				drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, -2.5, 0)
-			end
-			if #(pos - drawpos) < 2.0 and not IsPedInAnyVehicle(ped) then
-				RepairVehicleFull(vehicle)
-			else
-				ShowEnginePos = true
-			end
-		end
-	end
-end)
-
-function RepairVehicleFull(vehicle)
+local function RepairVehicleFull(vehicle)
 	if (IsBackEngine(GetEntityModel(vehicle))) then
         SetVehicleDoorOpen(vehicle, 5, false, false)
     else
@@ -195,7 +131,7 @@ function RepairVehicleFull(vehicle)
 	end)
 end
 
-function RepairVehicle(vehicle)
+local function RepairVehicle(vehicle)
 	if (IsBackEngine(GetEntityModel(vehicle))) then
         SetVehicleDoorOpen(vehicle, 5, false, false)
     else
@@ -237,7 +173,7 @@ function RepairVehicle(vehicle)
 	end)
 end
 
-function IsBackEngine(vehModel)
+local function IsBackEngine(vehModel)
     for _, model in pairs(BackEngineVehicles) do
         if GetHashKey(model) == vehModel then
             return true
@@ -347,47 +283,65 @@ local function tireBurstLottery()
 	end
 end
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(7)
-        local pos = GetEntityCoords(PlayerPedId(), true)
-        if showPro then
-            QBCore.Functions.DrawText3D(pos.x, pos.y, pos.z, TimeLeft .. '~g~%')
-        end
-    end
+-- Events
+
+RegisterNetEvent('qb-vehiclefailure:client:RepairVehicle', function()
+	local vehicle = QBCore.Functions.GetClosestVehicle()
+	local engineHealth = GetVehicleEngineHealth(vehicle) --This is to prevent people from "repairing" a vehicle and setting engine health lower than what the vehicles engine health was before repairing.
+	if vehicle ~= nil and vehicle ~= 0 and engineHealth < 500 then
+		local ped = PlayerPedId()
+		local pos = GetEntityCoords(ped)
+		local vehpos = GetEntityCoords(vehicle)
+		if #(pos - vehpos) < 5.0 and not IsPedInAnyVehicle(ped) then
+			local drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, 2.5, 0)
+			if (IsBackEngine(GetEntityModel(vehicle))) then
+				drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, -2.5, 0)
+			end
+			if #(pos - drawpos) < 2.0 and not IsPedInAnyVehicle(ped) then
+				RepairVehicle(vehicle)
+			else
+				ShowEnginePos = true
+			end
+		end
+	end
 end)
 
 
-RegisterNetEvent('iens:repair')
-AddEventHandler('iens:repair', function()
-	if isPedDrivingAVehicle() then
+RegisterNetEvent('qb-vehiclefailure:client:SyncWash', function(veh)
+	SetVehicleDirtLevel(veh, 0.1)
+	SetVehicleUndriveable(veh, false)
+	WashDecalsFromVehicle(veh, 1.0)
+end)
+
+RegisterNetEvent('qb-vehiclefailure:client:CleanVehicle', function()
+	local vehicle = QBCore.Functions.GetClosestVehicle()
+	if vehicle ~= nil and vehicle ~= 0 then
 		local ped = PlayerPedId()
-		vehicle = GetVehiclePedIsIn(ped, false)
-		if IsNearMechanic() then
-			return
+		local pos = GetEntityCoords(ped)
+		local vehpos = GetEntityCoords(vehicle)
+		if #(pos - vehpos) < 3.0 and not IsPedInAnyVehicle(ped) then
+			CleanVehicle(vehicle)
 		end
-		if GetVehicleEngineHealth(vehicle) < cfg.cascadingFailureThreshold + 5 then
-			if GetVehicleOilLevel(vehicle) > 0 then
-				SetVehicleUndriveable(vehicle,false)
-				SetVehicleEngineHealth(vehicle, cfg.cascadingFailureThreshold + 5)
-				SetVehiclePetrolTankHealth(vehicle, 750.0)
-				healthEngineLast=cfg.cascadingFailureThreshold +5
-				healthPetrolTankLast=750.0
-					SetVehicleEngineOn(vehicle, true, false )
-				SetVehicleOilLevel(vehicle,(GetVehicleOilLevel(vehicle)/3)-0.5)
-				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", og gå nu til en garage!")
-				fixMessagePos = fixMessagePos + 1
-				if fixMessagePos > repairCfg.fixMessageCount then fixMessagePos = 1 end
-			else
-				notification("~r~Dit køretøj er for smadret!")
+	end
+end)
+
+RegisterNetEvent('qb-vehiclefailure:client:RepairVehicleFull', function()
+	local vehicle = QBCore.Functions.GetClosestVehicle()
+	if vehicle ~= nil and vehicle ~= 0 then
+		local ped = PlayerPedId()
+		local pos = GetEntityCoords(ped)
+		local vehpos = GetEntityCoords(vehicle)
+		if #(pos - vehpos) < 5.0 and not IsPedInAnyVehicle(ped) then
+			local drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, 2.5, 0)
+			if (IsBackEngine(GetEntityModel(vehicle))) then
+				drawpos = GetOffsetFromEntityInWorldCoords(vehicle, 0, -2.5, 0)
 			end
-		else
-			notification("~y~" .. repairCfg.noFixMessages[noFixMessagePos] )
-			noFixMessagePos = noFixMessagePos + 1
-			if noFixMessagePos > repairCfg.noFixMessageCount then noFixMessagePos = 1 end
+			if #(pos - drawpos) < 2.0 and not IsPedInAnyVehicle(ped) then
+				RepairVehicleFull(vehicle)
+			else
+				ShowEnginePos = true
+			end
 		end
-	else
-		notification("~y~Du skal sidde i et køretøj for at kunne reparere!")
 	end
 end)
 
@@ -421,6 +375,54 @@ end)
 RegisterNetEvent('iens:notAllowed')
 AddEventHandler('iens:notAllowed', function()
 	notification("~r~Du har ikke rettighederne til at kunne reparere")
+end)
+
+RegisterNetEvent('iens:repair', function()
+	if isPedDrivingAVehicle() then
+		local ped = PlayerPedId()
+		vehicle = GetVehiclePedIsIn(ped, false)
+		if IsNearMechanic() then
+			return
+		end
+		if GetVehicleEngineHealth(vehicle) < cfg.cascadingFailureThreshold + 5 then
+			if GetVehicleOilLevel(vehicle) > 0 then
+				SetVehicleUndriveable(vehicle,false)
+				SetVehicleEngineHealth(vehicle, cfg.cascadingFailureThreshold + 5)
+				SetVehiclePetrolTankHealth(vehicle, 750.0)
+				healthEngineLast=cfg.cascadingFailureThreshold +5
+				healthPetrolTankLast=750.0
+					SetVehicleEngineOn(vehicle, true, false )
+				SetVehicleOilLevel(vehicle,(GetVehicleOilLevel(vehicle)/3)-0.5)
+				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", and now go to a garage!")
+				fixMessagePos = fixMessagePos + 1
+				if fixMessagePos > repairCfg.fixMessageCount then fixMessagePos = 1 end
+			else
+				notification("~r~Your vehicle is too damaged!")
+			end
+		else
+			notification("~y~" .. repairCfg.noFixMessages[noFixMessagePos] )
+			noFixMessagePos = noFixMessagePos + 1
+			if noFixMessagePos > repairCfg.noFixMessageCount then noFixMessagePos = 1 end
+		end
+	else
+		notification("~y~You must be in a vehicle to repair it!")
+	end
+end)
+
+-- Threads
+
+CreateThread(function()
+	if (cfg.displayBlips == true) then
+		for _, item in pairs(repairCfg.mechanics) do
+			item.blip = AddBlipForCoord(item.x, item.y, item.z)
+			SetBlipSprite(item.blip, item.id)
+			SetBlipScale(item.blip, 0.8)
+			SetBlipAsShortRange(item.blip, true)
+			BeginTextCommandSetBlipName("STRING")
+			AddTextComponentString(item.name)
+			EndTextCommandSetBlipName(item.blip)
+		end
+	end
 end)
 
 if cfg.torqueMultiplierEnabled or cfg.preventVehicleFlip or cfg.limpMode then
@@ -676,26 +678,3 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
-local DamageComponents = {
-    "radiator",
-    "axle",
-    "clutch",
-	"fuel",
-	"brakes",
-}
-function DamageRandomComponent()
-	local dmgFctr = math.random() + math.random(0, 2)
-	local randomComponent = DamageComponents[math.random(1, #DamageComponents)]
-	local randomDamage = (math.random() + math.random(0, 1)) * dmgFctr
-	--exports['qb-vehicletuning']:SetVehicleStatus(GetVehicleNumberPlateText(vehicle), randomComponent, exports['qb-vehicletuning']:GetVehicleStatus(GetVehicleNumberPlateText(vehicle), randomComponent) - randomDamage)
-end
-
-function procent(time)
-    showPro = true
-    TimeLeft = 0
-    repeat
-        TimeLeft = TimeLeft + 1
-        Citizen.Wait(time)
-    until(TimeLeft == 100)
-    showPro = false
-end
