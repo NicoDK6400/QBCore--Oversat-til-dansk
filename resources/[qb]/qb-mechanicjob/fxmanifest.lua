@@ -20,10 +20,7 @@ game 'gta5'
 description 'QB-MechanicJob'
 version '1.0.0'
 
-shared_scripts { 
-	'@qb-core/import.lua',
-	'config.lua'
-}
+shared_script 'config.lua'
 
 client_scripts {
 	'client/main.lua',
@@ -38,3 +35,5 @@ exports {
 	'GetVehicleStatus',
 	'SetVehicleStatus'
 }
+
+lua54 'yes'
