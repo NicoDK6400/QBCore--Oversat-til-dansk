@@ -14,6 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+QBCore = exports['qb-core']:GetCoreObject()
 local inRadialMenu = false
 
 RegisterCommand('radialmenu', function()
