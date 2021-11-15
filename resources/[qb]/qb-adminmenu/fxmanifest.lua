@@ -30,8 +30,6 @@ client_scripts {
     'client/events.lua'
 }
 
-shared_script '@qb-core/import.lua'
-
 server_script 'server/server.lua'
 
 files { -- Credits to https://github.com/LVRP-BEN/bl_coords for clipboard copy method
@@ -45,3 +43,5 @@ files { -- Credits to https://github.com/LVRP-BEN/bl_coords for clipboard copy m
 --}
 
 dependency 'menuv'
+
+lua54 'yes'
