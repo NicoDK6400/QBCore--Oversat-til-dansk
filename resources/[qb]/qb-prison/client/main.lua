@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+QBCore = exports['qb-core']:GetCoreObject()
+
 isLoggedIn = false
 inJail = false
 jailTime = 0 
