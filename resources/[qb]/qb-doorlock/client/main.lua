@@ -14,6 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
 local closestDoorKey, closestDoorValue = nil, nil
 local maxDistance = 1.25
 local PlayerGang = {}
