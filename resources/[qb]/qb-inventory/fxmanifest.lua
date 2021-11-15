@@ -22,7 +22,6 @@ version '1.0.0'
 
 shared_scripts {
 	'config.lua',
-	'@qb-core/import.lua',
 	'@qb-weapons/config.lua'
 }
 
@@ -45,3 +44,5 @@ files {
 }
 
 dependency 'qb-weapons'
+
+lua54 'yes'
