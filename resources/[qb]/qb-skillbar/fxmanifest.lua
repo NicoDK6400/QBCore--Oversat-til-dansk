@@ -21,7 +21,6 @@ description 'QB-Skillbar'
 version '1.0.0'
 
 ui_page "html/index.html"
-shared_script '@qb-core/import.lua'
 client_script 'client/main.lua'
 
 files {
@@ -38,3 +37,5 @@ exports {
 dependencies {
     'qb-core'
 }
+
+lua54 'yes'
