@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local Accounts = {}
 
 CreateThread(function()
@@ -47,11 +49,9 @@ AddEventHandler("qb-bossmenu:server:withdrawMoney", function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local job = Player.PlayerData.job.name
-
     if not Accounts[job] then
         Accounts[job] = 0
     end
-
     if Accounts[job] >= amount and amount > 0 then
         Accounts[job] = Accounts[job] - amount
         Player.Functions.AddMoney("cash", amount)
@@ -69,11 +69,9 @@ AddEventHandler("qb-bossmenu:server:depositMoney", function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local job = Player.PlayerData.job.name
-
     if not Accounts[job] then
         Accounts[job] = 0
     end
-
     if Player.Functions.RemoveMoney("cash", amount) then
         Accounts[job] = Accounts[job] + amount
     else
@@ -89,7 +87,6 @@ AddEventHandler("qb-bossmenu:server:addAccountMoney", function(account, amount)
     if not Accounts[account] then
         Accounts[account] = 0
     end
-    
     Accounts[account] = Accounts[account] + amount
     TriggerClientEvent('qb-bossmenu:client:refreshSociety', -1, account, Accounts[account])
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
@@ -100,11 +97,9 @@ AddEventHandler("qb-bossmenu:server:removeAccountMoney", function(account, amoun
     if not Accounts[account] then
         Accounts[account] = 0
     end
-
     if Accounts[account] >= amount then
         Accounts[account] = Accounts[account] - amount
     end
-
     TriggerClientEvent('qb-bossmenu:client:refreshSociety', -1, account, Accounts[account])
     SaveResourceFile(GetCurrentResourceName(), "./accounts.json", json.encode(Accounts), -1)
 end)
@@ -119,7 +114,6 @@ QBCore.Functions.CreateCallback('qb-bossmenu:server:GetEmployees', function(sour
     if players[1] ~= nil then
         for key, value in pairs(players) do
             local isOnline = QBCore.Functions.GetPlayerByCitizenId(value.citizenid)
-
             if isOnline then
                 table.insert(employees, {
                     source = isOnline.PlayerData.citizenid, 

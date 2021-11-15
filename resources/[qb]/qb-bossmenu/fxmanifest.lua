@@ -26,7 +26,8 @@ client_scripts {
     'client.lua'
 }
 
-shared_script '@qb-core/import.lua'
 server_script 'server.lua'
 
 server_export 'GetAccount'
+
+lua54 'yes'
