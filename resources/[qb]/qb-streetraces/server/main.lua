@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local Races = {}
 RegisterServerEvent('qb-streetraces:NewRace')
 AddEventHandler('qb-streetraces:NewRace', function(RaceTable)

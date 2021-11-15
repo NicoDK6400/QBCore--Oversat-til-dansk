@@ -14,6 +14,9 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local Races = {}
 local InRace = false
 local RaceId = 0
