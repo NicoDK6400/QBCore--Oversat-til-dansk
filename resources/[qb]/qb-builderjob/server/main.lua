@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 QBCore.Functions.CreateCallback('qb-builderjob:server:GetCurrentProject', function(source, cb)
     local CurProject = nil
     for k, v in pairs(Config.Projects) do
