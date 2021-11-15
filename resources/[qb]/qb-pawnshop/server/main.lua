@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local ItemList = {
     ["goldchain"] = math.random(60, 110),
     ["diamond_ring"] = math.random(85, 135),
