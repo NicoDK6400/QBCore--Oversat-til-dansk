@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 -- Get permissions --
 
 QBCore.Functions.CreateCallback('qb-anticheat:server:GetPermissions', function(source, cb)
