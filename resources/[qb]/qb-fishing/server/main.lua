@@ -14,26 +14,23 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore = nil
-
-TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
+--TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
 
 QBCore.Functions.CreateCallback('qb-fishing:GetItemData', function(source, cb, itemName)
 	local retval = false
 	local Player = QBCore.Functions.GetPlayer(source)
-	if Player ~= nil then 
+	if Player ~= nil then
 		if Player.Functions.GetItemByName(itemName) ~= nil then
 			retval = true
 		end
 	end
-	
 	cb(retval)
-end)	
+end)
 
 QBCore.Functions.CreateUseableItem("fishingrod", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
-
     TriggerClientEvent('qb-fishing:tryToFish', source)
 end)
 
