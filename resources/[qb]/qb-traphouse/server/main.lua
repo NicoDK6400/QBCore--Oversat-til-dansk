@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterServerEvent('qb-traphouse:server:TakeoverHouse')
 AddEventHandler('qb-traphouse:server:TakeoverHouse', function(Traphouse)
     local src = source
