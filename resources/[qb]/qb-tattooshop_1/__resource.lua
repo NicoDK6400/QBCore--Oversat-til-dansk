@@ -28,3 +28,5 @@ server_scripts {
 }
 
 file 'tattoos.json'
+
+lua54 'yes'

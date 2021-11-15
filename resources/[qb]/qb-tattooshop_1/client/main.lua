@@ -14,7 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-
+QBCore = exports['qb-core']:GetCoreObject()
 
 local currentTattoos = {}
 local cam = nil
@@ -22,8 +22,6 @@ local back = 1
 local opacity = 1
 local scaleType = nil
 local scaleString = ""
-
-QBCore = nil
 
 Citizen.CreateThread(function() 
     while true do
