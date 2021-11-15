@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local isLoggedIn = true
 local CurrentWeaponData = {}
 local PlayerData = {}
@@ -295,7 +297,7 @@ AddEventHandler("weapons:client:EquipAttachment", function(ItemData, attachment)
     local weapon = GetSelectedPedWeapon(ped)
     local WeaponData = QBCore.Shared.Weapons[weapon]
 
-    if weapon ~= GetHashKey("WEAPON_UNARMED") then
+    if weapon ~= `WEAPON_UNARMED` then
         WeaponData.name = WeaponData.name:upper()
         if WeaponAttachments[WeaponData.name] ~= nil then
             if WeaponAttachments[WeaponData.name][attachment] ~= nil then
