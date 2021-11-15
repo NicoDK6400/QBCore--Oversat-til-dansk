@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 function DrawText3Ds(x, y, z, text)
 	SetTextScale(0.35, 0.35)
     SetTextFont(4)

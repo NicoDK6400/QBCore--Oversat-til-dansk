@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterServerEvent('qb-shops:server:UpdateShopItems')
 AddEventHandler('qb-shops:server:UpdateShopItems', function(shop, itemData, amount)
     Config.Locations[shop]["products"][itemData.slot].amount =  Config.Locations[shop]["products"][itemData.slot].amount - amount
