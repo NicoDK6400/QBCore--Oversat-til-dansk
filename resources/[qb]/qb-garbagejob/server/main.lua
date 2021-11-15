@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local Bail = {}
 
 QBCore.Functions.CreateCallback('qb-garbagejob:server:HasMoney', function(source, cb)
