@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 QBCore.Functions.CreateUseableItem("fitbit", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent('qb-fitbit:use', source)

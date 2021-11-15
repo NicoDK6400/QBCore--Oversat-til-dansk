@@ -14,18 +14,11 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local inWatch = false
-local isLoggedIn = false
 
-RegisterNetEvent("QBCore:Client:OnPlayerUnload")
-AddEventHandler("QBCore:Client:OnPlayerUnload", function()
-    isLoggedIn = false
-end)
-
-RegisterNetEvent("QBCore:Client:OnPlayerLoaded")
-AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
-    isLoggedIn = true
-end)
+-- Functions
 
 function openWatch()
     SendNUIMessage({
@@ -36,17 +29,23 @@ function openWatch()
     inWatch = true
 end
 
-function closeWatch()
+local function openWatch()
     SetNuiFocus(false, false)
 end
+
+local function round(num, numDecimalPlaces)
+    local mult = 10^(numDecimalPlaces or 0)
+    return math.floor(num * mult + 0.5) / mult
+end
+
+-- Events
 
 RegisterNUICallback('close', function()
     closeWatch()
 end)
 
-RegisterNetEvent('qb-fitbit:use')
-AddEventHandler('qb-fitbit:use', function()
-  openWatch(true)
+RegisterNetEvent('qb-fitbit:use', function()
+    openWatch()
 end)
 
 RegisterNUICallback('setFoodWarning', function(data)
@@ -67,10 +66,8 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-
         Citizen.Wait(5 * 60 * 1000)
-        
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
             QBCore.Functions.TriggerCallback('qb-fitbit:server:HasFitbit', function(hasItem)
                 if hasItem then
                     local PlayerData = QBCore.Functions.GetPlayerData()
@@ -81,7 +78,6 @@ Citizen.CreateThread(function()
                             PlaySound(-1, "Event_Start_Text", "GTAO_FM_Events_Soundset", 0, 0, 1)
                         end
                     end
-        
                     if PlayerData.metadata["fitbit"].thirst ~= nil then
                         if PlayerData.metadata["thirst"] < PlayerData.metadata["fitbit"].thirst  then
                             --TriggerEvent("chatMessage", "FITBIT ", "warning", "Din tørst er på "..round(PlayerData.metadata["thirst"], 2).."%")
@@ -94,8 +90,3 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
-function round(num, numDecimalPlaces)
-    local mult = 10^(numDecimalPlaces or 0)
-    return math.floor(num * mult + 0.5) / mult
-end
