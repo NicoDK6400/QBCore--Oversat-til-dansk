@@ -52,9 +52,9 @@ const moneyHud = Vue.createApp({
     // https://www.w3schools.com/tags/ref_language_codes.asp LANGUAGE CODES
     // https://www.w3schools.com/tags/ref_country_codes.asp COUNTRY CODES
     formatMoney(value) {
-      const formatter = new Intl.NumberFormat("en-US", {
+      const formatter = new Intl.NumberFormat("da-DK", {
         style: "currency",
-        currency: "USD",
+        currency: "DKK",
         minimumFractionDigits: 0,
       });
       return formatter.format(value);
@@ -243,14 +243,14 @@ const vehHud = {
         this.seatbeltColor = "#28a745";
       } else {
         this.seatbelt = 0;
-        this.seatbeltColor = "#DC143C";
+        this.seatbeltColor = "#D64763";
       }
       if (data.cruise === true) {
         this.cruise = 1;
         this.cruiseColor = "#28a745";
       } else {
         this.cruise = 0;
-        this.cruiseColor = "#DC143C";
+        this.cruiseColor = "#D64763";
       }
       if (data.nos === 0 || data.nos === undefined) {
         this.showNos = false;

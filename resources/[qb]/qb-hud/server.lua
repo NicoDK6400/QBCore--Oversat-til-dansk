@@ -14,22 +14,23 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local ResetStress = false
 
-QBCore.Commands.Add('cash', 'Check Cash Balance', {}, false, function(source, args)
+QBCore.Commands.Add('cash', 'Ser dine kontanter', {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local cashamount = Player.PlayerData.money.cash
 	TriggerClientEvent('hud:client:ShowAccounts', source, 'cash', cashamount)
 end)
 
-QBCore.Commands.Add('bank', 'Check Bank Balance', {}, false, function(source, args)
+QBCore.Commands.Add('bank', 'Ser din bankkonto', {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local bankamount = Player.PlayerData.money.bank
 	TriggerClientEvent('hud:client:ShowAccounts', source, 'bank', bankamount)
 end)
 
-RegisterServerEvent('hud:server:GainStress')
-AddEventHandler('hud:server:GainStress', function(amount)
+RegisterNetEvent('hud:server:GainStress', function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local newStress
@@ -48,12 +49,12 @@ AddEventHandler('hud:server:GainStress', function(amount)
         end
         Player.Functions.SetMetaData('stress', newStress)
         TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-        TriggerClientEvent('QBCore:Notify', src, 'Du bliver stresset', 'error', 1500)
+        TriggerClientEvent('QBCore:Notify', src, 'Du bliver ophidset', 'error', 1500)
 	end
 end)
 
-RegisterServerEvent('hud:server:RelieveStress')
-AddEventHandler('hud:server:RelieveStress', function(amount)
+
+RegisterNetEvent('hud:server:RelieveStress', function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local newStress
