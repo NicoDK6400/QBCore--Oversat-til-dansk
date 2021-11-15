@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterServerEvent('qb-log:server:CreateLog')
 AddEventHandler('qb-log:server:CreateLog', function(name, title, color, message, tagEveryone)
     local tag = tagEveryone or false
