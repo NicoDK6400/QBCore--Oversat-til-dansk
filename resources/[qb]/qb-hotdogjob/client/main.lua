@@ -14,7 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-local isLoggedIn = false
+local QBCore = exports['qb-core']:GetCoreObject()
 local PlayerData = {}
 local PlayerJob = {}
 local HotdogBlip = nil
@@ -47,7 +47,6 @@ local AnimationData = {
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    isLoggedIn = true
     PlayerData = QBCore.Functions.GetPlayerData()
     PlayerJob = PlayerData.job
     UpdateLevel()
@@ -126,7 +125,7 @@ end
 Citizen.CreateThread(function()
     while true do
         local inRange = false
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
             if Config ~= nil then
                 local PlayerPed = PlayerPedId()
                 local PlayerPos = GetEntityCoords(PlayerPed)
