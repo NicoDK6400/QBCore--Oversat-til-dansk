@@ -41,12 +41,12 @@ AddEventHandler('chatMessage', function(source, n, message)
 				table.remove(args, 1)
 				if isGod or hasPerm or isPrincipal then
 					if (QBCore.Commands.List[command].argsrequired and #QBCore.Commands.List[command].arguments ~= 0 and args[#QBCore.Commands.List[command].arguments] == nil) then
-					    TriggerClientEvent('QBCore:Notify', src, 'All arguments must be filled out!', 'error')
+					    TriggerClientEvent('QBCore:Notify', src, 'Alt skal være udfyldt!', 'error')
 					else
 						QBCore.Commands.List[command].callback(src, args)
 					end
 				else
-					TriggerClientEvent('QBCore:Notify', src, 'No Access To This Command', 'error')
+					TriggerClientEvent('QBCore:Notify', src, 'Ingen adgang til denne command', 'error')
 				end
 			end
 		end
