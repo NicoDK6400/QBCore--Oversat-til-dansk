@@ -23,26 +23,20 @@ QBCore.Functions.CreateCallback("insidetrack:server:getbalance", function(source
     local Player = QBCore.Functions.GetPlayer(source)
     local bankBalance = Player.PlayerData.money["bank"]
     local MinAmount = 100
-
     if bankBalance >= MinAmount then
-        
     else
         return TriggerClientEvent('QBCore:client:closeBets', source)
     end
-    
 end)
-
 
 RegisterServerEvent("insidetrack:server:placebet")
 AddEventHandler("insidetrack:server:placebet", function(bet)
-
     local Player = QBCore.Functions.GetPlayer(source)
-
     if Player ~= nil then
         Player.Functions.RemoveMoney("bank", tonumber(bet), "inside-track-bet")
         TriggerClientEvent('QBCore:Notify', source, "Du placerede et væddemål på, "..bet.." DKK")
     end
-end) 
+end)
 
 RegisterServerEvent("insidetrack:server:winnings")
 AddEventHandler("insidetrack:server:winnings", function(amount)
@@ -50,7 +44,5 @@ AddEventHandler("insidetrack:server:winnings", function(amount)
     if Player ~= nil then
         Player.Functions.AddMoney("bank", tonumber(amount), "inside-track-won")
         TriggerClientEvent('QBCore:Notify', source, "Du vandt "..amount.." DKK!")
-
     end
-end) 
-
+end)
