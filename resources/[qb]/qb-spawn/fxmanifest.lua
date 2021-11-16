@@ -38,9 +38,4 @@ files {
 	'html/reset.css'
 }
 
-dependencies {
-	'qb-core',
-	'qb-houses',
-	'qb-interior',
-	'qb-apartments'
-}
+lua54 'yes'
