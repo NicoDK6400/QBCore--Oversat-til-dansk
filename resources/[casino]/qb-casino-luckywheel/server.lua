@@ -1,20 +1,11 @@
-
-
-
-
-
 isRoll = false
 math.randomseed(os.time())
-
-
-
 
 RegisterServerEvent('luckywheel:getwheel')
 AddEventHandler('luckywheel:getwheel', function()
     local Player = QBCore.Functions.GetPlayer(source)
     local bankBalance = Player.PlayerData.money["bank"]
     local MinAmount = Config.startingPrice
-
     if bankBalance >= MinAmount then
         Player.Functions.RemoveMoney("bank", tonumber(MinAmount), "lucky-wheel")
 		TriggerEvent("luckywheel:startwheel", Player, source)
@@ -22,11 +13,6 @@ AddEventHandler('luckywheel:getwheel', function()
         return TriggerClientEvent('QBCore:Notify', source, "Du har ikke nok penge i banken", "error")
     end
 end)
-
-
-
-
-
 
 RegisterServerEvent('luckywheel:startwheel')
 AddEventHandler('luckywheel:startwheel', function(xPlayer, source)
@@ -57,23 +43,17 @@ AddEventHandler('luckywheel:give', function(source, price)
 	if price.type == 'car' then
 		TriggerClientEvent("dojLuckywheel:winCar", source)
 		TriggerClientEvent("chCasinoWall:bigWin", source)
-
 	elseif price.type == 'item' then
 		TriggerClientEvent("chCasinoWall:bigWin", source)
-
 		Player.Functions.AddItem(price.name, price.count, slot, {["quality"] = 100})
 		TriggerClientEvent('QBCore:Notify', source, "Tillykke! Du vandt "..price.count.." "..price.name.."!", 'success')
 		TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[price.name], "add",price.count )
-
 	elseif price.type == 'money' then
 		TriggerClientEvent("chCasinoWall:bigWin", source)
-
 		Player.Functions.AddMoney('bank', tonumber(price.count), 'banking-quick-depo')
 		TriggerClientEvent('QBCore:Notify', source, "Tillykke! Du vandt "..price.count.. " DDK", 'success')
-
 	elseif price.type == 'weapon' then
 		TriggerClientEvent("chCasinoWall:bigWin", source)
-
 		Player.Functions.AddItem(price.name, 1, slot, {["quality"] = 100})
 		TriggerClientEvent('QBCore:Notify', source, "Tillykke! Du vandt en Pistol!", 'success')
 		TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items[price.name], "add",1)

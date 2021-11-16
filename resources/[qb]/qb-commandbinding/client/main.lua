@@ -17,8 +17,6 @@ Vores sider:
 local QBCore = exports['qb-core']:GetCoreObject()
 
 local keyPressed = false
-local isLoggedIn = false
-
 local inKeyBinding = false
 local availableKeys = {
     {289, "F2"},
@@ -88,7 +86,7 @@ RegisterNUICallback('save', function(data)
         ["F10"] = {["command"] = data.keyData["F10"][1], ["argument"] = data.keyData["F10"][2]},
     }
 
-    QBCore.Functions.Notify('Command Binds blev gemt!', 'success')
+    QBCore.Functions.Notify('Binds blev gemt!', 'success')
 
     TriggerServerEvent('qb-commandbinding:server:setKeyMeta', keyData)
 end)

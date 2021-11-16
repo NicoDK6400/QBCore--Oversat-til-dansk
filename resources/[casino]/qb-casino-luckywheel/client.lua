@@ -1,37 +1,24 @@
-
-
-
 local car, h
 local _wheel, _base, _lights1, _lights2, _arrow1, _arrow2 = nil, nil, nil, nil, nil, nil
-
-
 local m1a = GetHashKey('vw_prop_vw_luckylight_off')
 local m1b = GetHashKey('vw_prop_vw_luckylight_on')
 local m2a = GetHashKey('vw_prop_vw_jackpot_off')
 local m2b = GetHashKey('vw_prop_vw_jackpot_on')
-	
 local _wheelPos = Config.WheelPos
 local _isRolling = false
 
 Citizen.CreateThread(function()
-
-	
 	RequestScriptAudioBank("DLC_VINEWOOD\\CASINO_GENERAL", false)
-
 	local model1 = GetHashKey('vw_prop_vw_luckywheel_02a')
 	local model2 = GetHashKey('vw_prop_vw_luckywheel_01a')
 	local podiumModel = GetHashKey('vw_prop_vw_casino_podium_01a')
-
 	Citizen.CreateThread(function()
 		RequestModel(model1) while not HasModelLoaded(model1) do Citizen.Wait(0) end
 		RequestModel(model2) while not HasModelLoaded(model2) do Citizen.Wait(0) end
-		
 		RequestModel(m1a) while not HasModelLoaded(m1a) do Citizen.Wait(0) end
 		RequestModel(m1b) while not HasModelLoaded(m1b) do Citizen.Wait(0) end
 		RequestModel(m2a) while not HasModelLoaded(m2a) do Citizen.Wait(0) end
 		RequestModel(m2b) while not HasModelLoaded(m2b) do Citizen.Wait(0) end
-		
-		
 		ClearArea(Config.WheelPos.x, Config.WheelPos.y, Config.WheelPos.z, 5.0, true, false, false, false)
 		
 		_wheel = CreateObject(model1, Config.WheelPos.x, Config.WheelPos.y, Config.WheelPos.z, false, false, true)
@@ -71,9 +58,7 @@ Citizen.CreateThread(function()
         local inZone = false
         local coords = GetEntityCoords(playerPed)
         local distance = GetDistanceBetweenCoords(coords, _wheelPos.x, _wheelPos.y, _wheelPos.z, true)
-
         if distance < 2.9 and not _isRolling then
-
             if distance < 2.8 and not _isRolling then
                 inZone  = true
 				text = "<b>Diamond Casino lykke hjul</b></p> "..Config.startingPrice.." DKK for et spin"
@@ -87,7 +72,7 @@ Citizen.CreateThread(function()
                 exports['textUi']:HideTextUi('hide')
             end
         end
-        Citizen.Wait(sleep)		
+        Citizen.Wait(sleep)
 	end
 end)
 
@@ -118,13 +103,10 @@ AddEventHandler("luckywheel:startroll", function(s, index, p)
 	SetEntityVisible(_lights2, true, 0)
 	win = (index - 1) * 18 + 0.0
 	local j = 360
-	
 	if s == GetPlayerServerId(PlayerId()) then
 		PlaySoundFromEntity(-1, "Spin_Start", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
 	end
-	
 	for i=1,1100,1 do
-		
 		SetEntityRotation(_wheel, h.x, j+0.0, h.z, 0, false)
 		if i < 50 then
 			j = j - 1.5
@@ -132,8 +114,6 @@ AddEventHandler("luckywheel:startroll", function(s, index, p)
 			j = j - 2.0
 		elseif i < 150 then
 			j = j - 2.5
-			
-			
 		elseif i > 1060 then
 			j = j - 0.3
 		elseif i > 1030 then
@@ -166,7 +146,6 @@ AddEventHandler("luckywheel:startroll", function(s, index, p)
 	SetEntityVisible(_arrow1, false, 0)
 	SetEntityVisible(_arrow2, true, 0)
 	local t = true
-	
 	if s == GetPlayerServerId(PlayerId()) then
 		if p.sound == 'car' then
 			PlaySoundFromEntity(-1, "Win_Car", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
@@ -182,7 +161,6 @@ AddEventHandler("luckywheel:startroll", function(s, index, p)
 			PlaySoundFromEntity(-1, "Win", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
 		end
 	end
-	
 	for i=1,15,1 do
 		Citizen.Wait(200)
 		SetEntityVisible(_lights1, t, 0)
@@ -212,12 +190,10 @@ end)
 function QBCoreRequestAnimDict(animDict, cb)
 	if not HasAnimDictLoaded(animDict) then
 		RequestAnimDict(animDict)
-
 		while not HasAnimDictLoaded(animDict) do
 			Citizen.Wait(1)
 		end
 	end
-
 	if cb ~= nil then
 		cb()
 	end
@@ -226,7 +202,6 @@ end
 function doRoll(index)
     if not _isRolling then
 		exports['textUi']:HideTextUi('hide')
-
         _isRolling = true
         local playerPed = PlayerPedId()
         local _lib = 'anim_casino_a@amb@casino@games@lucky7wheel@female'
@@ -234,7 +209,6 @@ function doRoll(index)
             _lib = 'anim_casino_a@amb@casino@games@lucky7wheel@male'
         end
         local lib, anim = _lib, 'enter_right_to_baseidle'
-
         QBCoreRequestAnimDict(lib, function()
 			local _movePos = GetObjectOffsetFromCoords(GetEntityCoords(_base), GetEntityHeading(_base),-0.9, -0.8, -1.0)
             TaskGoStraightToCoord(playerPed,  _movePos.x,  _movePos.y,  _movePos.z,  1.0,  3000,  GetEntityHeading(_base),  0.0)
@@ -262,16 +236,13 @@ function doRoll(index)
             TaskStartScenarioInPlace(playerPed, "WORLD_HUMAN_STRIP_WATCH_STAND", 0, true)
 			Citizen.Wait(4800)
 			ClearPedTasks(playerPed)
-
         end)
-
     end
 end
 
 RegisterNetEvent("dojLuckywheel:winCar")
 AddEventHandler("dojLuckywheel:winCar", function() 
     local coords = { ['x'] = 933.29, ['y'] = -2.82, ['z'] = 78.76, ['h'] = 144.6 }
-
 	QBCore.Functions.SpawnVehicle(Config.VehiclePrize, function(veh)
 		SetVehicleNumberPlateText(veh, "DIAMOND"..tostring(math.random(1000, 9999)))
 		exports['LegacyFuel']:SetFuel(veh, 100.0)
@@ -280,8 +251,5 @@ AddEventHandler("dojLuckywheel:winCar", function()
 		TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
 		SetVehicleEngineOn(veh, true, true)
 		QBCore.Functions.Notify("DU VANDT EN BIL! OMG!!! Dodge Challenger SRT Demon!", "primary", 3500)
-	end, coords, true)            
+	end, coords, true)
 end)
-
-
-

@@ -64,14 +64,14 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
 	end
 	-- Charinfo
 	PlayerData.charinfo = PlayerData.charinfo or {}
-	PlayerData.charinfo.firstname = PlayerData.charinfo.firstname or 'Firstname'
-	PlayerData.charinfo.lastname = PlayerData.charinfo.lastname or 'Lastname'
+	PlayerData.charinfo.firstname = PlayerData.charinfo.firstname or 'Fornavn'
+	PlayerData.charinfo.lastname = PlayerData.charinfo.lastname or 'Efternavn'
 	PlayerData.charinfo.birthdate = PlayerData.charinfo.birthdate or '00-00-0000'
 	PlayerData.charinfo.gender = PlayerData.charinfo.gender or 0
-	PlayerData.charinfo.backstory = PlayerData.charinfo.backstory or 'placeholder backstory'
-	PlayerData.charinfo.nationality = PlayerData.charinfo.nationality or 'USA'
-	PlayerData.charinfo.phone = PlayerData.charinfo.phone ~= nil and PlayerData.charinfo.phone or '1'..math.random(111111111, 999999999)
-	PlayerData.charinfo.account = PlayerData.charinfo.account ~= nil and PlayerData.charinfo.account or 'US0'..math.random(1,9)..'QBCore'..math.random(1111,9999)..math.random(1111,9999)..math.random(11,99)
+	PlayerData.charinfo.backstory = PlayerData.charinfo.backstory or 'baggrundshistorie'
+	PlayerData.charinfo.nationality = PlayerData.charinfo.nationality or 'DK'
+	PlayerData.charinfo.phone = PlayerData.charinfo.phone ~= nil and PlayerData.charinfo.phone or tostring(math.random(10000000, 99999999))
+	PlayerData.charinfo.account = PlayerData.charinfo.account ~= nil and PlayerData.charinfo.account or 'DK0'..math.random(1,9)..'QBCore'..math.random(1111,9999)..math.random(1111,9999)..math.random(11,99)
 	-- Metadata
 	PlayerData.metadata = PlayerData.metadata or {}
 	PlayerData.metadata['hunger'] = PlayerData.metadata['hunger'] or 100
@@ -99,7 +99,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
 		['taxi'] = 0,
 		['hotdog'] = 0,
 	}
-	PlayerData.metadata['callsign'] = PlayerData.metadata['callsign'] or 'NO CALLSIGN'
+	PlayerData.metadata['callsign'] = PlayerData.metadata['callsign'] or 'INTET CALLSIGN'
 	PlayerData.metadata['fingerprint'] = PlayerData.metadata['fingerprint'] or QBCore.Player.CreateFingerId()
 	PlayerData.metadata['walletid'] = PlayerData.metadata['walletid'] or QBCore.Player.CreateWalletId()
 	PlayerData.metadata['criminalrecord'] = PlayerData.metadata['criminalrecord'] or {
@@ -124,8 +124,8 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     }
 -- Job
 	PlayerData.job = PlayerData.job or {}
-	PlayerData.job.name = PlayerData.job.name or 'unemployed'
-	PlayerData.job.label = PlayerData.job.label or 'Civilian'
+	PlayerData.job.name = PlayerData.job.name or 'Arbejdsløs'
+	PlayerData.job.label = PlayerData.job.label or 'Borger'
 	PlayerData.job.payment = PlayerData.job.payment or 10
 	PlayerData.job.onduty = PlayerData.job.onduty or true
 	PlayerData.job.isboss = PlayerData.job.isboss or false
@@ -135,7 +135,7 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
 	-- Gang
 	PlayerData.gang = PlayerData.gang or {}
 	PlayerData.gang.name = PlayerData.gang.name or 'none'
-	PlayerData.gang.label = PlayerData.gang.label or 'No Gang Affiliaton'
+	PlayerData.gang.label = PlayerData.gang.label or 'Ingen bande relationer'
 	PlayerData.gang.isboss = PlayerData.gang.isboss or false
 	PlayerData.gang.grade = PlayerData.gang.grade or {}
 	PlayerData.gang.grade.name = PlayerData.gang.grade.name or 'none'

@@ -17,8 +17,8 @@ Vores sider:
 local QBCore = exports['qb-core']:GetCoreObject()
 
 QBCore.Commands.Add("binds", "Open commandbinding menu", {}, false, function(source, args)
-    local Player = QBCore.Functions.GetPlayer(source)
-	TriggerClientEvent("qb-commandbinding:client:openUI", source)
+  local Player = QBCore.Functions.GetPlayer(source)
+	  TriggerClientEvent("qb-commandbinding:client:openUI", source)
 end)
 
 RegisterServerEvent('qb-commandbinding:server:setKeyMeta')
