@@ -120,7 +120,7 @@ QBCore.Functions.CreateCallback('qb-gangmenu:server:GetEmployees', function(sour
         Accounts[gangname] = 0
     end
     local query = '%' .. gangname .. '%'
-    local players = exports.oxmysql:fetchSync('SELECT * FROM players WHERE gang LIKE ?', {query})
+    local players = exports.oxmysql:executeSync('SELECT * FROM players WHERE gang LIKE ?', {query})
     if players[1] ~= nil then
         for key, value in pairs(players) do
             local isOnline = QBCore.Functions.GetPlayerByCitizenId(value.citizenid)
@@ -160,7 +160,7 @@ AddEventHandler('qb-gangmenu:server:updateGrade', function(target, grade)
             TriggerClientEvent('QBCore:Notify', src, "Ranken findes ikke", "error")
         end
     else
-        local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
+        local player = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
         if player[1] ~= nil then
             Employee = player[1]
             local gang = QBCore.Shared.Gangs[Player.PlayerData.gang.name]
@@ -191,7 +191,7 @@ AddEventHandler('qb-gangmenu:server:fireEmployee', function(target)
             TriggerClientEvent('QBCore:Notify', src, "Kontakt server udviklerne", "error")
         end
     else
-        local player = exports.oxmysql:fetchSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
+        local player = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ? LIMIT 1', {target})
         if player[1] ~= nil then
             Employee = player[1]
             local gang = {}

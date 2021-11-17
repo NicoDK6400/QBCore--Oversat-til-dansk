@@ -129,7 +129,7 @@ end)
 QBCore.Functions.CreateCallback("qb-multicharacter:server:getSkin", function(source, cb, cid)
     local src = source
 
-    local result = exports.oxmysql:fetchSync('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
+    local result = exports.oxmysql:executeSync('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
     if result[1] ~= nil then
         cb(result[1].model, result[1].skin)
     else
@@ -140,7 +140,7 @@ end)
 function loadHouseData()
     local HouseGarages = {}
     local Houses = {}
-    local result = exports.oxmysql:fetchSync('SELECT * FROM houselocations', {})
+    local result = exports.oxmysql:executeSync('SELECT * FROM houselocations', {})
     if result[1] ~= nil then
         for k, v in pairs(result) do
             local owned = false

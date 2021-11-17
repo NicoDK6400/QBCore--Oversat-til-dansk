@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
     local sav = 0
     local gang = 0
 
-    local accts = exports.oxmysql:fetchSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Business' })
+    local accts = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Business' })
     buis = #accts
     if accts[1] ~= nil then
         for k, v in pairs(accts) do
@@ -35,7 +35,7 @@ Citizen.CreateThread(function()
     end
     ready = ready + 1
 
-    local savings = exports.oxmysql:fetchSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Savings' })
+    local savings = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Savings' })
     sav = #savings
     if savings[1] ~= nil then
         for k, v in pairs(savings) do
@@ -44,7 +44,30 @@ Citizen.CreateThread(function()
     end
     ready = ready + 1
 
-    local gangs = exports.oxmysql:fetchSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Gang' })
+
+    local QBCore = exports['qb-core']:GetCoreObject()
+
+    Citizen.CreateThread(function()
+        local accts = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Business' })
+        if accts[1] ~= nil then
+            for k, v in pairs(accts) do
+                local acctType = v.business
+                if businessAccounts[acctType] == nil then
+                    businessAccounts[acctType] = {}
+                end
+                businessAccounts[acctType][tonumber(v.businessid)] = generateBusinessAccount(tonumber(v.account_number), tonumber(v.sort_code), tonumber(v.businessid))
+                while businessAccounts[acctType][tonumber(v.businessid)] == nil do Wait(0) end
+            end
+        end
+    
+        local savings = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Savings' })
+        if savings[1] ~= nil then
+            for k, v in pairs(savings) do
+                savingsAccounts[v.citizenid] = generateSavings(v.citizenid)
+            end
+        end
+    
+        local gangs = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Gang' })
     gang = #gangs
     if gangs[1] ~= nil then
         for k, v in pairs(gangs) do
@@ -113,7 +136,7 @@ function checkAccountExists(acct, sc)
     local cid
     local actype
     local processed = false
-    local exists = exports.oxmysql:fetchSync('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ?', { acct, sc })
+    local exists = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ?', { acct, sc })
     if exists[1] ~= nil then
         success = true
         cid = exists[1].character_id

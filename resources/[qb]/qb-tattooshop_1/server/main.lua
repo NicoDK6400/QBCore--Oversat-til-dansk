@@ -23,7 +23,7 @@ QBCore.Functions.CreateCallback('qb-tattooshop:GetPlayerTattoos', function(sourc
     local Player = QBCore.Functions.GetPlayer(source)
 
 	if Player then
-		local result = exports.oxmysql:fetchSync('SELECT tattoos FROM playerskins WHERE citizenid = ?', { Player.PlayerData.citizenid })
+		local result = exports.oxmysql:executeSync('SELECT tattoos FROM playerskins WHERE citizenid = ?', { Player.PlayerData.citizenid })
 		cb(json.decode(result[1].tattoos))
 	else
 		cb()

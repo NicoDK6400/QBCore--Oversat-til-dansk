@@ -54,7 +54,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        local housePlants = exports.oxmysql:fetchSync('SELECT * FROM house_plants', {})
+        local housePlants = exports.oxmysql:executeSync('SELECT * FROM house_plants', {})
         for k, v in pairs(housePlants) do
             if housePlants[k].food >= 50 then
                 exports.oxmysql:execute('UPDATE house_plants SET food = ? WHERE plantid = ?',
@@ -83,7 +83,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        local housePlants = exports.oxmysql:fetchSync('SELECT * FROM house_plants', {})
+        local housePlants = exports.oxmysql:executeSync('SELECT * FROM house_plants', {})
         for k, v in pairs(housePlants) do
             if housePlants[k].health > 50 then
                 local Grow = math.random(1, 3)
@@ -173,7 +173,7 @@ AddEventHandler('qb-weed:server:harvestPlant', function(house, amount, plantName
     if weedBag ~= nil then
         if weedBag.amount >= sndAmount then
             if house ~= nil then
-                local result = exports.oxmysql:fetchSync(
+                local result = exports.oxmysql:executeSync(
                     'SELECT * FROM house_plants WHERE plantid = ? AND building = ?', {plantId, house})
                 if result[1] ~= nil then
                     Player.Functions.AddItem('weed_' .. plantName .. '_seed', amount)
@@ -201,7 +201,7 @@ RegisterServerEvent('qb-weed:server:foodPlant')
 AddEventHandler('qb-weed:server:foodPlant', function(house, amount, plantName, plantId)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local plantStats = exports.oxmysql:fetchSync(
+    local plantStats = exports.oxmysql:executeSync(
         'SELECT * FROM house_plants WHERE building = ? AND sort = ? AND plantid = ?',
         {house, plantName, tostring(plantId)})
     TriggerClientEvent('QBCore:Notify', src,
