@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 Citizen.CreateThread(function()
     local ready = 0
     local buis = 0
@@ -44,9 +46,6 @@ Citizen.CreateThread(function()
     end
     ready = ready + 1
 
-
-    local QBCore = exports['qb-core']:GetCoreObject()
-
     Citizen.CreateThread(function()
         local accts = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Business' })
         if accts[1] ~= nil then
@@ -59,25 +58,26 @@ Citizen.CreateThread(function()
                 while businessAccounts[acctType][tonumber(v.businessid)] == nil do Wait(0) end
             end
         end
-    
+
         local savings = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Savings' })
         if savings[1] ~= nil then
             for k, v in pairs(savings) do
                 savingsAccounts[v.citizenid] = generateSavings(v.citizenid)
             end
         end
-    
-        local gangs = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Gang' })
-    gang = #gangs
-    if gangs[1] ~= nil then
-        for k, v in pairs(gangs) do
-            gangAccounts[v.gangid] = loadGangAccount(v.gangid)
-        end
-    end
-    ready = ready + 1
 
-    repeat Wait(0) until ready == 5
-    local totalAccounts = (buis + cur + sav + gang)
+        local gangs = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Gang' })
+        gang = #gangs
+        if gangs[1] ~= nil then
+            for k, v in pairs(gangs) do
+                gangAccounts[v.gangid] = loadGangAccount(v.gangid)
+            end
+        end
+        ready = ready + 1
+
+        repeat Wait(0) until ready == 5
+        local totalAccounts = (buis + cur + sav + gang)
+    end)
 end)
 
 exports('business', function(acctType, bid)
