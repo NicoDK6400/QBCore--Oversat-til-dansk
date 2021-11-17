@@ -22,7 +22,7 @@ $(document).on('click', '.bank-app-account', function(e){
     copyText.setSelectionRange(0, 99999);
     document.execCommand("copy");
 
-    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Kontonummer kopieret!", "#badc58", 1750);
+    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Kontonummer kopieret!!", "#badc58", 1750);
 });
 
 var CurrentTab = "accounts";
@@ -65,7 +65,7 @@ $(document).on('click', '.bank-app-header-button', function(e){
 QB.Phone.Functions.DoBankOpen = function() {
     QB.Phone.Data.PlayerData.money.bank = (QB.Phone.Data.PlayerData.money.bank).toFixed();
     $(".bank-app-account-number").val(QB.Phone.Data.PlayerData.charinfo.account);
-    $(".bank-app-account-balance").html("DKK "+QB.Phone.Data.PlayerData.money.bank);
+    $(".bank-app-account-balance").html("&#36; "+QB.Phone.Data.PlayerData.money.bank);
     $(".bank-app-account-balance").data('balance', QB.Phone.Data.PlayerData.money.bank);
 
     $(".bank-app-loaded").css({"display":"none", "padding-left":"30vh"});
@@ -125,11 +125,11 @@ $(document).on('click', '#accept-transfer', function(e){
                     $("#bank-transfer-iban").val("");
                     $("#bank-transfer-amount").val("");
 
-                    $(".bank-app-account-balance").html("DKK " + (data.NewBalance).toFixed(0));
+                    $(".bank-app-account-balance").html("&#36; " + (data.NewBalance).toFixed(0));
                     $(".bank-app-account-balance").data('balance', (data.NewBalance).toFixed(0));
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har overført: "+amount+" DKK!", "#badc58", 1500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har overført; "+amount+" DKK!", "#badc58", 1500);
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke penge nok!", "#badc58", 1500);
+                    QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke nok på din konto!", "#badc58", 1500);
                 }
                 QB.Phone.Animations.TopSlideUp(".bank-app-transfer", 400, -100);
             });
@@ -141,7 +141,7 @@ $(document).on('click', '#accept-transfer', function(e){
 GetInvoiceLabel = function(type) {
     retval = null;
     if (type == "request") {
-        retval = "Payment Request";
+        retval = "Anmodning om betaling";
     }
 
     return retval
@@ -170,17 +170,17 @@ $(document).on('click', '.pay-invoice', function(event){
                         $("#"+InvoiceId).remove();
                     }, 100);
                 });
-                QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har betalt "+InvoiceData.amount+" DKK!", "#badc58", 1500);
+                QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har betalt;"+InvoiceData.amount+" DKK!", "#badc58", 1500);
                 var amountData = $(".bank-app-account-balance").data('balance');
                 var NewAmount = (amountData - InvoiceData.amount).toFixed();
                 $("#bank-transfer-amount").val(NewAmount);
                 $(".bank-app-account-balance").data('balance', NewAmount);
             } else {
-                QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke penge nok!", "#badc58", 1500);
+                QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke nok penge på din konto!", "#badc58", 1500);
             }
         });
     } else {
-        QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke penge nok!", "#badc58", 1500);
+        QB.Phone.Notifications.Add("fas fa-university", "QBank", "Du har ikke nok penge på din konto!", "#badc58", 1500);
     }
 });
 
@@ -209,7 +209,7 @@ QB.Phone.Functions.LoadBankInvoices = function(invoices) {
         $(".bank-app-invoices-list").html("");
 
         $.each(invoices, function(i, invoice){
-            var Elem = '<div class="bank-app-invoice" id="invoiceid-'+i+'"> <div class="bank-app-invoice-title">'+invoice.society+' <span style="font-size: 1vh; color: gray;">(Sender: '+invoice.sender+')</span></div> <div class="bank-app-invoice-amount">DKK '+invoice.amount+'</div> <div class="bank-app-invoice-buttons"> <i class="fas fa-check-circle pay-invoice"></i> <i class="fas fa-times-circle decline-invoice"></i> </div> </div>';
+            var Elem = '<div class="bank-app-invoice" id="invoiceid-'+i+'"> <div class="bank-app-invoice-title">'+invoice.society+' <span style="font-size: 1vh; color: gray;">(Sender: '+invoice.sender+')</span></div> <div class="bank-app-invoice-amount">DKK; '+invoice.amount+'</div> <div class="bank-app-invoice-buttons"> <i class="fas fa-check-circle pay-invoice"></i> <i class="fas fa-times-circle decline-invoice"></i> </div> </div>';
 
             $(".bank-app-invoices-list").append(Elem);
             $("#invoiceid-"+i).data('invoicedata', invoice);
@@ -260,7 +260,7 @@ $(document).on('click', '.bank-app-my-contact', function(e){
     if (PressedContactData.iban !== "" && PressedContactData.iban !== undefined && PressedContactData.iban !== null) {
         $("#bank-transfer-iban").val(PressedContactData.iban);
     } else {
-        QB.Phone.Notifications.Add("fas fa-university", "QBank", "Der er ingen konto med det nummer!", "#badc58", 2500);
+        QB.Phone.Notifications.Add("fas fa-university", "QBank", "Der er ingen konto der matcher!", "#badc58", 2500);
     }
     QB.Phone.Animations.TopSlideUp(".bank-app-my-contacts", 400, -100);
 });

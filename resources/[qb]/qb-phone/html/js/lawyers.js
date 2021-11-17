@@ -46,7 +46,7 @@ SetupLawyers = function(data) {
             }
         });
 
-        $(".lawyers-list").append('<h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; border-top-left-radius: .5vh; border-top-right-radius: .5vh; width:100%; display:block; background-color: rgb(42, 137, 214);">Advokater (' + lawyers.length + ')</h1>');
+        $(".lawyers-list").append('<h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; border-top-left-radius: .5vh; border-top-right-radius: .5vh; width:100%; display:block; background-color: rgb(42, 137, 214);">Lawyers (' + lawyers.length + ')</h1>');
 
         if (lawyers.length > 0) {
             $.each(lawyers, function(i, lawyer) {
@@ -85,7 +85,7 @@ SetupLawyers = function(data) {
             $(".lawyers-list").append(element);
         }
 
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 190, 27);">Taxa (' + taxi.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 190, 27);">Taxi (' + taxi.length + ')</h1>');
 
         if (taxi.length > 0) {
             $.each(taxi, function(i, lawyer3) {
@@ -94,7 +94,7 @@ SetupLawyers = function(data) {
                 $("#lawyerid3-" + i).data('LawyerData', lawyer3);
             });
         } else {
-            var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige taxaer.</div></div>'
+            var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige taxachaufør.</div></div>'
             $(".lawyers-list").append(element);
         }
         
@@ -111,7 +111,7 @@ SetupLawyers = function(data) {
             $(".lawyers-list").append(element);
         }
         
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 0, 0);">Ambulance (' + ambulance.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 0, 0);">Akut læge (' + ambulance.length + ')</h1>');
 
         if (ambulance.length > 0) {
             $.each(ambulance, function(i, lawyer5) {
@@ -120,38 +120,38 @@ SetupLawyers = function(data) {
                 $("#lawyerid5-" + i).data('LawyerData', lawyer5);
             });
         } else {
-            var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige ambulancer.</div></div>'
+            var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige læger.</div></div>'
             $(".lawyers-list").append(element);
         }
     } else {
-        $(".lawyers-list").append('<h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; border-top-left-radius: .5vh; border-top-right-radius: .5vh; width:100%; display:block; background-color: rgb(42, 137, 214);">Lawyers (' + lawyers.length + ')</h1>');
+        $(".lawyers-list").append('<h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; border-top-left-radius: .5vh; border-top-right-radius: .5vh; width:100%; display:block; background-color: rgb(42, 137, 214);">Advokter (' + lawyers.length + ')</h1>');
 
         var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige advokater.</div></div>'
         $(".lawyers-list").append(element);
 
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(155, 15, 120);">Real Estate (' + realestate.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(155, 15, 120);">Ejendomsmæglere (' + realestate.length + ')</h1>');
 
         var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige ejendomsmæglere.</div></div>'
         $(".lawyers-list").append(element);
 
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(0, 204, 102);">Mechanic (' + mechanic.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(0, 204, 102);">Mekaniker (' + mechanic.length + ')</h1>');
 
         var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige mekanikere.</div></div>'
         $(".lawyers-list").append(element);
 
         $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 190, 27);">Taxi (' + taxi.length + ')</h1>');
 
-        var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige taxaer.</div></div>'
+        var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige taxachaufør.</div></div>'
         $(".lawyers-list").append(element);
         
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(0, 102, 255);">Police (' + police.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(0, 102, 255);">Politi (' + police.length + ')</h1>');
 
         var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige betjente.</div></div>'
         $(".lawyers-list").append(element);
         
-        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 0, 0);">Ambulance (' + ambulance.length + ')</h1>');
+        $(".lawyers-list").append('<br><h1 style="font-size:1.641025641025641vh; padding:1.0256410256410255vh; color:#fff; margin-top:0; width:100%; display:block; background-color: rgb(255, 0, 0);">Akut læge (' + ambulance.length + ')</h1>');
 
-        var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige ambulancer.</div></div>'
+        var element = '<div class="lawyer-list"><div class="no-lawyers">Der er ingen ledige læger.</div></div>'
         $(".lawyers-list").append(element);
     }
 }
@@ -175,7 +175,7 @@ $(document).on('click', '.lawyer-list-call', function(e){
                 if (status.CanCall) {
                     if (!status.InCall) {
                         if (QB.Phone.Data.AnonymousCall) {
-                            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du startede et anonymt opkald!");
+                            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du har startet et anonymt opkald!");
                         }
                         $(".phone-call-outgoing").css({"display":"block"});
                         $(".phone-call-incoming").css({"display":"none"});
@@ -197,13 +197,13 @@ $(document).on('click', '.lawyer-list-call', function(e){
                         QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du er allerede i et opkald!");
                     }
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er allerede i et opkald");
+                    QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er i et opkald");
                 }
             } else {
-                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke tilgængelig!");
+                QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Denne person er ikke ledig!");
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Få dig nogle venner at ringe til...!");
+            QB.Phone.Notifications.Add("fas fa-phone", "Phone", "Du kan ikke ringe til dig selv!");
         }
     });
 });

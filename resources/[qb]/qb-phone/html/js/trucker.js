@@ -31,11 +31,11 @@ SetupTruckerInfo = function(data) {
     if (data.CurrentTierData.min == data.CurrentTierData.max) {
         $("#trucker-header-progress-current").html("Nuværende: " + data.CurrentRep + " REP");
         $("#trucker-header-tier").html("Tier " + AmountOfTiers);
-        $("#trucker-header-progress-next").html("Næste: MAX");
+        $("#trucker-header-progress-next").html("Næste: MAKS");
     
         $(".trucker-header-progress-fill").css("width", "100%");
     } else {
-        $("#trucker-header-progress-current").html("Nuværnde: " + data.CurrentRep + " REP");
+        $("#trucker-header-progress-current").html("Nuværende: " + data.CurrentRep + " REP");
         $("#trucker-header-tier").html("Tier " + data.CurrentTier);
         $("#trucker-header-progress-next").html("Næste: " + (data.CurrentTierData.max - data.CurrentRep) + " REP");
     

@@ -58,7 +58,7 @@ Vores sider:
 
 .racing-buttons {
     position: absolute;
-    bottom: 1.2vh;
+    bottom: 3.5vh;
     width: 85%;
     height: 4.5vh;
     margin: 0 auto;
@@ -327,7 +327,7 @@ Vores sider:
     padding: 10px;
     transition: all .2s ease-in-out;
     cursor: pointer
-} 
+}
 
 .dropdown .dropdown-menu {
     padding: 0;
@@ -744,7 +744,7 @@ Vores sider:
 
 .racing-leaderboards-button {
     position: absolute;
-    bottom: 2vh;
+    bottom: 3.5vh;
     width: 70%;
     height: 5vh;
     background-color: #d33013;

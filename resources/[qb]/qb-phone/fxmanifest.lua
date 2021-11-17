@@ -30,8 +30,7 @@ shared_scripts {
 
 client_scripts {
     'client/main.lua',
-    'client/animation.lua',
-    'client/photo.lua'
+    'client/animation.lua'
 }
 
 server_script 'server/main.lua'
@@ -47,3 +46,5 @@ files {
     'html/img/backgrounds/*.png',
     'html/img/apps/*.png',
 }
+
+lua54 'yes'

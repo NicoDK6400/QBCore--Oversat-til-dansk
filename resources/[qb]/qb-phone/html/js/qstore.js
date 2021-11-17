@@ -22,12 +22,14 @@ SetupAppstore = function(data) {
     $(".store-apps").html("");
     $.each(data.StoreApps, function(i, app){
         if (data.PhoneData.InstalledApps[i] == null || data.PhoneData.InstalledApps[i] == undefined) {
-            var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'</div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-download"><i class="fas fa-download"></i></div></div>'
-            $(".store-apps").append(elem);
-            app.app = i;
-            $("#app-"+i).data('AppData', app);
+            if(app.blockedjobs != QB.Phone.Data.PlayerJob.name){
+                var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'</div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-download"><i class="fas fa-download"></i></div></div>'
+                $(".store-apps").append(elem);
+                app.app = i;
+                $("#app-"+i).data('AppData', app);
+            }
         } else {
-            var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'<span style="font-size: 1vh;"> - Installeret</span></div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-remove"><i class="fas fa-trash"></i></div></div>'
+            var elem = '<div class="storeapp" id="app-'+i+'" data-app="'+i+'"><div class="storeapp-icon"><i class="'+app.icon+'"></i></div><div class="storeapp-title">'+app.title+'<span style="font-size: 1vh;"> - Geninstalleret</span></div> <div class="storeapp-creator">'+app.creator+'</div><div class="storeapp-remove"><i class="fas fa-trash"></i></div></div>'
             $(".store-apps").append(elem);
             app.app = i;
             $("#app-"+i).data('AppData', app);
@@ -87,7 +89,6 @@ $(document).on('click', '.download-password-accept', function(e){
     if (FilledInPassword == TemplatePassword) {
         $(".download-password-buttons").fadeOut(150);
         IsDownloading = true;
-        
         $(".download-password-input").attr('readonly', true);
 
         $(".download-progressbar-fill").animate({
@@ -109,7 +110,7 @@ $(document).on('click', '.download-password-accept', function(e){
                         $(applicationSlot).css({"background-color":Installed.data.color});
                         var icon = '<i class="ApplicationIcon '+Installed.data.icon+'" style="'+Installed.data.style+'"></i>';
                         if (Installed.data.app == "meos") {
-                            icon = '<i style="color: white;" class="far fa-id-badge"></i>';
+                            icon = '<img src="./img/politie.png" class="police-icon">';
                         }
                         $(applicationSlot).html(icon+'<div class="app-unread-alerts">0</div>');
                         $(applicationSlot).prop('title', Installed.data.tooltipText);

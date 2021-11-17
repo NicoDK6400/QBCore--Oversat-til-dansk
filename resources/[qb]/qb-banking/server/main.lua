@@ -329,7 +329,7 @@ AddEventHandler('qb-banking:createBankCard', function(pin)
     info.cardPin = tonumber(pin)
     info.cardActive = true
     info.cardType = selectedCard
-    
+
     if selectedCard == "visa" then
         xPlayer.Functions.AddItem('visa', 1, nil, info)
     elseif selectedCard == "mastercard" then
@@ -338,7 +338,6 @@ AddEventHandler('qb-banking:createBankCard', function(pin)
 
     TriggerClientEvent('qb-banking:openBankScreen', src)
     TriggerClientEvent('QBCore:Notify', src, 'Du har fået bestilt et kreditkort.', 'success')
-    
     TriggerEvent('qb-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** successfully ordered a debit card")
 end)
 
@@ -364,7 +363,7 @@ RegisterServerEvent('qb-banking:toggleCard')
 AddEventHandler('qb-banking:toggleCard', function(toggle)
     local src = source
     local xPlayer = QBCore.Functions.GetPlayer(src)
-    
+
     while xPlayer == nil do Wait(0) end
         --_char:Bank():ToggleDebitCard(toggle)
 end)
@@ -375,7 +374,7 @@ AddEventHandler('qb-banking:doQuickWithdraw', function(amount, branch)
     local xPlayer = QBCore.Functions.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
     local currentCash = xPlayer.Functions.GetMoney('bank')
-    
+
     if tonumber(amount) <= currentCash then
         local cash = xPlayer.Functions.RemoveMoney('bank', tonumber(amount), 'banking-quick-withdraw')
         local bank = xPlayer.Functions.AddMoney('cash', tonumber(amount), 'banking-quick-withdraw')

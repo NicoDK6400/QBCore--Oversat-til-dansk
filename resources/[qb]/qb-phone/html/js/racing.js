@@ -49,7 +49,7 @@ $(document).on('click', '.racing-race', function(e){
             OpenedRaceElement = this;
         }
     } else {
-        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Race er blevet startet..", "#1DA1F2");
+        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Dette race er staret..", "#1DA1F2");
     }
 });
 
@@ -86,21 +86,21 @@ function SetupRaces(Races) {
         $.each(Races, function(i, race){
             var Locked = '<i class="fas fa-unlock"></i> Ikke startet endnu';
             if (race.RaceData.Started) {
-                Locked = '<i class="fas fa-lock"></i> Started';
+                Locked = '<i class="fas fa-lock"></i> Igang';
             }
             var LapLabel = "";
             if (race.Laps == 0) {
-                LapLabel = "SPRINT"
+                LapLabel = "DRAG"
             } else {
                 if (race.Laps == 1) {
-                    LapLabel = race.Laps + " Lap";
+                    LapLabel = race.Laps + " Runde";
                 } else {
-                    LapLabel = race.Laps + " Laps";
+                    LapLabel = race.Laps + " Runder";
                 }
             }
             var InRace = IsInRace(QB.Phone.Data.PlayerData.citizenid, race.RaceData.Racers);
             var Creator = IsCreator(QB.Phone.Data.PlayerData.citizenid, race);
-            var Buttons = '<div class="race-buttons"> <div class="race-button" id="join-race" data-toggle="racetooltip" data-placement="left" title="Tilmeld"><i class="fas fa-sign-in-alt"></i></div>';
+            var Buttons = '<div class="race-buttons"> <div class="race-button" id="join-race" data-toggle="racetooltip" data-placement="left" title="Deltag"><i class="fas fa-sign-in-alt"></i></div>';
             if (InRace) {
                 if (!Creator) {
                     Buttons = '<div class="race-buttons"> <div class="race-button" id="quit-race" data-toggle="racetooltip" data-placement="right" title="Forlad"><i class="fas fa-sign-out-alt"></i></div>';
@@ -154,13 +154,13 @@ $(document).on('click', '#join-race', function(e){
                                 SetupRaces(Races);
                             });
                         } else {
-                            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er i en editor..", "#1DA1F2");
+                            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er i redigering..", "#1DA1F2");
                         }
                     });
                 }
             })
         } else {
-            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er allerede i et race..", "#1DA1F2");
+            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er i et race..", "#1DA1F2");
         }
     });
 });
@@ -225,7 +225,7 @@ $(document).on('click', '.dropdown .dropdown-menu li', function(e) {
         var CreatorTag = TrackData.CreatorData.charinfo.firstname.charAt(0).toUpperCase() + ". " + TrackData.CreatorData.charinfo.lastname;
 
         $(".racing-setup-information-distance").html('Distance: '+TrackData.Distance+' m');
-        $(".racing-setup-information-creator").html('Creator: ' + CreatorTag);
+        $(".racing-setup-information-creator").html('Skaber: ' + CreatorTag);
         if (TrackData.Records.Holder !== undefined) {
             if (TrackData.Records.Holder[1].length > 8) {
                 TrackData.Records.Holder[1] = TrackData.Records.Holder[1].substring(0, 8) + "..";
@@ -280,10 +280,10 @@ $(document).on('click', '#create-race', function(e){
                     }
                 });
             } else {
-                QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er allerede i gang med at opsætte et race..", "#1DA1F2");
+                QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du er i redigering..", "#1DA1F2");
             }
         } else {
-            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke rettighederne til at opsætte et race, FeelsBadMan..", "#1DA1F2");
+            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke rettighederne til at kunne skabe en bane..", "#1DA1F2");
         }
     });
 });
@@ -310,14 +310,14 @@ $(document).on('click', '#racing-create-accept', function(e){
                         $(".racing-create-trackname").val("");
                     });
                 } else {
-                    QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Dette navn er ikke tilgængeligt..", "#1DA1F2");
+                    QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Dette navn er ikke gyldigt..", "#1DA1F2");
                 }
             } else {
-                QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke rettighederne til at opsætte et race, FeelsBadMan..", "#1DA1F2");
+                QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke rettighederne til at kunne skabe en bane..", "#1DA1F2");
             }
         });
     } else {
-        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du skal angive et bane navn..", "#1DA1F2");
+        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du skal navngive din bane..", "#1DA1F2");
     }
 });
 
@@ -360,17 +360,17 @@ $(document).on('click', '#setup-race-accept', function(e){
                                         $(".racing-setup-information-wr").html('Vælg en bane');
                                         $(".racing-setup-laps").val("");
                                         $('.dropdown').find('input').removeAttr('value');
-                                        $('.dropdown').find('span').text("Select a Track");
+                                        $('.dropdown').find('span').text("Vælg en bane");
                                     });
                                 } else {
                                     QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Der kan ikke være et ..", "#1DA1F2");
                                 }
                             });
                         } else {
-                            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Angiv hvor mange laps der skal køres..", "#1DA1F2");
+                            QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Angiv hvor mange runder..", "#1DA1F2");
                         }
                     } else {
-                        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke angivet bane..", "#1DA1F2");
+                        QB.Phone.Notifications.Add("fas fa-flag-checkered", "Racing", "Du har ikke valgt en bane..", "#1DA1F2");
                     }
                 }
             })
@@ -394,7 +394,7 @@ $(document).on('click', '#setup-race-cancel', function(e){
         $(".racing-setup-information-wr").html('Vælg en bane');
         $(".racing-setup-laps").val("");
         $('.dropdown').find('input').removeAttr('value');
-        $('.dropdown').find('span').text("Select a Track");
+        $('.dropdown').find('span').text("Vælg en bane");
     });
 });
 
@@ -448,7 +448,7 @@ $(document).on('click', '#leaderboards-race', function(e){
             $(".racing-leaderboards").html("");
             $.each(Races, function(i, race){
                 if (race.LastLeaderboard.length > 0) {
-                    var elem = '<div class="racing-leaderboard-item" id="leaderboard-item-'+i+'"> <span class="racing-leaderboard-item-name"><i class="fas fa-flag-checkered"></i> '+race.RaceName+'</span> <span class="racing-leaderboard-item-info">Klik for flere detaljer</span> </div>'
+                    var elem = '<div class="racing-leaderboard-item" id="leaderboard-item-'+i+'"> <span class="racing-leaderboard-item-name"><i class="fas fa-flag-checkered"></i> '+race.RaceName+'</span> <span class="racing-leaderboard-item-info">Klik for flere informationer</span> </div>'
                     $(".racing-leaderboards").append(elem);
                     $("#leaderboard-item-"+i).data('LeaderboardData', race);
                 }

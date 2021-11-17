@@ -19,7 +19,7 @@ QB.Phone.Settings.Background = "default-qbcore";
 QB.Phone.Settings.OpenedTab = null;
 QB.Phone.Settings.Backgrounds = {
     'default-qbcore': {
-        label: "Standard"
+        label: "Standard QBCore"
     }
 };
 
@@ -56,11 +56,11 @@ $(document).on('click', '#accept-background', function(e){
     var hasCustomBackground = QB.Phone.Functions.IsBackgroundCustom();
 
     if (hasCustomBackground === false) {
-        QB.Phone.Notifications.Add("fas fa-paint-brush", "Settings", QB.Phone.Settings.Backgrounds[QB.Phone.Settings.Background].label+" er ændret!")
+        QB.Phone.Notifications.Add("fas fa-paint-brush", "Settings", QB.Phone.Settings.Backgrounds[QB.Phone.Settings.Background].label+" er valgt!")
         QB.Phone.Animations.TopSlideUp(".settings-"+QB.Phone.Settings.OpenedTab+"-tab", 200, -100);
         $(".phone-background").css({"background-image":"url('/html/img/backgrounds/"+QB.Phone.Settings.Background+".png')"})
     } else {
-        QB.Phone.Notifications.Add("fas fa-paint-brush", "Settings", "Personlig baggrund valgt!")
+        QB.Phone.Notifications.Add("fas fa-paint-brush", "Settings", "Ny baggrund valgt!")
         QB.Phone.Animations.TopSlideUp(".settings-"+QB.Phone.Settings.OpenedTab+"-tab", 200, -100);
         $(".phone-background").css({"background-image":"url('"+QB.Phone.Settings.Background+"')"});
     }
@@ -161,7 +161,6 @@ $(document).on('click', '#accept-profilepicture', function(e){
     } else {
         QB.Phone.Notifications.Add("fas fa-paint-brush", "Settings", "Personlig avatar valgt!")
         QB.Phone.Animations.TopSlideUp(".settings-"+QB.Phone.Settings.OpenedTab+"-tab", 200, -100);
-        console.log(ProfilePicture)
         $("[data-settingstab='profilepicture']").find('.settings-tab-icon').html('<img src="'+ProfilePicture+'">');
     }
     $.post('https://qb-phone/UpdateProfilePicture', JSON.stringify({
