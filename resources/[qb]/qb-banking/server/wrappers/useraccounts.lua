@@ -1,20 +1,4 @@
---[[
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-]]
-
-QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['qb-core']:GetCoreObject()
 
 function generateCurrent(cid)
     local self = {}
@@ -45,7 +29,7 @@ function generateCurrent(cid)
 
     repeat Wait(0) until processed == true
     processed = false
-    
+
     local bankStatement = exports.oxmysql:executeSync('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Current', self.cid })
     if bankStatement[1] ~= nil then
         self.bankStatement = bankStatement
@@ -57,10 +41,8 @@ function generateCurrent(cid)
     processed = false
 
     self.updateItemPin = function(pin)
-        local processed = false
-        local success
-        -- TODO: This should be turned into variables
-        local item = exports.oxmysql:executeSync("SELECT * FROM `stored_items` WHERE `metaprivate` LIKE '%\"cardnumber\":"..self.cardNumber.."%' AND `metaprivate` LIKE '%\"account\":"..self.account.."%' AND `metaprivate` LIKE '%\"sortcode\":"..self.sortcode.."%' AND `type` = 'Bankcard' LIMIT 1")
+        local success = nil
+        local item = exports.oxmysql:executeSync("SELECT * FROM `stored_items` WHERE `metaprivate` LIKE ? AND `metaprivate` LIKE ? AND `metaprivate` LIKE ? AND `type` = 'Bankcard' LIMIT 1", {'%\"cardnumber\":'..self.cardNumber..'%', '%\"account\":'..self.account..'%', '%\"sortcode\":'..self.sortcode..'%'})
         if item[1] ~= nil then
             itemFound = true
             local decode = json.decode(item[1].metaprivate)
@@ -72,18 +54,16 @@ function generateCurrent(cid)
                 else
                     success = false
                 end
-                processed = true
             end)
         else
             success = false
-            processed = true
         end
-        repeat Wait(0) until processed == true
+        repeat Wait(0) until success ~= nil
         return success
     end
 
     self.saveAccount = function()
-        local success 
+        local success
         local processed = false
         exports.oxmysql:execute("UPDATE `bank_accounts` SET `amount` = ? WHERE `character_id` = ? AND `record_id` = ?", { self.balance, self.cid, self.aid }, function(success1)
             if success1 > 0 then
@@ -152,7 +132,7 @@ function generateCurrent(cid)
                 if self.source ~= -1 then
                     TriggerClientEvent('qb-banking:client:newCardSuccess', self.source, cardNumber, friendlyName)
                     local xPlayer = QBCore.Functions.GetPlayer(self.source)
-                    
+
                     if selectedCard == "visa" then
                         xPlayer.Functions.AddItem('visa', 1)
                     elseif selectedCard == "mastercard" then
@@ -187,7 +167,7 @@ function generateCurrent(cid)
     end
 
     rTable.updateSource = function(src)
-        if src ~= nil and type(src) == "number" then 
+        if src ~= nil and type(src) == "number" then
             self.source = src
         else
             self.source = -1
@@ -221,15 +201,14 @@ function generateCurrent(cid)
                     self.account,
                     self.sortcode,
                     amt,
-                    nil,
+                    0,
                     self.balance,
                     time,
                     text
                 }, function(statementUpdated)
                     if statementUpdated > 0 then
-                        local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
-                        table.insert(self.bankStatement, statementTable)
-        
+                        local statementTable = {['withdraw'] = 0, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
+                        self.bankStatement[#self.bankStatement+1] = statementTable
                         if self.source ~= -1 then
                             TriggerClientEvent('pw:updateBank', self.source, self.amount)
                         end
@@ -239,12 +218,6 @@ function generateCurrent(cid)
                     end
                     Addprocessed = true
                 end)
-                local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
-                table.insert(self.bankStatement, statementTable)
-
-                if self.source ~= -1 then
-                    TriggerClientEvent('pw:updateBank', self.source, self.amount)
-                end
             else
                 success = false
                 self.balance = self.balance - amt
@@ -271,7 +244,7 @@ function generateCurrent(cid)
                         self.cid,
                         self.account,
                         self.sortcode,
-                        nil,
+                        0,
                         amt,
                         self.balance,
                         time,
@@ -279,8 +252,8 @@ function generateCurrent(cid)
                     }, function(statementUpdated)
                         if statementUpdated > 0 then
                             successOri = true
-                            local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
-                            table.insert(self.bankStatement, statementTable)
+                            local statementTable = {['withdraw'] = amt, ['deposited'] = 0, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
+                            self.bankStatement[#self.bankStatement+1] = statementTable
 
                             if self.source ~= -1 then
                                 TriggerClientEvent('pw:updateBank', self.source, self.amount)
@@ -307,8 +280,7 @@ end
 
 
 
-RegisterServerEvent('qb-banking:server:registerCurrentAccount')
-AddEventHandler('qb-banking:server:registerCurrentAccount', function(cid)
+RegisterNetEvent('qb-banking:server:registerCurrentAccount', function(cid)
     if not currentAccounts[cid] then
         currentAccounts[cid] = generateCurrent(cid)
     end
@@ -352,7 +324,7 @@ function generateSavings(cid)
     end
 
     rTable.updateSource = function(src)
-        if src ~= nil and type(src) == "number" then 
+        if src ~= nil and type(src) == "number" then
             self.source = src
         else
             self.source = -1
@@ -362,7 +334,7 @@ function generateSavings(cid)
     rTable.AddMoney = function(amt, text)
         if type(amt) == "number" and text then
             self.balance = self.balance + amt
-            local success = self.saveAccount()
+            self.saveAccount()
             local time = os.date("%Y-%m-%d %H:%M:%S")
             exports.oxmysql:insert('INSERT INTO bank_statements (citizenid, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 self.cid,
@@ -372,10 +344,14 @@ function generateSavings(cid)
                 self.balance,
                 time,
                 text
-            })
-            local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.cid }
-            table.insert(self.bankStatement, statementTable)
-            return true
+            }, function(statement)
+                if statement > 0 then
+                    local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statement, ['character_id'] = self.cid }
+                    self.bankStatement[#self.bankStatement+1] = statementTable
+                    return true
+                end
+                return false
+            end)
         end
     end
 
@@ -383,7 +359,7 @@ function generateSavings(cid)
         if type(amt) == "number" and text then
             if amt <= self.balance then
                 self.balance = self.balance - amt
-                local success = self.saveAccount()
+                self.saveAccount()
                 local time = os.date("%Y-%m-%d %H:%M:%S")
                 exports.oxmysql:insert('INSERT INTO bank_statements (citizenid, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                     self.cid,
@@ -393,10 +369,14 @@ function generateSavings(cid)
                     self.balance,
                     time,
                     text
-                })
-                local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.cid }
-                table.insert(self.bankStatement, statementTable)
-                return true
+                }, function(statement)
+                    if statement > 0 then
+                        local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statement, ['character_id'] = self.cid }
+                        self.bankStatement[#self.bankStatement+1] = statementTable
+                        return true
+                    end
+                    return false
+                end)
             end
         end
     end
@@ -404,8 +384,7 @@ function generateSavings(cid)
     return rTable
 end
 
-RegisterServerEvent('qb-banking:server:registerSavingsAccount')
-AddEventHandler('qb-banking:server:registerSavingsAccount', function(cid)
+RegisterNetEvent('qb-banking:server:registerSavingsAccount', function(cid)
     if not savingsAccounts[cid] then
         savingsAccounts[cid] = generateSavings(cid)
     end
@@ -413,14 +392,12 @@ end)
 
 function createSavingsAccount(cid)
     local completed = false
-    local success = false
     exports.oxmysql:insert('INSERT INTO bank_accounts (citizenid, amount, account_type) VALUES (?, ?, ?)', { cid, 0, 'Savings' }, function(result)
         savingsAccounts[cid] = generateSavings(cid)
-        success = true
         completed = true
     end)
     repeat Wait(0) until completed == true
-    return success
+    return true
 end
 
 exports('createSavingsAccount', function(cid)

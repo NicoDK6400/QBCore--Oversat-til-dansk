@@ -1,26 +1,10 @@
-/*
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-*/
-
 var Config = new Object();
 Config.closeKeys = [69, 27];
 Config.ATMTransLimit = 5000;
 var currentLimit = null;
 var clientPin = null;
 
-window.addEventListener("message", function (event) {    
+window.addEventListener("message", function (event) {
     if(event.data.status == "openbank") {
         /*$("#cardDetails").css({"display":"none"});*/
         $("#createNewPin").css({"display":"none"});
@@ -108,12 +92,12 @@ window.addEventListener("message", function (event) {
         $("#savingsQuicky").css({"display":"none"});
         $("#savingAccountCreator").css({"display":"none"});
         $("#ATMContainer").css({"display":"none"});
-    } else if (event.data.status == "transferError") { 
+    } else if (event.data.status == "transferError") {
         if(event.data.error !== undefined) {
             $("#transferError").css({"display":"block"});
             $("#transferErrorMsg").html(event.data.error);
         }
-    } else if (event.data.status == "successMessage") { 
+    } else if (event.data.status == "successMessage") {
         if(event.data.message !== undefined) {
             $("#successRow").css({"display":"block"});
             $("#successMessage").html(event.data.message);
@@ -148,7 +132,7 @@ function setupSavingsMenu(data, name)
     if (statement2 !== undefined) {
     statement2.sort(dynamicSort("date"));
     $.each(statement2, function (index, statement) {
-        console.log(index)
+        // console.log(index)
         if(statement.deposited == null && statement.deposited == undefined) {
             deposit = "0"
         } else {
@@ -205,11 +189,11 @@ function populateBanking(data)
         if (data.cardInformation.cardLocked == true) {
             $("#debitCardStatus").removeClass('bg-success');
             $("#debitCardStatus").addClass('bg-danger');
-            $("#debitCardStatus").html('<div class="card-header">Kort spærret</div><div class="card-body">Dit kort er i øjeblikket spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Lås/Lås op for kort</button></div>');
+            $("#debitCardStatus").html('<div class="card-header">Kort låst</div><div class="card-body">Dit dkort er blevet spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Lås op</button></div>');
         } else {
             $("#debitCardStatus").removeClass('bg-danger');
         $("#debitCardStatus").addClass('bg-success');
-        $("#debitCardStatus").html('<div class="card-header">Kort er aktivt</div><div class="card-body">Dit kort er i øjeblikket aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/Lås op for kort</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort ulåst</div><div class="card-body">Dit kort er aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/spær kort</button></div>');
         }
         $("#cardDetails").css({"display":"block"});
     } else {
@@ -231,13 +215,13 @@ function populateBanking(data)
             withdraw = statement.withdraw
         }
         if (statement.balance == 0) {
-            balance = '<span class="text-dark">' + statement.balance + ' DKK</span>';
+            balance = '<span class="text-dark">DKK' + statement.balance + '</span>';
         } else if (statement.balance > 0) {
-            balance = '<span class="text-success">' + statement.balance + ' DKK</span>';
+            balance = '<span class="text-success">DKK' + statement.balance + '</span>';
         } else {
-            balance = '<span class="text-danger">' + statement.balance + ' DKK</span>';
+            balance = '<span class="text-danger">DKK' + statement.balance + '</span>';
         }
-        $("#currentStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>' + withdraw + ' DKK</small></td><td class="text-center text-success"><small>' + deposit + ' DKK</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        $("#currentStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>DKK' + withdraw + '</small></td><td class="text-center text-success"><small>DKK' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
@@ -271,14 +255,14 @@ $(function() {
     $(document).on('click','#lockCard',function(){
         $("#debitCardStatus").removeClass('bg-success');
         $("#debitCardStatus").addClass('bg-danger');
-        $("#debitCardStatus").html('<div class="card-header">Kort spærret</div><div class="card-body">Dit kort er spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Oplås/Frigør kort</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort låst</div><div class="card-body">Dit kort er spærret.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Lås op</button></div>');
         $.post('https://qb-banking/lockCard', JSON.stringify({ }));
     });
 
     $(document).on('click','#unLockCard',function(){
         $("#debitCardStatus").removeClass('bg-danger');
         $("#debitCardStatus").addClass('bg-success');
-        $("#debitCardStatus").html('<div class="card-header">Kort frigjort</div><div class="card-body">Dit kort er aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/Spær kort</button></div>');
+        $("#debitCardStatus").html('<div class="card-header">Kort ulåst</div><div class="card-body">Dit kort er aktivt.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lås/spær kort</button></div>');
         $.post('https://qb-banking/unLockCard', JSON.stringify({ }));
     });
 
@@ -302,7 +286,7 @@ $(function() {
              $('#newPinNumber').val('');
         } else {
             $("#newPinReqMsgDiv").css({"display":"block"});
-            $("#newPinReqMsg").html('Du skal opgive et 4 cifret tal for at kunne opdatere.')
+            $("#newPinReqMsg").html('Du skal angive en pin på 4 cifre.')
         }
 
     });
@@ -313,14 +297,14 @@ $(function() {
         if(amount !== undefined && amount > 0) {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
-            $.post('https://qb-banking/doWithdraw', JSON.stringify({ 
+            $.post('https://qb-banking/doWithdraw', JSON.stringify({
                 amount: parseInt(amount)
             }));
             $('#withdrawAmount').val('')
         } else {
             // Error doing withdraw
             $("#withdrawError").css({"display":"block"});
-            $("#withdrawErrorMsg").html('Der er sket en fejl under din udbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
+            $("#withdrawErrorMsg").html('Der skete en fejl under udbetalingen, enten er intet indtastet eller er det et negativt tal');
         }
     });
 
@@ -330,24 +314,24 @@ $(function() {
             if(amount !== undefined && amount > 0) {
                 $("#withdrawATMError").css({"display":"none"});
                 $("#withdrawATMErrorMsg").html('');
-                $.post('https://qb-banking/doATMWithdraw', JSON.stringify({ 
+                $.post('https://qb-banking/doATMWithdraw', JSON.stringify({
                     amount: parseInt(amount)
                 }));
                 $('#withdrawAmountATM').val('');
                 $("#withdrawATMErrorMsg").removeClass('alert-danger').addClass('alert-success');
                 $("#withdrawATMError").css({"display":"none"});
-                $("#withdrawATMErrorMsg").html('Der er blevet lavet en udbetaling på DKK' + amount + ' fra din konto.');
+                $("#withdrawATMErrorMsg").html('Du har udbetalt' + amount + ' DKK fra din konto.');
                 currentLimit = currentLimit + parseInt(amount);
             } else {
                 // Error doing withdraw
                 $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
                 $("#withdrawATMError").css({"display":"block"});
-                $("#withdrawATMErrorMsg").html('Der er sket en fejl under din udbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
+                $("#withdrawATMErrorMsg").html('Der skete en fejl under udbetalingen, enten er intet indtastet eller er det et negativt tal');
             }
         } else {
             $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
             $("#withdrawATMError").css({"display":"block"});
-            $("#withdrawATMErrorMsg").html('Beklager, dit daglige loft på udbetalinger (' + Config.ATMTransLimit + ') er nu nået. Besøg en bank for at kunne lave en større udbetaling.');
+            $("#withdrawATMErrorMsg").html('Beklager, du har nået dit daglige loft (' + Config.ATMTransLimit + ') for daglige udbetalinger, besøg en bank for at få kontanter.');
         }
     });
 
@@ -357,21 +341,21 @@ $(function() {
         if(amount !== undefined && amount > 0) {
             $("#depositError").css({"display":"none"});
             $("#depositErrorMsg").html('');
-            $.post('https://qb-banking/doDeposit', JSON.stringify({ 
+            $.post('https://qb-banking/doDeposit', JSON.stringify({
                 amount: parseInt(amount)
             }));
             $('#depositAmount').val('');
         } else {
             // Error doing withdraw
             $("#depositError").css({"display":"block"});
-            $("#depositErrorMsg").html('Der er sket en fejl under din indbetaling, enten er beløbet ikke angivet, eller er det et negativt beløb');
+            $("#depositErrorMsg").html('Der skete en fejl under udbetalingen, enten er intet indtastet eller er det et negativt tal');
         }
     });
 
     $("[data-action=deposit]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qb-banking/doDeposit', JSON.stringify({ 
+            $.post('https://qb-banking/doDeposit', JSON.stringify({
                 amount: parseInt(amount)
             }));
         }
@@ -384,16 +368,16 @@ $(function() {
 
     $("#processCard").click(function() {
         var pinValue = $('#cardPinNumber').val();
-        console.log(pinValue.replace(/[^0-9]/g,"").length);
+        // console.log(pinValue.replace(/[^0-9]/g,"").length);
         if(pinValue !== null && pinValue !== undefined && pinValue.replace(/[^0-9]/g,"").length === 4) {
             $("#pinCreatorError").css({"display":"none"});
             $("#pinCreatorErrorMsg").html('');
-            $.post('https://qb-banking/createDebitCard', JSON.stringify({ 
+            $.post('https://qb-banking/createDebitCard', JSON.stringify({
                 pin: pad(pinValue, 4)
             }));
         } else {
             $("#pinCreatorError").css({"display":"block"});
-            $("#pinCreatorErrorMsg").html('Der er sket en fejl med den kode du har forsøgt med, vær sikker på at det er 4 cifre!.');
+            $("#pinCreatorErrorMsg").html('Der skete en fejl med din pin, vær sikker på at det er 4 cifre (tal).');
         }
 
     });
@@ -406,7 +390,7 @@ $(function() {
         if(amount !== undefined && amount !== null && amount > 0 && sortcode !== undefined && sortcode !== null && sortcode > 0 && account !== undefined && account !== null && account > 0) {
             $("#transferError").css({"display":"none"});
             $("#transferErrorMsg").html('');
-            $.post('https://qb-banking/doTransfer', JSON.stringify({ 
+            $.post('https://qb-banking/doTransfer', JSON.stringify({
                 amount: parseInt(amount),
                 account: parseInt(account),
                 sortcode: parseInt(sortcode)
@@ -416,15 +400,15 @@ $(function() {
             $('#transferAcctNo').val('');
         } else {
             $("#transferError").css({"display":"block"});
-            $("#transferErrorMsg").html('Der er en fejl med de informationer du oplyser, vær sikker på at det er et kontonummer.');
+            $("#transferErrorMsg").html('Der skete en fejl med de informationer du har angivet.');
         }
-        
+
     });
-    
+
     $("[data-action=withdraw]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qb-banking/doWithdraw', JSON.stringify({ 
+            $.post('https://qb-banking/doWithdraw', JSON.stringify({
                 amount: parseInt(amount)
             }));
         }
@@ -434,7 +418,7 @@ $(function() {
         var amount = $(this).attr('data-amount');
         if (currentLimit + parseInt(amount) <= Config.ATMTransLimit) {
             if(amount > 0) {
-                $.post('https://qb-banking/doATMWithdraw', JSON.stringify({ 
+                $.post('https://qb-banking/doATMWithdraw', JSON.stringify({
                     amount: parseInt(amount)
                 }));
                 $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
@@ -446,14 +430,14 @@ $(function() {
             // Error Daily Limit Hit.
             $("#successMessageATM").removeClass('alert-success').addClass('alert-danger');
             $("#successRowATM").css({"display":"block"});
-            $("#successMessageATM").html('Beklager, dit daglige loft på udbetalinger (' + Config.ATMTransLimit + ') er nu nået. Besøg en bank for at kunne lave en større udbetaling.');
+            $("#successMessageATM").html('Beklager, du har nået dit daglige loft (' + Config.ATMTransLimit + ') for daglige udbetalinger, besøg en bank for at få kontanter..');
         }
     });
 
     $("[data-action=savingsdeposit]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qb-banking/savingsDeposit', JSON.stringify({ 
+            $.post('https://qb-banking/savingsDeposit', JSON.stringify({
                 amount: parseInt(amount)
             }));
         }
@@ -473,16 +457,16 @@ $(function() {
         $("#requestNewCard2").css({"display":"none"});
         $("#requestNewCard3").css({"display":"block"});
 
-        $.post('https://qb-banking/requestNewCard', JSON.stringify({ 
-                
+        $.post('https://qb-banking/requestNewCard', JSON.stringify({
+
         }));
 
-        setTimeout(function(){ 
+        setTimeout(function(){
             $("#requestNewCard3").css({"display":"none"});
             $("#requestNewCard1").css({"display":"block"});
          }, 5000);
     });
-    
+
     $("#makeSavingsTransfer").click(function() {
         var amount = $("#savingsTAmount").val();
         var action = $("#savingsAction").val();
@@ -491,20 +475,20 @@ $(function() {
             if(action == "deposit") {
                 $("#savingsTAmount").val('');
                 $("#savingsAction").val('def');
-                $.post('https://qb-banking/savingsDeposit', JSON.stringify({ 
+                $.post('https://qb-banking/savingsDeposit', JSON.stringify({
                     amount: parseInt(amount)
                 }));
             } else {
                 $("#savingsTAmount").val('');
                 $("#savingsAction").val('def');
-                $.post('https://qb-banking/savingsWithdraw', JSON.stringify({ 
+                $.post('https://qb-banking/savingsWithdraw', JSON.stringify({
                     amount: parseInt(amount)
                 }));
             }
         }
     });
 
-    
+
     $("[data-action=pinNumberBtn]").click(function() {
         var number = $(this).attr('data-number');
         if(number == "ENTER") {
@@ -516,14 +500,14 @@ $(function() {
                         $('#pinEntered').val('');
                         loadAtmScreen();
                     } else {
-                        $("#pinErrorMsg").html('Ukorrekt pinkode.');
+                        $("#pinErrorMsg").html('Forkert pin kode.');
                         $("#pinErrorDiv").css({"display":"block"});
                     }
             } else {
-                $("#pinErrorMsg").html('Du skal angive en pinkode på 4 cifre.');
+                $("#pinErrorMsg").html('Du skal angive en 4 cifret pin kode.');
                 $("#pinErrorDiv").css({"display":"block"});
             }
-            
+
 
         } else if(number == "CLEAR") {
             // pin cleared
@@ -539,7 +523,7 @@ $(function() {
     $("[data-action=savingswithdraw]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qb-banking/savingsWithdraw', JSON.stringify({ 
+            $.post('https://qb-banking/savingsWithdraw', JSON.stringify({
                 amount: parseInt(amount)
             }));
         }

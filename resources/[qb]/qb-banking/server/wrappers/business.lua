@@ -1,19 +1,3 @@
---[[
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-]]
-
 businessAccounts = {}
 currentAccounts = {}
 savingsAccounts = {}
@@ -28,7 +12,6 @@ function generatebusinessAccount(acc, sc, bid)
     self.sortCode = tonumber(sc)
     self.bid = bid
 
-    local processed = false
     local bankAccount = exports.oxmysql:executeSync('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ? AND businessid = ?', { self.accountNumber, self.sortCode, self.bid })
     if bankAccount[1] ~= nil then
         self.account_id = bankAccount[1].record_id
@@ -36,19 +19,17 @@ function generatebusinessAccount(acc, sc, bid)
         self.account_type = "business"
         self.account_for = bankAccount[1].business
         if self.account_for == "realestate" then
-            self.account_name = "Real Estates"
+            self.account_name = "Ejendomsmæglere"
         elseif self.account_for == "police" then
-            self.account_name = "Police"
+            self.account_name = "Politi"
         elseif self.account_for == "ems" then
-            self.account_name = "EMS Medical Services"
+            self.account_name = "Læger"
         elseif self.account_for == "taxi" then
-            self.account_name = "Taxi Services"
+            self.account_name = "Taxi tjenester"
         elseif self.account_for == "cardealer" then
-            self.account_name = "Car Dealership"
+            self.account_name = "Bilforhandler"
         end
     end
-        processed = true
-    repeat Wait(0) until processed == true
 
     self.saveAccount = function()
         exports.oxmysql:execute("UPDATE `bank_accounts` SET `amount` = ? WHERE `record_id` = ?", { self.balance, self.account_id })
@@ -143,7 +124,7 @@ end
 --- CREATE A NEW business ACCOUNT ---
 -------------------------------------
 
-function createbusinessAccount(accttype, bid, startingBalance)
+local function createbusinessAccount(accttype, bid, startingBalance)
     if businessAccounts[accttype] == nil then
         businessAccounts[accttype] = {}
     end
