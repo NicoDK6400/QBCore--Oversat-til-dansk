@@ -20,9 +20,9 @@ game 'gta5'
 description 'QB-ATM'
 version '1.0.0'
 
-shared_script 'config.lua'
+shared_script 'config/main.lua'
 server_script 'server/main.lua'
-client_scripts 'client/main.lua'
+client_script 'client/main.lua'
 
 ui_page 'nui/index.html'
 
