@@ -181,7 +181,7 @@ function QBCore.Player.CreatePlayer(PlayerData)
 			self.PlayerData.job.name = job
 			self.PlayerData.job.label = QBCore.Shared.Jobs[job].label
 			self.PlayerData.job.onduty = QBCore.Shared.Jobs[job].defaultDuty
-			
+
 			if QBCore.Shared.Jobs[job].grades[grade] then
 				local jobgrade = QBCore.Shared.Jobs[job].grades[grade]
 				self.PlayerData.job.grade = {}
@@ -484,7 +484,7 @@ function QBCore.Player.Save(source)
             charinfo = json.encode(PlayerData.charinfo),
             job = json.encode(PlayerData.job),
             gang = json.encode(PlayerData.gang),
-            position = json.encode(PlayerData.pcoords),
+            position = json.encode(pcoords),
             metadata = json.encode(PlayerData.metadata)
         })
         QBCore.Player.SaveInventory(src)
