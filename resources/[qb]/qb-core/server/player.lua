@@ -470,26 +470,28 @@ end
 -- Save player info to database (make sure citizenid is the primary key in your database)
 
 function QBCore.Player.Save(source)
-	local src = source
-	local PlayerData = QBCore.Players[src].PlayerData
-	if PlayerData then
-		exports.oxmysql:insert('INSERT INTO players (citizenid, cid, license, name, money, charinfo, job, gang, position, metadata) VALUES (:citizenid, :cid, :license, :name, :money, :charinfo, :job, :gang, :position, :metadata) ON DUPLICATE KEY UPDATE cid = :cid, name = :name, money = :money, charinfo = :charinfo, job = :job, gang = :gang, position = :position, metadata = :metadata', {
-			citizenid = PlayerData.citizenid,
-			cid = tonumber(PlayerData.cid),
-			license = PlayerData.license,
-			name = PlayerData.name,
-			money = json.encode(PlayerData.money),
-			charinfo = json.encode(PlayerData.charinfo),
-			job = json.encode(PlayerData.job),
-			gang = json.encode(PlayerData.gang),
-			position = json.encode(pcoords),
-			metadata = json.encode(PlayerData.metadata)
-		})
-		QBCore.Player.SaveInventory(src)
-		QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name ..' Spiller gemt!')
-	else
-		QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.SAVE - PLAYERDATA er tomt!')
-	end
+    local src = source
+    local ped = GetPlayerPed(src)
+    local pcoords = GetEntityCoords(ped)
+    local PlayerData = QBCore.Players[src].PlayerData
+    if PlayerData then
+        exports.oxmysql:insert('INSERT INTO players (citizenid, cid, license, name, money, charinfo, job, gang, position, metadata) VALUES (:citizenid, :cid, :license, :name, :money, :charinfo, :job, :gang, :position, :metadata) ON DUPLICATE KEY UPDATE cid = :cid, name = :name, money = :money, charinfo = :charinfo, job = :job, gang = :gang, position = :position, metadata = :metadata', {
+            citizenid = PlayerData.citizenid,
+            cid = tonumber(PlayerData.cid),
+            license = PlayerData.license,
+            name = PlayerData.name,
+            money = json.encode(PlayerData.money),
+            charinfo = json.encode(PlayerData.charinfo),
+            job = json.encode(PlayerData.job),
+            gang = json.encode(PlayerData.gang),
+            position = json.encode(PlayerData.pcoords),
+            metadata = json.encode(PlayerData.metadata)
+        })
+        QBCore.Player.SaveInventory(src)
+        QBCore.ShowSuccess(GetCurrentResourceName(), PlayerData.name .. ' SPILLER GEMT!')
+    else
+        QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.SAVE - PLAYERDATA ER TOMT!')
+    end
 end
 
 -- Delete character
