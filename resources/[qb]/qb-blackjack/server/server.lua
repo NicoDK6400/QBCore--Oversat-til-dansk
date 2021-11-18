@@ -14,7 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-local QBCore = exports['qb-core']:GetCoreObject()
+
+-- ===========================================
 
 ranks = {'02', '03', '04', '05', '06', '07', '08', '09', '10', --[['11',]] 'JACK', 'QUEEN', 'KING', 'ACE'}
 suits = {'SPD', 'HRT', 'DIA', 'CLUB'}
@@ -79,40 +80,10 @@ function handValue(hand)
 	return tmpValue
 end
 		
-players = {
-	-- [1] = { -- table
-		-- [1] = { -- player
-			-- player = source
-			-- seat = 1
-			-- hand = {},
-			-- splitHand = {}
-			-- player_in = true,
-			-- bet = 1500,
-		-- }
-	-- },
-	-- [2] = {},
-	-- [3] = {},
-	-- [4] = {},
-}
+players = {}
 timeTracker = {}
+tableTracker = {}
 
-tableTracker = {
-	-- ["2"] = 1,
-}
-
---[===[
-	exports["kgv-blackjack"]:SetGetChipsCallback(function(source)
-		return 0 -- [[ return money ]]
-	end)
-
-	exports["kgv-blackjack"]:SetTakeChipsCallback(function(source, amount)
-		--[[ money = money - amount? ]]
-	end)
-
-	exports["kgv-blackjack"]:SetGiveChipsCallback(function(source, amount)
-		--[[ money = money + amount? ]]
-	end)
---]===]
 
 getChipsCallback = nil
 takeChipsCallback = nil
@@ -142,17 +113,15 @@ function SetGiveChipsCallback(cb)
 end
 
 function GiveMoney(player, money)
-	if giveChipsCallback ~= nil then
+	if giveChipsCallback ~= nil then 
 		giveChipsCallback(player, tonumber(money))
 	end
-	-- DebugPrint("MONEY: GIVE "..GetPlayerName(player):upper().." "..money)
 end
 
 function TakeMoney(player, money)
 	if takeChipsCallback ~= nil then
 		takeChipsCallback(player, tonumber(money))
 	end
-	-- DebugPrint("MONEY: TAKE "..GetPlayerName(player):upper().." "..money)
 end
 
 function HaveAllPlayersBetted(table)
@@ -204,35 +173,59 @@ end
 RegisterServerEvent("BLACKJACK:SetPlayerBet")
 AddEventHandler('BLACKJACK:SetPlayerBet', SetPlayerBet)
 
+-- function CheckPlayerBet(i, bet)
+-- 	local Player = QBCore.Functions.GetPlayer(source)
+-- 	local ItemList = {
+-- 		["blackchip"] = 1,
+-- 	}
+	
+-- 	local playerChips = Player.Functions.GetItemByName("blackchip")
+
+-- 	local canBet = false
+
+--     if Player.PlayerData.items ~= nil and next(Player.PlayerData.items) ~= nil then 
+--         for k, v in pairs(Player.PlayerData.items) do 
+--             if Player.PlayerData.items[k] ~= nil then 
+-- 				if ItemList[Player.PlayerData.items[k].name] ~= nil then 
+-- 					if playerChips.amount >= bet then 
+-- 					canBet = true
+-- 					end
+--                 end
+--             end
+--         end
+-- 	end
+-- 	TriggerClientEvent("BLACKJACK:BetReceived", source, canBet)
+-- end
+
 function CheckPlayerBet(i, bet)
 	local Player = QBCore.Functions.GetPlayer(source)
-	local ItemList = {
-		["casinochips"] = 1,
-	}
-	
-	DebugPrint("TABLE "..i..": CHECKING "..GetPlayerName(source):upper().."'s CHIPS")
-
-	local playerChips = Player.Functions.GetItemByName("casinochips")
-
 	local canBet = false
-
-    if Player.PlayerData.items ~= nil and next(Player.PlayerData.items) ~= nil then 
-        for k, v in pairs(Player.PlayerData.items) do 
-            if Player.PlayerData.items[k] ~= nil then 
-				if ItemList[Player.PlayerData.items[k].name] ~= nil then 
-					if playerChips.amount >= bet then
-					canBet = true
-					end
-                end
-            end
-        end
-	end
 	
+	if Player.PlayerData.money.bank >= bet then
+		canBet = true
+    end
+
 	TriggerClientEvent("BLACKJACK:BetReceived", source, canBet)
 end
 
 RegisterServerEvent("BLACKJACK:CheckPlayerBet")
 AddEventHandler("BLACKJACK:CheckPlayerBet", CheckPlayerBet)
+
+function SortPlayers(pTable)
+    local temp
+
+    for i=1,#pTable-1 do
+        for j=i+1,#pTable do
+            if pTable[i].seat < pTable[j].seat then
+                temp = pTable[i]
+                pTable[i] = pTable[j]
+                pTable[j] = temp
+            end
+        end
+    end
+
+    return pTable
+end
 
 RegisterServerEvent("BLACKJACK:ReceivedMove")
 
@@ -242,19 +235,7 @@ function StartTableThread(i)
 		-- DebugPrint(index)
 		while true do Wait(0)
 			if players[index] and #players[index] ~= 0 then
-				DebugPrint("WAITING FOR ALL PLAYERS AT TABLE "..index.." TO PLACE THEIR BETS.")
-				
-				-- TODO: DONT FORGET TO REMOVE THIS JESUS CHRIST
-				
-				-- local bet = 15000
-				
-				-- TakeMoney(players[index][1].player, bet)
-				-- players[index][1].bet = bet
-				
-				-- for num,_ in pairs(players[index]) do
-					-- TriggerClientEvent("BLACKJACK:RequestBets", players[index][num].player)
-				-- end
-				
+				DebugPrint("WAITING FOR ALL PLAYERS AT TABLE "..index.." TO PLACE THEIR BETS.")				
 				PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_place_bet_request")
 				PlayDealerSpeech(index, "MINIGAME_DEALER_PLACE_CHIPS")
 				
@@ -280,10 +261,15 @@ function StartTableThread(i)
 						DebugPrint("BETS PLACED AT TABLE "..index..", STARTING GAME")
 		
 						PlayDealerSpeech(index, "MINIGAME_DEALER_CLOSED_BETS")
-						
+						 
+
 						local currentPlayers = {table.unpack(players[i])}
 						local deck = getDeck()
 						local dealerHand = {}
+						local dealerVisibleHand = {}
+						TriggerClientEvent("BLACKJACK:UpdateDealerHand", -1, index, handValue(dealerVisibleHand))
+
+						currentPlayers = SortPlayers(currentPlayers)
 						
 						local gameRunning = true
 						
@@ -301,9 +287,12 @@ function StartTableThread(i)
 							else
 								PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_deal_card_self_second_card")
 								DebugPrint("TABLE "..index..": DEALT DEALER "..card)
+								table.insert(dealerVisibleHand, card)
+
 							end
 							Wait(2000)
-		
+							TriggerClientEvent("BLACKJACK:UpdateDealerHand", -1, index, handValue(dealerVisibleHand))
+
 							if #dealerHand > 1 then
 								PlayDealerSpeech(index, "MINIGAME_BJACK_DEALER_"..cardValue(dealerHand[2]))
 							end
@@ -338,9 +327,12 @@ function StartTableThread(i)
 						if handValue(dealerHand) == 21 then
 							DebugPrint("TABLE "..index..": DEALER HAS BLACKJACK")
 							PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_check_and_turn_card")
+							dealerVisibleHand = dealerHand
+							TriggerClientEvent("BLACKJACK:DealerTurnOverCard", -1, index)
+
 							Wait(2000)
 							PlayDealerSpeech(index, "MINIGAME_BJACK_DEALER_BLACKJACK")
-							TriggerClientEvent("BLACKJACK:DealerTurnOverCard", -1, index)
+							TriggerClientEvent("BLACKJACK:UpdateDealerHand", -1, index, handValue(dealerVisibleHand))
 
 							for i,v in pairs(currentPlayers) do
 								TriggerClientEvent("BLACKJACK:GameEndReaction", v.player, "bad")
@@ -350,6 +342,9 @@ function StartTableThread(i)
 						elseif cardValue(dealerHand[2]) == 10 or cardValue(dealerHand[2]) == 11 then
 							DebugPrint("TABLE "..index..": DEALER HAS A 10, CHECKING..")
 							PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_check_card")
+							if ChackCardPropAnim then
+								TriggerClientEvent("BLACKJACK:DealerCheckCard", -1, index)
+							end
 							Wait(2000)
 						end
 						
@@ -720,10 +715,13 @@ function StartTableThread(i)
 
 							if ArePlayersStillIn(currentPlayers) then
 								PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_turn_card")
-								Wait(1000)
 								TriggerClientEvent("BLACKJACK:DealerTurnOverCard", -1, index)
-								Wait(1000)
+								dealerVisibleHand = dealerHand
+
+								Wait(2000)
 								PlayDealerSpeech(index, "MINIGAME_BJACK_DEALER_"..handValue(dealerHand))
+								TriggerClientEvent("BLACKJACK:UpdateDealerHand", -1, index, handValue(dealerVisibleHand))
+
 							end
 								
 							if handValue(dealerHand) < 17 and ArePlayersStillIn(currentPlayers) then
@@ -737,6 +735,8 @@ function StartTableThread(i)
 									DebugPrint("TABLE "..index..": DEALT DEALER "..card)
 									Wait(2000)
 									PlayDealerSpeech(index, "MINIGAME_BJACK_DEALER_"..handValue(dealerHand))
+									TriggerClientEvent("BLACKJACK:UpdateDealerHand", -1, index, handValue(dealerVisibleHand))
+
 								until handValue(dealerHand) >= 17
 							end
 						end
@@ -807,9 +807,9 @@ function StartTableThread(i)
 						
 						for i,v in pairs(currentPlayers) do
 							PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_retrieve_cards_player_0".. 5-v.seat)
-							Wait(500)
-							TriggerClientEvent("BLACKJACK:RetrieveCards", -1, index, v.seat)
-							Wait(1500)
+							Wait(600)
+							TriggerClientEvent("BLACKJACK:RetrieveCardsWithAnim", -1, index, v.seat)
+							Wait(1400)
 					
 							v.bet = 0
 							v.player_in = true
@@ -818,9 +818,9 @@ function StartTableThread(i)
 						end
 						
 						PlayDealerAnim(index, "anim_casino_b@amb@casino@games@blackjack@dealer", "female_retrieve_own_cards_and_remove")
-						Wait(500)
-						TriggerClientEvent("BLACKJACK:RetrieveCards", -1, index, 0)
-						Wait(1500)
+						Wait(600)
+						TriggerClientEvent("BLACKJACK:RetrieveCardsWithAnim", -1, index, 0)
+						Wait(1400)
 
 						timeTracker[index] = 0
 
@@ -958,3 +958,39 @@ AddEventHandler('BLACKJACK:PlayerRemove', PlayerRemove)
 exports("SetGetChipsCallback", SetGetChipsCallback)
 exports("SetTakeChipsCallback", SetTakeChipsCallback)
 exports("SetGiveChipsCallback", SetGiveChipsCallback)
+
+
+-- =====================SetExports
+function SetExports()
+	exports["qb-blackjack"]:SetGetChipsCallback(function(source)
+		local Player = QBCore.Functions.GetPlayer(source)
+		local bankBalance = Player.PlayerData.money["bank"]
+    end) 
+	
+    exports["qb-blackjack"]:SetTakeChipsCallback(function(source, amount)
+		local Player = QBCore.Functions.GetPlayer(source)
+		local bankBalance = Player.PlayerData.money["bank"]
+		local MinAmount = 10
+		if bankBalance >= MinAmount then
+			Player.Functions.RemoveMoney("bank", tonumber(amount), "blackjack-bet")
+		else
+			return TriggerClientEvent("BLACKJACK:client:stop", source)
+		end
+    end) 
+
+    exports["qb-blackjack"]:SetGiveChipsCallback(function(source, amount)
+        local Player = QBCore.Functions.GetPlayer(source)
+        if Player ~= nil then
+			Player.Functions.AddMoney("bank", tonumber(amount), "blackjack-won")
+        end
+    end)
+end
+
+AddEventHandler("onResourceStart", function(resourceName)
+	if ("qb-blackjack" == resourceName) then
+        Citizen.Wait(1000)
+        SetExports()
+    end
+end)
+
+SetExports()

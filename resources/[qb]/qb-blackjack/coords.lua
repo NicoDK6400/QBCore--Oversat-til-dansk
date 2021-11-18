@@ -24,73 +24,75 @@ function DebugPrint(str)
 end
 
 elevator_roof_location = {
-	["x"] = 981.73,
-	["y"] = 54.45,
-	["z"] = 116.16,
-	["a"] = 328.68
+	["x"] = 930.0716,
+	["y"] = 33.86854,
+	["z"] = 81.09772,
+	["a"] = 69.9051208
 }
 elevator_entrance_location = {
-	["x"] = 953.39,
-	["y"] = 58.37,
-	["z"] = 75.43,
-	["a"] = 230.92
+	["x"] = 965.0619,
+	["y"] = 58.51287,
+	["z"] = 112.553,
+	["a"] = 53.0310745
 }
+
+ChackCardPropAnim = true
 
 tables = { -- Spawns Ped Only -- Setup Currently For This https://forum.cfx.re/t/cayo-perico-casino-dlc-ipl-loader/2099391
 	{
-		coords = vector4(996.17, 51.69, 68.45, 318.91),
+		coords = vector4(996.17, 51.69, 68.45, 318.91), --Table 1
 		highStakes = false
 	},
 	{
-		coords = vector4(1000.66, 50.88, 68.45, 6.73),
+		coords = vector4(1000.66, 50.88, 68.45, 6.73), --Table 2
 		highStakes = false
 	},
 	{
-		coords = vector4(1004.09, 53.11, 68.45, 55.30),
+		coords = vector4(1004.09, 53.11, 68.45, 55.30), --Table NOT WORKING
 		highStakes = false
 	},
 	{
-		coords = vector4(1002.36, 60.52, 68.45, 142.53),
+		coords = vector4(1002.36, 60.52, 68.45, 142.53), --Table NOT WORKING
 		highStakes = false
 	},
 	{
-		coords = vector4(998.44, 60.99, 68.45, 191.77),
+		coords = vector4(998.44, 60.99, 68.45, 191.77), --Table 5
 		highStakes = false
 	},
 	{
-		coords = vector4(994.89, 58.29, 68.45, 237.13),
+		coords = vector4(994.89, 58.29, 68.45, 237.13), --Table 6
 		highStakes = false
 	},
 	{
-		coords = vector4(985.95, 60.56, 69.25, 187.91),
+		coords = vector4(985.95, 60.56, 69.25, 187.91), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(982.50, 62.85, 69.25, 101.44),
+		coords = vector4(982.50, 62.85, 69.25, 101.44), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(984.97, 66.64, 69.25, 3.39),
+		coords = vector4(984.97, 66.64, 69.25, 3.39), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(988.45, 64.38, 69.25, 278.52),
+		coords = vector4(988.45, 64.38, 69.25, 278.52), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(989.05, 45.69, 69.25, 22.31),
+		coords = vector4(989.05, 45.69, 69.25, 22.31), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(987.30, 42.19, 69.25, 102.30), 
+		coords = vector4(987.30, 42.19, 69.25, 102.30), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(991.56, 40.10, 69.25, 200.84),
+		coords = vector4(991.56, 40.10, 69.25, 200.84), --Table NOT WORKING
 		highStakes = true
 	},
 	{
-		coords = vector4(993.20, 43.70, 69.25, 279.25),
+		coords = vector4(993.20, 43.70, 69.25, 279.25), --Table NOT WORKING
 		highStakes = true
 	},
 }
@@ -104,11 +106,16 @@ tables = { -- Spawns Ped Only -- Setup Currently For This https://forum.cfx.re/t
 --]]
 
 customTables = { -- Spawns ped with table, example below
---[[ 	{
-		coords = vector4(996.77, 52.43, 68.43, 318.91),
-		highStakes = false,
-		color = 0
-	},--]]
+{
+	coords = vector4(967.33, 32.0191, 115.1742, -122.0),
+	highStakes = false,
+	color = 1,
+},
+ 	-- {
+	-- 	coords = vector4(996.77, 52.43, 68.43, 318.91),
+	-- 	highStakes = false,
+	-- 	color = 0
+	-- },
 }
 
 for i,v in pairs(customTables) do
@@ -116,9 +123,9 @@ for i,v in pairs(customTables) do
 end
 
 resultNames = {
-	["good"] = "vandt",
-	["bad"] = "tabte", 
-	["impartial"] = "fik et skub",
+	["good"] = "WON",
+	["bad"] = "BUST",
+	["impartial"] = "Got a PUSH",
 }
 
 requestCardAnims = {
@@ -724,11 +731,95 @@ chipHeights = { -- whatever the fuck this even means
 }
 
 function SetDealerOutfit(ped, outfit)
-	local outfit = (outfit % 9) or math.random(0, 5)
-	
+	local outfit = (outfit % 13) or math.random(0, 13)
+
 	SetPedDefaultComponentVariation(ped)
-	
+
 	if outfit == 0 then
+		SetPedComponentVariation(ped, 0, 3, 0, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 3, 0, 0)
+		SetPedComponentVariation(ped, 3, 1, 0, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 3, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 1 then
+		SetPedComponentVariation(ped, 0, 2, 2, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 4, 0, 0)
+		SetPedComponentVariation(ped, 3, 0, 3, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 1, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 2 then
+		SetPedComponentVariation(ped, 0, 2, 1, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 2, 0, 0)
+		SetPedComponentVariation(ped, 3, 0, 3, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 1, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 3 then
+		SetPedComponentVariation(ped, 0, 2, 0, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 3, 0, 0)
+		SetPedComponentVariation(ped, 3, 1, 3, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 3, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 4 then
+		SetPedComponentVariation(ped, 0, 4, 2, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 3, 0, 0)
+		SetPedComponentVariation(ped, 3, 0, 0, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 1, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 5 then
+		SetPedComponentVariation(ped, 0, 4, 0, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 0, 0, 0)
+		SetPedComponentVariation(ped, 3, 0, 0, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 1, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 6 then
+		SetPedComponentVariation(ped, 0, 4, 1, 0)
+		SetPedComponentVariation(ped, 1, 1, 0, 0)
+		SetPedComponentVariation(ped, 2, 4, 0, 0)
+		SetPedComponentVariation(ped, 3, 1, 0, 0)
+		SetPedComponentVariation(ped, 4, 0, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 2, 0, 0)
+		SetPedComponentVariation(ped, 8, 3, 0, 0)
+		SetPedComponentVariation(ped, 10, 1, 0, 0)
+		SetPedComponentVariation(ped, 11, 1, 0, 0)
+		return
+	elseif outfit == 7 then
 		SetPedComponentVariation(ped, 0, 1, 1, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 1, 0, 0)
@@ -740,7 +831,7 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 10, 0, 0, 0)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
 		return
-	elseif outfit == 1 then
+	elseif outfit == 8 then
 		SetPedComponentVariation(ped, 0, 1, 1, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 1, 1, 0)
@@ -752,7 +843,7 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 10, 0, 0, 0)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
 		return
-	elseif outfit == 2 then
+	elseif outfit == 9 then
 		SetPedComponentVariation(ped, 0, 2, 0, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 2, 0, 0)
@@ -764,7 +855,7 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 10, 0, 0, 0)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
 		return
-	elseif outfit == 3 then
+	elseif outfit == 10 then
 		SetPedComponentVariation(ped, 0, 2, 1, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 2, 1, 0)
@@ -776,7 +867,7 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 10, 0, 0, 0)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
 		return
-	elseif outfit == 4 then
+	elseif outfit == 11 then
 		SetPedComponentVariation(ped, 0, 3, 0, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 3, 0, 0)
@@ -789,7 +880,7 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
 		SetPedPropIndex(ped, 1, 0, 0, false)
 		return
-	elseif outfit == 5 then
+	elseif outfit == 12 then
 		SetPedComponentVariation(ped, 0, 3, 1, 0)
 		SetPedComponentVariation(ped, 1, 0, 0, 0)
 		SetPedComponentVariation(ped, 2, 3, 1, 0)
@@ -800,6 +891,19 @@ function SetDealerOutfit(ped, outfit)
 		SetPedComponentVariation(ped, 8, 1, 0, 0)
 		SetPedComponentVariation(ped, 10, 0, 0, 0)
 		SetPedComponentVariation(ped, 11, 0, 0, 0)
+		return
+	elseif outfit == 13 then
+		SetPedComponentVariation(ped, 0, 4, 0, 0)
+		SetPedComponentVariation(ped, 1, 0, 0, 0)
+		SetPedComponentVariation(ped, 2, 4, 0, 0)
+		SetPedComponentVariation(ped, 3, 2, 1, 0)
+		SetPedComponentVariation(ped, 4, 1, 0, 0)
+		SetPedComponentVariation(ped, 6, 1, 0, 0)
+		SetPedComponentVariation(ped, 7, 1, 0, 0)
+		SetPedComponentVariation(ped, 8, 2, 0, 0)
+		SetPedComponentVariation(ped, 10, 0, 0, 0)
+		SetPedComponentVariation(ped, 11, 0, 0, 0)
+		SetPedPropIndex(ped, 1, 0, 0, false)
 		return
 	end
 end
