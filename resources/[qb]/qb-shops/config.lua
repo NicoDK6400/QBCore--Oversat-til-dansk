@@ -532,16 +532,6 @@ Config.Products = {
         --     slot = 2,
         -- },
     },
-    ["casino"] = {
-        [1] = {
-            name = 'casinochips',
-            price = 100,
-            amount = 999999,
-            info = {},
-            type = 'item',
-            slot = 1,
-        }
-    },
 }
 
 Config.Locations = {
@@ -564,15 +554,6 @@ Config.Locations = {
         },
         ["products"] = Config.Products["coffeeplace"],
         ["showblip"] = false,
-    },
-    ["casino"] = {
-        ["label"] = "Diamond Casino",
-        ["type"] = "normal",
-        ["coords"] = {
-            [1] = vector3(948.3834, 34.21247, 71.839)
-        },
-        ["products"] = Config.Products["casino"],
-        ["showblip"] = true,
     },
     ["ltdgasoline"] = {
         ["label"] = "LTD Tankstation",
