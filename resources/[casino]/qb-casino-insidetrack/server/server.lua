@@ -1,11 +1,5 @@
 
 
-
-
-
-
-
-
 -- QBCore.Functions.CreateCallback("insidetrack:server:getbalance", function(source, cb) 
 --     local Player = QBCore.Functions.GetPlayer(source)
 --     local Chips = Player.Functions.GetItemByName("whitechip")
@@ -16,7 +10,6 @@
 --         return TriggerClientEvent('QBCore:client:closeBets', source)
 --     end
 -- end)
-
 
 QBCore.Functions.CreateCallback("insidetrack:server:getbalance", function(source, cb)
     local source = source

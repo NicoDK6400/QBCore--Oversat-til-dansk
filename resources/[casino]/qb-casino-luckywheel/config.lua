@@ -39,6 +39,6 @@ Config.Prices = {
 	[16] = {type = 'item',		name = 'redchip', 		count = 10000, 	sound = 'chips', 	probability = {a = 610, b = 640}},	--  8.0 %  64.0 -- 10.000 chips
 	[17] = {type = 'money',		name = 'money', 		count = 20000, 	sound = 'cash', 	probability = {a = 640, b = 700}},	--  8.0 %  72.0 -- 20.000 $
 	[18] = {type = 'money', 	name = 'money', 		count = 2500, 	sound = 'cash', 	probability = {a = 700, b = 810}},	--  9.0 %  81.0 -- 2.500 RP
-	[19] = {type = 'item', 		name = 'lean', 			count = 1, 		sound = 'clothes', 	probability = {a = 810, b = 990}},	--  9.0 %  90.0 -- CLOTHING
-	[20] = {type = 'money', 	name = 'money', 		count = 50000, 	sound = 'cash', 	probability = {a = 990, b = 1000}},	-- 1.0 % -- 50.000 $ 
+	--[19] = {type = 'item', 		name = 'lean', 			count = 1, 		sound = 'clothes', 	probability = {a = 810, b = 990}},	--  9.0 %  90.0 -- CLOTHING
+	[19] = {type = 'money', 	name = 'money', 		count = 50000, 	sound = 'cash', 	probability = {a = 990, b = 1000}},	-- 1.0 % -- 50.000 $ 
 }

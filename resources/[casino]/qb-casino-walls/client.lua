@@ -257,7 +257,7 @@ exports['qb-target']:AddCircleZone("LuckyWheel", vector3(949.391, 44.72, 71.638)
                 label = "Prøv dit held af!",
             },
         },
-    distance = 2.0 
+    distance = 2.0
 })
 
 -- Horse Bets
@@ -274,16 +274,16 @@ exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.
             label = "Start Bet",
         },
     },
-    distance = 3.0 
+    distance = 3.0
 })
 
 -- Casino Shop
 exports['qb-target']:AddTargetModel(`U_F_M_CasinoCash_01`, {
 	options = {
-        { 
+        {
             event = "doj:casinoChipMenu",
             icon = "fas fa-exchange-alt",
-            label = "Sælg dine jetoner", 
+            label = "Sælg dine jetoner",
         },
         {
             event = "qb-casino:client:openCasinoChips",
@@ -299,10 +299,27 @@ exports['qb-target']:AddTargetModel(`U_F_M_CasinoCash_01`, {
 	distance = 3.0
 })
 
+exports['qb-target']:AddCircleZone("Roulette", vector3(991.09, 53.22, 69.51), 1.0, {
+  name="Roulette",
+  heading=160,
+  debugPoly=false,
+  useZ=true,
+}, {
+  options = {
+      {
+          event = "casino:taskStartRoulette",
+          icon = "fas fa-coins",
+          label = "Spil roulette",
+      },
+  },
+  distance = 3.0
+})
+
+
 RegisterNetEvent('qb-casino:client:openCasinoMembersips')
 AddEventHandler('qb-casino:client:openCasinoMembersips', function()
     local ShopItems = {}
-    ShopItems.label = "Diamond Casino Memberships"
+    ShopItems.label = "Diamond Casino medlemskaber"
     ShopItems.items = Config.CasinoMemberships
     ShopItems.slots = #Config.CasinoMemberships
     TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", ShopItems)

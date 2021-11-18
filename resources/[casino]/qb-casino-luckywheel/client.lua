@@ -20,7 +20,7 @@ Citizen.CreateThread(function()
 		RequestModel(m2a) while not HasModelLoaded(m2a) do Citizen.Wait(0) end
 		RequestModel(m2b) while not HasModelLoaded(m2b) do Citizen.Wait(0) end
 		ClearArea(Config.WheelPos.x, Config.WheelPos.y, Config.WheelPos.z, 5.0, true, false, false, false)
-		
+
 		_wheel = CreateObject(model1, Config.WheelPos.x, Config.WheelPos.y, Config.WheelPos.z, false, false, true)
 		SetEntityHeading(_wheel, Config.WheelPos.h)
 		SetModelAsNoLongerNeeded(model1)
