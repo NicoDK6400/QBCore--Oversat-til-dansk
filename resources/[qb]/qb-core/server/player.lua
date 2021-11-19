@@ -153,7 +153,7 @@ function QBCore.Player.Logout(source)
 	local src = source
 	TriggerClientEvent('QBCore:Client:OnPlayerUnload', src)
 	TriggerClientEvent('QBCore:Player:UpdatePlayerData', src)
-	Wait(200)
+	Citizen.Wait(200)
 	QBCore.Players[src] = nil
 end
 
