@@ -233,7 +233,7 @@ pdm:onPlayerInOut(function(isPointInside)
                 vehicleMenu = {
                     {
                         isMenuHeader = true,
-                        header = getVehBrand():upper().. ' '..getVehName():upper().. ' - $' ..getVehPrice(),
+                        header = getVehBrand():upper().. ' '..getVehName():upper().. ' - ' ..getVehPrice().. ' DKK',
                     },
                     {
                         header = 'Prøvetur',
