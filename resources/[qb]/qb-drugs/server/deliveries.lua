@@ -55,13 +55,12 @@ AddEventHandler('qb-drugs:server:succesDelivery', function(deliveryData, inTime)
         if Player.Functions.GetItemByName('weed_brick') ~= nil and Player.Functions.GetItemByName('weed_brick').amount >=
             deliveryData["amount"] then
             Player.Functions.RemoveItem('weed_brick', deliveryData["amount"])
-            local cops = GetCurrentCops()
             local price = 3000
-            if cops == 1 then
+            if CurrentCops == 1 then
                 price = 4000
-            elseif cops == 2 then
+            elseif CurrentCops == 2 then
                 price = 5000
-            elseif cops >= 3 then
+            elseif CurrentCops >= 3 then
                 price = 6000
             end
             if curRep < 10 then
@@ -85,7 +84,7 @@ AddEventHandler('qb-drugs:server:succesDelivery', function(deliveryData, inTime)
                 Player.Functions.SetMetaData('dealerrep', (curRep + 1))
             end)
         else
-            TriggerClientEvent('QBCore:Notify', src, 'This doesn\'t meet the order...', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har ikke det korrekte med', 'error')
 
             if Player.Functions.GetItemByName('weed_brick').amount ~= nil then
                 Player.Functions.RemoveItem('weed_brick', Player.Functions.GetItemByName('weed_brick').amount)
@@ -106,7 +105,7 @@ AddEventHandler('qb-drugs:server:succesDelivery', function(deliveryData, inTime)
             end)
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Du kom for sent...', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Du kommer for sent...', 'error')
 
         Player.Functions.RemoveItem('weed_brick', deliveryData["amount"])
         Player.Functions.AddMoney('cash', (deliveryData["amount"] * 6000 / 100 * 4), "dilvery-drugs-too-late")
@@ -127,7 +126,7 @@ end)
 
 RegisterServerEvent('qb-drugs:server:callCops')
 AddEventHandler('qb-drugs:server:callCops', function(streetLabel, coords)
-    local msg = "Mistænkelig adfærd finder sted ved " .. streetLabel .. ", muligvis narkosalg."
+    local msg = "Mistænkelig adfærd finder sted ved " .. streetLabel .. ", mulig narko salg."
     local alertData = {
         title = "Narko salg",
         coords = {
@@ -148,19 +147,6 @@ AddEventHandler('qb-drugs:server:callCops', function(streetLabel, coords)
     end
 end)
 
-function GetCurrentCops()
-    local amount = 0
-    for k, v in pairs(QBCore.Functions.GetPlayers()) do
-        local Player = QBCore.Functions.GetPlayer(v)
-        if Player ~= nil then
-            if (Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty) then
-                amount = amount + 1
-            end
-        end
-    end
-    return amount
-end
-
 QBCore.Commands.Add("newdealer", "Placer en dealer (Kun Admin)", {{
     name = "name",
     help = "Dealer navn"
@@ -169,7 +155,7 @@ QBCore.Commands.Add("newdealer", "Placer en dealer (Kun Admin)", {{
     help = "Minimum tid"
 }, {
     name = "max",
-    help = "Maks. tid"
+    help = "Maximum tid"
 }}, true, function(source, args)
     local dealerName = args[1]
     local mintime = tonumber(args[2])
@@ -198,7 +184,7 @@ QBCore.Commands.Add("dealers", "Vis alle dealere (Kun Admin)", {}, false, functi
     local DealersText = ""
     if Config.Dealers ~= nil and next(Config.Dealers) ~= nil then
         for k, v in pairs(Config.Dealers) do
-            DealersText = DealersText .. "Name: " .. v["name"] .. "<br>"
+            DealersText = DealersText .. "Navn: " .. v["name"] .. "<br>"
         end
         TriggerClientEvent('chat:addMessage', source, {
             template = '<div class="chat-message advert"><div class="chat-message-body"><strong>Liste over dealere: </strong><br><br> ' ..
@@ -212,7 +198,7 @@ end, "admin")
 
 QBCore.Commands.Add("dealergoto", "Teleport til dealer (Kun Admin)", {{
     name = "name",
-    help = "Dealer name"
+    help = "Dealer navn"
 }}, true, function(source, args)
     local DealerName = tostring(args[1])
 
@@ -223,7 +209,7 @@ QBCore.Commands.Add("dealergoto", "Teleport til dealer (Kun Admin)", {{
     end
 end, "admin")
 
-Citizen.CreateThread(function()
+CreateThread(function()
     Wait(500)
     local dealers = exports.oxmysql:executeSync('SELECT * FROM dealers', {})
     if dealers[1] ~= nil then

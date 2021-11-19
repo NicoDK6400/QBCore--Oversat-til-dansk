@@ -17,7 +17,6 @@ Vores sider:
 local QBCore = exports['qb-core']:GetCoreObject()
 
 local currentDealer = nil
-local knockingDoor = false
 local dealerIsHome = false
 local waitingDelivery = nil
 local activeDelivery = nil
@@ -27,14 +26,28 @@ local isHealingPerson = false
 local healAnimDict = "mini@cpr@char_a@cpr_str"
 local healAnim = "cpr_pumpchest"
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.TriggerCallback('qb-drugs:server:RequestConfig', function(DealerConfig)
         Config.Dealers = DealerConfig
     end)
 end)
 
-Citizen.CreateThread(function()
+local function DrawText3D(x, y, z, text)
+    SetTextScale(0.35, 0.35)
+    SetTextFont(4)
+    SetTextProportional(1)
+    SetTextColour(255, 255, 255, 215)
+    SetTextEntry("STRING")
+    SetTextCentre(true)
+    AddTextComponentString(text)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
+    local factor = (string.len(text)) / 370
+    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
+end
+
+CreateThread(function()
     while true do
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
@@ -50,7 +63,7 @@ Citizen.CreateThread(function()
                 if dealerDist <= 1.5 and not isHealingPerson then
                     if not interacting then
                         if not dealerIsHome then
-                            DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at banke')
+                            DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] for at banke')
 
                             if IsControlJustPressed(0, 38) then
                                 currentDealer = id
@@ -58,7 +71,7 @@ Citizen.CreateThread(function()
                             end
                         elseif dealerIsHome then
                             if dealer["name"] == "Mystery man" then
-                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Hjælp din makker (5000 DKK)')
+                                DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] For at hjælpe (5000 DKK)')
                             else
                                 DrawText3D(dealer["coords"]["x"], dealer["coords"]["y"], dealer["coords"]["z"], '[E] For at købe / [G] Start en mission')
                             end
@@ -84,7 +97,7 @@ Citizen.CreateThread(function()
                                         }, {}, {}, function() -- Done
                                             isHealingPerson = false
                                             StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                                            QBCore.Functions.Notify("Du har hjulpet en person!")
+                                            QBCore.Functions.Notify("Du hjalp en person!")
                                             TriggerServerEvent("hospital:server:RevivePlayer", playerId, true)
                                         end, function() -- Cancel
                                             isHealingPerson = false
@@ -92,18 +105,16 @@ Citizen.CreateThread(function()
                                             QBCore.Functions.Notify("Fejlede!", "error")
                                         end)
                                     else
-                                        QBCore.Functions.Notify("Der er ingen spiller i nærheden..", "error")
+                                        QBCore.Functions.Notify("Der er ingen i nærheden..", "error")
                                     end
                                 else
                                     if waitingDelivery == nil then
-                                        --TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail") --TESTER
-                                        QBcore.Functions.Notify("Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail", success, 5000)
+                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "Dette er produkterne, jeg holder dig opdateret på mail")
                                         requestDelivery()
                                         interacting = false
                                         dealerIsHome = false
                                     else
-                                        --TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'Du mangler at fuldfører en mission, hvad venter du på knægt?!') --TESTER
-                                        QBCore.Functions.Notify("Dealer "..Config.Dealers[currentDealer]["name"].." Du mangler at fuldfører en mission, hvad venter du på knægt?!", error, 5000)
+                                        TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "error", 'Du mangler at fuldfører en mission, hvad venter du på knægt?!')
                                     end
                                 end
                             end
@@ -115,10 +126,10 @@ Citizen.CreateThread(function()
 
         if not nearDealer then
             dealerIsHome = false
-            Citizen.Wait(2000)
+            Wait(2000)
         end
 
-        Citizen.Wait(3)
+        Wait(3)
     end
 end)
 
@@ -178,20 +189,18 @@ function knockDoorAnim(home)
 
     if home then
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "knock_door", 0.2)
-        Citizen.Wait(100)
+        Wait(100)
         while (not HasAnimDictLoaded(knockAnimLib)) do
             RequestAnimDict(knockAnimLib)
-            Citizen.Wait(100)
+            Wait(100)
         end
-        knockingDoor = true
         TaskPlayAnim(PlayerPed, knockAnimLib, knockAnim, 3.0, 3.0, -1, 1, 0, false, false, false )
-        Citizen.Wait(3500)
+        Wait(3500)
         TaskPlayAnim(PlayerPed, knockAnimLib, "exit", 3.0, 3.0, -1, 1, 0, false, false, false)
-        knockingDoor = false
-        Citizen.Wait(1000)
+        Wait(1000)
         dealerIsHome = true
         if Config.Dealers[currentDealer]["name"] == "Mystery man" then
-            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hej, hvad kan jeg gøre for dig?')
+            TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Hej, hvad kan jeg gøre for dig')
         elseif Config.Dealers[currentDealer]["name"] == "Fred" then
             dealerIsHome = false
             TriggerEvent("chatMessage", "Dealer "..Config.Dealers[currentDealer]["name"], "normal", 'Desværre, jeg laver ikke handler med dig længere ... Du skulle have behandlet mig bedre')
@@ -201,17 +210,15 @@ function knockDoorAnim(home)
         -- knockTimeout()
     else
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "knock_door", 0.2)
-        Citizen.Wait(100)
+        Wait(100)
         while (not HasAnimDictLoaded(knockAnimLib)) do
             RequestAnimDict(knockAnimLib)
-            Citizen.Wait(100)
+            Wait(100)
         end
-        knockingDoor = true
         TaskPlayAnim(PlayerPed, knockAnimLib, knockAnim, 3.0, 3.0, -1, 1, 0, false, false, false )
-        Citizen.Wait(3500)
+        Wait(3500)
         TaskPlayAnim(PlayerPed, knockAnimLib, "exit", 3.0, 3.0, -1, 1, 0, false, false, false)
-        knockingDoor = false
-        Citizen.Wait(1000)
+        Wait(1000)
         QBCore.Functions.Notify('Ser ud til at ingen er hjemme..', 'error', 3500)
     end
 end
@@ -241,8 +248,8 @@ function requestDelivery()
     SetTimeout(2000, function()
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[currentDealer]["name"],
-            subject = "Delivery Location",
-            message = "Her er alt information til leveringen, <br>Genstande: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> lad vær med at komme for sent!!",
+            subject = "Sted for aflevering",
+            message = "Her er alt information til leveringen, <br>Genstande: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> vær der til tiden!!",
             button = {
                 enabled = true,
                 buttonEvent = "qb-drugs:client:setLocation",
@@ -261,7 +268,7 @@ function randomDeliveryItemOnRep()
     for k, v in pairs(Config.DeliveryItems) do
         if Config.DeliveryItems[k]["minrep"] <= myRep then
             local availableItems = {}
-            table.insert(availableItems, k)
+            availableItems[#availableItems+1] = k
 
             local item = math.random(1, #availableItems)
 
@@ -292,7 +299,7 @@ AddEventHandler('qb-drugs:client:setLocation', function(locationData)
 
     setMapBlip(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"])
 
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
 
             local ped = PlayerPedId()
@@ -305,7 +312,7 @@ AddEventHandler('qb-drugs:client:setLocation', function(locationData)
                 if dist < 15 then
                     inDeliveryRange = true
                     if dist < 1.5 then
-                        DrawText3D(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"], activeDelivery["coords"]["z"], '[E] '..activeDelivery["amount"]..'x '..QBCore.Shared.Items[activeDelivery["itemData"]["item"]]["label"]..' aflevér.')
+                        DrawText3D(activeDelivery["coords"]["x"], activeDelivery["coords"]["y"], activeDelivery["coords"]["z"], '[E] '..activeDelivery["amount"]..'x '..QBCore.Shared.Items[activeDelivery["itemData"]["item"]]["label"]..' aflevere.')
 
                         if IsControlJustPressed(0, 38) then
                             deliverStuff(activeDelivery)
@@ -317,19 +324,19 @@ AddEventHandler('qb-drugs:client:setLocation', function(locationData)
                 end
 
                 if not inDeliveryRange then
-                    Citizen.Wait(1500)
+                    Wait(1500)
                 end
             else
                 break
             end
 
-            Citizen.Wait(3)
+            Wait(3)
         end
     end)
 end)
 
 function deliveryTimer()
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
 
             if deliveryTimeout - 1 > 0 then
@@ -339,7 +346,7 @@ function deliveryTimer()
                 break
             end
 
-            Citizen.Wait(1000)
+            Wait(1000)
         end
     end)
 end
@@ -347,7 +354,7 @@ end
 function deliverStuff(activeDelivery)
     if deliveryTimeout > 0 then
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        Citizen.Wait(500)
+        Wait(500)
         TriggerEvent('animations:client:EmoteCommandStart', {"bumbin"})
         checkPedDistance()
         QBCore.Functions.Progressbar("work_dropbox", "Udlevere produkter..", 3500, false, true, {
@@ -372,10 +379,10 @@ function checkPedDistance()
     if next(PlayerPeds) == nil then
         for _, player in ipairs(GetActivePlayers()) do
             local ped = GetPlayerPed(player)
-            table.insert(PlayerPeds, ped)
+            PlayerPeds[#PlayerPeds+1] = ped
         end
     end
-    
+	local coords = GetEntityCoords(player)
     local closestPed, closestDistance = QBCore.Functions.GetClosestPed(coords, PlayerPeds)
 
     if closestDistance < 40 and closestPed ~= 0 then
@@ -390,11 +397,11 @@ end
 function doPoliceAlert()
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
-    local s1, s2 = Citizen.InvokeNative(0x2EB41072B4C1E4C0, pos.x, pos.y, pos.z, Citizen.PointerValueInt(), Citizen.PointerValueInt())
+    local s1, s2 = GetStreetNameAtCoord(pos.x, pos.y, pos.z)
     local street1 = GetStreetNameFromHashKey(s1)
     local street2 = GetStreetNameFromHashKey(s2)
     local streetLabel = street1
-    if street2 ~= nil then 
+    if street2 ~= nil then
         streetLabel = streetLabel .. " " .. street2
     end
 
@@ -404,8 +411,7 @@ end
 RegisterNetEvent('qb-drugs:client:robberyCall')
 AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords)
     PlaySound(-1, "Lose_1st", "GTAO_FM_Events_Soundset", 0, 0, 1)
-    TriggerEvent("chatMessage", "112-ALARM", "error", msg)
-    --QBcore.Functions.Notify("112-ALARM" ..msg.. "", error, 5000) --TESTER
+    TriggerEvent("chatMessage", "911-ALERT", "error", msg)
     local transG = 250
     local blip = AddBlipForCoord(coords.x, coords.y, coords.z)
     SetBlipSprite(blip, 458)
@@ -414,7 +420,7 @@ AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords
     SetBlipAlpha(blip, transG)
     SetBlipScale(blip, 1.0)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentString("114: Narkosalg")
+    AddTextComponentString("114: Narko salg")
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(180 * 4)
