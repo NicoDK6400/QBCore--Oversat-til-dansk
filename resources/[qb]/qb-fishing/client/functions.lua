@@ -17,7 +17,7 @@ Vores sider:
 
 TryToFish = function()
     QBCore.Functions.TriggerCallback('qb-fishing:GetItemData', function(count)
-        if IsPedSwimming(cachedData["ped"]) then return QBCore.Functions.Notify("Du kan ikke svømme mes du fisker...", "error") end 
+        if IsPedSwimming(cachedData["ped"]) then return QBCore.Functions.Notify("Du kan ikke svømme imens du fisker...", "error") end 
         if IsPedInAnyVehicle(cachedData["ped"]) then return QBCore.Functions.Notify("Du skal forlade dit køretøj før du kan fiske...", "error") end 
         if count ~= nil then
             if count == 0 then

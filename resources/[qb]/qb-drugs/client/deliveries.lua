@@ -242,7 +242,7 @@ function requestDelivery()
         TriggerServerEvent('qb-phone:server:sendNewMail', {
             sender = Config.Dealers[currentDealer]["name"],
             subject = "Delivery Location",
-            message = "Her er alt information til leveringen, <br>Items: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> lad vær med at komme for sent!!",
+            message = "Her er alt information til leveringen, <br>Genstande: <br> "..amount.."x "..QBCore.Shared.Items[waitingDelivery["itemData"]["item"]]["label"].."<br><br> lad vær med at komme for sent!!",
             button = {
                 enabled = true,
                 buttonEvent = "qb-drugs:client:setLocation",
@@ -359,7 +359,7 @@ function deliverStuff(activeDelivery)
             TriggerServerEvent('qb-drugs:server:succesDelivery', activeDelivery, true)
         end, function() -- Cancel
             ClearPedTasks(PlayerPedId())
-            QBCore.Functions.Notify("Canceled..", "error")
+            QBCore.Functions.Notify("Afbrudt..", "error")
         end)
     else
         TriggerServerEvent('qb-drugs:server:succesDelivery', activeDelivery, false)
@@ -414,7 +414,7 @@ AddEventHandler('qb-drugs:client:robberyCall', function(msg, streetLabel, coords
     SetBlipAlpha(blip, transG)
     SetBlipScale(blip, 1.0)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentString("112: Narkosalg")
+    AddTextComponentString("114: Narkosalg")
     EndTextCommandSetBlipName(blip)
     while transG ~= 0 do
         Wait(180 * 4)

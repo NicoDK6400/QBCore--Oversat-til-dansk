@@ -20,14 +20,6 @@ cachedData = {}
 
 local JobBusy = false
 
-Citizen.CreateThread(function()
-	while not QBCore do
-		TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end)
-
-		Citizen.Wait(0)
-	end
-end)
-
 function CreateBlips()
 	for i, zone in ipairs(Config.FishingZones) do
 		local coords = zone.secret and ((zone.coords / 1.5) - 133.37) or zone.coords
