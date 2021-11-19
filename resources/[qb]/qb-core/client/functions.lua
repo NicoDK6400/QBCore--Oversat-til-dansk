@@ -289,7 +289,7 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
 
 		return {
 			model             = GetEntityModel(vehicle),
-			plate             = Trim(GetVehicleNumberPlateText(vehicle)),
+			plate 			  = QBCore.Functions.GetPlate(vehicle),
 			plateIndex        = GetVehicleNumberPlateTextIndex(vehicle),
 			bodyHealth        = Round(GetVehicleBodyHealth(vehicle), 1),
 			engineHealth      = Round(GetVehicleEngineHealth(vehicle), 1),

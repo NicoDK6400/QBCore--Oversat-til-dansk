@@ -244,7 +244,7 @@ RegisterNetEvent("dojLuckywheel:winCar")
 AddEventHandler("dojLuckywheel:winCar", function() 
     local coords = { ['x'] = 933.29, ['y'] = -2.82, ['z'] = 78.76, ['h'] = 144.6 }
 	QBCore.Functions.SpawnVehicle(Config.VehiclePrize, function(veh)
-		SetVehicleNumberPlateText(veh, "DIAMOND"..tostring(math.random(1000, 9999)))
+		SetVehicleNumberPlateText(veh, "MR LUCKY"..tostring(math.random(1000, 9999)))
 		exports['LegacyFuel']:SetFuel(veh, 100.0)
 		SetEntityHeading(veh, coords.h)
 		TaskWarpPedIntoVehicle(GetPlayerPed(-1), veh, -1)
