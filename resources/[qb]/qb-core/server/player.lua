@@ -64,11 +64,11 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
 	end
 	-- Charinfo
 	PlayerData.charinfo = PlayerData.charinfo or {}
-	PlayerData.charinfo.firstname = PlayerData.charinfo.firstname or 'Fornavn'
-	PlayerData.charinfo.lastname = PlayerData.charinfo.lastname or 'Efternavn'
+	PlayerData.charinfo.firstname = PlayerData.charinfo.firstname or 'Firstname'
+	PlayerData.charinfo.lastname = PlayerData.charinfo.lastname or 'Lastname'
 	PlayerData.charinfo.birthdate = PlayerData.charinfo.birthdate or '00-00-0000'
 	PlayerData.charinfo.gender = PlayerData.charinfo.gender or 0
-	PlayerData.charinfo.backstory = PlayerData.charinfo.backstory or 'baggrundshistorie'
+	PlayerData.charinfo.backstory = PlayerData.charinfo.backstory or 'placeholder backstory'
 	PlayerData.charinfo.nationality = PlayerData.charinfo.nationality or 'DK'
 	PlayerData.charinfo.phone = PlayerData.charinfo.phone ~= nil and PlayerData.charinfo.phone or tostring(math.random(10000000, 99999999))
 	PlayerData.charinfo.account = PlayerData.charinfo.account ~= nil and PlayerData.charinfo.account or 'DK0'..math.random(1,9)..'QBCore'..math.random(1111,9999)..math.random(1111,9999)..math.random(11,99)
