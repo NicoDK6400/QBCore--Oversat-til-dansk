@@ -68,13 +68,13 @@ local function CleanVehicle(vehicle)
 	local ped = PlayerPedId()
 	local pos = GetEntityCoords(ped)
 	TaskStartScenarioInPlace(ped, "WORLD_HUMAN_MAID_CLEAN", 0, true)
-	QBCore.Functions.Progressbar("cleaning_vehicle", "Rydder køretøjer...", math.random(10000, 20000), false, true, {
+	QBCore.Functions.Progressbar("cleaning_vehicle", "Køretøjet vaskes...", math.random(10000, 20000), false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,
 		disableCombat = true,
 	}, {}, {}, {}, function() -- Done
-		QBCore.Functions.Notify("Vehicle cleaned!")
+		QBCore.Functions.Notify("Køretøjet er rent!")
 		SetVehicleDirtLevel(vehicle, 0.1)
         SetVehicleUndriveable(vehicle, false)
 		WashDecalsFromVehicle(vehicle, 1.0)
