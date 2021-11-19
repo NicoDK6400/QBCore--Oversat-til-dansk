@@ -176,3 +176,7 @@ AddEventHandler('onResourceStop', function(resourceName)
         SetInvincible(false, noClippingEntity);
     end
 end)
+
+RegisterNetEvent('qb-admin:client:ToggleNoClip', function()
+    ToggleNoClipMode()
+end)

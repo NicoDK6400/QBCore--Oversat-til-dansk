@@ -19,9 +19,10 @@ local showCoords = false
 local vehicleDevMode = false
 local banreason = 'Unknown'
 local kickreason = 'Unknown'
+local menuLocation = 'topright'
 
 local menu = MenuV:CreateMenu(false, 'Admin menuen', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test')
-local menu2 = MenuV:CreateMenu(false, 'Admin menuen', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test1')
+local menu2 = MenuV:CreateMenu(false, 'Admin funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test1')
 local menu4 = MenuV:CreateMenu(false, 'Online spillere', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test3')
 local menu5 = MenuV:CreateMenu(false, 'Server funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test4')
 local menu6 = MenuV:CreateMenu(false, 'Vejr funktioner', 'topright', 220, 20, 60, 'size-125', 'none', 'menuv', 'test5')

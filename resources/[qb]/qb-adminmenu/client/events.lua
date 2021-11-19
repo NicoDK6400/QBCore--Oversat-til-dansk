@@ -73,14 +73,14 @@ RegisterNetEvent('qb-admin:client:SaveCar', function()
     local veh = GetVehiclePedIsIn(ped)
 
     if veh ~= nil and veh ~= 0 then
-        local plate = GetVehicleNumberPlateText(veh)
+        local plate = QBCore.Functions.GetPlate(veh)
         local props = QBCore.Functions.GetVehicleProperties(veh)
         local hash = props.model
         local vehname = GetDisplayNameFromVehicleModel(hash):lower()
         if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
             TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], `veh`, plate)
         else
-            QBCore.Functions.Notify('Du kan ikke gemme dette køretøj..', 'error')
+            QBCore.Functions.Notify('Du kan ikke gemme dette køretøj i din garage..', 'error')
         end
     else
         QBCore.Functions.Notify('Du er ikke i et køretøj..', 'error')
@@ -116,7 +116,7 @@ RegisterNetEvent('qb-admin:client:SetModel', function(skin)
         if isPedAllowedRandom(skin) then
             SetPedRandomComponentVariation(ped, true)
         end
-        
+
 		SetModelAsNoLongerNeeded(model)
 	end
 	SetEntityInvincible(ped, false)
@@ -138,14 +138,14 @@ RegisterNetEvent('qb-weapons:client:SetWeaponAmmoManual', function(weapon, ammo)
     if weapon ~= "current" then
         local weapon = weapon:upper()
         SetPedAmmo(ped, GetHashKey(weapon), ammo)
-        QBCore.Functions.Notify('+'..ammo..' Ammo for '..QBCore.Shared.Weapons[GetHashKey(weapon)]["label"], 'success')
+        QBCore.Functions.Notify('+'..ammo..' Ammo til '..QBCore.Shared.Weapons[GetHashKey(weapon)]["label"], 'success')
     else
         local weapon = GetSelectedPedWeapon(ped)
         if weapon ~= nil then
             SetPedAmmo(ped, weapon, ammo)
-            QBCore.Functions.Notify('+'..ammo..' Ammo for '..QBCore.Shared.Weapons[weapon]["label"], 'success')
+            QBCore.Functions.Notify('+'..ammo..' Ammo til '..QBCore.Shared.Weapons[weapon]["label"], 'success')
         else
-            QBCore.Functions.Notify('Du har intet våben i dine hænder..', 'error')
+            QBCore.Functions.Notify('Du har intet våben i hænderne..', 'error')
         end
     end
 end)
