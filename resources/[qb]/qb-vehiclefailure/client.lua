@@ -173,7 +173,7 @@ local function RepairVehicle(vehicle)
 	end)
 end
 
-local function IsBackEngine(vehModel)
+function IsBackEngine(vehModel)
     for _, model in pairs(BackEngineVehicles) do
         if GetHashKey(model) == vehModel then
             return true

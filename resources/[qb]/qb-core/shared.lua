@@ -52,6 +52,11 @@ QBShared.SplitStr = function(str, delimiter)
 	return result
 end
 
+QBShared.Trim = function(value)
+    if not value then return nil end
+    return (string.gsub(value, '^%s(.-)%s$', '%1'))
+end
+
 QBShared.StarterItems = {
     ['phone'] = {amount = 1, item = 'phone'},
     ['id_card'] = {amount = 1, item = 'id_card'},

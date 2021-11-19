@@ -459,7 +459,7 @@ RegisterNetEvent('qb-vehicleshop:server:checkFinance', function()
 end)
 
 -- Transfer vehicle to player in passenger seat
-QBCore.Commands.Add('transferVehicle', 'Gift or sell your vehicle', {{ name = 'amount', help = 'Sell amount' }}, false, function(source, args)
+QBCore.Commands.Add('transferVehicle', 'Giv eller sælg dit køretøj', {{ name = 'amount', help = 'Pris på køretøj' }}, false, function(source, args)
     local src = source
     local ped = GetPlayerPed(src)
     local player = QBCore.Functions.GetPlayer(src)
