@@ -25,7 +25,7 @@ RegisterNetEvent('qb-tow:server:DoBail', function(bool, vehInfo)
         if Player.PlayerData.money.cash >= Config.BailPrice then
             Bail[Player.PlayerData.citizenid] = Config.BailPrice
             Player.Functions.RemoveMoney('cash', Config.BailPrice, "tow-paid-bail")
-            TriggerClientEvent('QBCore:Notify', src, 'Du har betalt et depositum på $1000,-', 'success')
+            TriggerClientEvent('QBCore:Notify', src, 'Du har betalt et depositum på 1000,- DKK', 'success')
             TriggerClientEvent('qb-tow:client:SpawnVehicle', src, vehInfo)
         elseif Player.PlayerData.money.bank >= Config.BailPrice then
             Bail[Player.PlayerData.citizenid] = Config.BailPrice

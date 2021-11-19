@@ -24,7 +24,7 @@ Config.Vehicles = {
 
 Config.Locations = {
     ["main"] = {
-        label = "Towing HQ",
+        label = "Bugserings firma",
         coords = vector4(471.39, -1311.03, 29.21, 114.5),
     },
     ["vehicle"] = {

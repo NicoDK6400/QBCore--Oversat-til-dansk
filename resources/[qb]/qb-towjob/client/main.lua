@@ -351,7 +351,7 @@ RegisterNetEvent('qb-tow:client:TowVehicle', function()
                     end
                 end
                 CurrentTow = nil
-                QBCore.Functions.Notify("Vehicle Taken Off")
+                QBCore.Functions.Notify("Køretøjet er blevet taget af")
             end, function() -- Cancel
                 StopAnimTask(PlayerPedId(), "mini@repair", "fixing_a_ped", 1.0)
                 QBCore.Functions.Notify("Mislykkedes", "error")
@@ -393,7 +393,7 @@ CreateThread(function()
 
                 if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 4.5 then
                     if #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 1.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "~g~E~w~ - Lønseddel")
                         if IsControlJustReleased(0, 38) then
                             if JobsDone > 0 then
                                 RemoveBlip(CurrentBlip)
@@ -401,11 +401,11 @@ CreateThread(function()
                                 JobsDone = 0
                                 NpcOn = false
                             else
-                                QBCore.Functions.Notify("You Havent Done Any Work Yet", "error")
+                                QBCore.Functions.Notify("Du har ikke udført noget arbejde endnu", "error")
                             end
                         end
                     elseif #(pos - vector3(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z)) < 2.5 then
-                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Payslip")
+                        DrawText3D(Config.Locations["main"].coords.x, Config.Locations["main"].coords.y, Config.Locations["main"].coords.z, "Lønseddel")
                     end
                 end
 

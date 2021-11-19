@@ -23,8 +23,8 @@ version '1.0.0'
 shared_script 'config.lua'
 
 client_scripts {
-    'client/main.lua',
-    'client/gui.lua'
+  'client/main.lua',
+  'client/gui.lua'
 }
 
 server_script 'server/main.lua'
