@@ -141,7 +141,7 @@ menu_button:On("select", function()
             local menu_button8 = menu3:AddButton({
                 label = v.grade.name.. ' ' ..v.name,
                 value = v,
-                description = 'Ansat',
+                description = 'Ansatte',
                 select = function(btn)
                     local select = btn.Value
                     ManageEmployees(select)
@@ -160,7 +160,7 @@ menu_button1:On("select", function()
             local menu_button10 = menu4:AddButton({
                 label = GetPlayerName(v),
                 value = v,
-                description = 'Tilgængelig rekruttering',
+                description = 'Ansæt ny kollega',
                 select = function(btn)
                     local select = btn.Value
                     TriggerServerEvent('qb-bossmenu:server:giveJob', GetPlayerServerId(v))
