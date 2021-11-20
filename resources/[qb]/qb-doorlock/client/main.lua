@@ -113,7 +113,7 @@ end
 
 function lockpickFinish(success)
     if success then
-		QBCore.Functions.Notify('Success!', 'success', 2500)
+		QBCore.Functions.Notify('Lykkedes!', 'success', 2500)
 		setDoorLocking(closestDoorValue, closestDoorKey)
     else
         QBCore.Functions.Notify('Fejlede', 'error', 2500)
@@ -143,7 +143,6 @@ function IsAuthorized(doorID)
 			return true
 		end
 	end
-	
 	return false
 end
 
@@ -166,6 +165,7 @@ CreateThread(function()
 	while true do
 		Wait(0)
 		local playerCoords, awayFromDoors = GetEntityCoords(PlayerPedId()), true
+
 		for i = 1, #QB.Doors do
 			local current = QB.Doors[i]
 			local distance
