@@ -244,7 +244,7 @@ pdm:onPlayerInOut(function(isPointInside)
                     },
                     {
                         header = "Køb køretøj",
-                        txt = 'Køb det vaægte køretøj',
+                        txt = 'Køb det valgte køretøj',
                         params = {
                             isServer = true,
                             event = 'qb-vehicleshop:server:buyShowroomVehicle',
