@@ -30,10 +30,10 @@ elevator_roof_location = {
 	["a"] = 69.9051208
 }
 elevator_entrance_location = {
-	["x"] = 965.0619,
-	["y"] = 58.51287,
-	["z"] = 112.553,
-	["a"] = 53.0310745
+	["x"] = 964.83,
+	["y"] = 58.64,
+	["z"] = 112.55,
+	["a"] = 59.14
 }
 
 ChackCardPropAnim = true
