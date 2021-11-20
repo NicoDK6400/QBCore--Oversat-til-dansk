@@ -45,7 +45,6 @@ RegisterNetEvent('qb-casino:client:GoldSell')
 AddEventHandler('qb-casino:client:GoldSell', function()
     TriggerServerEvent('qb-casino:server:GoldSell')
 end)
- 
 
 Citizen.CreateThread(function()
     local alreadyEnteredZone = false
