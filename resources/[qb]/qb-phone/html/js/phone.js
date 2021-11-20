@@ -232,9 +232,9 @@ QB.Phone.Functions.LoadContacts = function(myContacts) {
             $(ContactsObject).append(ContactElement);
             $("[data-contactid='"+i+"']").data('contactData', contact);
         });
-        $("#total-contacts").text(TotalContacts+ " contacts");
+        $("#total-contacts").text(TotalContacts+ " kontakter");
     } else {
-        $("#total-contacts").text("0 contacten #SAD");
+        $("#total-contacts").text("0 kontakter #SAD");
     }
 };
 
