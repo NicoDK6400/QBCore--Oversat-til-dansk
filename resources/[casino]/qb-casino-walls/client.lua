@@ -101,8 +101,7 @@ end)
 function enterCasino()
   InCasino = true
   TriggerEvent("chCasinoWall:enteredCasino") 
-  print("Entered Casino area")
-  
+
   if Config.SendWelcomeMail then
     TriggerServerEvent('qb-phone:server:sendNewMail', {
       sender = Config.WelcomeMailsender,
@@ -115,7 +114,6 @@ end
 
 function exitCasino()
   TriggerEvent("chCasinoWall:exitedCasino")
-  print("Exited Casino area")
   InCasino = false
   StopAudioScene("DLC_VW_Casino_General")
   Wait(5000)
@@ -217,9 +215,10 @@ function playSomeBackgroundAudioBaby()
 end
 
 -- Casino
-local Casino= { 
+local Casino = {
   {950.214, 33.151, 70.839 ,"enter",57.052,0xBB0D72F5,"U_F_M_CasinoCash_01"}, --Casino Cashier
-  {955.619, 70.179, 69.433 ,"insidetrack",190.937,579932932,"S_M_Y_Doorman_01"}, --Horse Bets 
+  {955.619, 70.179, 69.433 ,"insidetrack",190.937,579932932,"S_M_Y_Doorman_01"}, --Horse Bets
+  {939.96, 27.71, 70.80, "bartender", 334.63, 0x46E39E63, "u_m_o_finguru_01"}, --Bartender
 }
 
 Citizen.CreateThread(function()
@@ -277,6 +276,7 @@ exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.
     distance = 3.0
 })
 
+
 -- Casino Shop
 exports['qb-target']:AddTargetModel(`U_F_M_CasinoCash_01`, {
 	options = {
@@ -299,6 +299,19 @@ exports['qb-target']:AddTargetModel(`U_F_M_CasinoCash_01`, {
 	distance = 3.0
 })
 
+-- Casino Bar
+exports['qb-target']:AddTargetModel(`u_m_o_finguru_01`, {
+	options = {
+        {
+            event = "qb-casino:client:openCasinoBar",
+            icon = "fas fa-glass-cheers",
+            label = "Køb drinks",
+        },
+	},
+	distance = 3.0
+})
+
+-- Roulette
 exports['qb-target']:AddCircleZone("Roulette", vector3(991.09, 53.22, 69.51), 1.0, {
   name="Roulette",
   heading=160,
@@ -331,5 +344,14 @@ AddEventHandler('qb-casino:client:openCasinoChips', function()
     ShopItems.label = "Diamond Casino jetoner"
     ShopItems.items = Config.CasinoChips
     ShopItems.slots = #Config.CasinoChips
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", ShopItems)
+end)
+
+RegisterNetEvent('qb-casino:client:openCasinoBar')
+AddEventHandler('qb-casino:client:openCasinoBar', function()
+    local ShopItems = {}
+    ShopItems.label = "Diamond Casino bar"
+    ShopItems.items = Config.CasinoBar
+    ShopItems.slots = #Config.CasinoBar
     TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", ShopItems)
 end)

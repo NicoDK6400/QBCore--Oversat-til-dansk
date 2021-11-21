@@ -13,7 +13,7 @@ Config.AnimatedWallWin = 'CASINO_WIN_PL'
 -- CASINO_SNWFLK_PL - Falling Snowflakes
 -- CASINO_WIN_PL    - Falling Confetti
 
-Config.SendWelcomeMail = true
+Config.SendWelcomeMail = false
 Config.WelcomeMailsender = "Diamond Casino"
 Config.WelcomeMailsubject ="Velkommen!"
 Config.WelcomeMailmessage = "Velkommen til Diamond Casino, vi har åbent 24/7 og vi tager kun imod elektroniske betalinger"
@@ -29,4 +29,13 @@ Config.CasinoChips = {
     [3] = { name = "bluechip",   price = 10, amount = 150, info = {}, type = "item", slot = 3 },
     [4] = { name = "blackchip",  price = 50, amount = 200, info = {}, type = "item", slot = 4 },
     [5] = { name = "goldchip",   price = 100, amount = 300, info = {}, type = "item", slot = 5 }
+}
+
+Config.CasinoBar ={
+    [1] = { name = "Coffee",  price = 5, amount = 10, info = {}, type = "item", slot = 1 },
+    [2] = { name = "beer",    price = 7, amount = 10, info = {}, type = "item", slot = 2 },
+    [3] = { name = "whiskey",   price = 10, amount = 2, info = {}, type = "item", slot = 3 },
+    [4] = { name = "vodka",  price = 12, amount = 2, info = {}, type = "item", slot = 4 },
+    [5] = { name = "water_bottle",   price = 2, amount = 25, info = {}, type = "item", slot = 5 },
+    [6] = { name = "kurkakola",   price = 2, amount = 25, info = {}, type = "item", slot = 6 }
 }
