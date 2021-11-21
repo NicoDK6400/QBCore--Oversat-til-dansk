@@ -57,8 +57,7 @@ local prop_net = nil
 local propTwo_net = nil
 local runProgThread = false
 
-RegisterNetEvent('progressbar:client:ToggleBusyness')
-AddEventHandler('progressbar:client:ToggleBusyness', function(bool)
+RegisterNetEvent('progressbar:client:ToggleBusyness', function(bool)
     isDoingAction = bool
 end)
 
@@ -182,7 +181,7 @@ function ActionStart()
                     prop_net = netid
 
                     isProp = true
-                    
+
                     if not isPropTwo and Action.propTwo ~= nil and Action.propTwo.model ~= nil then
                         RequestModel(Action.propTwo.model)
 
@@ -307,28 +306,23 @@ function DisableActions(ped)
     end
 end
 
-RegisterNetEvent("progressbar:client:progress")
-AddEventHandler("progressbar:client:progress", function(action, finish)
+RegisterNetEvent('progressbar:client:progress', function(action, finish)
 	Process(action, nil, nil, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithStartEvent")
-AddEventHandler("progressbar:client:ProgressWithStartEvent", function(action, start, finish)
+RegisterNetEvent('progressbar:client:ProgressWithStartEvent', function(action, start, finish)
 	Process(action, start, nil, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithTickEvent")
-AddEventHandler("progressbar:client:ProgressWithTickEvent", function(action, tick, finish)
+RegisterNetEvent('progressbar:client:ProgressWithTickEvent', function(action, tick, finish)
 	Process(action, nil, tick, finish)
 end)
 
-RegisterNetEvent("progressbar:client:ProgressWithStartAndTick")
-AddEventHandler("progressbar:client:ProgressWithStartAndTick", function(action, start, tick, finish)
+RegisterNetEvent('progressbar:client:ProgressWithStartAndTick', function(action, start, tick, finish)
 	Process(action, start, tick, finish)
 end)
 
-RegisterNetEvent("progressbar:client:cancel")
-AddEventHandler("progressbar:client:cancel", function()
+RegisterNetEvent('progressbar:client:cancel', function()
 	Cancel()
 end)
 
