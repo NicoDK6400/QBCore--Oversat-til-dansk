@@ -47,7 +47,7 @@ QBCore.Functions.CreateUseableItem("parachute", function(source, item)
     end
 end)
 
-QBCore.Commands.Add("resetparachute", "Resets Parachute", {}, false, function(source, args)
+QBCore.Commands.Add("resetparachute", "Genbrug faldskærm", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
         TriggerClientEvent("consumables:client:ResetParachute", source)
 end)
@@ -164,7 +164,19 @@ QBCore.Functions.CreateUseableItem("firework4", function(source, item)
     TriggerClientEvent("fireworks:client:UseFirework", source, item.name, "scr_indep_fireworks")
 end)
 
-QBCore.Commands.Add("resetarmor", "Reset vest (Kun Politi)", {}, false, function(source, args)
+----------- / Lockpicking
+
+QBCore.Functions.CreateUseableItem("lockpick", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("lockpicks:UseLockpick", source, false)
+end)
+
+QBCore.Functions.CreateUseableItem("advancedlockpick", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("lockpicks:UseLockpick", source, true)
+end)
+
+QBCore.Commands.Add("resetarmor", "Genbrug vest (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("consumables:client:ResetArmor", source)
