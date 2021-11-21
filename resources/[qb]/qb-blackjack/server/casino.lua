@@ -154,19 +154,3 @@ AddEventHandler("qb-casino:server:GoldSell", function()
         TriggerClientEvent('QBCore:Notify', src, "Du har ingen guld chips...", "error")
     end
 end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -57,7 +57,7 @@ Citizen.CreateThread(function()
         if dist <= 3.0 then
             wait = 5
             inZone  = true
-            text = '<b>Diamond Casino</b></p>Kasserer'
+            text = '<b>Diamond Casino</b></p>Shop'
 
         else
             wait = 2000
@@ -74,71 +74,5 @@ Citizen.CreateThread(function()
         end
         Citizen.Wait(wait)
     end
-end)
-
-RegisterNetEvent('doj:casinoChipMenu', function()
-    TriggerEvent('drawtextui:HideUI')
-    TriggerEvent('nh-context:sendMenu', {
-        {
-            id = 1,
-            header = "Diamond Casino",
-            txt = "Chips udveksling"
-        },
-        {
-            id = 2,
-            header = "Sælg alle hvide kasinochips", 
-            txt = "Nuværende værdi: 1 DKK pr. chip",
-            params = {
-                event = "qb-casino:client:WhiteSell",
-                args = {
-                    
-                }
-            }
-        },
-        {
-            id = 3,
-            header = "Sælg alle røde kasinochips", 
-            txt = "Nuværende værdi: 5 DKK pr. chip",
-            params = {
-                event = "qb-casino:client:RedSell",
-                args = {
-                    
-                }
-            }
-        },
-        {
-            id = 4,
-            header = "Sælg alle blå kasinochips", 
-            txt = "Nuværende værdi: 10 DKK pr. chip",
-            params = {
-                event = "qb-casino:client:BlueSell", 
-                args = {
-                    
-                }
-            }
-        },
-        {
-            id = 5,
-            header = "Sælg alle sorte kasinochips", 
-            txt = "Nuværende værdi: 50 DKK pr. chip",
-            params = {
-                event = "qb-casino:client:BlackSell",
-                args = {
-                     
-                }
-            }
-        },
-        {
-            id = 6,
-            header = "Sælg alle guld kasinochips", 
-            txt = "Nuværende værdi: 100 DKK pr. chip",
-            params = {
-                event = "qb-casino:client:GoldSell",
-                args = {
-                    
-                }
-            }
-        },
-    })
 end)
 

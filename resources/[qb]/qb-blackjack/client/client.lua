@@ -33,16 +33,16 @@ Citizen.CreateThread(function()
         local closestChairDist = #(playerCoords - vector3(948.54760742188, 32.051155090332, 76.101249084473))
         if closestChairDist < 55.0 then
 			sleep = 10
-            DisableControlAction(0, 140, true)        
-            DisableControlAction(0, 135, true)        
-            DisableControlAction(0, 122, true)        
-            DisableControlAction(0, 92, true)        
-            DisableControlAction(0, 24, true)        
-            DisableControlAction(0, 69, true)        
-            DisableControlAction(0, 142, true)        
-            DisableControlAction(0, 135, true)        
-            DisableControlAction(0, 19, true) 
-			FreezeEntityPosition(_lambo, true)			
+            DisableControlAction(0, 140, true)
+            DisableControlAction(0, 135, true)
+            DisableControlAction(0, 122, true)
+            DisableControlAction(0, 92, true)
+            DisableControlAction(0, 24, true)
+            DisableControlAction(0, 69, true)
+            DisableControlAction(0, 142, true)
+            DisableControlAction(0, 135, true)
+            DisableControlAction(0, 19, true)
+			FreezeEntityPosition(_lambo, true)
         end
         Wait(sleep)
     end
@@ -87,15 +87,15 @@ end
 function handValue(hand)
 	local tmpValue = 0
 	local numAces = 0
-	
+
 	for i,v in pairs(hand) do
 		tmpValue = tmpValue + cardValue(v)
 	end
-	
+
 	for i,v in pairs(hand) do
 		if string.find(v, 'ACE') then numAces = numAces + 1 end
 	end
-	
+
 	repeat
 		if tmpValue > 21 and numAces > 0 then
 			tmpValue = tmpValue - 10
@@ -104,7 +104,7 @@ function handValue(hand)
 			break
 		end
 	until numAces == 0
-	
+
 	return tmpValue
 end
 
@@ -199,7 +199,7 @@ spawnedPeds = {}
 spawnedObjects = {}
 AddEventHandler("onResourceStop", function(r)
 	if r == GetCurrentResourceName() then
-		
+
 		for i,v in ipairs(spawnedPeds) do
 			DeleteEntity(v)
 		end
@@ -256,7 +256,7 @@ function CreatePeds()
 		RequestAnimDict("anim_casino_b@amb@casino@games@blackjack@player")
 		repeat Wait(0) until HasAnimDictLoaded("anim_casino_b@amb@casino@games@blackjack@player")
 	end
-	
+
 	for i,v in pairs(customTables) do
 
 		-- local  model = {     
@@ -267,32 +267,32 @@ function CreatePeds()
 		-- }
 
 
-		
+
 		local model = `vw_prop_casino_3cardpoker_01b`
 
 		if v.highStakes == true then
 			model = `vw_prop_casino_blckjack_01b`
 		end
-		
+
 		if not HasModelLoaded(model) then
 			RequestModel(model)
 			repeat Wait(0) until HasModelLoaded(model)
 		end
-	
+
 		local tableObj = CreateObjectNoOffset(model, v.coords.x, v.coords.y, v.coords.z, false, false, false)
 		SetEntityRotation(tableObj, 0.0, 0.0, v.coords.w, 2, 1)
 		SetObjectTextureVariant(tableObj, v.color or 3)
 		table.insert(spawnedObjects, tableObj)
 	end
-	
+
 	chips = {}
-							
+
 	hand = {}
 	splitHand = {}
 	handObjs = {}
-	
+
 	for i,v in pairs(tables) do
-	
+
 		dealerHand[i] = {}
 		dealerValue[i] = {}
 		dealerHandObjs[i] = {}
@@ -308,21 +308,21 @@ function CreatePeds()
 		end
 
 		chips[i] = {}
-		
+
 		for x=1,4 do
 			chips[i][x] = {}
 		end
 		handObjs[i] = {}
-		
+
 		for x=1,4 do
 			handObjs[i][x] = {}
 		end
-		
+
 		if not HasModelLoaded(model) then
 			RequestModel(model)
 			repeat Wait(0) until HasModelLoaded(model)
 		end
-		
+
 		local dealer = CreatePed(4, model, v.coords.x, v.coords.y, v.coords.z, v.coords.w, false, true)
 		SetEntityCanBeDamaged(dealer, false)
 		SetBlockingOfNonTemporaryEvents(dealer, true)

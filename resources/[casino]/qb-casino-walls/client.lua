@@ -281,7 +281,7 @@ exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.
 exports['qb-target']:AddTargetModel(`U_F_M_CasinoCash_01`, {
 	options = {
         {
-            event = "doj:casinoChipMenu",
+            event = "qb-casino:context:casinoChipMenu",
             icon = "fas fa-exchange-alt",
             label = "Sælg dine jetoner",
         },
