@@ -75,11 +75,11 @@ Skillbar.Repeat = function(data)
             duration = Skillbar.Data.Data.duration,
             pos = Skillbar.Data.Data.pos,
             width = Skillbar.Data.Data.width,
-        }) 
+        })
     end)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         if Skillbar.Data.Active then
             if IsControlJustPressed(0, 38) then
@@ -89,7 +89,7 @@ Citizen.CreateThread(function()
                 })
             end
         end
-        Citizen.Wait(1)
+        Wait(1)
     end
 end)
 
