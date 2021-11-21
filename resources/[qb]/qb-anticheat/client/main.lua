@@ -16,51 +16,37 @@ Vores sider:
 
 local QBCore = exports['qb-core']:GetCoreObject()
 local group = Config.Group
-
--- Check if is decorating --
-
 local IsDecorating = false
+local flags = 0
 
-RegisterNetEvent('qb-anticheat:client:ToggleDecorate')
-AddEventHandler('qb-anticheat:client:ToggleDecorate', function(bool)
+RegisterNetEvent('qb-anticheat:client:ToggleDecorate', function(bool)
   IsDecorating = bool
 end)
 
--- Few frequently used locals --
-
-local flags = 0
-local isLoggedIn = false
-
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.TriggerCallback('qb-anticheat:server:GetPermissions', function(UserGroup)
         group = UserGroup
     end)
-    isLoggedIn = true
 end)
 
-RegisterNetEvent('QBCore:Client:OnPlayerUnload')
-AddEventHandler('QBCore:Client:OnPlayerUnload', function()
-    isLoggedIn = false
+RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     IsDecorating = false
     flags = 0
 end)
 
--- Superjump --
-
-Citizen.CreateThread(function()
+CreateThread(function() -- Superjump --
 	while true do
-        Citizen.Wait(500)
+        Wait(500)
 
         local ped = PlayerPedId()
         local player = PlayerId()
 
-        if group == Config.Group and isLoggedIn then
+        if group == Config.Group and LocalPlayer.state.isLoggedIn then
             if IsPedJumping(ped) then
                 local firstCoord = GetEntityCoords(ped)
 
                 while IsPedJumping(ped) do
-                    Citizen.Wait(0)
+                    Wait(0)
                 end
 
                 local secondCoord = GetEntityCoords(ped)
@@ -75,11 +61,9 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Speedhack --
-
-Citizen.CreateThread(function()
+CreateThread(function() -- Speedhack --
 	while true do
-        Citizen.Wait(500)
+        Wait(500)
 
         local ped = PlayerPedId()
         local player = PlayerId()
@@ -89,7 +73,7 @@ Citizen.CreateThread(function()
         local jumping = IsPedJumping(ped)
         local falling = IsPedFalling(ped)
 
-        if group == Config.Group and isLoggedIn then
+        if group == Config.Group and LocalPlayer.state.isLoggedIn then
             if not inveh then
                 if not ragdoll then
                     if not falling then
@@ -106,16 +90,14 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Invisibility --
-
-Citizen.CreateThread(function()
+CreateThread(function()	-- Invisibility --
     while true do
-        Citizen.Wait(10000)
+        Wait(10000)
 
         local ped = PlayerPedId()
         local player = PlayerId()
 
-        if group == Config.Group and isLoggedIn then
+        if group == Config.Group and LocalPlayer.state.isLoggedIn then
             if not IsDecorating then
                 if not IsEntityVisible(ped) then
                     SetEntityVisible(ped, 1, 0)
@@ -127,16 +109,14 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Nightvision --
-
-Citizen.CreateThread(function()
+CreateThread(function() -- Nightvision --
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
 
         local ped = PlayerPedId()
         local player = PlayerId()
 
-        if group == Config.Group and isLoggedIn then
+        if group == Config.Group and LocalPlayer.state.isLoggedIn then
             if GetUsingnightvision(true) then
                 if not IsPedInAnyHeli(ped) then
                     flags = flags + 1
@@ -147,38 +127,37 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Thermalvision --
-
-Citizen.CreateThread(function()
+CreateThread(function() -- Thermalvision --
     while true do
-        Citizen.Wait(2000)
+        Wait(2000)
 
         local ped = PlayerPedId()
 
-        if group == Config.Group and isLoggedIn then
+        if group == Config.Group and LocalPlayer.state.isLoggedIn then
             if GetUsingseethrough(true) then
                 if not IsPedInAnyHeli(ped) then
                     flags = flags + 1
-                    TriggerServerEvent("qb-log:server:CreateLog", "anticheat", "Cheat detected!", "orange", "** @everyone " ..GetPlayerName(player).. "** is flagged from anticheat! **(Flag "..flags.." /"..Config.FlagsForBan.." | Thermalvision)**") 
+                    TriggerServerEvent("qb-log:server:CreateLog", "anticheat", "Cheat detected!", "orange", "** @everyone " ..GetPlayerName(player).. "** is flagged from anticheat! **(Flag "..flags.." /"..Config.FlagsForBan.." | Thermalvision)**")
                 end
             end
         end
     end
 end)
 
--- Spawned car --
+local function trim(plate)
+    if not plate then return nil end
+    return (string.gsub(plate, '^%s*(.-)%s*$', '%1'))
+end
 
-Citizen.CreateThread(function()
+CreateThread(function() 	-- Spawned car --
     while true do
-        Citizen.Wait(0)
-
+        Wait(0)
         local ped = PlayerPedId()
         local player = PlayerId()
         local veh = GetVehiclePedIsIn(ped)
         local DriverSeat = GetPedInVehicleSeat(veh, -1)
-        local plate = GetVehicleNumberPlateText(veh)
-
-        if isLoggedIn then
+        local plate = trim(GetVehicleNumberPlateText(veh))
+        if LocalPlayer.state.isLoggedIn then
             if group == Config.Group then
                 if IsPedInAnyVehicle(ped, true) then
                     for _, BlockedPlate in pairs(Config.BlacklistedPlates) do
@@ -196,13 +175,11 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Check if ped has weapon in inventory --
-
-Citizen.CreateThread(function()
+CreateThread(function()	-- Check if ped has weapon in inventory --
     while true do
-        Citizen.Wait(5000)
+        Wait(5000)
 
-        if isLoggedIn then
+        if LocalPlayer.state.isLoggedIn then
 
             local PlayerPed = PlayerPedId()
             local player = PlayerId()
@@ -221,11 +198,9 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Max flags reached = ban, log, explosion & break --
-
-Citizen.CreateThread(function()
+CreateThread(function() -- Max flags reached = ban, log, explosion & break --
     while true do
-        Citizen.Wait(500)
+        Wait(500)
         local player = PlayerId()
         if flags >= Config.FlagsForBan then
             -- TriggerServerEvent("qb-anticheat:server:banPlayer", "Cheating")
@@ -236,10 +211,21 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('qb-anticheat:client:NonRegisteredEventCalled')
-AddEventHandler('qb-anticheat:client:NonRegisteredEventCalled', function(reason, CalledEvent)
+RegisterNetEvent('qb-anticheat:client:NonRegisteredEventCalled', function(reason, CalledEvent)
     local player = PlayerId()
-
     TriggerServerEvent('qb-anticheat:server:banPlayer', reason)
     TriggerServerEvent("qb-log:server:CreateLog", "anticheat", "Player banned! (Not really of course, this is a test duuuhhhh)", "red", "** @everyone " ..GetPlayerName(player).. "** has event **"..CalledEvent.."tried to trigger (LUA injector!)")
 end)
+
+if Config.Antiresourcestop then
+
+AddEventHandler("onResourceStop", function(res, source)
+        local source = src
+        if res == GetCurrentResourceName() then
+        print(GetPlayerName(src) .. "Was kickaed for stoping" .. res)
+        DropPlayer(src, "Stoping Resources.")
+            Citizen.Wait(100)
+            CancelEvent()
+        end
+    end)
+end
