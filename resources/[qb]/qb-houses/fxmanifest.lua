@@ -26,7 +26,6 @@ shared_script 'config.lua'
 
 client_scripts {
 	'client/main.lua',
-	'client/gui.lua',
 	'client/decorate.lua'
 }
 
