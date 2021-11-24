@@ -147,15 +147,15 @@ AddEventHandler("luckywheel:startroll", function(s, index, p)
 	SetEntityVisible(_arrow2, true, 0)
 	local t = true
 	if s == GetPlayerServerId(PlayerId()) then
-		if p.sound == 'car' then
+		if Config.Prices.sound == 'car' then
 			PlaySoundFromEntity(-1, "Win_Car", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
-		elseif p.sound == 'cash' then
+		elseif Config.Prices.sound == 'cash' then
 			PlaySoundFromEntity(-1, "Win_Cash", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
-		elseif p.sound == 'chips' then
+		elseif Config.Prices.sound == 'chips' then
 			PlaySoundFromEntity(-1, "Win_Chips", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
-		elseif p.sound == 'clothes' then
+		elseif Config.Prices.sound == 'clothes' then
 			PlaySoundFromEntity(-1, "Win_Clothes", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
-		elseif p.sound == 'mystery' then
+		elseif Config.Prices.sound == 'mystery' then
 			PlaySoundFromEntity(-1, "Win_Mystery", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
 		else
 			PlaySoundFromEntity(-1, "Win", _wheel, 'dlc_vw_casino_lucky_wheel_sounds', 1, 1)
