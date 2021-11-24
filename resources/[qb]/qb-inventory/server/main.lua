@@ -1297,7 +1297,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 				if Player.Functions.RemoveMoney("cash", price, "dealer-item-bought") then
 					Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 					TriggerClientEvent('qb-drugs:client:updateDealerItems', src, itemData, fromAmount)
-					TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
+					TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " købt!", "success")
 					TriggerEvent("qb-log:server:CreateLog", "dealers", "Dealer item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. "  for $"..price)
 				else
 					TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok kontanter..", "error")
@@ -1310,7 +1310,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
                 end
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent('qb-shops:client:UpdateShop', src, QBCore.Shared.SplitStr(shopType, "_")[2], itemData, fromAmount)
-				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
+				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " købt!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			elseif bankBalance >= price then
 				Player.Functions.RemoveMoney("bank", price, "itemshop-bought-item")
@@ -1319,7 +1319,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
                 end
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent('qb-shops:client:UpdateShop', src, QBCore.Shared.SplitStr(shopType, "_")[2], itemData, fromAmount)
-				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
+				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " købt!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			else
 				TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok kontanter..", "error")
@@ -1327,12 +1327,12 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 		else
 			if Player.Functions.RemoveMoney("cash", price, "unkown-itemshop-bought-item") then
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
-				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
+				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " købt!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			elseif bankBalance >= price then
 				Player.Functions.RemoveMoney("bank", price, "unkown-itemshop-bought-item")
 				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
-				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " bought!", "success")
+				TriggerClientEvent('QBCore:Notify', src, itemInfo["label"] .. " købt!", "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			else
 				TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok kontanter..", "error")
@@ -1461,7 +1461,7 @@ end)
 
 -- command
 
-QBCore.Commands.Add("resetinv", "Reset Inventory (Kun Admin)", {{name="type", help="stash/trunk/glovebox"},{name="id/plate", help="ID af stash eller reg.nr."}}, true, function(source, args)
+QBCore.Commands.Add("resetinv", "Reset Inventory (Kun Admin)", {{name="type", help="stash/baggagerum/handskerum"},{name="id/plate", help="ID af stash eller reg.nr."}}, true, function(source, args)
 	local invType = args[1]:lower()
 	table.remove(args, 1)
 	local invId = table.concat(args, " ")
@@ -1490,7 +1490,7 @@ QBCore.Commands.Add("rob", "Rob Player", {}, false, function(source, args)
 	TriggerClientEvent("police:client:RobPlayer", source)
 end)
 
-QBCore.Commands.Add("giveitem", "Giv ting (Kun Admin)", {{name="id", help="Player ID"},{name="item", help="Nanvet på enheden (ikke et label)"}, {name="amount", help="antal af items"}}, true, function(source, args)
+QBCore.Commands.Add("giveitem", "Giv ting (Kun Admin)", {{name="id", help="Spiller ID"},{name="item", help="Nanvet på enheden (ikke et label)"}, {name="amount", help="antal af items"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	local amount = tonumber(args[3])
 	local itemData = QBCore.Shared.Items[tostring(args[2]):lower()]
@@ -1605,7 +1605,7 @@ QBCore.Functions.CreateUseableItem("id_card", function(source, item)
 			TriggerClientEvent('chat:addMessage', v,  {
 				template = '<div class="chat-message advert"><div class="chat-message-body"><strong>{0}:</strong><br><br> <strong>Pers. ID:</strong> {1} <br><strong>Fornavn:</strong> {2} <br><strong>Efternavn:</strong> {3} <br><strong>Fødselsdato:</strong> {4} <br><strong>Køn:</strong> {5} <br><strong>Nationalitet:</strong> {6}</div></div>',
 					args = {
-						"ID Card",
+						"ID Kort",
 						item.info.citizenid,
 						item.info.firstname,
 						item.info.lastname,
