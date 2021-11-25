@@ -20,1928 +20,4863 @@ Config.MinZOffset = 45
 
 Config.MinimumHouseRobberyPolice = 2
 
-Config.MinimumTime = 22
-Config.MaximumTime = 5
+Config.MinimumTime = 5
+Config.MaximumTime = 22
 
 Config.Rewards = {
     [1] = {
-        ["cabin"] = {
-            "plastic",
-            "diamond_ring", 
-            "goldchain",
-            "weed_skunk",
-            "pistol_ammo",
-            "cryptostick",
-            "weapon_golfclub",
-        },
-        ["kitchen"] = {
-            "tosti",
-            "sandwich",
-            "goldchain",
-        },
-        ["chest"] = {
-            "plastic",
-            "rolex",
-            "diamond_ring",
-            "goldchain",
-            "weed_skunk",
-            "pistol_ammo",
-            "cryptostick",
-            "weapon_combatpistol",
-        },
+        ["cabin"] = {"plastic", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", "weapon_golfclub"},
+        ["kitchen"] = {"tosti", "sandwich", "goldchain"},
+        ["chest"] = {"plastic", "rolex", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", "weapon_combatpistol"},
+        ["livingroom"] = {"plastic", "rolex", "diamond_ring", "goldchain", "thermite", "cryptostick", "tablet", "pistol_ammo"}
     }
 }
 
 Config.Houses = {
-    ["grovestreet1"] = { -- Moved 28-1-2020
+    ["perfectdrive1"] = {
         ["coords"] = {
-            ["x"] = 500.75,
-            ["y"] = -1697.16,
-            ["z"] = 29.78,
-            ["h"] = 326.5,
+            ["x"] = -784.72,
+            ["y"] = 459.77,
+            ["z"] = 100.39,
+            ["h"] = 34.89
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["geilhuisje"] = {
+    ["perfectdrive2"] = {
         ["coords"] = {
-            ["x"] = 46.46,
-            ["y"] = -30.96,
-            ["z"] = 73.68,
-            ["h"] = 229.5,
+            ["x"] = -762.21,
+            ["y"] = 430.96,
+            ["z"] = 100.2,
+            ["h"] = 198.27
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["picperfectdrive"] = {
+    ["perfectdrive3"] = {
         ["coords"] = {
-            ["x"] = -784.45,
-            ["y"] = 459.3,
-            ["z"] = 100.17,
-            ["h"] = 229.5,
+            ["x"] = -678.01,
+            ["y"] = 512.13,
+            ["z"] = 113.53,
+            ["h"] = 12.05
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["needasniks"] = {
+    ["perfectdrive4"] = {
         ["coords"] = {
-            ["x"] = -536.63,
-            ["y"] = 818.51,
-            ["z"] = 197.51,
-            ["h"] = 229.5,
+            ["x"] = -640.92,
+            ["y"] = 520.61,
+            ["z"] = 109.88,
+            ["h"] = 9.94
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["12345"] = {
+    ["perfectdrive5"] = {
         ["coords"] = {
-            ["x"] = 1229.64, 
-            ["y"] = -725.33, 
-            ["z"] = 60.95, 
-            ["h"] = 97.5
+            ["x"] = -622.84,
+            ["y"] = 488.88,
+            ["z"] = 108.88,
+            ["h"] = 186.87
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["12sdgsd345"] = {
+    ["perfectdrive6"] = {
         ["coords"] = {
-            ["x"] = 808.83, 
-            ["y"] = -163.65, 
-            ["z"] = 75.87, 
-            ["h"] = 331.5
+            ["x"] = -595.55,
+            ["y"] = 530.28,
+            ["z"] = 107.75,
+            ["h"] = 13.0
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house1"] = {
+    ["miltonroad1"] = {
         ["coords"] = {
-            ["x"] = 5.76, 
-            ["y"] = -9.49, 
-            ["z"] = 70.3, 
-            ["h"] = 159.5
+            ["x"] = -536.67,
+            ["y"] = 477.36,
+            ["z"] = 103.19,
+            ["h"] = 235.55
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house2"] = { -- Moved 28-1-20
+    ["miltonroad2"] = {
         ["coords"] = {
-            ["x"] = 1010.41, 
-            ["y"] = -423.39, 
-            ["z"] = 65.34, 
-            ["h"] = 133.5
+            ["x"] = -526.64,
+            ["y"] = 516.97,
+            ["z"] = 112.94,
+            ["h"] = 226.17
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house3"] = { -- Moved 28-1-2020
+    ["miltonroad3"] = {
         ["coords"] = {
-            ["x"] = -678.96, 
-            ["y"] = 512.12, 
-            ["z"] = 113.52, 
-            ["h"] = 18.5
+            ["x"] = -554.48,
+            ["y"] = 541.26,
+            ["z"] = 110.71,
+            ["h"] = 338.6
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house4"] = {
+    ["miltonroad4"] = {
         ["coords"] = {
-            ["x"] = -1308.13, 
-            ["y"] = 448.89, 
-            ["z"] = 100.96, 
-            ["h"] = 172.5
+            ["x"] = -500.82,
+            ["y"] = 551.92,
+            ["z"] = 120.6,
+            ["h"] = 159.51
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house5"] = {
+    ["didiondrive1"] = {
         ["coords"] = {
-            ["x"] = -1413.59, 
-            ["y"] = 462.1, 
-            ["z"] = 109.2, 
-            ["h"] = 164.5
+            ["x"] = -418.09,
+            ["y"] = 568.99,
+            ["z"] = 125.06,
+            ["h"] = 333.59
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house6"] = {
+    ["didiondrive2"] = {
         ["coords"] = {
-            ["x"] = -2015.01, 
-            ["y"] = 499.84, 
-            ["z"] = 107.17, 
-            ["h"] = 85.5
+            ["x"] = -411.06,
+            ["y"] = 529.18,
+            ["z"] = 122.18,
+            ["h"] = 167.27
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house7"] = {
+    ["didiondrive3"] = {
         ["coords"] = {
-            ["x"] = 329.37, 
-            ["y"] = -1845.84, 
-            ["z"] = 27.74, 
-            ["h"] = 236.5
+            ["x"] = -348.73,
+            ["y"] = 514.95,
+            ["z"] = 120.65,
+            ["h"] = 316.96
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house8"] = {
+    ["didiondrive4"] = {
         ["coords"] = {
-            ["x"] = 489.64, 
-            ["y"] = -1714.1, 
-            ["z"] = 29.7, 
-            ["h"] = 49.5
+            ["x"] = -355.93,
+            ["y"] = 469.76,
+            ["z"] = 112.65,
+            ["h"] = 104.28
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house9"] = {
+    ["hillcrest1"] = {
         ["coords"] = {
-            ["x"] = 1312.14, 
-            ["y"] = -1697.35, 
-            ["z"] = 58.22, 
-            ["h"] = 11.5
+            ["x"] = -908.66,
+            ["y"] = 693.67,
+            ["z"] = 151.44,
+            ["h"] = 104.28
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house10"] = {
+    ["hillcrest2"] = {
         ["coords"] = {
-            ["x"] = 1379.2, 
-            ["y"] = -1514.89, 
-            ["z"] = 58.43, 
-            ["h"] = 30.5
+            ["x"] = -951.28,
+            ["y"] = 682.65,
+            ["z"] = 153.58,
+            ["h"] = 177.85
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house11"] = {
+    ["hillcrest3"] = {
         ["coords"] = {
-            ["x"] = -246.14, 
-            ["y"] = 6414.11, 
-            ["z"] = 31.46, 
-            ["h"] = 310.5
+            ["x"] = -1056.34,
+            ["y"] = 761.34,
+            ["z"] = 167.32,
+            ["h"] = 92.27
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["house12"] = {
+    ["northsheldon1"] = {
         ["coords"] = {
-            ["x"] = -407.22, 
-            ["y"] = 6313.92, 
-            ["z"] = 28.94, 
-            ["h"] = 41.5,
+            ["x"] = -1130.87,
+            ["y"] = 784.44,
+            ["z"] = 163.89,
+            ["h"] = 56.39
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
             },
-        }
-    },    
-    ["sandyhouse1"] = {
-        ["coords"] = {
-            ["x"] = 1857.66, 
-            ["y"] = 3854.69, 
-            ["z"] = 33.10231, 
-            ["h"] = 41.5,
-        },
-        ["opened"] = false,
-        ["tier"] = 1,
-        ["furniture"] = {
-            [1] = {
+            [6] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i natbordsskuffen"
             },
-            [2] = {
-                ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
-                ["searched"] = false,
-                ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
-            },
-            [3] = {
+            [7] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
-            [4] = {
-                ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg på hylderne"
             },
-            [5] = {
-                ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["sandyhouse2"] = {
+    ["northsheldon2"] = {
         ["coords"] = {
-            ["x"] = 1435.43, 
-            ["y"] = 3657.10, 
-            ["z"] = 34.40128, 
-            ["h"] = 41.5,
+            ["x"] = -1117.77,
+            ["y"] = 761.48,
+            ["z"] = 164.29,
+            ["h"] = 205.7
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["sandyhouse3"] = {
+    ["northsheldon3"] = {
         ["coords"] = {
-            ["x"] = 1733.61, 
-            ["y"] = 3895.35, 
-            ["z"] = 35.55904, 
-            ["h"] = 41.5,
+            ["x"] = -1065.02,
+            ["y"] = 772.17,
+            ["z"] = 170.06,
+            ["h"] = 179.03
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["northsheldon4"] = {
+        ["coords"] = {
+            ["x"] = -962.7,
+            ["y"] = 814.09,
+            ["z"] = 177.57,
+            ["h"] = 0.44
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["northsheldon5"] = {
+        ["coords"] = {
+            ["x"] = -867.34,
+            ["y"] = 785.0,
+            ["z"] = 191.93,
+            ["h"] = 182.44
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["wildoats1"] = {
+        ["coords"] = {
+            ["x"] = 80.09,
+            ["y"] = 486.26,
+            ["z"] = 148.2,
+            ["h"] = 25.28
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["wildoats2"] = {
+        ["coords"] = {
+            ["x"] = 57.56,
+            ["y"] = 449.68,
+            ["z"] = 147.03,
+            ["h"] = 147.72
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["wildoats3"] = {
+        ["coords"] = {
+            ["x"] = -110.05,
+            ["y"] = 501.83,
+            ["z"] = 143.38,
+            ["h"] = 171.41
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["jamestown1"] = {
+        ["coords"] = {
+            ["x"] = 385.18,
+            ["y"] = -1881.78,
+            ["z"] = 26.03,
+            ["h"] = 40.83
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["jamestown2"] = {
+        ["coords"] = {
+            ["x"] = 412.47,
+            ["y"] = -1856.38,
+            ["z"] = 27.32,
+            ["h"] = 129.24
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["jamestown3"] = {
+        ["coords"] = {
+            ["x"] = 427.21,
+            ["y"] = -1842.09,
+            ["z"] = 28.46,
+            ["h"] = 134.19
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["roylow1"] = {
+        ["coords"] = {
+            ["x"] = 348.77,
+            ["y"] = -1820.95,
+            ["z"] = 28.89,
+            ["h"] = 135.8
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["roylow2"] = {
+        ["coords"] = {
+            ["x"] = 329.42,
+            ["y"] = -1845.8,
+            ["z"] = 27.75,
+            ["h"] = 228.98
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["roylow3"] = {
+        ["coords"] = {
+            ["x"] = 320.27,
+            ["y"] = -1854.06,
+            ["z"] = 27.51,
+            ["h"] = 225.09
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["covenant1"] = {
+        ["coords"] = {
+            ["x"] = 192.29,
+            ["y"] = -1883.23,
+            ["z"] = 25.06,
+            ["h"] = 326.47
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["covenant2"] = {
+        ["coords"] = {
+            ["x"] = 171.52,
+            ["y"] = -1871.53,
+            ["z"] = 24.4,
+            ["h"] = 245.19
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["covenant3"] = {
+        ["coords"] = {
+            ["x"] = 128.24,
+            ["y"] = -1897.02,
+            ["z"] = 23.67,
+            ["h"] = 239.54
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["covenant4"] = {
+        ["coords"] = {
+            ["x"] = 130.6,
+            ["y"] = -1853.22,
+            ["z"] = 25.23,
+            ["h"] = 329.64
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["grove1"] = {
+        ["coords"] = {
+            ["x"] = 76.36,
+            ["y"] = -1948.1,
+            ["z"] = 21.17,
+            ["h"] = 44.97
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["grove2"] = {
+        ["coords"] = {
+            ["x"] = 101.03,
+            ["y"] = -1912.16,
+            ["z"] = 21.41,
+            ["h"] = 331.84
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["grove3"] = {
+        ["coords"] = {
+            ["x"] = 126.73,
+            ["y"] = -1930.12,
+            ["z"] = 21.38,
+            ["h"] = 210.98
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["grove4"] = {
+        ["coords"] = {
+            ["x"] = 114.25,
+            ["y"] = -1961.19,
+            ["z"] = 21.33,
+            ["h"] = 198.18
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity1"] = {
+        ["coords"] = {
+            ["x"] = -1076.33,
+            ["y"] = -1026.96,
+            ["z"] = 4.54,
+            ["h"] = 118.14
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity2"] = {
+        ["coords"] = {
+            ["x"] = -1064.64,
+            ["y"] = -1057.42,
+            ["z"] = 6.41,
+            ["h"] = 115.35
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity3"] = {
+        ["coords"] = {
+            ["x"] = -1063.77,
+            ["y"] = -1054.99,
+            ["z"] = 2.15,
+            ["h"] = 120.47
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity4"] = {
+        ["coords"] = {
+            ["x"] = -1054.07,
+            ["y"] = -1000.2,
+            ["z"] = 6.41,
+            ["h"] = 296.69
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity5"] = {
+        ["coords"] = {
+            ["x"] = -985.89,
+            ["y"] = -1121.74,
+            ["z"] = 4.55,
+            ["h"] = 297.63
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity6"] = {
+        ["coords"] = {
+            ["x"] = -1024.42,
+            ["y"] = -1140.0,
+            ["z"] = 2.75,
+            ["h"] = 213.84
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity7"] = {
+        ["coords"] = {
+            ["x"] = -1074.13,
+            ["y"] = -1152.73,
+            ["z"] = 2.16,
+            ["h"] = 118.65
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity8"] = {
+        ["coords"] = {
+            ["x"] = -1063.57,
+            ["y"] = -1160.35,
+            ["z"] = 2.75,
+            ["h"] = 210.36
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity10"] = {
+        ["coords"] = {
+            ["x"] = -869.53,
+            ["y"] = -1103.41,
+            ["z"] = 6.45,
+            ["h"] = 29.2
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["prosperity11"] = {
+        ["coords"] = {
+            ["x"] = -869.07,
+            ["y"] = -1105.48,
+            ["z"] = 2.49,
+            ["h"] = 25.76
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
     ["grapeseed1"] = {
         ["coords"] = {
-            ["x"] = 1725.4, 
-            ["y"] = 4642.52, 
-            ["z"] = 43.87549, 
-            ["h"] = 41.5,
+            ["x"] = 1662.07,
+            ["y"] = 4776.19,
+            ["z"] = 42.07,
+            ["h"] = 92.92
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
-    }, 
+    },
     ["grapeseed2"] = {
         ["coords"] = {
-            ["x"] = 2016.98, 
-            ["y"] = 4987.78, 
-            ["z"] = 42.09826, 
-            ["h"] = 41.5,
+            ["x"] = 1664.04,
+            ["y"] = 4739.68,
+            ["z"] = 42.01,
+            ["h"] = 111.19
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["paletohouse1"] = {
+    ["paleto1"] = {
         ["coords"] = {
-            ["x"] = 31.225, 
-            ["y"] = 6596.86, 
-            ["z"] = 32.82224, 
-            ["h"] = 41.5,
+            ["x"] = -360.24,
+            ["y"] = 6260.61,
+            ["z"] = 31.9,
+            ["h"] = 136.27
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["paletohouse2"] = {
+    ["paleto2"] = {
         ["coords"] = {
-            ["x"] = -130.78, 
-            ["y"] = 6551.86, 
-            ["z"] = 29.87277, 
-            ["h"] = 41.5,
+            ["x"] = -366,57,
+            ["y"] = 6214.12,
+            ["z"] = 31.84,
+            ["h"] = 317.03
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["paletohouse3"] = {
+    ["paleto3"] = {
         ["coords"] = {
-            ["x"] = -227.246, 
-            ["y"] = 6377.25, 
-            ["z"] = 31.75931, 
-            ["h"] = 41.5,
+            ["x"] = -447.87,
+            ["y"] = 6260.25,
+            ["z"] = 30.05,
+            ["h"] = 338.35
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
     },
-    ["paletohouse4"] = {
+    ["paleto4"] = {
         ["coords"] = {
-            ["x"] = -366.56, 
-            ["y"] = 6214.13, 
-            ["z"] = 31.84225, 
-            ["h"] = 41.5,
+            ["x"] = -245.99,
+            ["y"] = 6414.45,
+            ["z"] = 31.46,
+            ["h"] = 305.54
         },
         ["opened"] = false,
         ["tier"] = 1,
         ["furniture"] = {
             [1] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 3.1,
-                    ["y"] = -4.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i sengeskabet"
             },
             [2] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = -3.5,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i skufferne"
+                ["text"] = "Søg i skabet"
             },
             [3] = {
                 ["type"] = "kitchen",
-                ["coords"] = {
-                    ["x"] = 0.9,
-                    ["y"] = -6.3,
-                    ["z"] = 2.5,
-                },
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i køkkenskabene"
+                ["text"] = "Søg i køkken skabe"
             },
             [4] = {
                 ["type"] = "chest",
-                ["coords"] = {
-                    ["x"] = 9.3,
-                    ["y"] = -1.3,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Søg i kisten"
+                ["text"] = "Søg i kiste"
             },
             [5] = {
                 ["type"] = "cabin",
-                ["coords"] = {
-                    ["x"] = 5.85,
-                    ["y"] = 2.6,
-                    ["z"] = 2.0,
-                },
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
                 ["searched"] = false,
                 ["isBusy"] = false,
-                ["text"] = "Natbord"
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
             },
         }
-    },                                                                                                                                      
+    },
+    ["paleto5"] = {
+        ["coords"] = {
+            ["x"] = -9.59,
+            ["y"] = 6654.23,
+            ["z"] = 31.7,
+            ["h"] = 31.66
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["paleto6"] = {
+        ["coords"] = {
+            ["x"] = 25.1,
+            ["y"] = 6601.76,
+            ["z"] = 32.47,
+            ["h"] = 133.36
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["paletoHotels1"] = {
+        ["coords"] = {
+            ["x"] = -159.84,
+            ["y"] = 6432.65,
+            ["z"] = 31.93,
+            ["h"] = 310.91
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
+    ["paletoHotels2"] = {
+        ["coords"] = {
+            ["x"] = -149.98,
+            ["y"] = 6416.07,
+            ["z"] = 31.92,
+            ["h"] = 225.27
+        },
+        ["opened"] = false,
+        ["tier"] = 1,
+        ["furniture"] = {
+            [1] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 4.15, ["y"] = 7.82, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i sengeskabet"
+            },
+            [2] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 5.95, ["y"] = 9.34, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skabet"
+            },
+            [3] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -1.03, ["y"] = 0.78, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [4] = {
+                ["type"] = "chest",
+                ["coords"] = {["x"] = 6.904, ["y"] = 3.987, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i kiste"
+            },
+            [5] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 0.933, ["y"] = 1.254, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i skuffer"
+            },
+            [6] = {
+                ["type"] = "cabin",
+                ["coords"] = {["x"] = 6.19, ["y"] = 3.35, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i natbordsskuffen"
+            },
+            [7] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -2.20, ["y"] = -0.30, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg i køkken skabe"
+            },
+            [8] = {
+                ["type"] = "kitchen",
+                ["coords"] = {["x"] = -4.35, ["y"] = -0.64, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [9] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.90, ["y"] = 4.42, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+            [10] = {
+                ["type"] = "livingroom",
+                ["coords"] = {["x"] = -6.98, ["y"] = 7.91, ["z"] = 1.0},
+                ["searched"] = false,
+                ["isBusy"] = false,
+                ["text"] = "Søg på hylderne"
+            },
+        }
+    },
 }
 
 Config.MaleNoHandshoes = {
-    [0] = true,
-    [1] = true,
-    [2] = true,
-    [3] = true,
-    [4] = true,
-    [5] = true,
-    [6] = true,
-    [7] = true,
-    [8] = true,
-    [9] = true,
-    [10] = true,
-    [11] = true,
-    [12] = true,
-    [13] = true,
-    [14] = true,
-    [15] = true,
-    [16] = true,
-    [18] = true,
-    [26] = true,
-    [52] = true,
-    [53] = true,
-    [54] = true,
-    [55] = true,
-    [56] = true,
-    [57] = true,
-    [58] = true,
-    [59] = true,
-    [60] = true,
-    [61] = true,
-    [62] = true,
-    [112] = true,
-    [113] = true,
-    [114] = true,
-    [118] = true,
-    [125] = true,
-    [132] = true,
+    [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true, [7] = true, [8] = true, [9] = true, [10] = true, [11] = true, [12] = true, [13] = true, [14] = true, [15] = true, [16] = true, [18] = true, [26] = true, [52] = true, [53] = true, [54] = true, [55] = true, [56] = true, [57] = true, [58] = true, [59] = true, [60] = true, [61] = true, [62] = true, [112] = true, [113] = true, [114] = true, [118] = true, [125] = true, [132] = true
 }
 
 Config.FemaleNoHandshoes = {
-    [0] = true,
-    [1] = true,
-    [2] = true,
-    [3] = true,
-    [4] = true,
-    [5] = true,
-    [6] = true,
-    [7] = true,
-    [8] = true,
-    [9] = true,
-    [10] = true,
-    [11] = true,
-    [12] = true,
-    [13] = true,
-    [14] = true,
-    [15] = true,
-    [19] = true,
-    [59] = true,
-    [60] = true,
-    [61] = true,
-    [62] = true,
-    [63] = true,
-    [64] = true,
-    [65] = true,
-    [66] = true,
-    [67] = true,
-    [68] = true,
-    [69] = true,
-    [70] = true,
-    [71] = true,
-    [129] = true,
-    [130] = true,
-    [131] = true,
-    [135] = true,
-    [142] = true,
-    [149] = true,
-    [153] = true,
-    [157] = true,
-    [161] = true,
-    [165] = true,
+    [0] = true, [1] = true, [2] = true, [3] = true, [4] = true, [5] = true, [6] = true, [7] = true, [8] = true, [9] = true, [10] = true, [11] = true, [12] = true, [13] = true, [14] = true, [15] = true, [19] = true, [59] = true, [60] = true, [61] = true, [62] = true, [63] = true, [64] = true, [65] = true, [66] = true, [67] = true, [68] = true, [69] = true, [70] = true, [71] = true, [129] = true, [130] = true, [131] = true, [135] = true, [142] = true, [149] = true, [153] = true, [157] = true, [161] = true, [165] = true
 }

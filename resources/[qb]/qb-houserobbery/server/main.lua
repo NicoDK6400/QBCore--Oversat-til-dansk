@@ -16,29 +16,12 @@ Vores sider:
 
 local QBCore = exports['qb-core']:GetCoreObject()
 
-QBCore.Functions.CreateCallback('qb-houserobbery:server:GetHouseConfig', function(source, cb)
-    cb(Config.Houses)
-end)
+-- Functions
 
-RegisterServerEvent('qb-houserobbery:server:enterHouse')
-AddEventHandler('qb-houserobbery:server:enterHouse', function(house)
-    local src = source
-    local itemInfo = QBCore.Shared.Items["lockpick"]
-    local Player = QBCore.Functions.GetPlayer(src)
-    
-    if not Config.Houses[house]["opened"] then
-        ResetHouseStateTimer(house)
-        TriggerClientEvent('qb-houserobbery:client:setHouseState', -1, house, true)
-    end
-    TriggerClientEvent('qb-houserobbery:client:enterHouse', src, house)
-    Config.Houses[house]["opened"] = true
-end)
-
-function ResetHouseStateTimer(house)
-    -- Cannot parse math.random "directly" inside the tonumber function
+local function ResetHouseStateTimer(house)
     local num = math.random(3333333, 11111111)
     local time = tonumber(num)
-    Citizen.SetTimeout(time, function()
+    SetTimeout(time, function()
         Config.Houses[house]["opened"] = false
         for k, v in pairs(Config.Houses[house]["furniture"]) do
             v["searched"] = false
@@ -47,8 +30,30 @@ function ResetHouseStateTimer(house)
     end)
 end
 
-RegisterServerEvent('qb-houserobbery:server:searchCabin')
-AddEventHandler('qb-houserobbery:server:searchCabin', function(cabin, house)
+-- Callbacks
+
+QBCore.Functions.CreateCallback('qb-houserobbery:server:GetHouseConfig', function(source, cb)
+    cb(Config.Houses)
+end)
+
+-- Events
+
+RegisterNetEvent('qb-houserobbery:server:SetBusyState', function(cabin, house, bool)
+    Config.Houses[house]["furniture"][cabin]["isBusy"] = bool
+    TriggerClientEvent('qb-houserobbery:client:SetBusyState', -1, cabin, house, bool)
+end)
+
+RegisterNetEvent('qb-houserobbery:server:enterHouse', function(house)
+    local src = source
+    if not Config.Houses[house]["opened"] then
+        ResetHouseStateTimer(house)
+        TriggerClientEvent('qb-houserobbery:client:setHouseState', -1, house, true)
+    end
+    TriggerClientEvent('qb-houserobbery:client:enterHouse', src, house)
+    Config.Houses[house]["opened"] = true
+end)
+
+RegisterNetEvent('qb-houserobbery:server:searchCabin', function(cabin, house)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local luck = math.random(1, 10)
@@ -85,7 +90,7 @@ AddEventHandler('qb-houserobbery:server:searchCabin', function(cabin, house)
                     Player.Functions.AddItem(randomItem, 1)
                     TriggerClientEvent('inventory:client:ItemBox', src, itemInfo, "add")
             else
-                if not itemInfo["unqiue"] then
+                if not itemInfo["unique"] then
                     local itemAmount = math.random(1, 3)
                     if randomItem == "plastic" then
                         itemAmount = math.random(15, 30)
@@ -98,26 +103,20 @@ AddEventHandler('qb-houserobbery:server:searchCabin', function(cabin, house)
                     elseif randomItem == "cryptostick" then
                         itemAmount = math.random(1, 2)
                     end
-                    
+
                     Player.Functions.AddItem(randomItem, itemAmount)
                 else
                     Player.Functions.AddItem(randomItem, 1)
                 end
                 TriggerClientEvent('inventory:client:ItemBox', src, itemInfo, "add")
             end
-            Citizen.Wait(500)
+            Wait(500)
             -- local weaponChance = math.random(1, 100)
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, 'Denne kasse er tom', 'error', 3500)
+        TriggerClientEvent('QBCore:Notify', src, 'Boksen er tom', 'error', 3500)
     end
 
     Config.Houses[house]["furniture"][cabin]["searched"] = true
     TriggerClientEvent('qb-houserobbery:client:setCabinState', -1, house, cabin, true)
-end)
-
-RegisterServerEvent('qb-houserobbery:server:SetBusyState')
-AddEventHandler('qb-houserobbery:server:SetBusyState', function(cabin, house, bool)
-    Config.Houses[house]["furniture"][cabin]["isBusy"] = bool
-    TriggerClientEvent('qb-houserobbery:client:SetBusyState', -1, cabin, house, bool)
 end)
