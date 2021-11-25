@@ -1,3 +1,19 @@
+--[[
+ ______ _           __  __      _ _    
+|  ____(_)         |  \/  |    | | |   
+| |__   ___   _____| \  / |  __| | | __
+|  __| | \ \ / / _ \ |\/| | / _` | |/ /
+| |    | |\ V /  __/ |  | || (_| |   < 
+|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
+
+Vores sider:
+  • Hjemmesiden: https://fivem.dk
+  • Patreon: https://patreon.com/dkfivem
+  • Facebook: https://facebook.com/dkfivem
+  • Discord: https://discord.gg/dkfivem
+  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
+]]
+
 local QBCore = exports['qb-core']:GetCoreObject()
 
 ranks = {'02', '03', '04', '05', '06', '07', '08', '09', '10', --[['11',]] 'JACK', 'QUEEN', 'KING', 'ACE'}
@@ -191,12 +207,12 @@ AddEventHandler('BLACKJACK:SetPlayerBet', SetPlayerBet)
 function CheckPlayerBet(i, bet)
 	local Player = QBCore.Functions.GetPlayer(source)
 	local ItemList = {
-		["casinochips"] = 1,
+		["redchip"] = 1,
 	}
 
 	DebugPrint("TABLE "..i..": CHECKING "..GetPlayerName(source):upper().."'s CHIPS")
 
-	local playerChips = Player.Functions.GetItemByName("casinochips")
+	local playerChips = Player.Functions.GetItemByName("redchip")
 
 	local canBet = false
 

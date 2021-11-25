@@ -175,6 +175,7 @@ function drawCarForWins()
 	Wait(0)
 	SetVehicleDirtLevel(spinningCar, 0.0)
 	SetVehicleOnGroundProperly(spinningCar)
+  SetVehicleFuelLevel(spinningCar, 100)
 	Wait(0)
 	FreezeEntityPosition(spinningCar, 1)
 end

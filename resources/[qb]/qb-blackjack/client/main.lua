@@ -1,3 +1,19 @@
+--[[
+ ______ _           __  __      _ _    
+|  ____(_)         |  \/  |    | | |   
+| |__   ___   _____| \  / |  __| | | __
+|  __| | \ \ / / _ \ |\/| | / _` | |/ /
+| |    | |\ V /  __/ |  | || (_| |   < 
+|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
+
+Vores sider:
+  • Hjemmesiden: https://fivem.dk
+  • Patreon: https://patreon.com/dkfivem
+  • Facebook: https://facebook.com/dkfivem
+  • Discord: https://discord.gg/dkfivem
+  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
+]]
+
 local QBCore = exports['qb-core']:GetCoreObject()
 local seatSideAngle = 30
 local bet = 0
@@ -338,7 +354,7 @@ CreateThread(function()
 				SetTextOutline()
 				SetTextCentre(1)
 				SetTextEntry("STRING")
-				AddTextComponentString("HAND VALUE: "..handValue(hand))
+				AddTextComponentString("HÅND VÆRDI: "..handValue(hand))
 				DrawText(0.90, 0.15)
 
 				for i,v in ipairs(hand) do
@@ -367,7 +383,7 @@ CreateThread(function()
 					SetTextOutline()
 					SetTextCentre(1)
 					SetTextEntry("STRING")
-					AddTextComponentString("CAN SPLIT HAND")
+					AddTextComponentString("SPLIT HÅND")
 					DrawText(0.90, 0.125)
 				end
 
@@ -678,26 +694,26 @@ AddEventHandler("BLACKJACK:RequestBets", function(index, _timeLeft)
 		BeginScaleformMovieMethod(scaleform, "SET_DATA_SLOT")
 		ScaleformMovieMethodAddParamInt(0)
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 202, 0))
-		ScaleformMovieMethodAddParamPlayerNameString("Exit")
+		ScaleformMovieMethodAddParamPlayerNameString("Forlad")
 		EndScaleformMovieMethod()
 
 		BeginScaleformMovieMethod(scaleform, "SET_DATA_SLOT")
 		ScaleformMovieMethodAddParamInt(1)
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 201, 0))
-		ScaleformMovieMethodAddParamPlayerNameString("Place Bet")
+		ScaleformMovieMethodAddParamPlayerNameString("Placér Bet")
 		EndScaleformMovieMethod()
 
 		BeginScaleformMovieMethod(scaleform, "SET_DATA_SLOT")
 		ScaleformMovieMethodAddParamInt(2)
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 205, 0))
-		ScaleformMovieMethodAddParamPlayerNameString("Max Bet")
+		ScaleformMovieMethodAddParamPlayerNameString("Maks Bet")
 		EndScaleformMovieMethod()
 
 		BeginScaleformMovieMethod(scaleform, "SET_DATA_SLOT")
 		ScaleformMovieMethodAddParamInt(3)
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 175, 0))
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 174, 0))
-		ScaleformMovieMethodAddParamPlayerNameString("Adjust Bet")
+		ScaleformMovieMethodAddParamPlayerNameString("Juster bet")
 		EndScaleformMovieMethod()
 
 		BeginScaleformMovieMethod(scaleform, "DRAW_INSTRUCTIONAL_BUTTONS")
@@ -871,7 +887,7 @@ AddEventHandler("BLACKJACK:RequestMove", function(_timeLeft)
 		BeginScaleformMovieMethod(scaleform, "SET_DATA_SLOT")
 		ScaleformMovieMethodAddParamInt(2)
 		ScaleformMovieMethodAddParamPlayerNameString(GetControlInstructionalButton(1, 203, 0))
-		ScaleformMovieMethodAddParamPlayerNameString("Stand")
+		ScaleformMovieMethodAddParamPlayerNameString("Stå")
 		EndScaleformMovieMethod()
 
 		if #hand < 3 and #splitHand == 0 then
@@ -1065,7 +1081,7 @@ AddEventHandler("BLACKJACK:RequestMove", function(_timeLeft)
 
 					return
 				else
-					QBCore.Functions.Notify("Du har ikke nok til at splitt.", "error")
+					QBCore.Functions.Notify("Du har ikke nok til at split.", "error")
 
 				end
 			end
