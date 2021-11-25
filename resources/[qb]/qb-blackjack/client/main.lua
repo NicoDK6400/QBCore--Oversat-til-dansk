@@ -1065,7 +1065,7 @@ AddEventHandler("BLACKJACK:RequestMove", function(_timeLeft)
 
 					return
 				else
-					QBCore.Functions.Notify("You don't have enough money to split.", "error")
+					QBCore.Functions.Notify("Du har ikke nok til at splitt.", "error")
 
 				end
 			end
@@ -1514,61 +1514,3 @@ exports("SetSatDownCallback", SetSatDownCallback)
 exports("SetStandUpCallback", SetStandUpCallback)
 exports("SetLeaveCheckCallback", SetLeaveCheckCallback)
 exports("SetCanSitDownCallback", SetCanSitDownCallback)
-
-
--- Casino Chip/Member Shop --
-
-RegisterNetEvent('qb-casino:client:RedSell')
-AddEventHandler('qb-casino:client:RedSell', function()
-    TriggerServerEvent('qb-casino:server:RedSell')
-end)
-
-RegisterNetEvent('qb-casino:client:WhiteSell')
-AddEventHandler('qb-casino:client:WhiteSell', function()
-    TriggerServerEvent('qb-casino:server:WhiteSell')
-end)
-
-RegisterNetEvent('qb-casino:client:BlueSell')
-AddEventHandler('qb-casino:client:BlueSell', function()
-    TriggerServerEvent('qb-casino:server:BlueSell')
-end)
-
-RegisterNetEvent('qb-casino:client:BlackSell')
-AddEventHandler('qb-casino:client:BlackSell', function()
-    TriggerServerEvent('qb-casino:server:BlackSell')
-end)
-
-RegisterNetEvent('qb-casino:client:GoldSell')
-AddEventHandler('qb-casino:client:GoldSell', function()
-    TriggerServerEvent('qb-casino:server:GoldSell')
-end)
-
-Citizen.CreateThread(function()
-    local alreadyEnteredZone = false
-    local text = nil
-    while true do
-        wait = 5
-        local ped = PlayerPedId()
-        local inZone = false
-        local dist = #(GetEntityCoords(ped)-vector3(948.237, 34.287, 71.839))
-        if dist <= 3.0 then
-            wait = 5
-            inZone  = true
-            text = '<b>Diamond Casino</b></p>Shop'
-
-        else
-            wait = 2000
-        end
-
-        if inZone and not alreadyEnteredZone then
-            alreadyEnteredZone = true
-            TriggerEvent('drawtextui:ShowUI', 'show', text)
-        end
-
-        if not inZone and alreadyEnteredZone then
-            alreadyEnteredZone = false
-            TriggerEvent('drawtextui:HideUI')
-        end
-        Citizen.Wait(wait)
-    end
-end)
