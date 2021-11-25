@@ -1,31 +1,14 @@
---[[
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-]]
-
 fx_version 'adamant'
 game "gta5"
 
-name 'kgv-blackjack'
+name 'qb-blackjack'
 description 'Playable Blackjack at the casino, similar to GTAOnline.'
 author 'Xinerki - https://github.com/Xinerki/'
 url 'https://github.com/Xinerki/kgv-blackjack'
 
-shared_scripts {
-	'coords.lua',
-	'@qb-core/import.lua'
-}
+lua54 'yes'
+
+shared_script 'coords.lua'
 
 client_scripts {
 	'client/*.lua'
@@ -35,3 +18,38 @@ server_scripts {
 	'server/*.lua'
 }
 
+data_file 'DLC_ITYP_REQUEST' 'stream/cards/vw_prop_vw_cards.ityp'
+data_file "PED_METADATA_FILE" "peds.meta"
+
+data_file 'AUDIO_GAMEDATA' 'audio/dlcvinewood_game.dat'
+data_file 'AUDIO_SOUNDDATA' 'audio/dlcvinewood_sounds.dat'
+data_file 'AUDIO_DYNAMIXDATA' 'audio/dlcvinewood_mix.dat'
+data_file 'AUDIO_SYNTHDATA' 'audio/dlcVinewood_amp.dat'
+data_file 'AUDIO_SPEECHDATA' 'audio/dlcvinewood_speech.dat'
+data_file 'AUDIO_WAVEPACK' 'audio/sfx/dlc_vinewood'
+
+
+files{
+	"peds.meta",
+	'audio/dlcvinewood_amp.dat10',
+	'audio/dlcvinewood_amp.dat10.nametable',
+	'audio/dlcvinewood_amp.dat10.rel',
+	'audio/dlcvinewood_game.dat151',
+	'audio/dlcvinewood_game.dat151.nametable',
+	'audio/dlcvinewood_game.dat151.rel',
+	'audio/dlcvinewood_mix.dat15',
+	'audio/dlcvinewood_mix.dat15.nametable',
+	'audio/dlcvinewood_mix.dat15.rel',
+	'audio/dlcvinewood_sounds.dat54',
+	'audio/dlcvinewood_sounds.dat54.nametable',
+	'audio/dlcvinewood_sounds.dat54.rel',
+	'audio/dlcvinewood_speech.dat4',
+	'audio/dlcvinewood_speech.dat4.nametable',
+	'audio/dlcvinewood_speech.dat4.rel',
+	'audio/sfx/dlc_vinewood/casino_general.awc',
+	'audio/sfx/dlc_vinewood/casino_interior_stems.awc',
+	'audio/sfx/dlc_vinewood/casino_slot_machines_01.awc',
+	'audio/sfx/dlc_vinewood/casino_slot_machines_02.awc',
+	'audio/sfx/dlc_vinewood/casino_slot_machines_03.awc',
+	'audio/sfx/dlc_vinewood/*.awc',
+}

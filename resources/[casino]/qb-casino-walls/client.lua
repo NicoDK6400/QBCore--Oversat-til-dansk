@@ -174,7 +174,7 @@ function drawCarForWins()
 	spinningCar = CreateVehicle(Config.VehicleOnDisplay, 935.432, 42.5611, 72.14, 0.0, 0, 0)
 	Wait(0)
 	SetVehicleDirtLevel(spinningCar, 0.0)
-	SetVehicleOnGroundProperly(spinningCar) 
+	SetVehicleOnGroundProperly(spinningCar)
 	Wait(0)
 	FreezeEntityPosition(spinningCar, 1)
 end
@@ -242,6 +242,7 @@ Citizen.CreateThread(function()
 end)
 
 --=============================================== added
+--[[
 -- Lucky wheel
 exports['qb-target']:AddCircleZone("LuckyWheel", vector3(949.391, 44.72, 71.638), 2.0, {
     name="LuckyWheel",
@@ -257,8 +258,9 @@ exports['qb-target']:AddCircleZone("LuckyWheel", vector3(949.391, 44.72, 71.638)
             },
         },
     distance = 2.0
-})
+})--]]
 
+--[[
 -- Horse Bets
 exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.0, {
     name="Betting",
@@ -274,7 +276,7 @@ exports['qb-target']:AddCircleZone("Betting", vector3(956.121,70.185,70.433), 1.
         },
     },
     distance = 3.0
-})
+})--]]
 
 
 -- Casino Shop
@@ -311,6 +313,7 @@ exports['qb-target']:AddTargetModel(`u_m_o_finguru_01`, {
 	distance = 3.0
 })
 
+--[[
 -- Roulette
 exports['qb-target']:AddCircleZone("Roulette", vector3(991.09, 53.22, 69.51), 1.0, {
   name="Roulette",
@@ -326,7 +329,7 @@ exports['qb-target']:AddCircleZone("Roulette", vector3(991.09, 53.22, 69.51), 1.
       },
   },
   distance = 3.0
-})
+})--]]
 
 
 RegisterNetEvent('qb-casino:client:openCasinoMembersips')
