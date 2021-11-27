@@ -237,7 +237,7 @@ pdm:onPlayerInOut(function(isPointInside)
                     },
                     {
                         header = 'Prøvetur',
-                        txt = 'Tag en prøvetur med det vaglte køretøj',
+                        txt = 'Tag en prøvetur med det valgte køretøj',
                         params = {
                             event = 'qb-vehicleshop:client:TestDrive',
                         }

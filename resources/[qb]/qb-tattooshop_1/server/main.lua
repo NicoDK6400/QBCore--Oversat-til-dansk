@@ -23,7 +23,7 @@ QBCore.Functions.CreateCallback('qb-tattooshop:GetPlayerTattoos', function(sourc
 	local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 	if Player then
-		exports.oxmysql:execute('SELECT tattoos FROM players WHERE citizenid = ?', { Player.PlayerData.citizenid }, function(result)
+		exports.oxmysql:execute('SELECT tattoos FROM playerskin WHERE citizenid = ?', { Player.PlayerData.citizenid }, function(result)
 			if result[1].tattoos then
 				cb(json.decode(result[1].tattoos))
 			else
@@ -54,5 +54,5 @@ end)
 RegisterServerEvent('qb-tattooshop:server:RemoveTattoo', function (tattooList)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
-	exports.oxmysql:update('UPDATE players SET tattoos = ? WHERE citizenid = ?', { json.encode(tattooList), Player.PlayerData.citizenid })
+	exports.oxmysql:update('UPDATE playerskin SET tattoos = ? WHERE citizenid = ?', { json.encode(tattooList), Player.PlayerData.citizenid })
 end)
