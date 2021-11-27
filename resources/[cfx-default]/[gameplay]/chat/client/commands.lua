@@ -46,7 +46,7 @@ RegisterNetEvent('chat:EmergencySend911r')
 AddEventHandler('chat:EmergencySend911r', function(fal, caller, msg)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         TriggerEvent('chat:addMessage', {
-        template = '<div class="chat-message emergency">911r {0} ({1}): {2} </div>',
+        template = '<div class="chat-message emergency">112s {0} ({1}): {2} </div>',
         args = {caller, fal, msg}
         });
     end
@@ -56,7 +56,7 @@ RegisterNetEvent('chat:EmergencySend311r')
 AddEventHandler('chat:EmergencySend311r', function(fal, caller, msg)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         TriggerEvent('chat:addMessage', {
-        template = '<div class="chat-message nonemergency">311r {0} ({1}): {2} </div>',
+        template = '<div class="chat-message nonemergency">114s {0} ({1}): {2} </div>',
         args = {caller, fal, msg}
         });
     end
@@ -66,7 +66,7 @@ RegisterNetEvent('chat:EmergencySend911')
 AddEventHandler('chat:EmergencySend911', function(fal, caller, msg)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         TriggerEvent('chat:addMessage', {
-        template = '<div class="chat-message emergency">911 {0} ({1}): {2} </div>',
+        template = '<div class="chat-message emergency">112 {0} ({1}): {2} </div>',
         args = {caller, fal, msg}
         });
     end
@@ -76,7 +76,7 @@ RegisterNetEvent('chat:EmergencySend311')
 AddEventHandler('chat:EmergencySend311', function(fal, caller, msg)
     if PlayerData.job.name == 'police' or PlayerData.job.name == 'ambulance' then
         TriggerEvent('chat:addMessage', {
-        template = '<div class="chat-message nonemergency">311 {0} ({1}): {2} </div>',
+        template = '<div class="chat-message nonemergency">114 {0} ({1}): {2} </div>',
         args = {caller, fal, msg}
         });
     end

@@ -250,7 +250,7 @@ AddEventHandler('playerDropped', function(reason)
         return
     end
 
-    TriggerClientEvent('chatMessage', -1, '', { 255, 255, 255 }, '^2* ' .. GetPlayerName(source) ..' left (' .. reason .. ')')
+    TriggerClientEvent('chatMessage', -1, '', { 255, 255, 255 }, '^2* ' .. GetPlayerName(source) ..' forlod (' .. reason .. ')')
 end)
 
 RegisterCommand('say', function(source, args, rawCommand)
