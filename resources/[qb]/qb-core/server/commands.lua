@@ -168,6 +168,7 @@ QBCore.Commands.Add("clearinv", "Ryd spillerens inventory (Kun Admin)", {{name="
 	end
 end, "admin")
 
+-- ooc command
 QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
     local src = source
     local message = table.concat(args, ' ')
@@ -200,8 +201,7 @@ QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
 end, 'user')
 
 -- Me command
-
-QBCore.Commands.Add('me', 'Skriv dine me handlinger', {}, false, function(source, args)
+QBCore.Commands.Add('me', 'Skriv dine me handlinger', {{name = 'message', help = 'Din besked'}}, false, function(source, args)
     local src = source
     local ped = GetPlayerPed(src)
     local pCoords = GetEntityCoords(ped)

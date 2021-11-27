@@ -14,7 +14,6 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 */
 
-
 let formInputs = {};
 
 const OpenMenu = (data) => {
