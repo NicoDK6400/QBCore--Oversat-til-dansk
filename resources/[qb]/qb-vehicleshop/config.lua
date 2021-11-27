@@ -35,7 +35,7 @@ Config.Shops = {
             ['offroad'] = 'Offroad',
             ['muscle'] = 'Muskel',
             ['compacts'] = 'Kompakt',
-            ['motorcycles'] = 'Motorcukler',
+            ['motorcycles'] = 'Motorcykler',
             ['vans'] = 'Vogne'
         },
         ['TestDriveTimeLimit'] = 0.5, -- Time in minutes until the vehicle gets deleted
