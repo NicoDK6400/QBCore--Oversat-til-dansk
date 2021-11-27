@@ -104,9 +104,55 @@ if Config.SqlKeybinding then
 		end
 	end)
 else
-	print("[dp] ^3Sql Keybinding^7 is turned ^1off^7, if you want to enable /emotebind, import dpkeybinding.sql and set ^3SqlKeybinding = ^2true^7 in config.lua.")
+	print("[dp] ^3Sql Keybinding^7 er slukket ^1off^7, hvis du vil aktivere /emotebind, import dpkeybinding.sql og sæt ^3SqlKeybinding = ^2true^7 i din config.lua.")
 end
 
 QBCore.Functions.CreateUseableItem("walkstick", function(source, item)
     TriggerClientEvent("dp:Client:UseWalkingStick", source)
+end)
+
+-----------------------------------------------------------------------------------------------------
+-- Commands -------- --------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+
+QBCore.Commands.Add('e', 'Afspil en emote', {{ name="emotename", help="dans, kamera, sid eller andre gyldige emotes."}}, true, function(source, args)
+    TriggerClientEvent('animations:client:PlayEmote', source, args)
+end)
+
+QBCore.Commands.Add('emote', 'Afspil en emote', {{ name="emotename", help="dans, kamera, sid eller andre gyldige emotes."}}, true, function(source, args)
+    TriggerClientEvent('animations:client:PlayEmote', source, args)
+end)
+
+if Config.SqlKeybinding then
+    QBCore.Commands.Add('emotebind', 'Bind en emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dans, kamera, sid eller andre gyldige emotes."}}, true, function(source, args)
+		TriggerClientEvent('animations:client:BindEmote', source, args)
+    end)
+
+    QBCore.Commands.Add('emotebinds', 'Tjek dine nuværende binds.', {}, false, function(source)
+        TriggerClientEvent('animations:client:EmoteBinds', source)
+    end)
+end
+
+QBCore.Commands.Add('emotemenu', 'Åbn dpemotes menu (F3) som std.', {}, false, function(source)
+	TriggerClientEvent('animations:client:EmoteMenu', source)
+end)
+
+QBCore.Commands.Add('em', 'Åbn dpemotes menu (F3) som std.', {}, false, function(source)
+    TriggerClientEvent('animations:client:EmoteMenu', source)
+end)
+
+QBCore.Commands.Add('emotes', 'Liste over emotes.', {}, false, function(source)
+	TriggerClientEvent('animations:client:ListEmotes', source)
+end)
+
+QBCore.Commands.Add('walk', 'Sæt din gågang.', {{ name="style", help="/walks for at se listen over gyldige gågange"}}, true, function(source, args)
+	TriggerClientEvent('animations:client:Walk', source, args)
+end)
+
+QBCore.Commands.Add('walks', 'Liste over gågange.', {}, false, function(source)
+    TriggerClientEvent('animations:client:ListWalks', source)
+end)
+
+QBCore.Commands.Add('nearby', 'Del emote med en i nærheden.', {{ name="emotename", help="kram, giv hånd eller andre gyldige emotes."}}, true, function(source, args)
+	TriggerClientEvent('animations:client:Nearby', source, args)
 end)
