@@ -32,7 +32,6 @@ bennyGarages = {
 } ]]
 
 -- ADJUST PRICING
-
 vehicleCustomisationPrices = {
     cosmetics = {price = 400},
     respray = {price = 1000},
@@ -51,7 +50,6 @@ vehicleCustomisationPrices = {
 }
 
 -- RESPRAY CATEGORIES
-
 vehicleResprayCategories = {
     {category = "Primary Colour", id = 0},
     {category = "Secondary Colour", id = 1},
@@ -62,7 +60,6 @@ vehicleResprayCategories = {
 }
 
 -- WINDOW TINTS
-
 vehicleWindowTintOptions = {
     {name = "None", id = 0},
     {name = "Pure Black", id = 1},
@@ -71,7 +68,6 @@ vehicleWindowTintOptions = {
 }
 
 -- HEADLIGHTS
-
 vehicleXenonOptions = {
     xenonColours = {
         {name = "Stock", id = 255},
@@ -91,7 +87,6 @@ vehicleXenonOptions = {
 }
 
 -- WHEELS
-
 vehicleWheelOptions = {
     {category = "Custom Tyres", id = -1, wheelID = 23},
     {category = "Tyre Smoke", id = 20, wheelID = 23},
@@ -106,7 +101,6 @@ vehicleWheelOptions = {
 }
 
 -- TIRE SMOKE
-
 vehicleTyreSmokeOptions = {
     {
         name = "White Smoke",
@@ -171,7 +165,6 @@ vehicleTyreSmokeOptions = {
 }
 
 -- NEONS
-
 vehicleNeonOptions = {
     category = "Neon",
     neonTypes = {
@@ -251,7 +244,6 @@ vehicleNeonOptions = {
 }
 
 -- MAIN COMPONENTS
-
 vehicleCustomisation = {
     {category = "Spoiler", id = 0}, 
     {category = "Forreste kofanger", id = 1},
@@ -293,7 +285,7 @@ vehicleCustomisation = {
     {category = "Vinduer", id = 46},
     {category = "Paintjob", id = 48},
     {category = "Horn", id = 14, 
-        
+
         hornNames = {
             {name = "Lufthorn", id = 0},
             {name = "Politi horn", id = 1},
@@ -352,7 +344,6 @@ vehicleCustomisation = {
 }
 
 -- COLORS
-
 vehicleResprayOptions = {
     {category = "Classic", id = 0,
         colours = {
@@ -432,7 +423,7 @@ vehicleResprayOptions = {
             {name = "Ice White", id = 111},
             {name = "Frost White", id = 112}
         }
-    }, 
+    },
     {category = "Metallic", id = 1,
         colours = {{name = "Black", id = 0},
             {name = "Carbon Black", id = 147},

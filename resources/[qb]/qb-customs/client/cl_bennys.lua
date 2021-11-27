@@ -123,7 +123,7 @@ local function saveVehicle()
         end
     end
 	local myCar = QBCore.Functions.GetVehicleProperties(veh)
-    TriggerServerEvent('updateVehicle',myCar)  
+    TriggerServerEvent('updateVehicle',myCar)
 end
 
 --#[Global Functions]#--
@@ -380,7 +380,7 @@ function RestoreOriginalWheels()
 
     if originalWheelCategory ~= nil then
         SetVehicleMod(plyVeh, originalWheelCategory, originalWheel, originalCustomWheels)
-        
+
         if GetVehicleClass(plyVeh) == 8 then --Motorcycle
             SetVehicleMod(plyVeh, 24, originalWheel, originalCustomWheels)
         end
@@ -661,7 +661,7 @@ function ApplyWheel(categoryID, wheelID, wheelType)
 
     SetVehicleWheelType(plyVeh, wheelType)
     SetVehicleMod(plyVeh, categoryID, wheelID, doesHaveCustomWheels)
-    
+
     if GetVehicleClass(plyVeh) == 8 then --Motorcycle
         SetVehicleMod(plyVeh, 24, wheelID, doesHaveCustomWheels)
     end
@@ -672,7 +672,7 @@ function ApplyCustomWheel(state)
     local plyVeh = GetVehiclePedIsIn(plyPed, false)
 
     SetVehicleMod(plyVeh, 23, GetVehicleMod(plyVeh, 23), state)
-    
+
     if GetVehicleClass(plyVeh) == 8 then --Motorcycle
         SetVehicleMod(plyVeh, 24, GetVehicleMod(plyVeh, 24), state)
     end
@@ -783,16 +783,13 @@ function enterLocation(locationsPos)
     else
         isMotorcycle = false
     end
-
     InitiateMenus(isMotorcycle, GetVehicleBodyHealth(plyVeh))
-
     SetTimeout(100, function()
         if GetVehicleBodyHealth(plyVeh) < 1000.0 then
             DisplayMenu(true, "repairMenu")
         else
             DisplayMenu(true, "mainMenu")
         end
-        
         DisplayMenuContainer(true)
         PlaySoundFrontend(-1, "OK", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
     end)
@@ -837,7 +834,7 @@ end
 -- #MarkedForMarker
 --#[Citizen Threads]#--
 Citizen.CreateThread(function()
-    while true do 
+    while true do
         local plyPed = PlayerPedId()
 
         if IsPedInAnyVehicle(plyPed, false) then
@@ -893,7 +890,7 @@ AddEventHandler("qb-customs:purchaseFailed", function()
 end)
 
 
---helper function 
+--helper function
 
 function isAuthorized(job, location)
     for a=1, #bennyGarages[location].job do
