@@ -24,6 +24,7 @@ local Calls = {}
 local Adverts = {}
 local GeneratedPlates = {}
 local WebHook = ""
+local bannedCharacters = {'%','$',';'}
 
 -- Functions
 
@@ -669,9 +670,18 @@ QBCore.Functions.CreateCallback('qb-phone:server:HasPhone', function(source, cb)
 end)
 
 QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(source, cb, amount, iban)
+    -- strip bad characters from bank transfers
+    local newAmount = tostring(amount)
+    local newiban = tostring(iban)
+    for k, v in pairs(bannedCharacters) do
+        newAmount = string.gsub(newAmount, '%' .. v, '')
+        newiban = string.gsub(newiban, '%' .. v, '')
+    end
+    iban = newiban
+    amount = tonumber(newAmount)
     local Player = QBCore.Functions.GetPlayer(source)
     if (Player.PlayerData.money.bank - amount) >= 0 then
-        local query = '%' .. iban .. '%'
+        local query = '%"account":"' .. iban .. '"%'
         local result = exports.oxmysql:executeSync('SELECT * FROM players WHERE charinfo LIKE ?', {query})
         if result[1] ~= nil then
             local Reciever = QBCore.Functions.GetPlayerByCitizenId(result[1].citizenid)
@@ -685,7 +695,6 @@ QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(sou
             end
             cb(true)
         else
-            TriggerClientEvent('QBCore:Notify', source, "Dette kontonummer eksistere ikke!", "error")
             cb(false)
         end
     end
@@ -721,7 +730,6 @@ QBCore.Functions.CreateCallback("qb-phone:server:GetWebhook",function(source,cb)
 end)
 
 -- Events
-
 RegisterNetEvent('qb-phone:server:AddAdvert', function(msg, url)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
