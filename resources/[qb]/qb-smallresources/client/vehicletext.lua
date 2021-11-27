@@ -14,15 +14,17 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-local density = 0.8
+
+local QBCore = exports['qb-core']:GetCoreObject()
 
 CreateThread(function()
-	while true do
-		SetParkedVehicleDensityMultiplierThisFrame(density)
-		SetVehicleDensityMultiplierThisFrame(density)
-		SetRandomVehicleDensityMultiplierThisFrame(density)
-		SetPedDensityMultiplierThisFrame(density)
-		SetScenarioPedDensityMultiplierThisFrame(density, density) -- Walking NPC Density
-		Wait(0)
+	for i, v in pairs(QBCore.Shared.Vehicles) do
+		local text
+		if v["brand"] then
+			text = v["brand"] .. " " .. v["name"]
+		else
+			text = v["name"]
+		end
+		AddTextEntryByHash(v["hash"],text)
 	end
 end)

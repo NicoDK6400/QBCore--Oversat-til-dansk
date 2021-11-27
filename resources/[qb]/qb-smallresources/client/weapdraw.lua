@@ -115,7 +115,7 @@ AddEventHandler('weapons:ResetHolster', function()
 	currentHoldster = nil
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 		local ped = PlayerPedId()
 		if DoesEntityExist(ped) and not IsEntityDead(ped) then
@@ -136,7 +136,7 @@ Citizen.CreateThread(function()
 							canFire = false
 							currentHoldster = GetPedDrawableVariation(ped, 7)
 							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(300)
+							Wait(300)
 							SetCurrentPedWeapon(ped, newWeap, true)
 
 							if IsWeaponHolsterable(newWeap) then
@@ -149,17 +149,17 @@ Citizen.CreateThread(function()
 								end
 							end
 							currWeapon = newWeap
-							Citizen.Wait(300)
+							Wait(300)
 							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
 						else
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(1000)
+							Wait(1000)
 							SetCurrentPedWeapon(ped, newWeap, true)
 							currWeapon = newWeap
-							Citizen.Wait(1400)
+							Wait(1400)
 							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
@@ -169,7 +169,7 @@ Citizen.CreateThread(function()
 							canFire = false
 
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(500)
+							Wait(500)
 
 							if IsWeaponHolsterable(currWeapon) then
 								SetPedComponentVariation(ped, 7, currentHoldster, 0, 2)
@@ -179,7 +179,7 @@ Citizen.CreateThread(function()
 							currentHoldster = GetPedDrawableVariation(ped, 7)
 
 							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(300)
+							Wait(300)
 							SetCurrentPedWeapon(ped, newWeap, true)
 
 							if IsWeaponHolsterable(newWeap) then
@@ -192,7 +192,7 @@ Citizen.CreateThread(function()
 								end
 							end
 
-							Citizen.Wait(500)
+							Wait(500)
 							currWeapon = newWeap
 							ClearPedTasks(ped)
 							holstered = false
@@ -200,13 +200,13 @@ Citizen.CreateThread(function()
 						else
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(1600)
+							Wait(1600)
 							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(1000)
+							Wait(1000)
 							SetCurrentPedWeapon(ped, newWeap, true)
 							currWeapon = newWeap
-							Citizen.Wait(1400)
+							Wait(1400)
 							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
@@ -216,7 +216,7 @@ Citizen.CreateThread(function()
 							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
 							currentHoldster = GetPedDrawableVariation(ped, 7)
 							TaskPlayAnimAdvanced(ped, "rcmjosh4", "josh_leadout_cop2", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(300)
+							Wait(300)
 							SetCurrentPedWeapon(ped, newWeap, true)
 
 							if IsWeaponHolsterable(newWeap) then
@@ -230,17 +230,17 @@ Citizen.CreateThread(function()
 							end
 
 							currWeapon = newWeap
-							Citizen.Wait(300)
+							Wait(300)
 							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
 						else
 							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "intro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(1000)
+							Wait(1000)
 							SetCurrentPedWeapon(ped, newWeap, true)
 							currWeapon = newWeap
-							Citizen.Wait(1400)
+							Wait(1400)
 							ClearPedTasks(ped)
 							holstered = false
 							canFire = true
@@ -251,7 +251,7 @@ Citizen.CreateThread(function()
 						if QBCore.Functions.GetPlayerData().job.name == "police" then
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@cop@unarmed", "intro", GetEntityCoords(ped, true), 0, 0, rot, 3.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(500)
+							Wait(500)
 							
 							if IsWeaponHolsterable(currWeapon) then
 								SetPedComponentVariation(ped, 7, currentHoldster, 0, 2)
@@ -266,7 +266,7 @@ Citizen.CreateThread(function()
 						else
 							canFire = false
 							TaskPlayAnimAdvanced(ped, "reaction@intimidation@1h", "outro", GetEntityCoords(ped, true), 0, 0, rot, 8.0, 3.0, -1, 50, 0, 0, 0)
-							Citizen.Wait(1400)
+							Wait(1400)
 							SetCurrentPedWeapon(ped, GetHashKey('WEAPON_UNARMED'), true)
 							ClearPedTasks(ped)
 							SetCurrentPedWeapon(ped, newWeap, true)
@@ -283,24 +283,24 @@ Citizen.CreateThread(function()
 				end
 			end
 		else
-			Citizen.Wait(250)
+			Wait(250)
 		end
 
-		Citizen.Wait(5)
+		Wait(5)
 	end
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
 		if not canFire then
 			DisableControlAction(0, 25, true)
 			DisablePlayerFiring(PlayerPedId(), true)
 		else
-			Citizen.Wait(250)
+			Wait(250)
 		end
 
-		Citizen.Wait(3)
+		Wait(3)
 	end
 end)
 
@@ -325,6 +325,6 @@ end
 function loadAnimDict(dict)
 	while (not HasAnimDictLoaded(dict)) do
 		RequestAnimDict(dict)
-		Citizen.Wait(5)
+		Wait(5)
 	end
 end
