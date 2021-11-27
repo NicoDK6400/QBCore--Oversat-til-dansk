@@ -613,27 +613,27 @@ function MenuManager(state)
                         ApplyMod(currentCategory, currentMenuItemID)
                         playSoundEffect("wrench", 0.4)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money!")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 elseif currentCategory == 11 or currentCategory == 12 or currentCategory== 13 or currentCategory == 15 or currentCategory == 16 then --Performance Upgrades
                     if AttemptPurchase("performance", currentMenuItemID) then
                         ApplyMod(currentCategory, currentMenuItemID)
                         playSoundEffect("wrench", 0.4)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 else
                     if AttemptPurchase("cosmetics") then
                         ApplyMod(currentCategory, currentMenuItemID)
                         playSoundEffect("wrench", 0.4)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 end
             elseif isMenuActive("ResprayMenu") then
@@ -641,9 +641,9 @@ function MenuManager(state)
                     ApplyColour(currentResprayCategory, currentResprayType, currentMenuItemID)
                     playSoundEffect("respray", 1.0)
                     updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                    updateMenuStatus("Purchased")
+                    updateMenuStatus("Købt!")
                 else
-                    updateMenuStatus("Not Enough Money")
+                    updateMenuStatus("Ikke nok penge!")
                 end
             elseif isMenuActive("DækMenu") then
                 if currentWheelCategory == 20 then
@@ -655,9 +655,9 @@ function MenuManager(state)
                         ApplyTyreSmoke(r, g, b)
                         playSoundEffect("wrench", 0.4)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 else
                     if currentWheelCategory == -1 then --Custom Wheels
@@ -670,9 +670,9 @@ function MenuManager(state)
                                 ApplyCustomWheel(currentMenuItemID)
                                 playSoundEffect("wrench", 0.4)
                                 updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                                updateMenuStatus("Purchased")
+                                updateMenuStatus("Købt!")
                             else
-                                updateMenuStatus("Not Enough Money")
+                                updateMenuStatus("Ikke nok penge!")
                             end
                         end
                     else
@@ -686,9 +686,9 @@ function MenuManager(state)
                                 ApplyWheel(currentCategory, currentMenuItemID, currentWheelCategory)
                                 playSoundEffect("wrench", 0.4)
                                 updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                                updateMenuStatus("Purchased")
+                                updateMenuStatus("Købt!")
                             else
-                                updateMenuStatus("Not Enough Money")
+                                updateMenuStatus("Ikke nok penge!")
                             end
                         end
                     end
@@ -698,9 +698,9 @@ function MenuManager(state)
                     ApplyNeon(currentNeonSide, currentMenuItemID)
                     playSoundEffect("wrench", 0.4)
                     updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                    updateMenuStatus("Purchased")
+                    updateMenuStatus("Købt!")
                 else
-                    updateMenuStatus("Not Enough Money")
+                    updateMenuStatus("Ikke nok penge!")
                 end 
             else
                 if currentMenu == "repairMenu" then
@@ -717,7 +717,7 @@ function MenuManager(state)
                             playSoundEffect("wrench", 0.4)
                             updateMenuStatus("")
                         else
-                            updateMenuStatus("Not Enough Money")
+                            updateMenuStatus("Ikke nok penge!")
                         end
                     else
                         ExitBennys()
@@ -780,9 +780,9 @@ function MenuManager(state)
                         ApplyWindowTint(currentMenuItemID)
                         playSoundEffect("respray", 1.0)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 elseif currentMenu == "NeonColoursMenu" then
                     if AttemptPurchase("neoncolours") then
@@ -793,27 +793,27 @@ function MenuManager(state)
                         ApplyNeonColour(r, g, b)
                         playSoundEffect("respray", 1.0)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 elseif currentMenu == "HeadlightsMenu" then
                     if AttemptPurchase("headlights") then
                         ApplyXenonLights(currentCategory, currentMenuItemID)
                         playSoundEffect("wrench", 0.4)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 elseif currentMenu == "XenonColoursMenu" then
                     if AttemptPurchase("xenoncolours") then
                         ApplyXenonColour(currentMenuItemID)
                         playSoundEffect("respray", 1.0)
                         updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                        updateMenuStatus("Purchased")
+                        updateMenuStatus("Købt!")
                     else
-                        updateMenuStatus("Not Enough Money")
+                        updateMenuStatus("Ikke nok penge!")
                     end
                 elseif currentMenu == "GammelLiveryMenu" then
                     local plyPed = PlayerPedId()
@@ -823,9 +823,9 @@ function MenuManager(state)
                             ApplyOldLivery(currentMenuItemID)
                             playSoundEffect("wrench", 0.4)
                             updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                            updateMenuStatus("Purchased")
+                            updateMenuStatus("Købt!")
                         else
-                            updateMenuStatus("Not Enough Money")   
+                            updateMenuStatus("Ikke nok penge!")   
                         end
                     end
                 elseif currentMenu == "NummerpladeMenu" then
@@ -836,16 +836,16 @@ function MenuManager(state)
                             ApplyPlateIndex(currentMenuItemID)
                             playSoundEffect("wrench", 0.4)
                             updateItem2Text(currentMenu, currentMenuItemID, "Installeret")
-                            updateMenuStatus("Purchased")
+                            updateMenuStatus("Købt!")
                         else
-                            updateMenuStatus("Not Enough Money")   
+                            updateMenuStatus("Ikke nok penge!")   
                         end
                     end
                 elseif currentMenu == "KøretøjsTilbehørMenu" then
                     ApplyExtra(currentMenuItemID)
                     playSoundEffect("wrench", 0.4)
                     updateItem2TextOnly(currentMenu, currentMenuItemID, "Toggle")
-                    updateMenuStatus("Purchased")
+                    updateMenuStatus("Købt!")
                 end
             end
         else
@@ -853,7 +853,7 @@ function MenuManager(state)
                 ApplyExtra(currentMenuItemID)
                 playSoundEffect("wrench", 0.4)
                 updateItem2TextOnly(currentMenu, currentMenuItemID, "Toggle")
-                updateMenuStatus("Purchased")
+                updateMenuStatus("Købt!")
             end
         end
     else

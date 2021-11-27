@@ -47,7 +47,7 @@ local bennyLocation
 
 --Blips
 
-Citizen.CreateThread(function()
+CreateThread(function()
     for k, v in pairs(bennyGarages) do
         local blip = AddBlipForCoord(v.coords.x,v.coords.y,v.coords.z)
         SetBlipSprite(blip, 72)
@@ -137,7 +137,7 @@ function AttemptPurchase(type, upgradeLevel)
     attemptingPurchase = true
 
     while attemptingPurchase do
-        Citizen.Wait(1)
+        Wait(1)
     end
 
     if not isPurchaseSuccessful then
@@ -833,7 +833,7 @@ end
 
 -- #MarkedForMarker
 --#[Citizen Threads]#--
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         local plyPed = PlayerPedId()
 
@@ -870,7 +870,7 @@ Citizen.CreateThread(function()
             Wait(2000)
         end
 
-        Citizen.Wait(1)
+        Wait(1)
     end
 end)
 

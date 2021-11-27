@@ -22,32 +22,32 @@ QBCore.Player = {}
 -- Will cause major issues!
 
 function QBCore.Player.Login(source, citizenid, newData)
-	local src = source
-	if src then
-		if citizenid then
-			local result = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ?', { citizenid })
-			local PlayerData = result[1]
-			if PlayerData then
-				PlayerData.money = json.decode(PlayerData.money)
-				PlayerData.job = json.decode(PlayerData.job)
-				PlayerData.position = json.decode(PlayerData.position)
-				PlayerData.metadata = json.decode(PlayerData.metadata)
-				PlayerData.charinfo = json.decode(PlayerData.charinfo)
-				if PlayerData.gang then
-					PlayerData.gang = json.decode(PlayerData.gang)
-				else
-					PlayerData.gang = {}
-				end
-			end
-			QBCore.Player.CheckPlayerData(src, PlayerData)
-		else
-			QBCore.Player.CheckPlayerData(src, newData)
-		end
-		return true
-	else
-		QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.LOGIN - Ingen Source kunne findes!')
-		return false
-	end
+    local src = source
+    if src then
+        if citizenid then
+            local result = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ?', { citizenid })
+            local PlayerData = result[1]
+            if PlayerData then
+                PlayerData.money = json.decode(PlayerData.money)
+                PlayerData.job = json.decode(PlayerData.job)
+                PlayerData.position = json.decode(PlayerData.position)
+                PlayerData.metadata = json.decode(PlayerData.metadata)
+                PlayerData.charinfo = json.decode(PlayerData.charinfo)
+                if PlayerData.gang then
+                    PlayerData.gang = json.decode(PlayerData.gang)
+                else
+                    PlayerData.gang = {}
+                end
+            end
+            QBCore.Player.CheckPlayerData(src, PlayerData)
+        else
+            QBCore.Player.CheckPlayerData(src, newData)
+        end
+        return true
+    else
+        QBCore.ShowError(GetCurrentResourceName(), 'ERROR QBCORE.PLAYER.LOGIN - NO SOURCE GIVEN!')
+        return false
+    end
 end
 
 function QBCore.Player.CheckPlayerData(source, PlayerData)

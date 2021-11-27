@@ -15,13 +15,11 @@ Vores sider:
 ]]
 
 local QBCore = exports['qb-core']:GetCoreObject()
-
 local chicken = vehicleBaseRepairCost
 
-RegisterServerEvent('qb-customs:attemptPurchase')
-AddEventHandler('qb-customs:attemptPurchase', function(type, upgradeLevel)
-    local source = source
-    local Player = QBCore.Functions.GetPlayer(source)
+RegisterNetEvent('qb-customs:attemptPurchase', function(type, upgradeLevel)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
     local balance = nil
     if Player.PlayerData.job.name == "mechanic" then
         balance = exports['qb-bossmenu']:GetAccount(Player.PlayerData.job.name)
@@ -34,14 +32,15 @@ AddEventHandler('qb-customs:attemptPurchase', function(type, upgradeLevel)
                 TriggerEvent('qb-bossmenu:server:removeAccountMoney', Player.PlayerData.job.name, chicken)
             else
                 Player.Functions.RemoveMoney(moneyType, chicken, "bennys")
+                print(moneyType, chicken)
             end
-            TriggerClientEvent('qb-customs:purchaseSuccessful', source)
+            TriggerClientEvent('qb-customs:purchaseSuccessful', src)
         else
-            TriggerClientEvent('qb-customs:purchaseFailed', source)
+            TriggerClientEvent('qb-customs:purchaseFailed', src)
         end
     elseif type == "performance" then
         if balance >= vehicleCustomisationPrices[type].prices[upgradeLevel] then
-            TriggerClientEvent('qb-customs:purchaseSuccessful', source)
+            TriggerClientEvent('qb-customs:purchaseSuccessful', src)
             if Player.PlayerData.job.name == "mechanic" then
                 TriggerEvent('qb-bossmenu:server:removeAccountMoney', Player.PlayerData.job.name,
                     vehicleCustomisationPrices[type].prices[upgradeLevel])
@@ -49,11 +48,11 @@ AddEventHandler('qb-customs:attemptPurchase', function(type, upgradeLevel)
                 Player.Functions.RemoveMoney(moneyType, vehicleCustomisationPrices[type].prices[upgradeLevel], "bennys")
             end
         else
-            TriggerClientEvent('qb-customs:purchaseFailed', source)
+            TriggerClientEvent('qb-customs:purchaseFailed', src)
         end
     else
         if balance >= vehicleCustomisationPrices[type].price then
-            TriggerClientEvent('qb-customs:purchaseSuccessful', source)
+            TriggerClientEvent('qb-customs:purchaseSuccessful', src)
             if Player.PlayerData.job.name == "mechanic" then
                 TriggerEvent('qb-bossmenu:server:removeAccountMoney', Player.PlayerData.job.name,
                     vehicleCustomisationPrices[type].price)
@@ -61,18 +60,16 @@ AddEventHandler('qb-customs:attemptPurchase', function(type, upgradeLevel)
                 Player.Functions.RemoveMoney(moneyType, vehicleCustomisationPrices[type].price, "bennys")
             end
         else
-            TriggerClientEvent('qb-customs:purchaseFailed', source)
+            TriggerClientEvent('qb-customs:purchaseFailed', src)
         end
     end
 end)
 
-RegisterServerEvent('qb-customs:updateRepairCost')
-AddEventHandler('qb-customs:updateRepairCost', function(cost)
+RegisterNetEvent('qb-customs:updateRepairCost', function(cost)
     chicken = cost
 end)
 
-RegisterServerEvent("updateVehicle")
-AddEventHandler("updateVehicle", function(myCar)
+RegisterNetEvent("updateVehicle", function(myCar)
     local src = source
     if IsVehicleOwned(myCar.plate) then
         exports.oxmysql:execute('UPDATE player_vehicles SET mods = ? WHERE plate = ?', {json.encode(myCar), myCar.plate})
