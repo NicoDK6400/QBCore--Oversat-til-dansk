@@ -21,7 +21,6 @@ description 'QB-SmallResources'
 version '1.0.0'
 
 shared_script 'config.lua'
-
 server_script 'server/*.lua'
 client_script 'client/*.lua'
 
@@ -37,3 +36,5 @@ files {
 exports {
 	'HasHarness'
 }
+
+lua54 'yes'
