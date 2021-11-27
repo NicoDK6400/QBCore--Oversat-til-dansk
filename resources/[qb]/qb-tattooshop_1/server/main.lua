@@ -20,38 +20,39 @@ local QBCore = exports['qb-core']:GetCoreObject()
 -- Code
 
 QBCore.Functions.CreateCallback('qb-tattooshop:GetPlayerTattoos', function(source, cb)
-    local Player = QBCore.Functions.GetPlayer(source)
-
+	local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
 	if Player then
-		local result = exports.oxmysql:executeSync('SELECT tattoos FROM playerskins WHERE citizenid = ?', { Player.PlayerData.citizenid })
-		cb(json.decode(result[1].tattoos))
+		exports.oxmysql:execute('SELECT tattoos FROM players WHERE citizenid = ?', { Player.PlayerData.citizenid }, function(result)
+			if result[1].tattoos then
+				cb(json.decode(result[1].tattoos))
+			else
+				cb()
+			end
+		end)
 	else
-		cb()
+		 cb()
 	end
 end)
 
 QBCore.Functions.CreateCallback('qb-tattooshop:PurchaseTattoo', function(source, cb, tattooList, price, tattoo, tattooName)
+	local src = source
 	local Player = QBCore.Functions.GetPlayer(source)
 
 
 	if Player.PlayerData.money.cash >= price then
         Player.Functions.RemoveMoney('cash', price)
-
 		table.insert(tattooList, tattoo)
-		exports.oxmysql:execute("UPDATE playerskins SET tattoos = @tattoos WHERE citizenid = @citizenid", { json.encode(tattooList), Player.PlayerData.citizenid }, function() end)
-
-		TriggerClientEvent('QBCore:Notify', source, "Du har købt: " .. tattooName .. " tatovering for DKK" .. price, 'success')
+		TriggerClientEvent('QBCore:Notify', src, "Du har købt ~y~" .. tattooName .. "~s~ tatovering for ~g~" .. price.. " DKK", "success", 4000)
 		cb(true)
 	else
-		TriggerClientEvent('QBCore:Notify', source, "Du har ikke penge nok", 'error')
-
+		TriggerClientEvent('QBCore:Notify', src, "Du har ikke penge nok til en tatovering", "success", 4000)
 		cb(false)
 	end
 end)
 
-RegisterServerEvent('qb-tattooshop:server:RemoveTattoo')
-AddEventHandler('qb-tattooshop:server:RemoveTattoo', function (tattooList)
-	local Player = QBCore.Functions.GetPlayer(source)
-
-	exports.oxmysql:execute("UPDATE playerskins SET tattoos = @tattoos WHERE citizenid = @citizenid", { json.encode(tattooList), Player.PlayerData.citizenid }, function() end)
+RegisterServerEvent('qb-tattooshop:server:RemoveTattoo', function (tattooList)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	exports.oxmysql:update('UPDATE players SET tattoos = ? WHERE citizenid = ?', { json.encode(tattooList), Player.PlayerData.citizenid })
 end)

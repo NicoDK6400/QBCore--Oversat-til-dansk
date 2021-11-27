@@ -282,7 +282,7 @@ Citizen.CreateThread(function()
 			DisableAllControlActions(0)
 			CanSleep = false
 		end
-		
+
         if TattooMenu.IsMenuOpened('tattoo') then
 			CanSleep = false
             for k, v in ipairs(Config.TattooCats) do
