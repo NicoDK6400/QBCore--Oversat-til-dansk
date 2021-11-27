@@ -16,8 +16,7 @@ Vores sider:
 
 local VehicleNitrous = {}
 
-RegisterServerEvent('tackle:server:TacklePlayer')
-AddEventHandler('tackle:server:TacklePlayer', function(playerId)
+RegisterNetEvent('tackle:server:TacklePlayer', function(playerId)
     TriggerClientEvent("tackle:client:GetTackled", playerId)
 end)
 
@@ -36,8 +35,7 @@ QBCore.Functions.CreateUseableItem("harness", function(source, item)
     TriggerClientEvent('seatbelt:client:UseHarness', src, item)
 end)
 
-RegisterServerEvent('equip:harness')
-AddEventHandler('equip:harness', function(item)
+RegisterServerEvent('equip:harness', function(item)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     if Player.PlayerData.items[item.slot].info.uses - 1 == 0 then
@@ -49,8 +47,7 @@ AddEventHandler('equip:harness', function(item)
     end
 end)
 
-RegisterServerEvent('seatbelt:DoHarnessDamage')
-AddEventHandler('seatbelt:DoHarnessDamage', function(hp, data)
+RegisterServerEvent('seatbelt:DoHarnessDamage', function(hp, data)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 
@@ -59,6 +56,19 @@ AddEventHandler('seatbelt:DoHarnessDamage', function(hp, data)
     else
         Player.PlayerData.items[data.slot].info.uses = Player.PlayerData.items[data.slot].info.uses - 1
         Player.Functions.SetInventory(Player.PlayerData.items)
+    end
+end)
+
+RegisterNetEvent('qb-carwash:server:washCar', function()
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+
+    if Player.Functions.RemoveMoney('cash', Config.DefaultPrice, "car-washed") then
+        TriggerClientEvent('qb-carwash:client:washCar', src)
+    elseif Player.Functions.RemoveMoney('bank', Config.DefaultPrice, "car-washed") then
+        TriggerClientEvent('qb-carwash:client:washCar', src)
+    else
+        TriggerClientEvent('QBCore:Notify', src, 'Du har ikke nok penge på kontoen..', 'error')
     end
 end)
 
