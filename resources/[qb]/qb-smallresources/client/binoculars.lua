@@ -20,18 +20,20 @@ local fov_min = 5.0 -- max zoom level (smaller fov is more zoom)
 local zoomspeed = 10.0 -- camera zoom speed
 local speed_lr = 8.0 -- speed by which the camera pans left-right
 local speed_ud = 8.0 -- speed by which the camera pans up-down
+
 local binoculars = false
 local fov = (fov_max+fov_min)*0.5
+
 local keybindEnabled = false -- When enabled, binocular are available by keybind
 local binocularKey = 73
 local storeBinoclarKey = 177
 
 --THREADS--
 
-CreateThread(function()
+Citizen.CreateThread(function()
     while true do
 
-        Wait(1500)
+        Citizen.Wait(1500)
 
         local lPed = PlayerPedId()
         local vehicle = GetVehiclePedIsIn(lPed)
@@ -39,7 +41,7 @@ CreateThread(function()
         if binoculars then
             binoculars = true
             if not ( IsPedSittingInAnyVehicle( lPed ) ) then
-                CreateThread(function()
+                Citizen.CreateThread(function()
                     TaskStartScenarioInPlace(lPed, "WORLD_HUMAN_BINOCULARS", 0, 1)
                     PlayAmbientSpeech1(lPed, "GENERIC_CURSE_MED", "SPEECH_PARAMS_FORCE")
                 end)
@@ -48,13 +50,18 @@ CreateThread(function()
             Wait(2000)
 
             SetTimecycleModifier("default")
+
+
             SetTimecycleModifierStrength(0.3)
+
             local scaleform = RequestScaleformMovie("BINOCULARS")
+
             while not HasScaleformMovieLoaded(scaleform) do
-                Wait(10)
+                Citizen.Wait(10)
             end
 
             local cam = CreateCam("DEFAULT_SCRIPTED_FLY_CAMERA", true)
+
             AttachCamToEntity(cam, lPed, 0.0,0.0,1.0, true)
             SetCamRot(cam, 0.0,0.0,GetEntityHeading(lPed))
             SetCamFov(cam, fov)
@@ -72,10 +79,12 @@ CreateThread(function()
 
                 local zoomvalue = (1.0/(fov_max-fov_min))*(fov-fov_min)
                 CheckInputRotation(cam, zoomvalue)
+
                 HandleZoom(cam)
                 HideHUDThisFrame()
+
                 DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255)
-                Wait(1)
+                Citizen.Wait(1)
             end
             binoculars = false
             ClearTimecycleModifier()
@@ -92,7 +101,8 @@ end)
 --EVENTS--
 
 -- Activate binoculars
-RegisterNetEvent('binoculars:Toggle', function()
+RegisterNetEvent('binoculars:Toggle')
+AddEventHandler('binoculars:Toggle', function()
     binoculars = not binoculars
     if not binoculars then
         ClearPedTasks(PlayerPedId())
@@ -100,7 +110,6 @@ RegisterNetEvent('binoculars:Toggle', function()
 end)
 
 --FUNCTIONS--
-
 function HideHUDThisFrame()
     HideHelpTextThisFrame()
     HideHudAndRadarThisFrame()

@@ -14,10 +14,10 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-CreateThread(function()
+Citizen.CreateThread(function()
 	while true do    
 		RemoveWeaponDrops()
-		Wait(1000)
+		Citizen.Wait(1000)
 	end
 end)
 
