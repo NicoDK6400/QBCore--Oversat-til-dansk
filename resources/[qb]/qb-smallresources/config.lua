@@ -92,7 +92,6 @@ Config.Teleports = {
             ["AllowVehicle"] = false,
             drawText = '[E] Tag elevator ned'
         },
-        
     },
     --Coke Processing Enter/Exit
     [2] = {
@@ -120,4 +119,27 @@ Config.Teleports = {
             drawText = '[E] Forlad'
         },
     },
+}
+
+Config.CarWash = { -- carwash
+    [1] = {
+        ["label"] = "Hands Free Carwash",
+        ["coords"] = vector3(25.29, -1391.96, 29.33),
+    },
+    [2] = {
+        ["label"] = "Hands Free Carwash",
+        ["coords"] = vector3(174.18, -1736.66, 29.35),
+    },
+    [3] = {
+        ["label"] = "Hands Free Carwash",
+        ["coords"] = vector3(-74.56, 6427.87, 31.44),
+    },
+    [5] = {
+        ["label"] = "Hands Free Carwash",
+        ["coords"] = vector3(1363.22, 3592.7, 34.92),
+    },
+    [6] = {
+        ["label"] = "Hands Free Carwash",
+        ["coords"] = vector3(-699.62, -932.7, 19.01),
+    }
 }
