@@ -24,7 +24,7 @@ local requestedemote = ''
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 if Config.SharedEmotesEnabled then
-    RegisterCommand('nearby', function(source, args, raw)
+    RegisterNetEvent('animations:client:Nearby', function(args)
         if #args > 0 then
             local emotename = string.lower(args[1])
             target, distance = GetClosestPlayer()
@@ -42,7 +42,7 @@ if Config.SharedEmotesEnabled then
         else
           MearbysOnCommand()
         end
-    end, false)
+    end)
 end
 
 RegisterNetEvent("SyncPlayEmote")

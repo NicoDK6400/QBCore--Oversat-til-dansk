@@ -64,78 +64,51 @@ end)
 -- Commands / Events --------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
-Citizen.CreateThread(function()
-    TriggerEvent('chat:addSuggestion', '/e', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
-    TriggerEvent('chat:addSuggestion', '/e', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
-    TriggerEvent('chat:addSuggestion', '/emote', 'Afspil en emote', {{ name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
-    if Config.SqlKeybinding then
-      TriggerEvent('chat:addSuggestion', '/emotebind', 'Bind en emote', {{ name="key", help="num4, num5, num6, num7. num8, num9. Numpad 4-9!"}, { name="emotename", help="dance, camera, sit eller en anden gyldig emote."}})
-      TriggerEvent('chat:addSuggestion', '/emotebinds', 'Se dine nurværende binds på emotes.')
-    end
-    TriggerEvent('chat:addSuggestion', '/emotemenu', 'Åbner dpemotes menu (F3).')
-    TriggerEvent('chat:addSuggestion', '/emotes', 'Listen over mulige emotes.')
-    TriggerEvent('chat:addSuggestion', '/walk', 'Sætter din gågang.', {{ name="style", help="/walks for a listen over gågange"}})
-    TriggerEvent('chat:addSuggestion', '/walks', 'Listen over gågange.')
-end)
-
-RegisterCommand('e', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        EmoteCommandStart(source, args, raw)
-    end
-end)
-
-RegisterCommand('emote', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        EmoteCommandStart(source, args, raw)
-    end
+RegisterNetEvent('animations:client:PlayEmote', function(args)
+  if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+      EmoteCommandStart(source, args)
+  end
 end)
 
 if Config.SqlKeybinding then
-    RegisterCommand('emotebind', function(source, args, raw)
-        if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-            EmoteBindStart(source, args, raw)
-        end
-    end)
+  RegisterNetEvent('animations:client:BindEmote', function(args)
+      if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+          EmoteBindStart(source, args)
+      end
+  end)
 
-    RegisterCommand('emotebinds', function(source, args, raw)
-        if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-            EmoteBindsStart(source, args, raw)
-        end
-    end)
+  RegisterNetEvent('animations:client:EmoteBinds', function()
+      if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+          EmoteBindsStart()
+      end
+  end)
 end
 
-RegisterCommand('emotemenu', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        OpenEmoteMenu()
-    end
+RegisterNetEvent('animations:client:EmoteMenu', function()
+  if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+      OpenEmoteMenu()
+  end
 end)
 
-RegisterCommand('em', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        OpenEmoteMenu()
-    end
+RegisterNetEvent('animations:client:ListEmotes', function()
+  if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+      EmotesOnCommand()
+  end
 end)
 
-RegisterCommand('emotes', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        EmotesOnCommand()
-    end
+RegisterNetEvent('animations:client:Walk', function(args)
+  if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+      WalkCommandStart(source, args)
+  end
 end)
 
-RegisterCommand('walk', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        WalkCommandStart(source, args, raw)
-    end
+RegisterNetEvent('animations:client:ListWalks', function()
+  if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
+      WalksOnCommand()
+  end
 end)
 
-RegisterCommand('walks', function(source, args, raw)
-    if not PlayerData.metadata['inlaststand'] and not PlayerData.metadata['isdead'] then
-        WalksOnCommand()
-    end
-end)
-
--- Added 
-
+-- Added
 CanDoEmote = true
 SmokingWeed = false
 RelieveCount = 0
@@ -163,13 +136,13 @@ AddEventHandler('animations:client:SmokeWeed', function()
           IsInAnimation = false
           DebugPrint("Forced scenario exit")
         end
-      
+
         if IsInAnimation then
           ClearPedTasks(PlayerPedId())
           DestroyAllProps()
           IsInAnimation = false
         end
-      
+
         if SmokingWeed then
           SmokingWeed = false
           RelieveCount = 0
@@ -232,9 +205,9 @@ end
 
 function EmoteChatMessage(args)
   if args == display then
-    TriggerEvent("chatMessage", "^5Help^0", {0,0,0}, string.format(""))
+    TriggerEvent("chatMessage", "^5Hjælp^0", {0,0,0}, string.format(""))
   else
-    TriggerEvent("chatMessage", "^5Help^0", {0,0,0}, string.format(""..args..""))
+    TriggerEvent("chatMessage", "^5Hjælp^0", {0,0,0}, string.format(""..args..""))
   end
 end
 
