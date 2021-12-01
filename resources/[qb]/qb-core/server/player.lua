@@ -25,9 +25,9 @@ function QBCore.Player.Login(source, citizenid, newData)
     local src = source
     if src then
         if citizenid then
-            local result = exports.oxmysql:executeSync('SELECT * FROM players WHERE citizenid = ?', { citizenid })
-            local PlayerData = result[1]
-            if PlayerData then
+            local license = QBCore.Functions.GetIdentifier(src, 'license')
+            local PlayerData = exports.oxmysql:singleSync('SELECT * FROM players where citizenid = ?', { citizenid })
+            if PlayerData and license == PlayerData.license then
                 PlayerData.money = json.decode(PlayerData.money)
                 PlayerData.job = json.decode(PlayerData.job)
                 PlayerData.position = json.decode(PlayerData.position)
@@ -38,8 +38,11 @@ function QBCore.Player.Login(source, citizenid, newData)
                 else
                     PlayerData.gang = {}
                 end
+				QBCore.Player.CheckPlayerData(src, PlayerData)
+            else
+                DropPlayer(src, 'You Have Been Kicked For Exploitation')
+                TriggerEvent('qb-log:server:CreateLog', 'anticheat', 'Anti-Cheat', 'white', GetPlayerName(src) .. ' Has Been Dropped For Character Joining Exploit', false)
             end
-            QBCore.Player.CheckPlayerData(src, PlayerData)
         else
             QBCore.Player.CheckPlayerData(src, newData)
         end
