@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local NeededAttempts = 0
 local SucceededAttempts = 0
 local FailedAttemps = 0
@@ -44,7 +46,7 @@ Citizen.CreateThread(function()
         local PlayerPos = GetEntityCoords(PlayerPed)
 
         local distance = #(PlayerPos - vector3(1100.29, -3194.08, -38.99))
-        
+
         if distance < 6 then
             inRange = true
 
@@ -55,7 +57,7 @@ Citizen.CreateThread(function()
 
                 end
             end
-            
+
         end
 
         if not inRange then
@@ -75,7 +77,7 @@ Citizen.CreateThread(function()
         local distance1 = #(PlayerPos - vector3(509.89, 6478.76, 29.77))
         local distance2 = #(PlayerPos - vector3(509.47, 6472.89, 29.77))
         local distance3 = #(PlayerPos - vector3(509.47, 6467.10, 29.74))
-        
+
         if distance1 < 15 then
             inRange = true
 
@@ -102,9 +104,7 @@ Citizen.CreateThread(function()
                     PickMinigame()
                 end
             end
-            
         end
-
         if not inRange then
             Citizen.Wait(2000)
         end
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
         local PlayerPos = GetEntityCoords(PlayerPed)
 
         local distance = #(PlayerPos - vector3(-1078.21, -1678.42, 4.57))
-        
+
         if distance < 6 then
             inRange = true
 
@@ -130,9 +130,7 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("qb-coke:server:processCrack")
                 end
             end
-            
         end
-
         if not inRange then
             Citizen.Wait(2000)
         end
@@ -151,7 +149,7 @@ Citizen.CreateThread(function()
         local distance1 = #(PlayerPos - vector3(509.89, 6478.76, 29.77))
         local distance2 = #(PlayerPos - vector3(509.47, 6472.89, 29.77))
         local distance3 = #(PlayerPos - vector3(509.47, 6467.10, 29.74))
-        
+
         if distance1 < 15 then
             inRange = true
 
@@ -178,9 +176,7 @@ Citizen.CreateThread(function()
                     PickMinigame()
                 end
             end
-            
         end
-
         if not inRange then
             Citizen.Wait(2000)
         end
@@ -280,16 +276,12 @@ function PickMinigame()
                 width = math.random(20, 30),
             })
         end
-                
-        
 	end, function()
-
-            QBCore.Functions.Notify("Du fejlede!", "error")
-            FailedAttemps = 0
-            SucceededAttempts = 0
-            NeededAttempts = 0
-            cokepicking = false
-       
+        QBCore.Functions.Notify("Du fejlede!", "error")
+        FailedAttemps = 0
+        SucceededAttempts = 0
+        NeededAttempts = 0
+        cokepicking = false
     end)
 end
 
@@ -323,8 +315,6 @@ function ProcessMinigame(source)
                 width = math.random(20, 30),
             })
         end
-                
-        
 	end, function()
 
             QBCore.Functions.Notify("Du fejlede!", "error")
@@ -332,7 +322,6 @@ function ProcessMinigame(source)
             SucceededAttempts = 0
             NeededAttempts = 0
             cokeprocess = false
-       
     end)
 end
 
@@ -366,8 +355,6 @@ function ProcessCrackMinigame(source)
                 width = math.random(20, 30),
             })
         end
-                
-        
 	end, function()
 
             QBCore.Functions.Notify("Du fejlede processen!", "error")
@@ -375,7 +362,6 @@ function ProcessCrackMinigame(source)
             SucceededAttempts = 0
             NeededAttempts = 0
             cokeprocess = false
-       
     end)
 end
 
@@ -392,7 +378,6 @@ function PreparingProcessAnimCheck()
     Citizen.CreateThread(function()
         while true do
             local ped = PlayerPedId()
-
             if cokeprocess then
                 -- if not TaskStartScenarioInPlace(ped, "WORLD_HUMAN_GARDENER_PLANT", 0, true) then
                 --     TaskStartScenarioInPlace(ped, "WORLD_HUMAN_GARDENER_PLANT", 0, true)
@@ -401,7 +386,6 @@ function PreparingProcessAnimCheck()
                 ClearPedTasksImmediately(ped)
                 break
             end
-
             Citizen.Wait(200)
         end
     end)

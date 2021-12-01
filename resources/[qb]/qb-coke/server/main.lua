@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 local ItemList = {
     ["cocaleaf"] = "cocaleaf"
 }
@@ -22,21 +24,19 @@ local DrugList = {
     ["cokebaggy"] = "cokebaggy"
 }
 
-
 RegisterServerEvent('qb-coke:server:grindleaves')
 AddEventHandler('qb-coke:server:grindleaves', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local cocaleaf = Player.Functions.GetItemByName('cocaleaf')
 
-    if Player.PlayerData.items ~= nil then 
-        for k, v in pairs(Player.PlayerData.items) do 
+    if Player.PlayerData.items ~= nil then
+        for k, v in pairs(Player.PlayerData.items) do
             if cocaleaf ~= nil then
                 if ItemList[Player.PlayerData.items[k].name] ~= nil then 
                     if Player.PlayerData.items[k].name == "cocaleaf" and Player.PlayerData.items[k].amount >= 2 then 
                         Player.Functions.RemoveItem("cocaleaf", 2)
                         TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['cocaleaf'], "remove")
-
                         TriggerClientEvent("qb-coke:client:grindleavesMinigame", src)
                     else
                         TriggerClientEvent('QBCore:Notify', src, "Du har ikke nok kokainblade", 'error')
@@ -58,26 +58,25 @@ AddEventHandler('qb-coke:server:processCrack', function()
     local cokebaggy = Player.Functions.GetItemByName('cokebaggy')
 
     if Player.PlayerData.gang.name == "ballas" then
-        if Player.PlayerData.items ~= nil then 
+        if Player.PlayerData.items ~= nil then
             if cokebaggy ~= nil then 
-                if cokebaggy.amount >= 2 then 
+                if cokebaggy.amount >= 2 then
 
                     Player.Functions.RemoveItem("cokebaggy", 2, false)
                     TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['cokebaggy'], "remove")
 
                     TriggerClientEvent("qb-coke:client:processCrack", src)
                 else
-                    TriggerClientEvent('QBCore:Notify', src, "Du har ikke de korrekte varer", 'error')   
+                    TriggerClientEvent('QBCore:Notify', src, "Du har ikke de korrekte varer", 'error')
                 end
             else
-                TriggerClientEvent('QBCore:Notify', src, "Du har ikke de korrekte varer", 'error')   
+                TriggerClientEvent('QBCore:Notify', src, "Du har ikke de korrekte varer", 'error')
             end
         else
             TriggerClientEvent('QBCore:Notify', src, "Du har ingenting...", "error")
         end
     else
-        TriggerClientEvent('QBCore:Notify', src, "Du skal nok snakke med et bandemedlem...", 'error')   
-        
+        TriggerClientEvent('QBCore:Notify', src, "Du skal nok snakke med et bandemedlem...", 'error')
     end
 end)
 
@@ -91,7 +90,7 @@ AddEventHandler('qb-coke:server:cokesell', function()
         for k, v in pairs(Player.PlayerData.items) do 
             if cokebaggy ~= nil then
                 if DrugList[Player.PlayerData.items[k].name] ~= nil then 
-                    if Player.PlayerData.items[k].name == "cokebaggy" and Player.PlayerData.items[k].amount >= 1 then 
+                    if Player.PlayerData.items[k].name == "cokebaggy" and Player.PlayerData.items[k].amount >= 1 then
                         local random = math.random(50, 65)
                         local amount = Player.PlayerData.items[k].amount * random
 
@@ -115,7 +114,6 @@ AddEventHandler('qb-coke:server:cokesell', function()
     end
 end)
 
-
 RegisterServerEvent('qb-coke:server:getleaf')
 AddEventHandler('qb-coke:server:getleaf', function()
     local Player = QBCore.Functions.GetPlayer(source)
@@ -136,4 +134,3 @@ AddEventHandler('qb-coke:server:getcrack', function()
     Player.Functions.AddItem("crack_baggy", 1)
     TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items['crack_baggy'], "add")
 end)
-
