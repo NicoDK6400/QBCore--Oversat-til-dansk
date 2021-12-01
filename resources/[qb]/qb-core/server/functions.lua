@@ -113,7 +113,7 @@ end
 function QBCore.Functions.GetDutyCount(job)
     local count = 0
 
-    for _, Player in pairs(QBCore.Players) do
+    for _, Player in pairs(QBCore.Functions.GetQBPlayers()) do
         if Player.PlayerData.job.name == job then
             if Player.PlayerData.job.onduty then
                 count = count + 1
@@ -127,8 +127,7 @@ end
 
 function PaycheckLoop()
     local Players = QBCore.Players
-    for i = 1, #Players, 1 do
-        local Player = Players[i]
+    for _, Player in pairs(QBCore.Functions.GetQBPlayers()) do
         local payment = Player.PlayerData.job.payment
         if Player.PlayerData.job and Player.PlayerData.job.onduty and payment > 0 then
             Player.Functions.AddMoney('bank', payment)
