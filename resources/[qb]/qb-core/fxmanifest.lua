@@ -21,7 +21,6 @@ description 'QB-Core'
 version '1.0.0'
 
 shared_scripts {
-	'import.lua',
 	'config.lua',
 	'shared.lua'
 }
@@ -42,16 +41,16 @@ server_scripts {
 	'server/debug.lua'
 }
 
-
-ui_page 'html/ui.html'
+ui_page 'html/index.html'
 
 files {
-	'html/ui.html',
-	'html/css/main.css',
-	'html/js/app.js'
+	'html/index.html',
+	'html/style.css',
+	'html/*.js'
 }
 
 dependencies {
+	'oxmysql',
 	'progressbar',
 	'connectqueue'
 }
