@@ -39,6 +39,7 @@ PhoneData = {
     },
     SuggestedContacts = {},
     CryptoTransactions = {},
+    Images = {},
 }
 
 -- Functions
@@ -266,6 +267,9 @@ local function LoadPhone()
 
         if pData.CryptoTransactions ~= nil and next(pData.CryptoTransactions) ~= nil then
             PhoneData.CryptoTransactions = pData.CryptoTransactions
+        end
+        if pData.Images ~= nil and next(pData.Images) ~= nil then
+            PhoneData.Images = pData.Images
         end
 
         SendNUIMessage({
@@ -829,6 +833,18 @@ RegisterNUICallback('GetTruckerData', function(data, cb)
     cb(TierData)
 end)
 
+RegisterNUICallback('GetGalleryData', function(data, cb)
+    local data = PhoneData.Images
+    cb(data)
+end)
+
+RegisterNUICallback('DeleteImage', function(image,cb)
+    TriggerServerEvent('qb-phone:server:RemoveImageFromGallery',image)
+    Wait(400)
+    TriggerServerEvent('qb-phone:server:getImageFromGallery')
+    cb(true)
+end)
+
 RegisterNUICallback('track-vehicle', function(data, cb)
     local veh = data.veh
     if findVehFromPlateAndLocate(veh.plate) then
@@ -1344,9 +1360,7 @@ RegisterNUICallback("TakePhoto", function(data,cb)
     CreateMobilePhone(1)
     CellCamActivate(true, true)
     takePhoto = true
-    Citizen.Wait(0)
-      while takePhoto do
-      Citizen.Wait(0)
+    while takePhoto do
       if IsControlJustPressed(1, 27) then -- Toogle Mode
         frontCam = not frontCam
         CellFrontCamActivate(frontCam)
@@ -1363,6 +1377,9 @@ RegisterNUICallback("TakePhoto", function(data,cb)
                     local image = json.decode(data)
                     DestroyMobilePhone()
                     CellCamActivate(false, false)
+                    TriggerServerEvent('qb-phone:server:addImageToGallery', image.attachments[1].proxy_url)
+                    Wait(400)
+                    TriggerServerEvent('qb-phone:server:getImageFromGallery')
                     cb(json.encode(image.attachments[1].proxy_url))
                   end)
             else
@@ -1377,6 +1394,8 @@ RegisterNUICallback("TakePhoto", function(data,cb)
           HideHudComponentThisFrame(6)
           HideHudComponentThisFrame(19)
           HideHudAndRadarThisFrame()
+          EnableAllControlActions(0)
+          Wait(0)
     end
     Citizen.Wait(1000)
     OpenPhone()
@@ -2040,6 +2059,10 @@ RegisterNetEvent('qb-phone:client:GetMentioned', function(TweetMessage, AppAlert
     PhoneData.MentionedTweets[#PhoneData.MentionedTweets+1] = TweetMessage
     SendNUIMessage({ action = "RefreshAppAlerts", AppData = Config.PhoneApplications })
     SendNUIMessage({ action = "UpdateMentionedTweets", Tweets = PhoneData.MentionedTweets })
+end)
+
+RegisterNetEvent('qb-phone:refreshImages', function(images)
+    PhoneData.Images = images
 end)
 
 -- Threads

@@ -164,6 +164,12 @@ CREATE TABLE IF NOT EXISTS `phone_messages` (
   KEY `number` (`number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
 
+CREATE TABLE `phone_gallery` (
+   `citizenid` VARCHAR(255) NOT NULL , 
+   `image` VARCHAR(255) NOT NULL ,
+   `date` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB AUTO_INCREMENT=1;
+
 CREATE TABLE IF NOT EXISTS `phone_tweets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `citizenid` varchar(50) DEFAULT NULL,
@@ -264,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `player_vehicles` (
   KEY `plate` (`plate`),
   KEY `citizenid` (`citizenid`),
   KEY `license` (`license`)
-) ENGINE=InnoDB AUTO_INCREMENT=1;
+) ENGINE=InnoDB AUTO_INCREMENT=1
 
 CREATE TABLE IF NOT EXISTS `player_warns` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
