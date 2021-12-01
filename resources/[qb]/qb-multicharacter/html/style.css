@@ -75,6 +75,7 @@ Vores sider:
     border-bottom: 4px solid #74aa3200;
     transition: .1s linear;
     border-radius: .3vh;
+    cursor: pointer;
 }
 
 .character>span {
@@ -120,6 +121,7 @@ Vores sider:
     float: left;
     margin-top: 10px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .character-btn>p {
@@ -181,7 +183,6 @@ Vores sider:
     position: absolute;
     font-size: 2vh;
     color: #ededed;
-    top: -2.9vh;
     left: -5vh;
     letter-spacing: .1vh;
     font-weight: 900;
@@ -205,7 +206,7 @@ Vores sider:
 
 .character-info-valid {
     position: relative;
-    top: 10%;
+    top: 15%;
     overflow: visible !important;
 }
 
@@ -289,6 +290,7 @@ Vores sider:
     border-radius: 4px;
     transition: 0.2s;
     overflow: visible !important;
+    cursor: pointer;
 }
 
 .character-canceldel-btn {
@@ -302,6 +304,7 @@ Vores sider:
     border-radius: 4px;
     transition: 0.2s;
     overflow: visible !important;
+    cursor: pointer;
 }
 
 .character-acceptdel-btn>p {
@@ -340,6 +343,12 @@ Vores sider:
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+i#close-reg {
+    position: relative;
+    top: -2vh;
+    cursor: pointer;
+}
+
 .material-icons-one {
     margin-left: 39.5vh;
     color: #ededed;
@@ -359,7 +368,6 @@ Vores sider:
     text-align: left;
     font-size: 2vh;
     font-weight: 900;
-    margin-top: -1.3vh;
 }
 
 .char-register-inputs {
@@ -385,6 +393,7 @@ Vores sider:
     font-family: 'Poppins', sans-serif;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    cursor: text;
 }
 
 select {
@@ -408,6 +417,7 @@ select {
     text-indent: 1px;
     text-overflow: '';
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 select:hover {
@@ -475,6 +485,7 @@ input[type="date"]::-webkit-clear-button {
     margin: 0 auto;
     left: 0;
     right: 0;
+    cursor: pointer;
 }
 
 .character-reg-btn>p {
