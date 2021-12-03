@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterNetEvent("qb-justice:client:showLawyerLicense")
 AddEventHandler("qb-justice:client:showLawyerLicense", function(sourceId, data)
     local sourcePos = GetEntityCoords(GetPlayerPed(GetPlayerFromServerId(sourceId)), false)

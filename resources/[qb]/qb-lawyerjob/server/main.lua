@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 QBCore.Commands.Add("setlawyer", "Register nogen som advokat", {{name="id", help="Id af spilleren"}}, true, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local playerId = tonumber(args[1])

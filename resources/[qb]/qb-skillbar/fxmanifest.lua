@@ -35,7 +35,7 @@ exports {
 }
 
 dependencies {
-    'qb-core'
+  'qb-core'
 }
 
 lua54 'yes'

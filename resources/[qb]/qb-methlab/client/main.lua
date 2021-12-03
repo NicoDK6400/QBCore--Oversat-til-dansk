@@ -14,6 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
 local InsideMethlab = false
 local ClosestMethlab = 0
 local loadIngredients = false

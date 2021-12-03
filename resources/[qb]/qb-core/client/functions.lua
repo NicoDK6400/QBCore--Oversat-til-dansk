@@ -17,9 +17,6 @@ Vores sider:
 QBCore.Functions = {}
 QBCore.RequestId = 0
 
-QBCore.Functions = {}
-QBCore.RequestId = 0
-
 -- Player
 
 function QBCore.Functions.GetPlayerData(cb)

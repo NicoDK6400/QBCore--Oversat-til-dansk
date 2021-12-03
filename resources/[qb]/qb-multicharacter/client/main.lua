@@ -14,8 +14,6 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
-QBCore = exports['qb-core']:GetCoreObject()
-
 local charPed = nil
 local QBCore = exports['qb-core']:GetCoreObject()
 

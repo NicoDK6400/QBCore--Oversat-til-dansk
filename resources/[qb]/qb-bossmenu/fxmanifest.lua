@@ -21,9 +21,9 @@ description 'QB-BossMenu'
 version '1.0.0'
 
 client_scripts {
-  '@menuv/menuv.lua',
-  'config.lua',
-  'client.lua'
+    '@menuv/menuv.lua',
+    'config.lua',
+    'client.lua'
 }
 
 server_script 'server.lua'

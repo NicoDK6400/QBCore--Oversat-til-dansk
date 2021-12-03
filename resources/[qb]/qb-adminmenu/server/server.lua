@@ -16,6 +16,7 @@ Vores sider:
 
 -- Variables
 local QBCore = exports['qb-core']:GetCoreObject()
+
 local frozen = false
 local permissions = {
     ['kill'] = 'god',

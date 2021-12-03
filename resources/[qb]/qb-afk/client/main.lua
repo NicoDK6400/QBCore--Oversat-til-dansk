@@ -14,10 +14,12 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 -- AFK Kick Time Limit (in seconds)
+
 local group = 'user'
 local secondsUntilKick = 1800
-local QBCore = exports['qb-core']:GetCoreObject()
 local isLoggedIn = LocalPlayer.state['isLoggedIn']
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')

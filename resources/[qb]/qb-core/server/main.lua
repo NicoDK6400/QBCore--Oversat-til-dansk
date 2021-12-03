@@ -21,7 +21,7 @@ QBCore.ServerCallbacks = {}
 QBCore.UseableItems = {}
 
 exports('GetCoreObject', function()
-	return QBCore
+    return QBCore
 end)
 
 -- To use this export in a script instead of manifest method
@@ -31,14 +31,14 @@ end)
 -- Get permissions on server start
 
 CreateThread(function()
-	local result = exports.oxmysql:executeSync('SELECT * FROM permissions', {})
-	if result[1] then
-		for k, v in pairs(result) do
-			QBCore.Config.Server.PermissionList[v.license] = {
-				license = v.license,
-				permission = v.permission,
-				optin = true,
-			}
-		end
-	end
+    local result = exports.oxmysql:executeSync('SELECT * FROM permissions', {})
+    if result[1] then
+        for k, v in pairs(result) do
+            QBCore.Config.Server.PermissionList[v.license] = {
+                license = v.license,
+                permission = v.permission,
+                optin = true,
+            }
+        end
+    end
 end)

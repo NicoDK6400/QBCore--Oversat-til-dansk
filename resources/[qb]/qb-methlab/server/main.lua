@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 Citizen.CreateThread(function()
     Config.CurrentLab = math.random(1, #Config.Locations["laboratories"])
     --print('Lab entry has been set to location: '..Config.CurrentLab)

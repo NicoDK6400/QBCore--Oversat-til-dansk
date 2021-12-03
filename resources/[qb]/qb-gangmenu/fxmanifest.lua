@@ -25,8 +25,8 @@ client_scripts {
     'config.lua',
     'client.lua'
 }
-server_script 'server.lua'
 
+server_script 'server.lua'
 server_export 'GetAccount'
 
 lua54 'yes'
