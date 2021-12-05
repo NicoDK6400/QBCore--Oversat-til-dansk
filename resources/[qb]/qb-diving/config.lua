@@ -16,33 +16,28 @@ Vores sider:
 
 QBBoatshop = QBBoatshop or {}
 QBDiving = QBDiving or {}
-
 QBBoatshop.PoliceBoat = vector3(-800.67, -1494.54, 1.59)
-
 QBBoatshop.PoliceBoatSpawn = vector4(-793.58, -1501.4, 0.12, 111.5)
-
 QBBoatshop.PoliceBoat2 = vector3(-279.41, 6635.09, 7.51)
-
-
 QBBoatshop.PoliceBoatSpawn2 = vector4(-293.10, 6642.69, 0.15, 65.5)
 
 QBBoatshop.Docks = {
     ["lsymc"] = {
-        label = "LSYMC Bådshuset",
+        label = "LSYMC Bådshus",
         coords = {
             take = vector3(-794.66, -1510.83, 1.59),
             put = vector4(-793.58, -1501.4, 0.12, 111.5)
         }
     },
     ["paletto"] = {
-        label = "Paleto Bådshuset",
+        label = "Paleto Bådshus",
         coords = {
             take = vector3(-277.46, 6637.2, 7.48),
             put = vector4(-289.2, 6637.96, 1.01, 45.5)
         }
     },
     ["millars"] = {
-        label = "Millars Bådshuset",
+        label = "Millars Bådshus",
         coords = {
             take = vector3(1299.24, 4216.69, 33.9),
             put = vector4(1297.82, 4209.61, 30.12, 253.5),
@@ -124,7 +119,7 @@ QBBoatshop.SpawnVehicle = vector4(-729.77, -1355.49, 1.19, 142.5)
 
 QBDiving.Locations = {
     [1] = {
-        label = "Det er Lokation 1",
+        label = "Dette er Lokation 1",
         coords = {
             Area = vector3(-2838.8, -376.1, 3.55),
             Coral = {
@@ -311,9 +306,6 @@ QBDiving.CoralTypes = {
 
 QBDiving.SellLocations = {
     [1] = {
-    ["coords"] = vector3(-1684.13, -1068.91, 13.15)
-        -- ["x"] = -1684.13,
-        -- ["y"] = -1068.91,
-        -- ["z"] = 13.15
-}
+        ["coords"] = vector3(-1684.13, -1068.91, 13.15)
+    }
 }

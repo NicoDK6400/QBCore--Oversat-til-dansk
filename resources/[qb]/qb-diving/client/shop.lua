@@ -16,7 +16,11 @@ Vores sider:
 
 local notInteressted = false
 
-Citizen.CreateThread(function()
+local function ClearTimeOut()
+    notInteressted = not notInteressted
+end
+
+CreateThread(function()
     while true do
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
@@ -33,7 +37,7 @@ Citizen.CreateThread(function()
                         if IsControlJustPressed(0, 47) then
                             LocalPlayer.state:set("inv_busy", true, true)
                             TaskStartScenarioInPlace(PlayerPedId(), "WORLD_HUMAN_STAND_IMPATIENT", 0, true)
-                            QBCore.Functions.Progressbar("sell_coral_items", "Samler koraller fra lommen", math.random(2000, 4000), false, true, {}, {}, {}, {}, function() -- Done
+                            QBCore.Functions.Progressbar("sell_coral_items", "Tjekker lommer for koraller...", math.random(2000, 4000), false, true, {}, {}, {}, {}, function() -- Done
                                 ClearPedTasks(PlayerPedId())
                                 TriggerServerEvent('qb-diving:server:SellCoral')
                                 notInteressted = true
@@ -49,17 +53,13 @@ Citizen.CreateThread(function()
                 end
             end
         else
-            Citizen.Wait(5000)
+            Wait(5000)
         end
 
         if not inRange then
-            Citizen.Wait(1500)
+            Wait(1500)
         end
 
-        Citizen.Wait(3)
+        Wait(3)
     end
 end)
-
-function ClearTimeOut()
-    notInteressted = not notInteressted
-end
