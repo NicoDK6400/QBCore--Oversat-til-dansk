@@ -81,6 +81,13 @@ QBCore.Commands.Add("tp", "TP til spiller eller koords (Kun Admin)", {{name="id/
 	end
 end, "admin")
 
+QBCore.Commands.Add('togglepvp', 'Slå PVP til/fra på server (Kun Admin)', {}, false, function(source)
+    local src = source
+    local pvp_state = QBConfig.Server.pvp
+    QBConfig.Server.pvp = not pvp_state
+    TriggerClientEvent('QBCore:Client:PvpHasToggled', -1, QBConfig.Server.pvp)
+end, 'admin')
+
 QBCore.Commands.Add("addpermission", "Giv spiller permissions (Kun God)", {{name="id", help="ID af spiller"}, {name="permission", help="Permission level"}}, true, function(source, args)
 	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
 	local permission = tostring(args[2]):lower()

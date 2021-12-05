@@ -47,6 +47,7 @@ QBConfig.Server.closed = false -- Set server closed (no one can join except peop
 QBConfig.Server.closedReason = "Serveren er lukket" -- Reason message to display when people can't join the server
 QBConfig.Server.uptime = 0 -- Time the server has been up.
 QBConfig.Server.whitelist = false -- Enable or disable whitelist on the server
+QBConfig.Server.pvp = true -- Enable or disable pvp on the server (Ability to shoot other players)
 QBConfig.Server.discord = "https://discord.gg/dkfivem" -- Discord invite link
 QBConfig.Server.PermissionList = {} -- permission list
 

@@ -126,8 +126,8 @@ end
 -- Paychecks (standalone - don't touch)
 
 function PaycheckLoop()
-    local Players = QBCore.Players
-    for _, Player in pairs(QBCore.Functions.GetQBPlayers()) do
+    local Players = QBCore.Functions.GetQBPlayers()
+    for _, Player in pairs(Players) do
         local payment = Player.PlayerData.job.payment
         if Player.PlayerData.job and Player.PlayerData.job.onduty and payment > 0 then
             Player.Functions.AddMoney('bank', payment)
