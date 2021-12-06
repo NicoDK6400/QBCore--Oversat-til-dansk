@@ -885,6 +885,24 @@ QBShared.Jobs = {
             },
         },
 	},
+	["vanilla"] = {
+		label = "Vanilla Unicorn",
+		defaultDuty = true,
+		grades = {
+            ['0'] = {
+                name = "Medarbejder",
+                payment = 50
+            },
+			['1'] = {
+                name = "DJ",
+                payment = 80
+            },
+			['2'] = {
+                name = "Chef",
+                payment = 50
+            },
+        },
+	},
 }
 
 -- Vehicles
