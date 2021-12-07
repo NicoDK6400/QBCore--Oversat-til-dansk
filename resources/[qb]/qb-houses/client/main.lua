@@ -38,7 +38,7 @@ local CurrentHouse = nil
 local RamsDone = 0
 local keyholderMenu = {}
 local keyholderOptions = {}
-local p = nil
+local fetchingHouseKeys = false
 
 -- Functions
 
@@ -367,17 +367,20 @@ local function RemoveHouseKey(citizenData)
 end
 
 local function getKeyHolders()
-    if p then return end
-    p = promise.new()
+    if fetchingHouseKeys then return end
+    fetchingHouseKeys = true
+
+    local p = promise.new()
     QBCore.Functions.TriggerCallback('qb-houses:server:getHouseKeyHolders', function(holders)
         p:resolve(holders)
-    end,ClosestHouse)
+    end, ClosestHouse)
+
     return Citizen.Await(p)
 end
 
 function HouseKeysMenu()
     local holders = getKeyHolders()
-    p = nil
+    fetchingHouseKeys = false
     if holders == nil or next(holders) == nil then
         QBCore.Functions.Notify("Ingen nøgle fundet..", "error", 3500)
         CloseMenuFull()
@@ -1202,9 +1205,21 @@ CreateThread(function()
                             if #(pos - dist2) <= 1.5 then
                                 houseMenu = {
                                     {
-                                        header = "/enter for at tilgå",
-                                        isMenuHeader = true,
-                                        params = {}
+                                        header = "Bolig funktioner",
+                                        isMenuHeader = true, -- Set to true to make a nonclickable title
+                                    },
+                                    {
+                                        header = "Tilgå din bolig",
+                                        params = {
+                                            event = "qb-houses:client:EnterHouse",
+
+                                        }
+                                    },
+                                    {
+                                        header = "Giv husnøgle",
+                                        params = {
+                                            event = "qb-houses:client:giveHouseKey",
+                                        }
                                     }
                                 }
                                 nearLocation = true
@@ -1282,7 +1297,23 @@ CreateThread(function()
                         end
                     end
                 end
-
+                if IsInside and CurrentHouse ~= nil and not entering then
+                    if POIOffsets ~= nil then
+                        local exitOffset = vector3(Config.Houses[CurrentHouse].coords.enter.x + POIOffsets.exit.x, Config.Houses[CurrentHouse].coords.enter.y + POIOffsets.exit.y, Config.Houses[CurrentHouse].coords.enter.z - Config.MinZOffset + POIOffsets.exit.z + 1.0)
+                        if #(pos - exitOffset) <= 1.5 then
+                            houseMenu = {
+                                {
+                                    header = "Forlad bolig",
+                                    params = {
+                                        event = 'qb-houses:client:ExitOwnedHouse',
+                                        args = {}
+                                    }
+                                }
+                            }
+                            nearLocation = true
+                        end
+                    end
+                end
                 if IsInside and CurrentHouse ~= nil and not entering and isOwned then
                     if stashLocation ~= nil then
                         if #(pos - vector3(stashLocation.x, stashLocation.y, stashLocation.z)) <= 1.5 then

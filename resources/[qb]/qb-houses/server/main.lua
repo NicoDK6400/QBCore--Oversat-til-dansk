@@ -99,11 +99,6 @@ QBCore.Commands.Add("addgarage", "Tilføj garage (Kun ejendomsmæglere)", {}, fa
     end
 end)
 
-QBCore.Commands.Add("enter", "Tilgå bolig", {}, false, function(source)
-    local src = source
-    TriggerClientEvent('qb-houses:client:EnterHouse', src)
-end)
-
 QBCore.Commands.Add("ring", "Ring på døren", {}, false, function(source)
     local src = source
     TriggerClientEvent('qb-houses:client:RequestRing', src)
