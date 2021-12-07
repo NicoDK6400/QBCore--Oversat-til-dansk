@@ -257,7 +257,7 @@ RegisterNetEvent('qb-vehicleshop:server:financeVehicle', function(downPayment, p
     local timer = (Config.PaymentInterval * 60)
     local minDown = tonumber(round(vehiclePrice / Config.MinimumDown))
     if downPayment > vehiclePrice then return TriggerClientEvent('QBCore:Notify', src, 'Køretøjet er ikke så meget værd...', 'error') end
-    if downPayment < minDown then return TriggerClientEvent('QBCore:Notify', src, 'Afbetalingsbeløbet er for lidt', 'error') end
+    if downPayment < minDown then return TriggerClientEvent('QBCore:Notify', src, 'Afbetalingsbeløbet er for lavt', 'error') end
     if paymentAmount > Config.MaximumPayments then return TriggerClientEvent('QBCore:Notify', src, 'Overskredet det maksimale betalingsbeløb', 'error') end
     local plate = GeneratePlate()
     local balance, vehPaymentAmount = calculateFinance(vehiclePrice, downPayment, paymentAmount)
@@ -384,7 +384,7 @@ RegisterNetEvent('qb-vehicleshop:server:sellfinanceVehicle', function(downPaymen
     local timer = (Config.PaymentInterval * 60)
     local minDown = tonumber(round(vehiclePrice / Config.MinimumDown))
     if downPayment > vehiclePrice then return TriggerClientEvent('QBCore:Notify', src, 'Køretøjet er ikke så meget værd...', 'error') end
-    if downPayment < minDown then return TriggerClientEvent('QBCore:Notify', src, 'Afbetalingsbeløb er for lidt', 'error') end
+    if downPayment < minDown then return TriggerClientEvent('QBCore:Notify', src, 'Afbetalingsbeløb er for lavt', 'error') end
     if paymentAmount > Config.MaximumPayments then return TriggerClientEvent('QBCore:Notify', src, 'Overskredet det maksimale betalingsbeløb', 'error') end
     local plate = GeneratePlate()
     local balance, vehPaymentAmount = calculateFinance(vehiclePrice, downPayment, paymentAmount)
