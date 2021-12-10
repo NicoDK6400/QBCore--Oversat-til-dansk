@@ -1227,19 +1227,19 @@ QBCore.Commands.Add("112r", "Send en besked tilbage til afsender", {{
     end
 end)
 
-QBCore.Commands.Add("anklet", "Fastgør fodlænke (Kun Politi)", {}, false, function(source, args)
-    local Player = QBCore.Functions.GetPlayer(source)
-
-    if Player.PlayerData.job.name == "police" then
-        TriggerClientEvent("police:client:CheckDistance", source)
+QBCore.Commands.Add("anklet", "Fastgør fodlænke (Kun politi)", {}, false, function(source)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    if Player.PlayerData.job.name == "police" and Player.PlayerData.job.onduty then
+        TriggerClientEvent("police:client:CheckDistance", src)
     else
-        TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
+        TriggerClientEvent('QBCore:Notify', src, 'Kun for politi der er på job', 'error')
     end
 end)
 
-QBCore.Commands.Add("ankletlocation", "Få lokation af fodlænke", {{"csn", "CSN af personen"}}, true,
-    function(source, args)
-        local Player = QBCore.Functions.GetPlayer(source)
+QBCore.Commands.Add("ankletlocation", "Få lokationen på personen med fodlænke", {{name="cid", help="Citizen ID på personen"}}, true, function(source, args)
+    local src = source    
+    local Player = QBCore.Functions.GetPlayer(src)
 
         if Player.PlayerData.job.name == "police" then
             if args[1] ~= nil then
@@ -1248,21 +1248,20 @@ QBCore.Commands.Add("ankletlocation", "Få lokation af fodlænke", {{"csn", "CSN
 
                 if Target ~= nil then
                     if Target.PlayerData.metadata["tracker"] then
-                        TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, source)
+                        TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, src)
                     else
-                        TriggerClientEvent('QBCore:Notify', source, 'Denne person har ingen fodlænke.', 'error')
+                        TriggerClientEvent('QBCore:Notify', src, 'Denne person har ingen fodlænke.', 'error')
                     end
                 end
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Kun til beredskabstjenester', 'error')
         end
     end)
 
-QBCore.Commands.Add("removeanklet", "Fjern fodlænke (Kun Politi)", {{"bsn", "BSN af personen"}}, true,
-    function(source, args)
-        local Player = QBCore.Functions.GetPlayer(source)
-
+QBCore.Commands.Add("removeanklet", "Fjern fodlænke (Kun Politi)", {{name="cid", help="Citizen ID på personen"}}, true,function(source, args)
+        local src = source
+        local Player = QBCore.Functions.GetPlayer(src)
         if Player.PlayerData.job.name == "police" then
             if args[1] ~= nil then
                 local citizenid = args[1]
@@ -1270,14 +1269,14 @@ QBCore.Commands.Add("removeanklet", "Fjern fodlænke (Kun Politi)", {{"bsn", "BS
 
                 if Target ~= nil then
                     if Target.PlayerData.metadata["tracker"] then
-                        TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, source)
+                        TriggerClientEvent("police:client:SendTrackerLocation", Target.PlayerData.source, src)
                     else
-                        TriggerClientEvent('QBCore:Notify', source, 'Denne person har ingen fodlænke', 'error')
+                        TriggerClientEvent('QBCore:Notify', src, 'Denne person har ingen fodlænke', 'error')
                     end
                 end
             end
         else
-            TriggerClientEvent('QBCore:Notify', source, 'Kun til beredskabstjenester', 'error')
+            TriggerClientEvent('QBCore:Notify', src, 'Kun til beredskabstjenester', 'error')
         end
     end)
 
@@ -1296,9 +1295,9 @@ QBCore.Commands.Add("takedrivinglicense", "Fratag førerret (Kun Politi)", {}, f
     end
 end)
 
-QBCore.Commands.Add("takedna", "Tag et DNA fra en person (tom bevispose er krævet) (Kun Politi)",
-    {{"id", "ID of the person"}}, true, function(source, args)
-        local Player = QBCore.Functions.GetPlayer(source)
+QBCore.Commands.Add("takedna", "Tag et DNA fra en person (tom bevispose er krævet) (Kun Politi)", {{name="id", help="ID på personen"}}, true, function(source, args)
+        local src = source
+        local Player = QBCore.Functions.GetPlayer(src)
         local OtherPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
         if ((Player.PlayerData.job.name == "police") and Player.PlayerData.job.onduty) and OtherPlayer ~= nil then
             if Player.Functions.RemoveItem("empty_evidence_bag", 1) then
@@ -1312,7 +1311,7 @@ QBCore.Commands.Add("takedna", "Tag et DNA fra en person (tom bevispose er kræv
                         "add")
                 end
             else
-                TriggerClientEvent('QBCore:Notify', source, "Du skal have en tom bevispose på dig", "error")
+                TriggerClientEvent('QBCore:Notify', src, "Du skal have en tom bevispose på dig", "error")
             end
         end
     end)
