@@ -378,12 +378,12 @@ Vores sider:
 
 .crypto-action-page-buy-crypto-input-money {
     position: absolute;
-    top: 21vh;
+    top: 22.4vh;
     left: 7vh;
     background: none;
     border: none;
     outline: none;
-    border-bottom: 2px solid #000000;
+    /* border-bottom: 2px solid #000000; */
     font-family: 'Poppins', sans-serif;
     height: 3.5vh;
     width: 18vh;
@@ -453,12 +453,12 @@ Vores sider:
 
 .crypto-action-page-sell-crypto-input-money {
     position: absolute;
-    top: 21vh;
+    top: 22.4vh;
     left: 7vh;
     background: none;
     border: none;
     outline: none;
-    border-bottom: 2px solid #000000;
+    /* border-bottom: 2px solid #000000; */
     font-family: 'Poppins', sans-serif;
     height: 3.5vh;
     width: 18vh;

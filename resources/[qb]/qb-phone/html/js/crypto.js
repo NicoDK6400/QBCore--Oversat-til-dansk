@@ -165,7 +165,7 @@ $(document).on('click', '#buy-crypto', function(e){
     e.preventDefault();
 
     var Coins = $(".crypto-action-page-buy-crypto-input-coins").val();
-    var Price = $(".crypto-action-page-buy-crypto-input-money").val();
+    var Price = Math.ceil(Coins * CryptoData.Worth);
 
     if ((Coins !== "") && (Price !== "")) {
         if (QB.Phone.Data.PlayerData.money.bank >= Price) {
@@ -196,7 +196,7 @@ $(document).on('click', '#sell-crypto', function(e){
         e.handled = true;
 
     var Coins = $(".crypto-action-page-sell-crypto-input-coins").val();
-    var Price = $(".crypto-action-page-sell-crypto-input-money").val();
+    var Price = Math.ceil(Coins * CryptoData.Worth);
 
     if ((Coins !== "") && (Price !== "")) {
         if (CryptoData.Portfolio >= parseInt(Coins)) {
@@ -258,26 +258,26 @@ $(document).on('click', '#transfer-crypto', function(e){
     }
 });
 
-$(".crypto-action-page-buy-crypto-input-money").keyup(function(){
-    var MoneyInput = this.value
-
-    $(".crypto-action-page-buy-crypto-input-coins").val((MoneyInput / CryptoData.Worth).toFixed(6));
-});
+// $(".crypto-action-page-buy-crypto-input-money").keyup(function(){
+//     var MoneyInput = this.value
+//     $(".crypto-action-page-buy-crypto-input-coins").val((MoneyInput / CryptoData.Worth).toFixed(6));
+// }); 
 
 $(".crypto-action-page-buy-crypto-input-coins").keyup(function(){
     var MoneyInput = this.value
+    var MoneyAmount = Math.ceil(CryptoData.Worth * MoneyInput)
 
-    $(".crypto-action-page-buy-crypto-input-money").val(Math.ceil(CryptoData.Worth * MoneyInput));
+    $(".crypto-action-page-buy-crypto-input-money").html(MoneyAmount+" Kroner");
 });
 
-$(".crypto-action-page-sell-crypto-input-money").keyup(function(){
-    var MoneyInput = this.value
-
-    $(".crypto-action-page-sell-crypto-input-coins").val((MoneyInput / CryptoData.Worth).toFixed(6));
-});
+// $(".crypto-action-page-sell-crypto-input-money").keyup(function(){
+//     var MoneyInput = this.value
+//     $(".crypto-action-page-sell-crypto-input-coins").val((MoneyInput / CryptoData.Worth).toFixed(6));
+// }); 
 
 $(".crypto-action-page-sell-crypto-input-coins").keyup(function(){
     var MoneyInput = this.value
+    var MoneyAmount = Math.ceil(CryptoData.Worth * MoneyInput)
 
-    $(".crypto-action-page-sell-crypto-input-money").val(Math.ceil(CryptoData.Worth * MoneyInput));
+    $(".crypto-action-page-sell-crypto-input-money").html(MoneyAmount+" Kroner");
 });
