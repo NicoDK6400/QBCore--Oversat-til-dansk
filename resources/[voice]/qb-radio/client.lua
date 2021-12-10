@@ -16,29 +16,27 @@ Vores sider:
 
 local QBCore = exports['qb-core']:GetCoreObject()
 
+local QBCore = exports['qb-core']:GetCoreObject()
 local radioMenu = false
 local isLoggedIn = false
 local onRadio = false
 local RadioChannel = 0
+local RadioVolume = 50
 
-RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
-AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     isLoggedIn = true
 end)
 
-RegisterNetEvent('QBCore:Client:OnPlayerUnload')
-AddEventHandler('QBCore:Client:OnPlayerUnload', function()
+RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
     isLoggedIn = false
     leaveradio()
 end)
 
-RegisterNetEvent('qb-radio:use')
-AddEventHandler('qb-radio:use', function()
+RegisterNetEvent('qb-radio:use', function()
     toggleRadio(not radioMenu)
 end)
 
-RegisterNetEvent('qb-radio:onRadioDrop')
-AddEventHandler('qb-radio:onRadioDrop', function()
+RegisterNetEvent('qb-radio:onRadioDrop', function()
     if RadioChannel ~= 0 then
         leaveradio()
     end
@@ -46,7 +44,7 @@ end)
 
 -- Main Thread
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         Wait(1000)
         if isLoggedIn and onRadio then
@@ -71,9 +69,7 @@ function connecttoradio(channel)
         onRadio = true
         exports["pma-voice"]:setVoiceProperty("radioEnabled", true)
     end
-
     exports["pma-voice"]:setRadioChannel(channel)
-
     if SplitStr(tostring(channel), ".")[2] ~= nil and SplitStr(tostring(channel), ".")[2] ~= "" then
         QBCore.Functions.Notify(Config.messages['joined_to_radio'] ..channel.. ' MHz', 'success')
     else
@@ -99,7 +95,7 @@ function SplitStr(inputstr, sep)
     end
     return t
 end
-  
+
 function IsRadioOn()
     return onRadio
 end
@@ -150,6 +146,41 @@ RegisterNUICallback('leaveRadio', function(data, cb)
         QBCore.Functions.Notify(Config.messages['not_on_radio'], 'error')
     else
         leaveradio()
+    end
+end)
+
+RegisterNUICallback("volumeUp", function()
+	if RadioVolume <= 95 then
+		RadioVolume = RadioVolume + 5
+		QBCore.Functions.Notify(Config.messages["volume_radio"] .. RadioVolume, "success")
+		exports["pma-voice"]:setRadioVolume(RadioVolume)
+	else
+		QBCore.Functions.Notify(Config.messages["decrease_radio_volume"], "error")
+	end
+end)
+
+RegisterNUICallback("volumeDown", function()
+	if RadioVolume >= 10 then
+		RadioVolume = RadioVolume - 5
+		QBCore.Functions.Notify(Config.messages["volume_radio"] .. RadioVolume, "success")
+		exports["pma-voice"]:setRadioVolume(RadioVolume)
+	else
+		QBCore.Functions.Notify(Config.messages["increase_radio_volume"], "error")
+	end
+end)
+
+RegisterNUICallback("increaseradiochannel", function(data, cb)
+    local newChannel = RadioChannel + 1
+	exports["pma-voice"]:setRadioChannel(newChannel)
+	QBCore.Functions.Notify(Config.messages["increase_decrease_radio_channel"] .. newChannel, "success")
+end)
+
+RegisterNUICallback("decreaseradiochannel", function(data, cb)
+    if not onRadio then return end
+    local newChannel = RadioChannel - 1
+    if newChannel >= 1 then
+		exports["pma-voice"]:setRadioChannel(newChannel)
+		QBCore.Functions.Notify(Config.messages["increase_decrease_radio_channel"] .. newChannel, "success")
     end
 end)
 
