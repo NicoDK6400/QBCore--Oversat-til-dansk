@@ -78,7 +78,7 @@ RegisterNetEvent('qb-admin:client:SaveCar', function()
         local hash = props.model
         local vehname = GetDisplayNameFromVehicleModel(hash):lower()
         if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
-            TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], `veh`, plate)
+            TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], GetHashKey(veh), plate)
         else
             QBCore.Functions.Notify('Du kan ikke gemme dette køretøj i din garage..', 'error')
         end
