@@ -596,7 +596,7 @@ RegisterNetEvent("qb-garages:client:JobVehicleList", function()
 end)
 
 RegisterNetEvent('qb-garages:client:takeOutPublicGarage', function(vehicle)
-    if vehicle.state == "Garaged" then
+    if vehicle.state == "I garage" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -666,7 +666,7 @@ RegisterNetEvent('qb-garages:client:takeOutGangGarage', function(vehicle)
 end)
 
 RegisterNetEvent('qb-garages:client:takeOutJobGarage', function(vehicle)
-    if vehicle.state == "Garaged" then
+    if vehicle.state == "I garage" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
