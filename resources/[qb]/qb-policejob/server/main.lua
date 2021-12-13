@@ -1101,7 +1101,7 @@ QBCore.Commands.Add("depot", "Impound med omkostninger (Kun Politi)", {{
     end
 end)
 
-QBCore.Commands.Add("impound", "Impound A Vehicle (Kun Politi)", {}, false, function(source, args)
+QBCore.Commands.Add("impound", "Impound et køretøj (Kun Politi)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if Player.PlayerData.job.name == "police" then
         TriggerClientEvent("police:client:ImpoundVehicle", source, true)
