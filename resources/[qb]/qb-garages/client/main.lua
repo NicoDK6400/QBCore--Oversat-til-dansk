@@ -379,11 +379,11 @@ RegisterNetEvent("qb-garages:client:HouseGarage", function(house)
                 vname = QBCore.Shared.Vehicles[v.vehicle].name
 
                 if v.state == 0 then
-                    v.state = "Ude"
+                    v.state = "Out"
                 elseif v.state == 1 then
-                    v.state = "I garage"
+                    v.state = "Garaged"
                 elseif v.state == 2 then
-                    v.state = "Impounded af politiet"
+                    v.state = "Impounded By Police"
                 end
 
                 MenuHouseGarageOptions[#MenuHouseGarageOptions+1] = {
@@ -470,11 +470,11 @@ RegisterNetEvent("qb-garages:client:VehicleList", function()
                 vname = QBCore.Shared.Vehicles[v.vehicle].name
 
                 if v.state == 0 then
-                    v.state = "Ude"
+                    v.state = "Out"
                 elseif v.state == 1 then
-                    v.state = "I garage"
+                    v.state = "Garaged"
                 elseif v.state == 2 then
-                    v.state = "Impounded af politiet"
+                    v.state = "Impounded By Police"
                 end
 
                 MenuPublicGarageOptions[#MenuPublicGarageOptions+1] = {
@@ -518,16 +518,16 @@ RegisterNetEvent("qb-garages:client:GangVehicleList", function()
                 vname = QBCore.Shared.Vehicles[v.vehicle].name
 
                 if v.state == 0 then
-                    v.state = "Ude"
+                    v.state = "Out"
                 elseif v.state == 1 then
-                    v.state = "I garage"
+                    v.state = "Garaged"
                 elseif v.state == 2 then
-                    v.state = "Impounded af politiet"
+                    v.state = "Impounded By Police"
                 end
 
                 MenuGangGarageOptions[#MenuGangGarageOptions+1] = {
                     header = vname.." ["..v.plate.."]",
-                    txt = "State: "..v.state.."<br>Tank: "..currentFuel.." | Motor: "..enginePercent.." | Karosseri: "..bodyPercent,
+                    txt = "Status: "..v.state.."<br>Tank: "..currentFuel.." | Motor: "..enginePercent.." | Karosseri: "..bodyPercent,
                     params = {
                         event = "qb-garages:client:takeOutGangGarage",
                         args = v
@@ -566,11 +566,11 @@ RegisterNetEvent("qb-garages:client:JobVehicleList", function()
                 vname = QBCore.Shared.Vehicles[v.vehicle].name
 
                 if v.state == 0 then
-                    v.state = "Ude"
+                    v.state = "Out"
                 elseif v.state == 1 then
-                    v.state = "I garage"
+                    v.state = "Garaged"
                 elseif v.state == 2 then
-                    v.state = "Impounded af politiet"
+                    v.state = "Impounded By Police"
                 end
 
                 MenuJobGarageOptions[#MenuJobGarageOptions+1] = {
@@ -596,7 +596,7 @@ RegisterNetEvent("qb-garages:client:JobVehicleList", function()
 end)
 
 RegisterNetEvent('qb-garages:client:takeOutPublicGarage', function(vehicle)
-    if vehicle.state == "I garage" then
+    if vehicle.state == "Garaged" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -623,15 +623,15 @@ RegisterNetEvent('qb-garages:client:takeOutPublicGarage', function(vehicle)
             end, vehicle.plate)
 
         end, Garages[currentGarage].spawnPoint, true)
-    elseif vehicle.state == "Ude" then
+    elseif vehicle.state == "Out" then
         QBCore.Functions.Notify("Dit køretøj befinder sig måske hos depotet!", "error", 2500)
-    elseif vehicle.state == "Impounded" then
+    elseif vehicle.state == "Impound" then
         QBCore.Functions.Notify("Dette køretøj er blevet impounded!", "error", 4000)
     end
 end)
 
 RegisterNetEvent('qb-garages:client:takeOutGangGarage', function(vehicle)
-    if vehicle.state == "I garage" then
+    if vehicle.state == "Garaged" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -658,15 +658,15 @@ RegisterNetEvent('qb-garages:client:takeOutGangGarage', function(vehicle)
             end, vehicle.plate)
 
         end, GangGarages[currentGarage].spawnPoint, true)
-    elseif vehicle.state == "Ude" then
+    elseif vehicle.state == "Out" then
         QBCore.Functions.Notify("Dit køretøj befinder sig måske hos depotet!", "error", 2500)
-    elseif vehicle.state == "Impounded" then
+    elseif vehicle.state == "Impound" then
         QBCore.Functions.Notify("Dette køretøj er blevet impounded!", "error", 4000)
     end
 end)
 
 RegisterNetEvent('qb-garages:client:takeOutJobGarage', function(vehicle)
-    if vehicle.state == "I garage" then
+    if vehicle.state == "Garaged" then
         enginePercent = round(vehicle.engine / 10, 1)
         bodyPercent = round(vehicle.body / 10, 1)
         currentFuel = vehicle.fuel
@@ -689,22 +689,22 @@ RegisterNetEvent('qb-garages:client:takeOutJobGarage', function(vehicle)
                 SetVehicleEngineOn(veh, true, true)
             end, vehicle.plate)
         end, JobGarages[currentGarage].spawnPoint, true)
-    elseif vehicle.state == "Ude" then
+    elseif vehicle.state == "Out" then
         QBCore.Functions.Notify("Dit køretøj befinder sig måske hos depotet!", "error", 2500)
-    elseif vehicle.state == "Impounded" then
+    elseif vehicle.state == "Impound" then
         QBCore.Functions.Notify("Dette køretøj er blevet impounded!", "error", 4000)
     end
 end)
 
 RegisterNetEvent('qb-garages:client:TakeOutDepotVehicle', function(vehicle)
-    if vehicle.state == "Impounded" then
+    if vehicle.state == "Impound" then
         TriggerServerEvent("qb-garage:server:PayDepotPrice", vehicle)
         Wait(1000)
     end
 end)
 
 RegisterNetEvent('qb-garages:client:TakeOutHouseGarage', function(vehicle)
-    if vehicle.state == "I garage" then
+    if vehicle.state == "Garaged" then
         QBCore.Functions.SpawnVehicle(vehicle.vehicle, function(veh)
             QBCore.Functions.TriggerCallback('qb-garage:server:GetVehicleProperties', function(properties)
                 QBCore.Functions.SetVehicleProperties(veh, properties)
