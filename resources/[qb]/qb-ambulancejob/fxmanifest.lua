@@ -28,13 +28,8 @@ client_scripts {
 	'client/laststand.lua',
 	'client/job.lua',
 	'client/dead.lua',
-	'client/gui.lua',
 }
 
 server_script 'server/main.lua'
-
-dependencies {
-	'qb-core'
-}
 
 lua54 'yes'
