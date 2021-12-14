@@ -97,7 +97,7 @@ function MenuGarage()
         }
     end
     vehicleMenu[#vehicleMenu+1] = {
-        header = "⬅ Close Menu",
+        header = "⬅ Luk menuen",
         txt = "",
         params = {
             event = "qb-menu:client:closeMenu"
@@ -181,7 +181,7 @@ RegisterNetEvent('hospital:client:CheckStatus', function()
                             args = {"Status Check", "Er "..Config.BleedingStates[v].label}
                         })
                     else
-                        QBCore.Functions.Notify('Personen har du godt', 'success')
+                        QBCore.Functions.Notify('Personen har det godt', 'success')
                     end
                 end
                 isStatusChecking = true
@@ -189,7 +189,7 @@ RegisterNetEvent('hospital:client:CheckStatus', function()
             end
         end, playerId)
     else
-        QBCore.Functions.Notify('Ingen spilelr i nærheden', 'error')
+        QBCore.Functions.Notify('Ingen spiller i nærheden', 'error')
     end
 end)
 
@@ -217,13 +217,13 @@ RegisterNetEvent('hospital:client:RevivePlayer', function()
                 end, function() -- Cancel
                     isHealingPerson = false
                     StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
-                    QBCore.Functions.Notify("Failed!", "error")
+                    QBCore.Functions.Notify("Fejlede!", "error")
                 end)
             else
-                QBCore.Functions.Notify("Ingen spilelr i nærheden", "error")
+                QBCore.Functions.Notify("Ingen spiller i nærheden", "error")
             end
         else
-            QBCore.Functions.Notify("Du mangæer et første-hjælp kit", "error")
+            QBCore.Functions.Notify("Du mangler et første-hjælp kit", "error")
         end
     end, 'firstaid')
 end)
