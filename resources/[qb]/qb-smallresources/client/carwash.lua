@@ -67,7 +67,7 @@ CreateThread(function()
                     if dist <= 7.5 then
                         if Driver == PlayerPed then
                             if not washingVehicle then
-                                DrawText3Ds(Config.CarWash[k]["coords"]["x"], Config.CarWash[k]["coords"]["y"], Config.CarWash[k]["coords"]["z"], '~g~E~w~ - Vask køretøj ('..Config.DefaultPrice..' - DKK)')
+                                DrawText3Ds(Config.CarWash[k]["coords"]["x"], Config.CarWash[k]["coords"]["y"], Config.CarWash[k]["coords"]["z"], '~g~E~w~ - Vask køretøj ('..Config.DefaultPrice..' DKK)')
                                 if IsControlJustPressed(0, 38) then
                                     if dirtLevel > Config.DirtLevel then
                                         TriggerServerEvent('qb-carwash:server:washCar')
