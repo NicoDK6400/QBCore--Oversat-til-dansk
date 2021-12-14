@@ -145,7 +145,7 @@ AddEventHandler('qb-bossmenu:server:updateGrade', function(target, grade)
     local Player = QBCore.Functions.GetPlayer(src)
     local Employee = QBCore.Functions.GetPlayerByCitizenId(target)
     if grade == nil then
-        TriggerClientEvent('QBCore:Notify', src, {text="Boss Menu", caption="Invalid grade. Numbers only, with 0 being the lowest grade. What is this, amateur hour?"}, "error", 6000)
+        TriggerClientEvent('QBCore:Notify', src, {text="Boss Menu", caption="Ugyldig grad. Kun cifre, 0 er det laveste."}, "error", 6000)
         return
     end
     if Player.PlayerData.job.grade.level >= grade and grade <= Player.PlayerData.job.grade.level then
@@ -190,9 +190,9 @@ AddEventHandler('qb-bossmenu:server:fireEmployee', function(target)
             if Employee.Functions.SetJob("unemployed", '0') then
                 TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Job Fire', 'red', Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' blev fyret ' .. Employee.PlayerData.charinfo.firstname .. ' ' .. Employee.PlayerData.charinfo.lastname .. ' (' .. Player.PlayerData.job.name .. ')', false)
                 TriggerClientEvent('QBCore:Notify', src, {text="Boss Menu",caption="Du er blevet afskediget fra dit job. Du vil modtage dine dokumenter " .. Player.PlayerData.job.label .. " og JobCenteret."}, "error", 5000)
-                TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source , {text="Boss Menu", caption="You Were Fired. Please look for a new job at the courthouse (City Services) and pick up your belongings."}, "error", 10000)
+                TriggerClientEvent('QBCore:Notify', Employee.PlayerData.source , {text="Boss Menu", caption="Du blev fyret. Søg venligst et nyt job i retsbygningen (Rådhuset) og afhent dine ejendele."}, "error", 10000)
             else
-                TriggerClientEvent('QBCore:Notify', src, {text="Boss Menu", caption="Mail in a video raffle ticket with full details regarding this error."}, "error")
+                TriggerClientEvent('QBCore:Notify', src, {text="Boss Menu", caption="Send en mail med video med alle detaljer vedrørende denne fejl."}, "error")
             end
         else
             TriggerEvent('qb-log:server:CreateLog', 'bossmenu', 'Unfair Firing', 'red', Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname .. ' forsøgte at fyre ('.. target .. ') hos (' .. Player.PlayerData.job.name .. ') men fejlede fordi personen har en grade under.', true)

@@ -140,7 +140,7 @@ AddEventHandler('qb-bankrobbery:UseBankcardA', function()
                             end
                         end, function() -- Cancel
                             StopAnimTask(PlayerPedId(), "anim@gangops@facility@servers@", "hotwire", 1.0)
-                            QBCore.Functions.Notify("Canceled..", "error")
+                            QBCore.Functions.Notify("Afbrudt...", "error")
                         end)
                     else
                         QBCore.Functions.Notify("Ser ud til at banken allerede er åben..", "error")
