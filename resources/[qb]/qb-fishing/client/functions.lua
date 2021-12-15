@@ -14,6 +14,7 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
 
 TryToFish = function()
     QBCore.Functions.TriggerCallback('qb-fishing:GetItemData', function(count)
