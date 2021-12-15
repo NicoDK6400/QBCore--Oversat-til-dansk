@@ -323,7 +323,7 @@ Citizen.CreateThread(function()
 				DrawMarker(0, transCoords.x, transCoords.y, transCoords.z+4.5, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, 135, 31, 35, 100, 1, 0, 0, 0)
 				if warning == 0 then
 				warning = 1
-				QBCore.Functions.Notify("Skaf dig af med svagterne inden du smider bomben på.", "error")
+				QBCore.Functions.Notify("Skaf dig af med vagterne inden du smider bomben på.", "error")
 				end
 				if GuardsDead == 0 then
 					CheckGuards()
