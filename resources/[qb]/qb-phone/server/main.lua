@@ -1192,7 +1192,7 @@ QBCore.Commands.Add('bill', 'Send regning', {{name = 'id', help = 'Spiller ID'},
                          biller.PlayerData.charinfo.firstname, biller.PlayerData.citizenid})
                     TriggerClientEvent('qb-phone:RefreshPhone', billed.PlayerData.source)
                     TriggerClientEvent('QBCore:Notify', source, 'Regning blev sendt!', 'success')
-                    TriggerClientEvent('QBCore:Notify', billed.PlayerData.source, 'New Invoice Received')
+                    TriggerClientEvent('QBCore:Notify', billed.PlayerData.source, 'Ny regning modtaget!')
                 else
                     TriggerClientEvent('QBCore:Notify', source, 'Skal være en gyldig værdi over 0', 'error')
                 end

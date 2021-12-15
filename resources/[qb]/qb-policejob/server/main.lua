@@ -146,7 +146,7 @@ AddEventHandler('police:server:JailPlayer', function(playerId, time)
                 ["date"] = currentDate
             })
             TriggerClientEvent("police:client:SendToJail", OtherPlayer.PlayerData.source, time)
-            TriggerClientEvent('QBCore:Notify', src, "Du har sendt personen i fængsel for " .. time .. " måneder")
+            TriggerClientEvent('QBCore:Notify', src, "Du har sendt personen i fængsel i " .. time .. " måneder")
         end
     end
 end)
