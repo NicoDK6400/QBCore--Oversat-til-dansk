@@ -393,11 +393,11 @@ RegisterNetEvent('iens:repair', function()
 				healthPetrolTankLast=750.0
 					SetVehicleEngineOn(vehicle, true, false )
 				SetVehicleOilLevel(vehicle,(GetVehicleOilLevel(vehicle)/3)-0.5)
-				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", and now go to a garage!")
+				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", og nu gå til en garage!")
 				fixMessagePos = fixMessagePos + 1
 				if fixMessagePos > repairCfg.fixMessageCount then fixMessagePos = 1 end
 			else
-				notification("~r~Your vehicle is too damaged!")
+				notification("~r~Dit køretøj er for ødelagt!")
 			end
 		else
 			notification("~y~" .. repairCfg.noFixMessages[noFixMessagePos] )
@@ -405,7 +405,7 @@ RegisterNetEvent('iens:repair', function()
 			if noFixMessagePos > repairCfg.noFixMessageCount then noFixMessagePos = 1 end
 		end
 	else
-		notification("~y~You must be in a vehicle to repair it!")
+		notification("~y~Du skal være i/på køretøjet!")
 	end
 end)
 

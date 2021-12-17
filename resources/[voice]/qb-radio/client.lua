@@ -16,7 +16,6 @@ Vores sider:
 
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local QBCore = exports['qb-core']:GetCoreObject()
 local radioMenu = false
 local isLoggedIn = false
 local onRadio = false

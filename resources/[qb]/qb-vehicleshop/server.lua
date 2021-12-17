@@ -492,7 +492,7 @@ QBCore.Commands.Add('transferVehicle', 'Giv eller sælg dit køretøj', {{ name 
     else
         local targetcid = target.PlayerData.citizenid
         exports.oxmysql:update('UPDATE player_vehicles SET citizenid = ? WHERE plate = ?', {targetcid, plate})
-        TriggerClientEvent('QBCore:Notify', src, 'You gifted your vehicle', 'success')
+        TriggerClientEvent('QBCore:Notify', src, 'Du gav dit køretøj væk', 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', target.PlayerData.source, plate)
         TriggerClientEvent('QBCore:Notify', target.PlayerData.source, 'Du har fået et køretøj som gave!', 'success')
     end
