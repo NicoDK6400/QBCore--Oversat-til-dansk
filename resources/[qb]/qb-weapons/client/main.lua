@@ -135,11 +135,11 @@ RegisterNetEvent("weapons:client:EquipAttachment", function(ItemData, attachment
             if WeaponAttachments[WeaponData.name][attachment]['item'] == ItemData.name then
                 TriggerServerEvent("weapons:server:EquipAttachment", ItemData, CurrentWeaponData, WeaponAttachments[WeaponData.name][attachment])
             else
-                QBCore.Functions.Notify("This weapon does not support this attachment.", "error")
+                QBCore.Functions.Notify("Dette våben har intet i tilføjelser", "error")
             end
         end
     else
-        QBCore.Functions.Notify("'Du har intet våben i dine hænder..", "error")
+        QBCore.Functions.Notify("Du har intet våben i dine hænder..", "error")
     end
 end)
 
