@@ -556,18 +556,22 @@ end
 
 function TakeOutVehicle(vehicleInfo)
     local coords = Config.Locations["vehicle"][currentGarage]
-
-    QBCore.Functions.SpawnVehicle(vehicleInfo, function(veh)
-	SetCarItemsInfo()
-        SetVehicleNumberPlateText(veh, "PLZI"..tostring(math.random(1000, 9999)))
-        SetEntityHeading(veh, coords.w)
-        exports['LegacyFuel']:SetFuel(veh, 100.0)
-        closeMenuFull()
-        TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
-        TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
-        TriggerServerEvent("inventory:server:addTrunkItems", GetVehicleNumberPlateText(veh), Config.CarItems)
-        SetVehicleEngineOn(veh, true, true)
-    end, coords, true)
+    if coords then
+        QBCore.Functions.SpawnVehicle(vehicleInfo, function(veh)
+            SetCarItemsInfo()
+            SetVehicleNumberPlateText(veh, "PLZI"..tostring(math.random(1000, 9999)))
+            SetEntityHeading(veh, coords.w)
+            exports['LegacyFuel']:SetFuel(veh, 100.0)
+            closeMenuFull()
+            if Config.VehicleSettings[vehicleInfo] ~= nil then
+                QBCore.Shared.SetDefaultVehicleExtras(veh, Config.VehicleSettings[vehicleInfo].extras)
+            end
+            TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
+            TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+            TriggerServerEvent("inventory:server:addTrunkItems", QBCore.Functions.GetPlate(veh), Config.CarItems)
+            SetVehicleEngineOn(veh, true, true)
+        end, coords, true)
+    end
 end
 
 function closeMenuFull()
