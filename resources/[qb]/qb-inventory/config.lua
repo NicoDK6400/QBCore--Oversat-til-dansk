@@ -57,7 +57,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 22,
 			},
@@ -79,7 +79,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 30,
 		  },
@@ -101,7 +101,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 30,
 			},
@@ -138,7 +138,7 @@ Config.CraftingItems = {
 				amount = 52,
 			},
 			[3] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 40,
 			},
@@ -155,7 +155,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 10,
 			},
@@ -192,12 +192,12 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 36,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 24,
 			},
@@ -219,12 +219,12 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 32,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 43,
 			},
@@ -246,12 +246,12 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 50,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 37,
 			},
@@ -322,7 +322,7 @@ Config.CraftingItems = {
 				amount = 33,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 44,
 			},
@@ -354,7 +354,7 @@ Config.CraftingItems = {
 				amount = 50,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 50,
 			},
@@ -386,17 +386,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 140,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 250,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 60,
 			},
@@ -413,17 +413,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 165,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 285,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 75,
 			},
@@ -440,17 +440,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 190,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 305,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 85,
 			},
@@ -467,17 +467,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metal scrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 205,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 340,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 110,
 			},
@@ -494,17 +494,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 230,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 365,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 75,
 			},
@@ -521,17 +521,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 255,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 390,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 145,
 			},
@@ -548,17 +548,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 270,
 			},
 			[2] = {
-				label = 'steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 435,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 155,
 			},
@@ -580,17 +580,17 @@ Config.AttachmentCrafting = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Metalscrap',
+				label = 'Metal skrot',
 				itemname = 'metalscrap',
 				amount = 300,
 			},
 			[2] = {
-				label = 'Steel',
+				label = 'Stål',
 				itemname = 'steel',
 				amount = 469,
 			},
 			[3] = {
-				label = 'Rubber',
+				label = 'Gummi',
 				itemname = 'rubber',
 				amount = 170,
 			},
