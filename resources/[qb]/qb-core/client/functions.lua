@@ -15,6 +15,7 @@ Vores sider:
 ]]
 
 QBCore.Functions = {}
+Blips = Blips or {}
 QBCore.RequestId = 0
 
 -- Player
@@ -34,13 +35,15 @@ function QBCore.Functions.GetCoords(entity)
 end
 
 function QBCore.Functions.HasItem(item)
+    local p = promise.new()
     QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
         if result then
-            return true
+            p:resolve(true)
         end
-        return false
+        p:resolve(true)
     end, item)
-    return false
+
+    return Citizen.Await(p)
 end
 
 -- Utility
@@ -74,6 +77,66 @@ function QBCore.Functions.DrawText3D(x, y, z, text)
     local factor = (string.len(text)) / 370
     DrawRect(0.0, 0.0 + 0.0125, 0.017 + factor, 0.03, 0, 0, 0, 75)
     ClearDrawOrigin()
+end
+
+function QBCore.Functions.CreateBlip(id, data)
+    local blip = AddBlipForCoord(data.coords)
+
+    if data.sprite then SetBlipSprite(blip, data.sprite) end
+    if data.range then SetBlipAsShortRange(blip, data.range) else SetBlipAsShortRange(blip, true) end
+    if data.color then SetBlipColour(blip, data.color) end
+    if data.display then SetBlipDisplay(blip, data.display) end
+    if data.playername then SetBlipNameToPlayerName(blip, data.playername) end
+    if data.showcone then SetBlipShowCone(blip, data.showcone) end
+    if data.secondarycolor then SetBlipSecondaryColour(blip, data.secondarycolor) end
+    if data.friend then SetBlipFriend(blip, data.friend) end
+    if data.mission then SetBlipAsMissionCreatorBlip(blip, data.mission) end
+    if data.route then SetBlipRoute(blip, data.route) end
+    if data.friendly then SetBlipAsFriendly(blip, data.friendly) end
+    if data.routecolor then SetBlipRouteColour(blip, data.routecolor) end
+    if data.scale then SetBlipScale(blip, data.scale) else SetBlipScale(blip, 0.8) end
+
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString(data.name)
+    EndTextCommandSetBlipName(blip)
+
+    Blips[id] = {blip = blip, data = data}
+end
+
+function QBCore.Functions.RemoveBlip(id)
+    local blip = Blips[id]
+    if blip then RemoveBlip(blip.blip) end
+    Blips[id] = nil
+end
+
+function QBCore.Functions.HideBlip(id, toggle)
+    local blip = Blips[id]
+    if not blip then return end
+    if toggle then 
+        SetBlipAlpha(blip.blip, 0)
+        SetBlipHiddenOnLegend(blip.blip, true)
+    else
+        SetBlipAlpha(blip.blip, 255)
+        SetBlipHiddenOnLegend(blip.blip, false)
+    end
+end
+
+function QBCore.Functions.GetBlip(id)
+    local blip = Blips[id]
+    if not blip then return false end
+    return blip
+end
+    end
+end
+
+function QBCore.Functions.RequestAnimDict(animDict)
+	if not HasAnimDictLoaded(animDict) then
+		RequestAnimDict(animDict)
+
+		while not HasAnimDictLoaded(animDict) do
+			Wait(4)
+		end
+	end
 end
 
 RegisterNUICallback('getNotifyConfig', function(_, cb)
@@ -279,6 +342,44 @@ function QBCore.Functions.GetClosestObject(coords)
     return closestObject, closestDistance
 end
 
+function QBCore.Functions.GetClosestBone(entity, list)
+    local playerCoords, bone, coords, distance = GetEntityCoords(PlayerPedId())
+
+    for _, element in pairs(list) do
+        local boneCoords = GetWorldPositionOfEntityBone(entity, element.id or element)
+        local boneDistance = #(playerCoords - boneCoords)
+
+        if not coords then
+            bone, coords, distance = element, boneCoords, boneDistance
+        elseif distance > boneDistance then
+            bone, coords, distance = element, boneCoords, boneDistance
+        end
+    end
+
+    if not bone then
+        bone = {id = GetEntityBoneIndexByName(entity, "bodyshell"), type = "remains", name = "bodyshell"}
+        coords = GetWorldPositionOfEntityBone(entity, bone.id)
+        distance = #(coords - playerCoords)
+    end
+
+    return bone, coords, distance
+end
+
+function QBCore.Functions.GetBoneDistance(entity, Type, Bone)
+    local bone
+
+    if Type == 1 then
+        bone = GetPedBoneIndex(entity, Bone)
+    else
+        bone = GetEntityBoneIndexByName(entity, Bone)
+    end
+
+    local boneCoords = GetWorldPositionOfEntityBone(entity, bone)
+    local playerCoords = GetEntityCoords(PlayerPedId())
+
+    return #(boneCoords - playerCoords)
+end
+
 -- Vehicle
 
 function QBCore.Functions.SpawnVehicle(model, cb, coords, isnetworked)
@@ -295,7 +396,7 @@ function QBCore.Functions.SpawnVehicle(model, cb, coords, isnetworked)
     end
     RequestModel(model)
     while not HasModelLoaded(model) do
-        Wait(10)
+        Citizen.Wait(10)
     end
     local veh = CreateVehicle(model, coords.x, coords.y, coords.z, coords.w, isnetworked, false)
     local netid = NetworkGetNetworkIdFromEntity(veh)
@@ -325,6 +426,15 @@ function QBCore.Functions.GetVehicleProperties(vehicle)
         local pearlescentColor, wheelColor = GetVehicleExtraColours(vehicle)
         local extras = {}
 
+        if GetIsVehiclePrimaryColourCustom(vehicle) then
+            r, g, b = GetVehicleCustomPrimaryColour(vehicle)
+            colorPrimary = { r, g, b }
+        end
+
+        if GetIsVehicleSecondaryColourCustom(vehicle) then
+            r, g, b = GetVehicleCustomSecondaryColour(vehicle)
+            colorSecondary = { r, g, b }
+        end
         for extraId = 0, 12 do
             if DoesExtraExist(vehicle, extraId) then
                 local state = IsVehicleExtraTurnedOn(vehicle, extraId) == 1
@@ -442,10 +552,18 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
             SetVehicleDirtLevel(vehicle, props.dirtLevel + 0.0)
         end
         if props.color1 then
-            SetVehicleColours(vehicle, props.color1, colorSecondary)
+                        if type(props.color1) == "number" then
+                SetVehicleColours(vehicle, props.color1, colorSecondary)
+            else
+                SetVehicleCustomPrimaryColour(vehicle, props.color1[1], props.color1[2], props.color1[3])
+            end
         end
         if props.color2 then
-            SetVehicleColours(vehicle, props.color1 or colorPrimary, props.color2)
+            if type(props.color2) == "number" then
+                SetVehicleColours(vehicle, props.color1 or colorPrimary, props.color2)
+            else
+                SetVehicleCustomSecondaryColour(vehicle, props.color2[1], props.color2[2], props.color2[3])
+            end
         end
         if props.pearlescentColor then
             SetVehicleExtraColours(vehicle, props.pearlescentColor, wheelColor)

@@ -22,6 +22,7 @@ AddEventHandler('playerDropped', function()
         local Player = QBCore.Players[src]
         TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red', '**' .. GetPlayerName(src) .. '** (' .. Player.PlayerData.license .. ') left..')
         Player.Functions.Save()
+        _G.Player_Buckets[Player.PlayerData.license] = nil
         QBCore.Players[src] = nil
     end
 end)
@@ -109,7 +110,6 @@ RegisterNetEvent('QBCore:server:CloseServer', function(reason)
         local reason = reason or 'Intet grundlag givet'
         QBCore.Config.Server.closed = true
         QBCore.Config.Server.closedReason = reason
-        TriggerClientEvent('qbadmin:client:SetServerStatus', -1, true)
     else
         QBCore.Functions.Kick(src, 'Du har ikke permissions til dette..', nil, nil)
     end
@@ -119,7 +119,6 @@ RegisterNetEvent('QBCore:server:OpenServer', function()
     local src = source
     if QBCore.Functions.HasPermission(src, 'admin') or QBCore.Functions.HasPermission(src, 'god') then
         QBCore.Config.Server.closed = false
-        TriggerClientEvent('qbadmin:client:SetServerStatus', -1, false)
     else
         QBCore.Functions.Kick(src, 'Du har ikke permissions til dette..', nil, nil)
     end
