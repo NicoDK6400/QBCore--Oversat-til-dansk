@@ -590,6 +590,12 @@ function FormatItemInfo(itemData) {
                 itemData.info.worth +
                 "</span></p>"
             );
+        } else if (itemData.name == "visa" || itemData.name == "mastercard") {
+            $(".item-info-title").html('<p>'+itemData.label+'</p>')
+            var str = ""+ itemData.info.cardNumber + "";
+            var res = str.slice(12);
+            var cardNumber = "************" + res;
+            $(".item-info-description").html('<p><strong>Kortholder: </strong><span>' + itemData.info.name + '</span></p><p><strong>Borger ID: </strong><span>' + itemData.info.citizenid + '</span></p><p><strong>Kortnummer: </strong><span>' + cardNumber + '</span></p>');
         } else if (itemData.name == "labkey") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html("<p>Lab: " + itemData.info.lab + "</p>");
