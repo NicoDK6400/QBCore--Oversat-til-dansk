@@ -47,7 +47,7 @@ Config.VendingItem = {
 
 Config.CraftingItems = {
 	[1] = {
-		label = 'Lockpick',
+		label = 'Dirkesæt',
 		itemname = 'lockpick',
 		slot = 1,
 		amount = 50,
@@ -62,14 +62,14 @@ Config.CraftingItems = {
 				amount = 22,
 			},
 			[2] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 23,
 			},
 		},
 	},
 	[2] = {
-		label = 'Screwdriverset',
+		label = 'Skruetrækker sæt',
 		itemname = 'screwdriverset',
 		slot = 2,
 		amount = 50,
@@ -84,14 +84,14 @@ Config.CraftingItems = {
 				amount = 30,
 		  },
 			[2] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 42,
 			},
 		},
 	},
 	[3] = {
-		label = 'Electronickit',
+		label = 'Elektronik kit',
 		itemname = 'electronickit',
 		slot = 3,
 		amount = 50,
@@ -106,7 +106,7 @@ Config.CraftingItems = {
 				amount = 30,
 			},
 			[2] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 45,
 			},
@@ -133,7 +133,7 @@ Config.CraftingItems = {
 				amount = 2,
 			},
 			[2] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 52,
 			},
@@ -160,7 +160,7 @@ Config.CraftingItems = {
 				amount = 10,
 			},
 			[2] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 50,
 			},
@@ -170,7 +170,7 @@ Config.CraftingItems = {
 				amount = 30,
 			},
 			[4] = {
-				label = 'Iron',
+				label = 'Jern',
 				itemname = 'iron',
 				amount = 17,
 			},
@@ -182,7 +182,7 @@ Config.CraftingItems = {
 		},
 	},
 	[6] = {
-		label = 'Handcuffs',
+		label = 'Håndjern',
 		itemname = 'handcuffs',
 		slot = 6,
 		amount = 50,
@@ -209,7 +209,7 @@ Config.CraftingItems = {
 		},
 	},
 	[7] = {
-		label = 'Repairkit',
+		label = 'Reparationssæt',
 		itemname = 'repairkit',
 		slot = 7,
 		amount = 50,
@@ -229,7 +229,7 @@ Config.CraftingItems = {
 				amount = 43,
 			},
 			[3] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 61,
 			},
@@ -256,14 +256,14 @@ Config.CraftingItems = {
 				amount = 37,
 			},
 			[3] = {
-				label = 'Copper',
+				label = 'Kobber',
 				itemname = 'copper',
 				amount = 26,
 			},
 		},
 	},
 	[9] = {
-		label = 'Iron Oxide',
+		label = 'Jernoxid',
 		itemname = 'ironoxide',
 		slot = 9,
 		amount = 50,
@@ -273,7 +273,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Iron',
+				label = 'Jern',
 				itemname = 'iron',
 				amount = 60,
 			},
@@ -285,7 +285,7 @@ Config.CraftingItems = {
 		},
 	},
 	[10] = {
-		label = 'Aluminum Oxide',
+		label = 'Aluminiumoxid',
 		itemname = 'aluminumoxide',
 		slot = 10,
 		amount = 50,
@@ -317,7 +317,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Iron',
+				label = 'Jern',
 				itemname = 'iron',
 				amount = 33,
 			},
@@ -327,7 +327,7 @@ Config.CraftingItems = {
 				amount = 44,
 			},
 			[3] = {
-				label = 'Plastic',
+				label = 'Plastik',
 				itemname = 'plastic',
 				amount = 55,
 			},
@@ -339,7 +339,7 @@ Config.CraftingItems = {
 		},
 	},
 	[12] = {
-		label = 'Drill',
+		label = 'Boremaskine',
 		itemname = 'drill',
 		slot = 12,
 		amount = 50,
@@ -349,7 +349,7 @@ Config.CraftingItems = {
 		type = 'item',
 		costs = {
 			[1] = {
-				label = 'Iron',
+				label = 'Jern',
 				itemname = 'iron',
 				amount = 50,
 			},
@@ -359,12 +359,12 @@ Config.CraftingItems = {
 				amount = 50,
 			},
 			[3] = {
-				label = 'Screwdriverset',
+				label = 'Skruetrækker sæt',
 				itemname = 'screwdriverset',
 				amount = 3,
 			},
 			[4] = {
-				label = 'Advancedlockpick',
+				label = 'Avanceret dirkesæt',
 				itemname = 'advancedlockpick',
 				amount = 2,
 			},
