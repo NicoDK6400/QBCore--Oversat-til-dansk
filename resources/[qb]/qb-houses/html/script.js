@@ -39,11 +39,11 @@ $('document').ready(function() {
         if (item.type == "setupContract") {
             $("#welcome-name").html(item.firstname + " " + item.lastname)
             $("#property-adress").html(item.street)
-            $("#property-price").html("$ " + item.houseprice);
-            $("#property-brokerfee").html("$ " + item.brokerfee);
-            $("#property-bankfee").html("$ " + item.bankfee);
-            $("#property-taxes").html("$ " + item.taxes);
-            $("#property-totalprice").html("$ " + item.totalprice);
+            $("#property-price").html("DKK " + item.houseprice);
+            $("#property-brokerfee").html("DKK " + item.brokerfee);
+            $("#property-bankfee").html("DKK " + item.bankfee);
+            $("#property-taxes").html("DKK " + item.taxes);
+            $("#property-totalprice").html("DKK " + item.totalprice);
         }
 
         if (item.type == "openObjects") {
