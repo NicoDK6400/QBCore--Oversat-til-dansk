@@ -178,7 +178,7 @@ CREATE TABLE `permissions` (
   `permission` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `phone_gallery` (
+CREATE TABLE IF NOT EXISTS `phone_gallery` (
   `citizenid` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `date` timestamp NULL DEFAULT current_timestamp()
@@ -200,13 +200,19 @@ CREATE TABLE `phone_messages` (
   `messages` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `phone_tweets` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `phone_tweets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `citizenid` varchar(50) DEFAULT NULL,
-  `sender` varchar(50) DEFAULT NULL,
+  `firstName` varchar(25) DEFAULT NULL,
+  `lastName` varchar(25) DEFAULT NULL,
   `message` text DEFAULT NULL,
-  `date` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `date` datetime DEFAULT current_timestamp(),
+  `url` text DEFAULT NULL,
+  `picture` text DEFAULT './img/default.png',
+  `tweetId` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `citizenid` (`citizenid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 CREATE TABLE `players` (
   `id` int(11) NOT NULL,
