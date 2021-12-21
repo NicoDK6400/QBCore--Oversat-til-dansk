@@ -126,8 +126,6 @@ function QBCore.Functions.GetBlip(id)
     if not blip then return false end
     return blip
 end
-    end
-end
 
 function QBCore.Functions.RequestAnimDict(animDict)
 	if not HasAnimDictLoaded(animDict) then
