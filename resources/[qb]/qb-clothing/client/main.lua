@@ -790,7 +790,7 @@ end)
 
 RegisterNUICallback('setupCam', function(data)
     local value = data.value
-
+    local pedPos = GetEntityCoords(PlayerPedId())
     if value == 1 then
         local coords = GetCamCoord(cam)
 		camOffset = 0.75
