@@ -14,6 +14,8 @@ Vores sider:
   • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
 ]]
 
+local QBCore = exports['qb-core']:GetCoreObject()
+
 RegisterServerEvent('fuel:pay')
 AddEventHandler('fuel:pay', function(price, source)
 	local xPlayer = QBCore.Functions.GetPlayer(source)
