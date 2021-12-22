@@ -50,8 +50,6 @@ Config.Strings = {
 	NotEnoughCashJerryCan = "Du har ikke penge nok til at opfylde benzindunken",
 	JerryCanFull = "JerrtCan er fyldt",
 	TotalCost = "Pris",
-	PurchaseJerryCan = "Tryk ~g~E ~w~for at tage en benzindunken",
-	RefillJerryCan = "Tryk ~g~E ~w~ for at fylde benzindunken",
 }
 
 Config.PumpModels = {
