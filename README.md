@@ -13,12 +13,6 @@ Der er expoits i filerne som skal ordnes/kigges på. Videresalg, reupload eller 
 
 Hilsen FiveM.dk
 
-## Hosting
-Har du brug for et sted at hoste din nye QBCore server?  
-Vi har partnered op med DybHosting, DybHosting er en god og pålidelig host, som har været så søde at give os en rabatkode du kan bruge!  
-
-https://dybhosting.eu/ - Rabatkode: DKFiveM10
-
 ## Installation
 1. Download filerne, og placer dem hvor du vil have din server til at ligge.
 2. Importer qbcore.sql filen til en database navngivet efter dit valg.

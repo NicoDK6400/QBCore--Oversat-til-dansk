@@ -1,18 +1,3 @@
---[[
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-]]
 
 -- Configure the coordinates where the strippers should be placed.
 local strippers = {
@@ -74,7 +59,7 @@ Citizen.CreateThread(function()
     SetBlockingOfNonTemporaryEvents(bartender, true)
     SetPedCombatAttributes(bartender, 292, true)
     SetPedFleeAttributes(bartender, 0, 0)
-    SetPedRelationshipGroupHash(bartender, GetHashKey("CIVFEMALE"))
+    SetPedRelationshipGroupHash(bartender, GetHashKey("0x780C01BD"))
 
 
   -- Spawn the bouncers to the coordinates

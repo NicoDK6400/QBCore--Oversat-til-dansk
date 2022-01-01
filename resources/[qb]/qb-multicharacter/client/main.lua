@@ -1,18 +1,3 @@
---[[
- ______ _           __  __      _ _    
-|  ____(_)         |  \/  |    | | |   
-| |__   ___   _____| \  / |  __| | | __
-|  __| | \ \ / / _ \ |\/| | / _` | |/ /
-| |    | |\ V /  __/ |  | || (_| |   < 
-|_|    |_| \_/ \___|_|  |_(_)__,_|_|\_\
-
-Vores sider:
-  • Hjemmesiden: https://fivem.dk
-  • Patreon: https://patreon.com/dkfivem
-  • Facebook: https://facebook.com/dkfivem
-  • Discord: https://discord.gg/dkfivem
-  • DybHosting: https://dybhosting.eu/ - Rabatkode: dkfivem10
-]]
 
 local charPed = nil
 local QBCore = exports['qb-core']:GetCoreObject()
@@ -28,9 +13,9 @@ Citizen.CreateThread(function()
 end)
 
 Config = {
-    PedCoords = vector4(-813.97, 176.22, 76.74, -7.5), 
-    HiddenCoords = vector4(-812.23, 182.54, 76.74, 156.5), 
-    CamCoords = vector4(-813.46, 178.95, 76.85, 174.5) 
+    PedCoords = vector4(-813.97, 176.22, 76.74, -7.5),
+    HiddenCoords = vector4(-812.23, 182.54, 76.74, 156.5),
+    CamCoords = vector4(-813.46, 178.95, 76.85, 174.5)
 }
 
 --- CODE
