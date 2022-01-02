@@ -127,6 +127,7 @@ local function createTestDriveReturn()
 
     testDriveZone:onPlayerInOut(function(isPointInside)
         if isPointInside and IsPedInAnyVehicle(PlayerPedId()) then
+                SetVehicleForwardSpeed(GetVehiclePedIsIn(PlayerPedId(), false), 0)
             exports['qb-menu']:openMenu(returnTestDrive)
         else
             exports['qb-menu']:closeMenu()
