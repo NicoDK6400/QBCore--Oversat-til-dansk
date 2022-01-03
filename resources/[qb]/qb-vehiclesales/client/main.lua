@@ -5,7 +5,7 @@ local inRange
 local vehiclesSpawned = false
 local isConfirming = false
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         inRange = false
         local ped = PlayerPedId()
@@ -131,11 +131,11 @@ Citizen.CreateThread(function()
                     vehiclesSpawned = false
                     despawnOccasionsVehicles()
                 end
-                Citizen.Wait(1000)
+                Wait(1000)
             end
         end
 
-        Citizen.Wait(3)
+        Wait(3)
     end
 end)
 
@@ -156,31 +156,29 @@ end
 
 
 function SellToDealer(sellVehData, vehicleHash)
-    -- Thread to handle confirmation question. Will only run until a decision
-    -- is made of the distance to the checkpoint is too far
-    Citizen.CreateThread(function()
+    CreateThread(function()
         local keepGoing = true
         while keepGoing do
+            DisableControlAction(0, 38, true)
             local coords = GetEntityCoords(vehicleHash)
-            DrawText3Ds(coords.x, coords.y, coords.z + 1.6, '~g~7~w~ - Bekræft / ~r~8~w~ - Afbryd ~g~') -- (coords, text, size, font)
+            DrawText3Ds(coords.x, coords.y, coords.z + 1.6, '~g~Y~w~ - Bekræft / ~r~N~w~ - Afbryd ~g~') -- (coords, text, size, font)
 
-            if IsDisabledControlJustPressed(0, 161) then
+            if IsDisabledControlJustPressed(0, 246) then
                 TriggerServerEvent('qb-occasions:server:sellVehicleBack', sellVehData)
                 QBCore.Functions.DeleteVehicle(vehicleHash)
 
                 keepGoing = false
             end
 
-            if IsDisabledControlJustPressed(0, 162) then
+            if IsDisabledControlJustPressed(0, 306) then
                 keepGoing = false
             end
 
             if #(Config.SellVehicleBack - coords) > 3 then
                 keepGoing = false
             end
-            Citizen.Wait(0)
+            Wait(0)
         end
-
     end)
 end
 
@@ -193,7 +191,7 @@ function spawnOccasionsVehicles(vehicles)
             local model = GetHashKey(vehicles[i].model)
             RequestModel(model)
             while not HasModelLoaded(model) do
-                Citizen.Wait(0)
+                Wait(0)
             end
 
             oSlot[i]["occasionid"] = CreateVehicle(model, oSlot[i].loc.x, oSlot[i].loc.y, oSlot[i].loc.z, false, false)
@@ -274,7 +272,7 @@ AddEventHandler('qb-occasions:client:BuyFinished', function(vehdata)
     local vehmods = json.decode(vehdata.mods)
 
     DoScreenFadeOut(250)
-    Citizen.Wait(500)
+    Wait(500)
     QBCore.Functions.SpawnVehicle(vehdata.model, function(veh)
         SetVehicleNumberPlateText(veh, vehdata.plate)
         SetEntityHeading(veh, Config.BuyVehicle.w)
@@ -283,10 +281,10 @@ AddEventHandler('qb-occasions:client:BuyFinished', function(vehdata)
         QBCore.Functions.Notify("Køretøjet købt", "success", 2500)
         TriggerEvent("vehiclekeys:client:SetOwner", vehdata.plate)
         SetVehicleEngineOn(veh, true, true)
-        Citizen.Wait(500)
+        Wait(500)
         QBCore.Functions.SetVehicleProperties(veh, vehmods)
     end, Config.BuyVehicle, true)
-    Citizen.Wait(500)
+    Wait(500)
     DoScreenFadeIn(250)
     currentVehicle = nil
 end)
@@ -295,7 +293,7 @@ RegisterNetEvent('qb-occasions:client:ReturnOwnedVehicle')
 AddEventHandler('qb-occasions:client:ReturnOwnedVehicle', function(vehdata)
     local vehmods = json.decode(vehdata.mods)
     DoScreenFadeOut(250)
-    Citizen.Wait(500)
+    Wait(500)
     QBCore.Functions.SpawnVehicle(vehdata.model, function(veh)
         SetVehicleNumberPlateText(veh, vehdata.plate)
         SetEntityHeading(veh, Config.BuyVehicle.w)
@@ -304,10 +302,10 @@ AddEventHandler('qb-occasions:client:ReturnOwnedVehicle', function(vehdata)
         QBCore.Functions.Notify("Dit køretøj er tilbage")
         TriggerEvent("vehiclekeys:client:SetOwner", vehdata.plate)
         SetVehicleEngineOn(veh, true, true)
-        Citizen.Wait(500)
+        Wait(500)
         QBCore.Functions.SetVehicleProperties(veh, vehmods)
     end, Config.BuyVehicle, true)
-    Citizen.Wait(500)
+    Wait(500)
     DoScreenFadeIn(250)
     currentVehicle = nil
 end)
@@ -334,9 +332,9 @@ end
 
 function sellVehicleWait(price)
     DoScreenFadeOut(250)
-    Citizen.Wait(250)
+    Wait(250)
     QBCore.Functions.DeleteVehicle(GetVehiclePedIsIn(PlayerPedId()))
-    Citizen.Wait(1500)
+    Wait(1500)
     DoScreenFadeIn(250)
     QBCore.Functions.Notify('Dit køretøj er sat til salg! Pris - '..price..' DKK', 'success')
     PlaySound(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", 0, 0, 1)
@@ -353,7 +351,7 @@ AddEventHandler('qb-occasion:client:refreshVehicles', function()
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     OccasionBlip = AddBlipForCoord(Config.SellVehicle.x, Config.SellVehicle.y, Config.SellVehicle.z)
 
     SetBlipSprite (OccasionBlip, 326)
