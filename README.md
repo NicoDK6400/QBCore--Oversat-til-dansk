@@ -35,5 +35,5 @@ Har ud nogen problemer med disse scripts, fejl, problemer med opsætning eller a
 ## Credits
 - https://github.com/qbcore-framework (Framework)
 
-Translation - NicoDK6400#0001 | Graphics addon - Momsey#6161 | Changes and updates NicoDK6400#0001 & Walter#9999 | FiveM Defender - Ezague#6012
+Translation - NicoDK6400#0001 | Graphics addon - Momsey#6161 | Changes and updates NicoDK6400#0001 & Walter#9999 | FiveM Defender - Ezague#6012 |
 Contributers - ZnowY, Mohr and M1raculous
