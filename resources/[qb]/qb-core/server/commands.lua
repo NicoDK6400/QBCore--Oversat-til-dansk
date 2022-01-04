@@ -193,7 +193,7 @@ QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
 end, 'user')
 
 -- Me command
-QBCore.Commands.Add('me', 'Vis en lokal handling-', {{name = 'message', help = 'Meddelse at svare med'}}, false, function(source, args)
+QBCore.Commands.Add('me', 'Vis en lokal handling', {{name = 'message', help = 'Meddelse at svare med'}}, false, function(source, args)
     local src = source
     local ped = GetPlayerPed(src)
     local pCoords = GetEntityCoords(ped)
