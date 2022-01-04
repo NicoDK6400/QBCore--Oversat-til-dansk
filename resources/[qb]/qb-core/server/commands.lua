@@ -193,17 +193,17 @@ QBCore.Commands.Add('ooc', 'OOC Chat besked', {}, false, function(source, args)
 end, 'user')
 
 -- Me command
-QBCore.Commands.Add('me', 'Skriv dine me handlinger', {name = 'message', help = 'Din besked'}, false, function(source, args)
+QBCore.Commands.Add('me', 'Vis en lokal handling-', {{name = 'message', help = 'Meddelse at svare med'}}, false, function(source, args)
     local src = source
     local ped = GetPlayerPed(src)
     local pCoords = GetEntityCoords(ped)
-    local msg = table.concat(args, " ")
-    if msg == "" then return end
+    local msg = table.concat(args, ' ')
+    if msg == '' then return end
     for k,v in pairs(QBCore.Functions.GetPlayers()) do
         local target = GetPlayerPed(v)
         local tCoords = GetEntityCoords(target)
         if #(pCoords - tCoords) < 20 then
-            TriggerClientEvent("QBCore:Command:ShowMe3D", v, src, msg)
+            TriggerClientEvent('QBCore:Command:ShowMe3D', v, src, msg)
         end
     end
-end, "user")
+end, 'user')
