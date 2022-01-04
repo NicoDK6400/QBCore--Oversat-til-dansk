@@ -15,7 +15,7 @@ Har ud nogen problemer med disse scripts, fejl, problemer med opsætning eller a
 - PMA Voice (bygget på MumbleVOIP, bare opdateret)
 
 ## Installation
-1. Download filerne, og placer dem hvor du vil have din server til at ligge.
+1. Download filerne, og placer dem hvor du vil have din server mappe til at ligge, vigtigt er dog at det er på et C drev.
 2. Opret en database med navn "qbcore", importer derefter qbcore.sql filen til databasen "qbcore".
 3. Rediger server.cfg filen, du skal indsætte din egen license key ved "sv_licenseKey" (Den får du fra https://keymaster.fivem.net/), og du skal indsætte din Steam API key (https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey). Her kan du også ændre dit server navn & beskrivelse ved sv_projectName og sv_projectDesc.
 4. Husk at tilføje dine webhooks! Du kan finde de fleste i qb-logs og et vigtigt webhook skal tilføjes i qb-phone/server/main.lua linje 11, ellers virker billeder ikke på mobilen!
