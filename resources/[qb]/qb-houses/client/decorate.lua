@@ -228,7 +228,7 @@ RegisterNetEvent('qb-houses:client:decorate', function()
 			QBCore.Functions.Notify("Du skal have nøglen på dig for at kunne tilgå boligen!", "error")
 		end
 	else
-		QBCore.Functions.Notify("Du er ikke i en nolig!", "error")
+		QBCore.Functions.Notify("Du er ikke i en bolig!", "error")
 	end
 end)
 
