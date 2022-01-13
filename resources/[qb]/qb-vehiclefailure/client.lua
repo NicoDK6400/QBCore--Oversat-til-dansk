@@ -179,7 +179,7 @@ local function isPedDrivingAVehicle()
 		if GetPedInVehicleSeat(vehicle, -1) == ped then
 			local class = GetVehicleClass(vehicle)
 			-- We don't want planes, helicopters, bicycles and trains
-			if class ~= 21 and class ~= 13 then
+			if class ~= 15 and class ~= 16 and class ~=21 and class ~=13 then
 				return true
 			end
 		end
