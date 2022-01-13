@@ -1,8 +1,5 @@
 
 local disableShuffle = true
-function disableSeatShuffle(flag)
-	disableShuffle = flag
-end
 
 CreateThread(function()
     while true do
@@ -20,12 +17,13 @@ CreateThread(function()
     end
 end)
 
-RegisterNetEvent("SeatShuffle")
-AddEventHandler("SeatShuffle", function()
-	if IsPedInAnyVehicle(PlayerPedId(), false) then
-		disableSeatShuffle(false)
-		Wait(5000)
-		disableSeatShuffle(true)
+RegisterNetEvent('SeatShuffle', function()
+local ped = PlayerPedId()
+if IsPedInAnyVehicle(ped, false) then
+    disableShuffle = false
+    SetPedConfigFlag(ped, 184, false)
+    Wait(3000)
+    disableShuffle = true
 	else
 		CancelEvent()
 	end
