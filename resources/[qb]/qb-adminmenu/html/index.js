@@ -1,3 +1,5 @@
+
+
 const copyToClipboard = str => {
     const el = document.createElement('textarea');
     el.value = str;

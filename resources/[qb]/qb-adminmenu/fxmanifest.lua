@@ -1,3 +1,4 @@
+
 fx_version 'cerulean'
 game 'gta5'
 
@@ -5,11 +6,6 @@ description 'QB-AdminMenu'
 version '1.0.0'
 
 ui_page 'html/index.html'
-
-shared_scripts {
-    '@qb-core/shared/locale.lua',
-    'locales/da.lua', -- Change to the language you want
-}
 
 client_scripts {
     '@menuv/menuv.lua',
@@ -19,16 +15,18 @@ client_scripts {
     'client/events.lua'
 }
 
-server_scripts {
-    '@oxmysql/lib/MySQL.lua',
-    'server/server.lua'
-}
+server_script 'server/server.lua'
 
 files { -- Credits to https://github.com/LVRP-BEN/bl_coords for clipboard copy method
     'html/index.html',
     'html/index.js'
 }
 
-dependency 'menuv'
+--dependency 'menuv'
+
+dependencies {
+  'qb-core',
+  'menuv'
+}
 
 lua54 'yes'
