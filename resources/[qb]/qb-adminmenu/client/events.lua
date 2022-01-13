@@ -1,4 +1,3 @@
-
 -- Variables
 
 local blockedPeds = {
@@ -50,7 +49,7 @@ RegisterNetEvent('qb-admin:client:SendReport', function(name, src, msg)
 end)
 
 RegisterNetEvent('qb-admin:client:SendStaffChat', function(name, msg)
-    TriggerServerEvent('qb-admin:server:StaffChatMessage', name, msg)
+    TriggerServerEvent('qb-admin:server:Staffchat:addMessage', name, msg)
 end)
 
 RegisterNetEvent('qb-admin:client:SaveCar', function()
@@ -65,17 +64,17 @@ RegisterNetEvent('qb-admin:client:SaveCar', function()
         if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
             TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], GetHashKey(veh), plate)
         else
-            QBCore.Functions.Notify('Du kan ikke gemme dette køretøj i din garage..', 'error')
+            QBCore.Functions.Notify(Lang:t("error.no_store_vehicle_garage"), 'error')
         end
     else
-        QBCore.Functions.Notify('Du er ikke i et køretøj..', 'error')
+        QBCore.Functions.Notify(Lang:t("error.no_vehicle"), 'error')
     end
 end)
 
 local function LoadPlayerModel(skin)
     RequestModel(skin)
     while not HasModelLoaded(skin) do
-      Citizen.Wait(0)
+      Wait(0)
     end
 end
 
@@ -123,14 +122,14 @@ RegisterNetEvent('qb-weapons:client:SetWeaponAmmoManual', function(weapon, ammo)
     if weapon ~= "current" then
         local weapon = weapon:upper()
         SetPedAmmo(ped, GetHashKey(weapon), ammo)
-        QBCore.Functions.Notify('+'..ammo..' Ammo til '..QBCore.Shared.Weapons[GetHashKey(weapon)]["label"], 'success')
+        QBCore.Functions.Notify(Lang:t("info.ammoforthe", {value = ammo, weapon = QBCore.Shared.Weapons[weapon]["label"]}), 'success')
     else
         local weapon = GetSelectedPedWeapon(ped)
         if weapon ~= nil then
             SetPedAmmo(ped, weapon, ammo)
-            QBCore.Functions.Notify('+'..ammo..' Ammo til '..QBCore.Shared.Weapons[weapon]["label"], 'success')
+            QBCore.Functions.Notify(Lang:t("info.ammoforthe", {value = ammo, weapon = QBCore.Shared.Weapons[weapon]["label"]}), 'success')
         else
-            QBCore.Functions.Notify('Du har intet våben i hænderne..', 'error')
+            QBCore.Functions.Notify(Lang:t("error.no_weapon"), 'error')
         end
     end
 end)
