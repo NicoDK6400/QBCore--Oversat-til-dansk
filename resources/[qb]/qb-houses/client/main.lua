@@ -395,7 +395,7 @@ local function optionMenu(citizenData)
         {
             header = "Fjern nøgle",
             params = {
-                events = "qb-houses:client:RevokeKey",
+                event = "qb-houses:client:RevokeKey",
                 args = {
                     citizenData = citizenData
                 }
@@ -704,7 +704,6 @@ RegisterNetEvent('qb-houses:client:RequestRing', function()
 end)
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
-    TriggerServerEvent('qb-houses:client:setHouses')
     SetClosestHouse()
     TriggerEvent('qb-houses:client:setupHouseBlips')
     if Config.UnownedBlips then TriggerEvent('qb-houses:client:setupHouseBlips2') end
@@ -1009,6 +1008,7 @@ RegisterNetEvent('qb-houses:client:HomeInvasion', function()
                                     TriggerServerEvent('qb-houses:server:lockHouse', false, ClosestHouse)
                                     QBCore.Functions.Notify('Det virkede, døren er brudt!', 'success')
                                     TriggerServerEvent('qb-houses:server:SetHouseRammed', true, ClosestHouse)
+                                    TriggerServerEvent('qb-houses:server:SetRamState', false, ClosestHouse)
                                     DoRamAnimation(false)
                                 else
                                     DoRamAnimation(true)
@@ -1163,7 +1163,6 @@ end)
 
 CreateThread(function()
     Wait(1000)
-    TriggerServerEvent('qb-houses:client:setHouses')
     SetClosestHouse()
     TriggerEvent('qb-houses:client:setupHouseBlips')
     if Config.UnownedBlips then TriggerEvent('qb-houses:client:setupHouseBlips2') end
@@ -1185,20 +1184,17 @@ end)
 
 CreateThread(function()
     local shownMenu = false
-
     while true do
         local pos = GetEntityCoords(PlayerPedId())
         local inRange = false
         local nearLocation = false
         local houseMenu = {}
-
         if ClosestHouse ~= nil then
             local dist2 = vector3(Config.Houses[ClosestHouse].coords.enter.x, Config.Houses[ClosestHouse].coords.enter.y, Config.Houses[ClosestHouse].coords.enter.z)
             if #(pos.xy - dist2.xy) < 30 then
                 inRange = true
                 if HasHouseKey then
                     -- ENTER HOUSE
-
                     if not IsInside then
                         if ClosestHouse ~= nil then
                             if #(pos - dist2) <= 1.5 then
@@ -1292,27 +1288,45 @@ CreateThread(function()
                                         }
                                     }
                                 }
+                                if not Config.Houses[ClosestHouse].locked then
+                                    houseMenu[#houseMenu+1] ={
+                                        header = "Tilgå ulåst bolig",
+                                        params = {
+                                            event = "qb-houses:client:EnterHouse",
+                                        }
+                                    }
+                                    if QBCore.Functions.GetPlayerData().job.name == 'police' then
+                                        houseMenu[#houseMenu+1] ={
+                                            header = "Lås bolig",
+                                            params = {
+                                                event = "qb-houses:client:ResetHouse",
+                                            }
+                                        }
+                                    end
+                                end
+                            end
+                        end
+                    end
+
+                    if IsInside and CurrentHouse ~= nil and not entering then
+                        if POIOffsets ~= nil then
+                            local exitOffset = vector3(Config.Houses[CurrentHouse].coords.enter.x + POIOffsets.exit.x, Config.Houses[CurrentHouse].coords.enter.y + POIOffsets.exit.y, Config.Houses[CurrentHouse].coords.enter.z - Config.MinZOffset + POIOffsets.exit.z + 1.0)
+                            if #(pos - exitOffset) <= 1.5 then
+                                houseMenu = {
+                                    {
+                                        header = "Forlad bolig",
+                                        params = {
+                                            event = 'qb-houses:client:ExitOwnedHouse',
+                                            args = {}
+                                        }
+                                    }
+                                }
+                                nearLocation = true
                             end
                         end
                     end
                 end
-                if IsInside and CurrentHouse ~= nil and not entering then
-                    if POIOffsets ~= nil then
-                        local exitOffset = vector3(Config.Houses[CurrentHouse].coords.enter.x + POIOffsets.exit.x, Config.Houses[CurrentHouse].coords.enter.y + POIOffsets.exit.y, Config.Houses[CurrentHouse].coords.enter.z - Config.MinZOffset + POIOffsets.exit.z + 1.0)
-                        if #(pos - exitOffset) <= 1.5 then
-                            houseMenu = {
-                                {
-                                    header = "Forlad bolig",
-                                    params = {
-                                        event = 'qb-houses:client:ExitOwnedHouse',
-                                        args = {}
-                                    }
-                                }
-                            }
-                            nearLocation = true
-                        end
-                    end
-                end
+
                 if IsInside and CurrentHouse ~= nil and not entering and isOwned then
                     if stashLocation ~= nil then
                         if #(pos - vector3(stashLocation.x, stashLocation.y, stashLocation.z)) <= 1.5 then
