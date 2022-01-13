@@ -161,7 +161,7 @@ RegisterNetEvent('QBCore:ToggleDuty', function()
         TriggerClientEvent('QBCore:Notify', src, 'Du er gået af arbejde!')
     else
         Player.Functions.SetJobDuty(true)
-        TriggerClientEvent('QBCore:Notify', src, 'Du er gået på arbejde, go´ arbejdslyst!')
+        TriggerClientEvent('QBCore:Notify', src, 'Du er gået på arbejde, god arbejdslyst!')
     end
     TriggerClientEvent('QBCore:Client:SetDuty', src, Player.PlayerData.job.onduty)
 end)

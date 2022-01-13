@@ -1,6 +1,5 @@
 
 QBCore.Functions = {}
-Blips = Blips or {}
 QBCore.RequestId = 0
 
 -- Player
@@ -64,52 +63,21 @@ function QBCore.Functions.DrawText3D(x, y, z, text)
     ClearDrawOrigin()
 end
 
-function QBCore.Functions.CreateBlip(id, data)
-    local blip = AddBlipForCoord(data.coords)
-
-    if data.sprite then SetBlipSprite(blip, data.sprite) end
-    if data.range then SetBlipAsShortRange(blip, data.range) else SetBlipAsShortRange(blip, true) end
-    if data.color then SetBlipColour(blip, data.color) end
-    if data.display then SetBlipDisplay(blip, data.display) end
-    if data.playername then SetBlipNameToPlayerName(blip, data.playername) end
-    if data.showcone then SetBlipShowCone(blip, data.showcone) end
-    if data.secondarycolor then SetBlipSecondaryColour(blip, data.secondarycolor) end
-    if data.friend then SetBlipFriend(blip, data.friend) end
-    if data.mission then SetBlipAsMissionCreatorBlip(blip, data.mission) end
-    if data.route then SetBlipRoute(blip, data.route) end
-    if data.friendly then SetBlipAsFriendly(blip, data.friendly) end
-    if data.routecolor then SetBlipRouteColour(blip, data.routecolor) end
-    if data.scale then SetBlipScale(blip, data.scale) else SetBlipScale(blip, 0.8) end
-
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString(data.name)
-    EndTextCommandSetBlipName(blip)
-
-    Blips[id] = {blip = blip, data = data}
-end
-
-function QBCore.Functions.RemoveBlip(id)
-    local blip = Blips[id]
-    if blip then RemoveBlip(blip.blip) end
-    Blips[id] = nil
-end
-
-function QBCore.Functions.HideBlip(id, toggle)
-    local blip = Blips[id]
-    if not blip then return end
-    if toggle then 
-        SetBlipAlpha(blip.blip, 0)
-        SetBlipHiddenOnLegend(blip.blip, true)
+function QBCore.Functions.CreateBlip(coords, sprite, display, scale, colour, shortRange, title)
+    if not coords or not sprite or not display or not scale or not colour or shortRange == nil or not title then 
+        print("Blip failed to create, most likely missed a setting, debug log: ")
+        print("Coords: " .. coords .. " Sprite: " .. sprite .. " Display: " .. display .. " scale: " .. scale .. " shortRange: " .. shortRange .. " Title: " .. title .. " if you're attempting to use a blip without a title, use an empty string.")
     else
-        SetBlipAlpha(blip.blip, 255)
-        SetBlipHiddenOnLegend(blip.blip, false)
+        blip = AddBlipForCoord(coords)
+        SetBlipSprite(blip, sprite)
+        SetBlipDisplay(blip, display)
+        SetBlipScale(blip, scale)
+        SetBlipColour(blip, colour)
+        SetBlipAsShortRange(blip, shortRange)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentString(title)
+        EndTextCommandSetBlipName(blip)
     end
-end
-
-function QBCore.Functions.GetBlip(id)
-    local blip = Blips[id]
-    if not blip then return false end
-    return blip
 end
 
 function QBCore.Functions.RequestAnimDict(animDict)
@@ -119,6 +87,13 @@ function QBCore.Functions.RequestAnimDict(animDict)
 		while not HasAnimDictLoaded(animDict) do
 			Wait(4)
 		end
+	end
+end
+
+function QBCore.Functions.LoadModel(ModelName)
+	RequestModel(ModelName)
+	while not HasModelLoaded(ModelName) do
+		Wait(100)
 	end
 end
 
@@ -235,6 +210,22 @@ function QBCore.Functions.GetClosestPed(coords, ignoreList)
         end
     end
     return closestPed, closestDistance
+end
+
+function QBCore.Functions.IsWearingGloves()
+    local armIndex = GetPedDrawableVariation(PlayerPedId(), 3)
+    local model = GetEntityModel(PlayerPedId())
+    local retval = true
+    if model == `mp_m_freemode_01` then
+        if QBCore.Shared.MaleNoGloves[armIndex] ~= nil and QBCore.Shared.MaleNoGloves[armIndex] then
+            retval = false
+        end
+    else
+        if QBCore.Shared.FemaleNoGloves[armIndex] ~= nil and QBCore.Shared.FemaleNoGloves[armIndex] then
+            retval = false
+        end
+    end
+    return retval
 end
 
 function QBCore.Functions.GetClosestPlayer(coords)
@@ -361,6 +352,19 @@ function QBCore.Functions.GetBoneDistance(entity, Type, Bone)
     local playerCoords = GetEntityCoords(PlayerPedId())
 
     return #(boneCoords - playerCoords)
+end
+
+function QBCore.Functions.AttachProp(ped, model, boneId, x, y, z, xR, yR, zR, Vertex)
+    local modelHash = GetHashKey(model)
+    local bone = GetPedBoneIndex(ped, boneId)
+    RequestModel(modelHash)
+    while not HasModelLoaded(modelHash) do
+        Wait(0)
+    end
+    local prop = CreateObject(modelHash, 1.0, 1.0, 1.0, 1, 1, 0)
+    AttachEntityToEntity(prop, ped, bone, x, y, z, xR, yR, zR, 1, 1, 0, 1, not Vertex and 2 or 0, 1)
+    SetModelAsNoLongerNeeded(modelHash)
+    return prop
 end
 
 -- Vehicle
@@ -747,4 +751,80 @@ function QBCore.Functions.SetVehicleProperties(vehicle, props)
             SetVehicleLivery(vehicle, props.modLivery)
         end
     end
+end
+
+function QBCore.Functions.LoadParticleDictionary(dictionary)
+    if not HasNamedPtfxAssetLoaded(dictionary) then
+        RequestNamedPtfxAsset(dictionary)
+        while not HasNamedPtfxAssetLoaded(dictionary) do
+            Wait(0)
+        end
+    end
+end
+
+function QBCore.Functions.StartParticleAtCoord(Dict, ptName, looped, coords, rot, scale, alpha, color, duration)
+    QBCore.Functions.LoadParticleDictionary(Dict)
+    UseParticleFxAssetNextCall(Dict)
+    SetPtfxAssetNextCall(Dict)
+    local particleHandle
+    if looped then
+        particleHandle = StartParticleFxLoopedAtCoord(ptName, coords.x, coords.y, coords.z, rot.x, rot.y, rot.z, scale or 1.0)
+        if color then
+            SetParticleFxLoopedColour(particleHandle, color.r, color.g, color.b, false)
+        end
+        SetParticleFxLoopedAlpha(particleHandle, alpha or 10.0)
+        if duration then
+            Wait(duration)
+            StopParticleFxLooped(particleHandle, 0)
+        end
+    else
+        SetParticleFxNonLoopedAlpha(alpha or 10.0)
+        if color then
+            SetParticleFxNonLoopedColour(color.r, color.g, color.b)
+        end
+        StartParticleFxNonLoopedAtCoord(ptName, coords.x, coords.y, coords.z, rot.x, rot.y, rot.z, scale or 1.0)
+    end
+
+    return particleHandle
+end
+
+function QBCore.Functions.StartParticleOnEntity(Dict, ptName, looped, entity, bone, offset, rot, scale, alpha, color, evolution, duration)
+    QBCore.Functions.LoadParticleDictionary(Dict)
+    UseParticleFxAssetNextCall(Dict)
+    local particleHandle, boneID
+    if bone and GetEntityType(entity) == 1 then
+        boneID = GetPedBoneIndex(entity, bone)
+    elseif bone then
+        boneID = GetEntityBoneIndexByName(entity, bone)
+    end
+    if looped then
+        if bone then
+            particleHandle = StartParticleFxLoopedOnEntityBone(ptName, entity, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneID, scale)
+        else
+            particleHandle = StartParticleFxLoopedOnEntity(ptName, entity, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, scale)
+        end
+        if evolution then
+            SetParticleFxLoopedEvolution(particleHandle, evolution.name, evolution.amount, false)
+        end
+        if color then
+            SetParticleFxLoopedColour(particleHandle, color.r, color.g, color.b, false)
+        end
+        SetParticleFxLoopedAlpha(particleHandle, alpha)
+        if duration then
+            Wait(duration)
+            StopParticleFxLooped(particleHandle, 0)
+        end
+    else
+        SetParticleFxNonLoopedAlpha(alpha or 10.0)
+        if color then
+            SetParticleFxNonLoopedColour(color.r, color.g, color.b)
+        end
+        if bone then
+            StartParticleFxNonLoopedOnPedBone(ptName, entity, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneID, scale)
+        else
+            StartParticleFxNonLoopedOnEntity(ptName, entity, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, scale)
+        end
+    end
+
+    return particleHandle
 end
