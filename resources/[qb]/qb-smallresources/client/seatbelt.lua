@@ -55,6 +55,7 @@ AddEventHandler('seatbelt:client:UseHarness', function(ItemData)
             end)
             harnessHp = ItemData.info.uses
             harnessData = ItemData
+            TriggerEvent('hud:client:UpdateHarness', harnessHp)
         else
             LocalPlayer.state:set("inv_busy", true, true)
             QBCore.Functions.Progressbar("harness_equip", "Fjerner raceseler...", 5000, false, true, {

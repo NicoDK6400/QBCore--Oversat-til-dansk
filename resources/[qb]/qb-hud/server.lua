@@ -15,6 +15,14 @@ QBCore.Commands.Add('bank', 'Ser din bankkonto', {}, false, function(source, arg
 	TriggerClientEvent('hud:client:ShowAccounts', source, 'bank', bankamount)
 end)
 
+QBCore.Commands.Add("dev", "Enable/Disable developer Mode", {}, false, function(source, args)
+    if QBCore.Functions.HasPermission(source, 'admin') then
+	    TriggerClientEvent("qb-admin:client:ToggleDevmode", source)
+    else
+        TriggerClientEvent('QBCore:Notify', source, 'Adgang nægtet!', 'error')
+    end
+end)
+
 RegisterNetEvent('hud:server:GainStress', function(amount)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -60,4 +68,17 @@ RegisterNetEvent('hud:server:RelieveStress', function(amount)
         TriggerClientEvent('hud:client:UpdateStress', src, newStress)
         TriggerClientEvent('QBCore:Notify', src, 'Du slapper af')
 	end
+end)
+
+QBCore.Functions.CreateCallback('hud:server:HasHarness', function(source, cb)
+    local Ply = QBCore.Functions.GetPlayer(source)
+    local Harness = Ply.Functions.GetItemByName("harness")
+    if Harness ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+QBCore.Functions.CreateCallback('hud:server:getMenu', function(source, cb)
+    cb(Config.Menu)
 end)
