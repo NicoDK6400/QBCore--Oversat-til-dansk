@@ -281,10 +281,10 @@ function QBCore.Functions.IsWhitelisted(source)
     local plicense = QBCore.Functions.GetIdentifier(src, 'license')
     local identifiers = GetPlayerIdentifiers(src)
     if QBCore.Config.Server.whitelist then
-        local result = exports.oxmysql:executeSync('SELECT * FROM whitelist WHERE license = ?', { plicense })
-        if result[1] then
+        local result = MySQL.Sync.fetchSingle('SELECT * FROM whitelist WHERE license = ?', { plicense })
+        if result then
             for _, id in pairs(identifiers) do
-                if result[1].license == id then
+                if result.license == id then
                     return true
                 end
             end
@@ -393,7 +393,7 @@ function QBCore.Functions.IsPlayerBanned(source)
         if os.time() < result[1].expire then
             retval = true
             local timeTable = os.date('*t', tonumber(result.expire))
-            message = 'You have been banned from the server:\n' .. result[1].reason .. '\nYour ban expires ' .. timeTable.day .. '/' .. timeTable.month .. '/' .. timeTable.year .. ' ' .. timeTable.hour .. ':' .. timeTable.min .. '\n'
+            message = 'Du har modtaget en ban fra denne server:\n' .. result[1].reason .. '\nDit ban udløber om ' .. timeTable.day .. '/' .. timeTable.month .. '/' .. timeTable.year .. ' ' .. timeTable.hour .. ':' .. timeTable.min .. '\n'
         else
             exports.oxmysql:execute('DELETE FROM bans WHERE id = ?', { result[1].id })
         end
