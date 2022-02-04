@@ -13,7 +13,7 @@ Config.MarkerData = {
 }
 
 Config.FishingRestaurant = {
-    ["name"] = "La Spada fikse restaurant",
+    ["name"] = "La Spada fiske restaurant",
     ["blip"] = {
         ["sprite"] = 628,
         ["color"] = 3
