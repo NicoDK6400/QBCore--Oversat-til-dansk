@@ -64,7 +64,7 @@ RegisterNetEvent('hud:server:RelieveStress', function(amount)
     end
     Player.Functions.SetMetaData('stress', newStress)
     TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-    TTriggerClientEvent('QBCore:Notify', src, 'Du slapper af')
+    TriggerClientEvent('QBCore:Notify', src, 'Du slapper af')
 end)
 
 QBCore.Functions.CreateCallback('hud:server:getMenu', function(source, cb)
