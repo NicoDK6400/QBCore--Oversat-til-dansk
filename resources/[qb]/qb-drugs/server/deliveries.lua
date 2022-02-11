@@ -155,7 +155,7 @@ QBCore.Commands.Add("deletedealer", "Fjern dealer (Kun Admin)", {{
 }}, true, function(source, args)
     local dealerName = args[1]
     local result = exports.oxmysql:executeSync('SELECT * FROM dealers WHERE name = ?', {dealerName})
-    if result[1] ~= nil then
+    if result then
         exports.oxmysql:execute('DELETE FROM dealers WHERE name = ?', {dealerName})
         Config.Dealers[dealerName] = nil
         TriggerClientEvent('qb-drugs:client:RefreshDealers', -1, Config.Dealers)
