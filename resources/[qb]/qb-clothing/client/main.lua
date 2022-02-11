@@ -437,7 +437,7 @@ Citizen.CreateThread(function()
                                     if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then gender = "female" end
                                     QBCore.Functions.TriggerCallback('qb-clothing:server:getOutfits', function(result)
                                         openMenu({
-                                            {menu = "roomOutfits", label = "Indstillinger", selected = true, outfits = Config.Outfits[PlayerData.job.name][gender]},
+                                            {menu = "roomOutfits", label = "Indstillinger", selected = true, outfits = Config.Outfits[PlayerData.job.name][gender][PlayerData.job.grade.level]},
                                             {menu = "myOutfits", label = "Mine outfits", selected = false, outfits = result},
                                             {menu = "character", label = "Tøj", selected = false},
                                             {menu = "accessoires", label = "Tilbehør", selected = false}
@@ -453,7 +453,7 @@ Citizen.CreateThread(function()
                                         if QBCore.Functions.GetPlayerData().charinfo.gender == 1 then gender = "female" end
                                         QBCore.Functions.TriggerCallback('qb-clothing:server:getOutfits', function(result)
                                             openMenu({
-                                                {menu = "roomOutfits", label = "Indstillinger", selected = true, outfits = Config.Outfits[PlayerData.gang.name][gender]},
+                                                {menu = "roomOutfits", label = "Indstillinger", selected = true, outfits = Config.Outfits[PlayerData.gang.name][gender][PlayerData.gang.grade.level]},
                                                 {menu = "myOutfits", label = "Mine outfits", selected = false, outfits = result},
                                                 {menu = "character", label = "Tøj", selected = false},
                                                 {menu = "accessoires", label = "Tilbehør", selected = false}
