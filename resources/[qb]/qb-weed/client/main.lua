@@ -1,6 +1,5 @@
 
 local QBCore = exports['qb-core']:GetCoreObject()
-local isLoggedIn = true
 local housePlants = {}
 local insideHouse = false
 local currentHouse = nil
@@ -20,8 +19,7 @@ DrawText3Ds = function(x, y, z, text)
     ClearDrawOrigin()
 end
 
-RegisterNetEvent('qb-weed:client:getHousePlants')
-AddEventHandler('qb-weed:client:getHousePlants', function(house)    
+RegisterNetEvent('qb-weed:client:getHousePlants', function(house)
     QBCore.Functions.TriggerCallback('qb-weed:server:getBuildingPlants', function(plants)
         currentHouse = house
         housePlants[currentHouse] = plants
@@ -31,14 +29,13 @@ AddEventHandler('qb-weed:client:getHousePlants', function(house)
 end)
 
 function spawnHousePlants()
-    Citizen.CreateThread(function()
+    CreateThread(function()
         if not plantSpawned then
             for k, v in pairs(housePlants[currentHouse]) do
                 local plantData = {
                     ["plantCoords"] = {["x"] = json.decode(housePlants[currentHouse][k].coords).x, ["y"] = json.decode(housePlants[currentHouse][k].coords).y, ["z"] = json.decode(housePlants[currentHouse][k].coords).z},
                     ["plantProp"] = GetHashKey(QBWeed.Plants[housePlants[currentHouse][k].sort]["stages"][housePlants[currentHouse][k].stage]),
                 }
-
                 plantProp = CreateObject(plantData["plantProp"], plantData["plantCoords"]["x"], plantData["plantCoords"]["y"], plantData["plantCoords"]["z"], false, false, false)
                 while not plantProp do Wait(0) end
                 PlaceObjectOnGroundProperly(plantProp)
@@ -52,13 +49,12 @@ function spawnHousePlants()
 end
 
 function despawnHousePlants()
-    Citizen.CreateThread(function()
+    CreateThread(function()
         if plantSpawned then
             for k, v in pairs(housePlants[currentHouse]) do
                 local plantData = {
                     ["plantCoords"] = {["x"] = json.decode(housePlants[currentHouse][k].coords).x, ["y"] = json.decode(housePlants[currentHouse][k].coords).y, ["z"] = json.decode(housePlants[currentHouse][k].coords).z},
                 }
-
                 for _, stage in pairs(QBWeed.Plants[housePlants[currentHouse][k].sort]["stages"]) do
                     local closestPlant = GetClosestObjectOfType(plantData["plantCoords"]["x"], plantData["plantCoords"]["y"], plantData["plantCoords"]["z"], 3.5, GetHashKey(stage), false, false, false)
                     if closestPlant ~= 0 then                    
@@ -73,9 +69,9 @@ end
 
 local ClosestTarget = 0
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         if insideHouse then
             if plantSpawned then
                 local ped = PlayerPedId()
@@ -162,15 +158,13 @@ Citizen.CreateThread(function()
                 end
             end
         end
-
         if not insideHouse then
-            Citizen.Wait(5000)
+            Wait(5000)
         end
     end
 end)
 
-RegisterNetEvent('qb-weed:client:leaveHouse')
-AddEventHandler('qb-weed:client:leaveHouse', function()
+RegisterNetEvent('qb-weed:client:leaveHouse', function()
     despawnHousePlants()
     SetTimeout(1000, function()
         if currentHouse ~= nil then
@@ -181,8 +175,7 @@ AddEventHandler('qb-weed:client:leaveHouse', function()
     end)
 end)
 
-RegisterNetEvent('qb-weed:client:refreshHousePlants')
-AddEventHandler('qb-weed:client:refreshHousePlants', function(house)
+RegisterNetEvent('qb-weed:client:refreshHousePlants', function(house)
     if currentHouse ~= nil and currentHouse == house then
         despawnHousePlants()
         SetTimeout(500, function()
@@ -195,8 +188,7 @@ AddEventHandler('qb-weed:client:refreshHousePlants', function(house)
     end
 end)
 
-RegisterNetEvent('qb-weed:client:refreshPlantStats')
-AddEventHandler('qb-weed:client:refreshPlantStats', function()
+RegisterNetEvent('qb-weed:client:refreshPlantStats', function()
     if insideHouse then
         despawnHousePlants()
         SetTimeout(500, function()
@@ -215,8 +207,7 @@ function loadAnimDict(dict)
     end
 end
 
-RegisterNetEvent('qb-weed:client:placePlant')
-AddEventHandler('qb-weed:client:placePlant', function(type, item)
+RegisterNetEvent('qb-weed:client:placePlant', function(type, item)
     local ped = PlayerPedId()
     local plyCoords = GetOffsetFromEntityInWorldCoords(ped, 0, 0.75, 0)
     local plantData = {
@@ -230,7 +221,6 @@ AddEventHandler('qb-weed:client:placePlant', function(type, item)
             ClosestPlant = GetClosestObjectOfType(plyCoords.x, plyCoords.y, plyCoords.z, 0.8, GetHashKey(v), false, false, false)
         end
     end
-
     if currentHouse ~= nil then
         if ClosestPlant == 0 then
             QBCore.Functions.Progressbar("plant_weed_plant", "Planter...", 8000, false, true, {
@@ -258,8 +248,7 @@ AddEventHandler('qb-weed:client:placePlant', function(type, item)
     end
 end)
 
-RegisterNetEvent('qb-weed:client:foodPlant')
-AddEventHandler('qb-weed:client:foodPlant', function(item)
+RegisterNetEvent('qb-weed:client:foodPlant', function(item)
     local plantData = {}
     if currentHouse ~= nil then
         if ClosestTarget ~= 0 then
@@ -268,7 +257,6 @@ AddEventHandler('qb-weed:client:foodPlant', function(item)
             if housePlants[currentHouse][ClosestTarget].gender == "woman" then 
                 gender = "F" 
             end
-
             plantData = {
                 ["plantCoords"] = {["x"] = json.decode(housePlants[currentHouse][ClosestTarget].coords).x, ["y"] = json.decode(housePlants[currentHouse][ClosestTarget].coords).y, ["z"] = json.decode(housePlants[currentHouse][ClosestTarget].coords).z},
                 ["plantStage"] = housePlants[currentHouse][ClosestTarget].stage,
@@ -288,7 +276,6 @@ AddEventHandler('qb-weed:client:foodPlant', function(item)
                 }
             }
             local plyDistance = #(GetEntityCoords(ped) - vector3(plantData["plantCoords"]["x"], plantData["plantCoords"]["y"], plantData["plantCoords"]["z"]))
-
             if plyDistance < 1.0 then
                 if plantData["plantStats"]["food"] == 100 then
                     QBCore.Functions.Notify('Planten mangler ingen næring', 'error', 3500)
