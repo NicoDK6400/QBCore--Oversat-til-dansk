@@ -136,7 +136,7 @@ end
 local function isHouseOwned(house)
     local result = exports.oxmysql:executeSync('SELECT owned FROM houselocations WHERE name = ?', {house})
     if result[1] then
-        if result[1].owned then
+        if result[1].owned == 1 then
             return true
         end
     end
