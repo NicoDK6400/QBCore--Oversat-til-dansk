@@ -174,7 +174,6 @@ CreateThread(function()
 	while true do
 		local sleep = 1000
 		local playerCoords, awayFromDoors = GetEntityCoords(PlayerPedId()), true
-
 		for i = 1, #QB.Doors do
 			local current = QB.Doors[i]
 			local distance
@@ -249,7 +248,6 @@ CreateThread(function()
 
 				sleep = 0
 				DrawText3Ds(current.objCoords.x, current.objCoords.y, current.objCoords.z, displayText)
-
 				if IsControlJustReleased(0, 38) then
 					if isAuthorized then
 						setDoorLocking(current, i)
@@ -264,5 +262,6 @@ CreateThread(function()
 			doorFound = false
 			sleep = 1000
 		end
+		Wait(sleep)
 	end
 end)
