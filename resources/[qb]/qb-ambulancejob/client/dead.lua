@@ -38,7 +38,7 @@ function OnDeath()
                 loadAnimDict(deadAnimDict)
                 TaskPlayAnim(player, deadAnimDict, deadAnim, 1.0, 1.0, -1, 1, 0, 0, 0, 0)
             end
-            TriggerServerEvent('hospital:server:ambulanceAlert', 'Civilian Died')
+            TriggerServerEvent('hospital:server:ambulanceAlert', 'Civil Død')
         end
     end
 end
