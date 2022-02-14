@@ -604,8 +604,10 @@ CreateThread(function()
         end
         if LocalPlayer.state.isLoggedIn then
             local show = true
+            local player = PlayerPedId()
+            local playerId = PlayerId()
             local weapon = GetSelectedPedWeapon(player)
-            -- player hud
+            -- Player hud
             if not IsWhitelistedWeaponArmed(weapon) then
                 if weapon ~= `WEAPON_UNARMED` then
                     armed = true
@@ -623,8 +625,8 @@ CreateThread(function()
             if IsEntityInWater(player) then
                 oxygen = GetPlayerUnderwaterTimeRemaining(playerId) * 10
             end
-            -- player hud
-            local talking = NetworkIsPlayerTalking(PlayerId)
+            -- Player hud
+            local talking = NetworkIsPlayerTalking(playerId)
             local voice = 0
             if LocalPlayer.state['proximity'] then
                 voice = LocalPlayer.state['proximity'].distance
