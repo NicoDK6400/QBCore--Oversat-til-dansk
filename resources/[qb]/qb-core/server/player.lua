@@ -121,8 +121,8 @@ function QBCore.Player.CheckPlayerData(source, PlayerData)
     }
 -- Job
 	PlayerData.job = PlayerData.job or {}
-	PlayerData.job.name = PlayerData.job.name or 'Arbejdsløs'
-	PlayerData.job.label = PlayerData.job.label or 'Borger'
+	PlayerData.job.name = PlayerData.job.name or 'unemployed'
+	PlayerData.job.label = PlayerData.job.label or 'Arbejdsløs'
 	PlayerData.job.payment = PlayerData.job.payment or 10
 	PlayerData.job.onduty = PlayerData.job.onduty or true
 	PlayerData.job.isboss = PlayerData.job.isboss or false
