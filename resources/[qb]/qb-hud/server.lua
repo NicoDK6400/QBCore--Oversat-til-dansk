@@ -67,6 +67,16 @@ RegisterNetEvent('hud:server:RelieveStress', function(amount)
     TriggerClientEvent('QBCore:Notify', src, 'Du slapper af')
 end)
 
+QBCore.Functions.CreateCallback('hud:server:HasHarness', function(source, cb)
+    local Ply = QBCore.Functions.GetPlayer(source)
+    local Harness = Ply.Functions.GetItemByName("harness")
+    if Harness ~= nil then
+        cb(true)
+    else
+        cb(false)
+    end
+end)
+
 QBCore.Functions.CreateCallback('hud:server:getMenu', function(source, cb)
     cb(Config.Menu)
 end)
