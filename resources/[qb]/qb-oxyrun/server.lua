@@ -1,3 +1,4 @@
+local QBCore = exports["qb-core"]:GetCoreObject()
 
 RegisterServerEvent('oxydelivery:server')
 AddEventHandler('oxydelivery:server', function()
