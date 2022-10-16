@@ -13,6 +13,7 @@ Har ud nogen problemer med disse scripts, fejl, problemer med opsætning eller a
 - PolitiTablet (https://github.com/GhzGarage/mdt)
 - QB Target (tilføjet til enkelte ting)
 - PMA Voice (bygget på MumbleVOIP, bare opdateret)
+- Politi MDT
 
 ## Installation
 1. Download filerne, og placer dem hvor du vil have din server mappe til at ligge, vigtigt er dog at det er på et C drev.
@@ -25,6 +26,7 @@ Har ud nogen problemer med disse scripts, fejl, problemer med opsætning eller a
 8. Din server er nu opdateret!
 9. Start serveren ved at køre StartServer.bat
 10. Efter serveren er startet op (kun første gang), skal den genstartes. VIGTIGT!!
+> Hvis du gerne vil se en video hvordan man gør, så kan du hoppe ind på kanalen her: https://www.youtube.com/watch?v=ZwgERChK27Q Der har Grand Udvikling lavet en video til hvordan man gør. - Tak!
 
 ## Fejl/Mangler
 > Skulle du opleve fejl eller mangler, er du velkommen til at nævne det inde på vores discord (https://fivem.dk/discord). 
